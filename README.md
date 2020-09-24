@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## BCIT ISSP September 2020 project in collaboration with TedxAbbotsford
+Team members: Yang Liu, June Ka, Harish Anantharajah, Andrew Jayashighe, Karanveer Harika, Anthony Raymundo
 
 ## Available Scripts
 
@@ -66,3 +67,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
