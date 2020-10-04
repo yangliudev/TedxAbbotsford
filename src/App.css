@@ -1,30 +1,19 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
+/* .App-link {
   color: #61dafb;
 }
 
@@ -35,4 +24,64 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.App-header {
+  background-color: #FFFFFF;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.main_logo {
+  max-width: 50%;
+  position: relative;
+  top: -325px;
+}
+
+.tower_logo {
+  height: auto; 
+  width: auto; 
+  max-width: 500px; 
+  max-height: 500px;
+  position: relative;
+  top: -500px;
+  left: 1160px;
+}
+
+.intro_p {
+  height: auto; 
+  width: auto; 
+  max-width: 500px; 
+  max-height: 500px;
+  position: relative;
+  top: -1100px;
+  left: 480px;
+  font-size: 90px;
+}
+
+.details_p {
+  height: auto; 
+  width: auto; 
+  max-width: 500px; 
+  max-height: 500px;
+  position: relative;
+  top: -1100px;
+  left: 480px;
+  font-size: 60px;
+}
+
+.book_button {
+  height: auto; 
+  width: auto; 
+  max-width: 500px; 
+  max-height: 500px;
+  position: relative;
+  top: -1100px;
+  left: 480px;
+  font-size: 60px;
 }
