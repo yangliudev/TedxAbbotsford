@@ -1,5 +1,6 @@
 body {
   background-color: #657277;
+  margin-bottom: 2em;
 }
 
 .formbackground {
@@ -9,8 +10,87 @@ body {
   margin: auto;
   margin-top: 2em;
   border-radius: 10px;
+  text-align: center;
 }
 
 .appheader {
   text-align: center;
+  margin-bottom: 1em;
+  font-size: 3.5em;
+}
+
+.boxesdiv {
+  margin-left: 4em;
+}
+
+.labeltext {
+  padding:0.5em;
+  display: inline-block;
+  width: 7em;
+  font-size: 1.5em;
+  text-align: left;
+}
+
+.inputboxes {
+  margin-right: 5em;
+  width: 15em;
+  padding: 0.5em;
+  border-radius: 5px;
+  border-style: none;
+  margin-bottom: 2em;
+}
+
+.checkboxheader {
+  font-size: 2.5em;
+}
+
+.inputcheckbox {
+  width: 1.5em;
+  height: 1.5em;
+  display: inline-block;
+}
+
+.checkboxdiv {
+  margin-left: 4em;
+}
+
+.labelcheckbox {
+  text-align: left;
+  margin-left: 0.5em;
+  margin-right: 2em;
+  font-size: 2em;
+}
+
+.passwordlabel {
+  padding:0.5em;
+  display: inline-block;
+  width: 10em;
+  font-size: 1.5em;
+}
+
+.passwordboxesdiv {
+  margin-right: 4.5em;
+}
+
+.passwordboxes {
+  width: 15em;
+  padding: 0.5em;
+  border-radius: 5px;
+  border-style: none;
+  margin-bottom: 2em;
+}
+
+.registerbutton {
+  background-color: #2B8984;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  width: 30%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  font-size: 2em;
+}
+
+.signin {
+  color: #2B8984;
 }
