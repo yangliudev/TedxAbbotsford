@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
-          <Link className="navbar-brand" to={"/sign-in"}> <h3>Dans L' Jardin</h3></Link>
+          <Link className="navbar-brand" to={"/sign-in"}> <img src={require('./assets/logos/01_logo-horizontal.png')} width="300px"/> </Link>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
