@@ -40,3 +40,9 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.Container-one{
+  background-color: #3f3f3f;
+  color: rgb(226, 226, 226);
+  border-radius: 5%;
+}
