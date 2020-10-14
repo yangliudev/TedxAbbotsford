@@ -1,0 +1,32 @@
+
+
+
+
+.myDiv {
+      
+    text-align: center;
+  }
+
+  .auth-wrapper {
+    display: flex;
+    height: 750px;
+    align-items: flex-end;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .auth-inner {
+    position: relative;
+    margin-top: 80px;
+    
+  }
+  
+  .auth-in{
+      position: absolute;
+      
+  }
+
+  Label{
+      color: white;
+  }
+  
