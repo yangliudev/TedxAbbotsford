@@ -5,8 +5,10 @@ import Navbar from "./components/Navbar/Navbar";
 // import { Form } from "react-bootstrap";
 import Container from "@material-ui/core/Container";
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button'
 import { ThemeProvider, makeStyles, createMuiTheme,} from '@material-ui/core/styles';
 import { grey } from '@material-ui/core/colors';
+import MuiPhoneNumber from 'material-ui-phone-number';
 
 
 
@@ -15,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    width: '25ch',
+    width: '35ch',
   },
   margin: {
     margin: theme.spacing(1),
@@ -39,13 +41,13 @@ function App() {
     <Container maxWidth="sm" className="Container-one rounded" >
 
     {/* <form className={classes.root} noValidate autoComplete="off">
-      <label>Enter Name of of Beneficiary:</label> <br />
+      <label>Enter Name of Beneficiary:</label> <br />
       <TextField  InputLabelProps={{style: { color: '#fff' },}} id="outlined-basic" label="First Name" variant="outlined"/>
       <TextField  InputLabelProps={{style: { color: '#fff' },}} id="outlined-basic" label="Last Name" variant="outlined" />
     </form> */}
 
         <form className={classes.root} noValidate>
-        <label>Enter Name of of Beneficiary:</label>
+        <label>Enter Name of Beneficiary:</label>
           <ThemeProvider theme={theme}>
             <TextField
               className={classes.margin}
@@ -63,7 +65,109 @@ function App() {
               variant="outlined"
               id="mui-theme-provider-outlined-input"
             />
+
+            <label>Select a date and time:</label>
+            <span>Select between 8:00am to 9:00pm</span>
+            <TextField
+              id="datetime-local"
+              InputLabelProps={{ style: { color: 'grey'}, }}
+              label="Select booking date"
+              type="datetime-local"
+              defaultValue=""
+              variant="outlined"
+              className={classes.margin}
+              InputLabelProps={{
+                shrink: true,
+              }} 
+            /> <br />
+
+            <label>Enter Address:</label>
+            <TextField
+              className={classes.margin}
+              InputLabelProps={{ style: { color: 'grey'}, }}
+              label="Address line 1"
+              variant="outlined"
+              id="mui-theme-provider-outlined-input"
+            />
+
+            <TextField
+              className={classes.margin}
+              InputLabelProps={{ style: { color: 'grey'}, }}
+              label="Address line 2"
+              variant="outlined"
+              id="mui-theme-provider-outlined-input"
+            />
+
+              <TextField
+              className={classes.margin}
+              InputLabelProps={{ style: { color: 'grey'}, }}
+              label="City"
+              variant="outlined"
+              id="mui-theme-provider-outlined-input"
+            />
+            <TextField
+              className={classes.margin}
+              InputLabelProps={{ style: { color: 'grey'}, }}
+              label="Postal Code"
+              variant="outlined"
+              id="mui-theme-provider-outlined-input"
+            />
+            <TextField
+              className={classes.margin}
+              InputLabelProps={{ style: { color: 'grey'}, }}
+              label="Province"
+              variant="outlined"
+              id="mui-theme-provider-outlined-input"
+            />
+
+            <label>Offered By:</label>
+            <TextField
+              className={classes.margin}
+              InputLabelProps={{ style: { color: 'grey'}, }}
+              label="Name"
+              variant="outlined"
+              id="mui-theme-provider-outlined-input"
+            />
+
+            <MuiPhoneNumber 
+              defaultCountry={'ca'} 
+              className={classes.margin}
+              InputLabelProps={{ style: { color: 'grey'}, }}
+              label="Phone"
+              variant="outlined"
+              id="mui-theme-provider-outlined-input"
+            />
+
+            <TextField
+              className={classes.margin}
+              InputLabelProps={{ style: { color: 'grey' }, }}
+              label="abc@email.com"
+              variant="outlined"
+              id="mui-theme-provider-outlined-input"
+            />
+
+
+            <label>Additional Comments:</label>
+            <TextField
+              className={classes.margin}
+              InputLabelProps={{ style: { color: 'grey' }, }}
+              label="Comments"
+              variant="outlined"
+              id="mui-theme-provider-outlined-input"
+              multiline
+              rows={5}
+            />
           </ThemeProvider>
+
+          <Button variant="contained" color="secondary">
+            Submit
+          </Button>
+
+          <br />
+
+          
+
+          
 
         </form>
 
