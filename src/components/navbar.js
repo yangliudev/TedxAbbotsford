@@ -6,7 +6,7 @@ export default class Login extends Component {
         return (
             <form>
                 <h3>Sign In</h3>
-                <div className="w-50 d-inline-block top-space">
+
                 <div className="form-group">
                     <label>Email address</label>
                     <input type="email" className="form-control" placeholder="Enter email" />
@@ -24,22 +24,11 @@ export default class Login extends Component {
                     </div>
                 </div>
 
-                <div class="form-group">
-            <div class='input-group date' id='datetimepicker1'>
-               <input type='text' class="form-control" />
-               <span class="input-group-addon">
-               <span class="glyphicon glyphicon-calendar"></span>
-               </span>
-            </div>
-         </div>
-
                 <button type="submit" className="btn btn-primary btn-block">Sign In</button>
                 <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
                 </p>
-                </div>
             </form>
-            
             
             ); 
     }
