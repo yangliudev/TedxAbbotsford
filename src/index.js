@@ -4,10 +4,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// import { Router } from 'react-router';
+// // Your routes.js file
+// import routes from './routes';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
+  // <Router routes={routes} />,
   document.getElementById('root')
 );
 

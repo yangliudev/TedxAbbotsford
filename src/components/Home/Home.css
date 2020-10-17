@@ -1,0 +1,60 @@
+.topspace {
+    margin-top: 30px;
+}
+
+.tower {
+    height: 400px;
+    margin-left: 30%;
+    margin-right: auto;
+}
+
+@font-face {
+    font-family: CamperSans2;
+    src: url(./../../assets/fonts/Fenotype\ -\ CamperSans2.otf);
+}
+
+.towerText {
+    float: right;
+    font-family: CamperSans2;
+    font-size: 70px;
+}
+
+.orderButton {
+    background-color: #D60B52;
+    border-style: none;
+    padding: 3%;
+    color: white;
+    margin-top: 3%;
+    font-size: 25px;
+    padding: 7%;
+    border-radius: 6px;
+    width: 200%;
+}
+
+.firstTowerText {
+    color: white;
+}
+
+.secondTowerText {
+    color: #df0c56
+}
+
+.textBG {
+    background-color: #2a3c434f;
+    padding: 3%;
+    width: 80%;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.textAlign {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttonAlign {
+    margin-right: auto;
+    margin-left: 17%;
+}
