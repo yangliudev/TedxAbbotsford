@@ -4,6 +4,12 @@ import "./Ordering.css"
 
 
 class Ordering_2 extends Component {
+    constructor() {
+        super();
+        this.state = {
+          name: "Ordering"
+        };
+      }
 
     render() {
         return (

@@ -11,7 +11,7 @@ class Home extends Component {
                 <ReactBootStrap.Row>
                     <ReactBootStrap.Col>
                         <div>
-                            <img src={tower} className="tower"></img>
+                            <img src={tower} className="tower" alt="tower image"></img>
                         </div>
                     </ReactBootStrap.Col>
 

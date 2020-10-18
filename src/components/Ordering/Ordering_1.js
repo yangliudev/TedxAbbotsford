@@ -5,18 +5,18 @@ import pic1 from "./ordering-assets/GRANDMERE2.png"
 import pic2 from "./ordering-assets/02-picto-artiste.png"
 import pic3 from "./ordering-assets/institutionnew - Copy.png"
 import pic4 from "./ordering-assets/03-picto-don.png"
-
+import Ordering2 from "./Ordering_2";
+import Ordering3 from "./Ordering_3";
 
 class Ordering_1 extends Component {
-
     render() {
         return (
+            
 
             <ReactBootStrap.Container className="top-space">
+                
             <div className="bg-display">
         
-
-
             <ReactBootStrap.Row className="justify-content-md-center">
                 <ReactBootStrap.Col><h3>1. Who do you wish to give this gift to?</h3></ReactBootStrap.Col>
             </ReactBootStrap.Row>
