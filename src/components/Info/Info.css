@@ -1,0 +1,16 @@
+h1.info {
+    margin-bottom: 40px;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    font-family: MyFont2;
+    size: 30px;
+    }
+
+    div.box {
+        background-color: lightgrey;
+        width: 300px;
+        border: 15px solid rgb(133, 247, 161);
+        padding: 50px;
+        margin: 70px;
+      }

@@ -12,6 +12,7 @@ import Ordering_5 from "./components/Ordering/Ordering_5";
 import Ordering_6 from "./components/Ordering/Ordering_6";
 import Home from "./components/Home/Home";
 import Faq from "./components/Faq/Faq";
+import Info from "./components/Info/Info";
 
 
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -26,6 +27,9 @@ function App() {
           <Home />
         </Route> <Route exact path="/faq">
           <Faq />
+        </Route>
+        <Route exact path="/info">
+          <Info />
         </Route>
         <Route path="/order">
           <Ordering_1 />

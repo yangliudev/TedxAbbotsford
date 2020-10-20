@@ -10,7 +10,7 @@ class Faq extends Component {
             <div className="bg-display">
         
             <ReactBootStrap.Row className="justify-content-md-center" >
-                <ReactBootStrap.Col><h2><b id="fade">F</b>requently <b id="fade">A</b>sked <b id="fade">Q</b>uestions</h2>
+                <ReactBootStrap.Col><h2 class="faq"><b id="fade">F</b>requently <b id="fade">A</b>sked <b id="fade">Q</b>uestions</h2>
                 </ReactBootStrap.Col>
                 </ReactBootStrap.Row>
 
