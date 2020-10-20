@@ -15,9 +15,6 @@ class Ordering_2 extends Component {
         return (
             <ReactBootStrap.Container className="top-space">
             <div className="bg-display" >
-        
-
-
             <ReactBootStrap.Row className="justify-content-md-center">
                 <ReactBootStrap.Col><h3>2. For Which Occasion?</h3></ReactBootStrap.Col>
             </ReactBootStrap.Row>
