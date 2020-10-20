@@ -2,13 +2,10 @@
   text-align: center;
 }
 
-<<<<<<< Updated upstream
-=======
 body {
-  background-color :#2A3C43;
+  background-color:rgba(42, 60, 67, 0.72);
 }
 
->>>>>>> Stashed changes
 .App-logo {
   height: 40vmin;
   pointer-events: none;
