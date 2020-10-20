@@ -8,6 +8,12 @@ import "./Navbar.css"
 class Navbar extends Component {
 
     render() {
+
+      function active(){
+        var x = document.getElementById("home")
+        x.style.color = "red";
+    }
+
         return (
         <ReactBootStrap.Navbar collapseOnSelect expand="lg" className="color-nav" variant="dark">
   <ReactBootStrap.Navbar.Brand href={process.env.PUBLIC_URL + '/#/'}><img src={main_logo2} width="400px" class="img-fluid"/></ReactBootStrap.Navbar.Brand>
@@ -22,7 +28,7 @@ class Navbar extends Component {
       <ReactBootStrap.Nav.Link href="/faq" className="nav-text">FAQ</ReactBootStrap.Nav.Link>
       <ReactBootStrap.Nav.Link href="/info" className="nav-text">INFO</ReactBootStrap.Nav.Link>
       <ReactBootStrap.Nav.Link href="/order1" className="nav-text">ORDER</ReactBootStrap.Nav.Link> */}
-      <a href={process.env.PUBLIC_URL + '/#/'} className="nav-font">HOME</a>
+      <a href={process.env.PUBLIC_URL + '/#/'} className="nav-font" id="home" onClick={active}>HOME</a>
       <a href={process.env.PUBLIC_URL + '/#/faq'} className="nav-font">FAQ</a>
       <a href={process.env.PUBLIC_URL + '/#/info'} className="nav-font">INFO</a>
       <a href={process.env.PUBLIC_URL + '/#/about'} className="nav-font">ABOUT</a>
