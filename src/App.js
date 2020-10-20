@@ -11,6 +11,7 @@ import Ordering_4 from "./components/Ordering/Ordering_4";
 import Ordering_5 from "./components/Ordering/Ordering_5";
 import Ordering_6 from "./components/Ordering/Ordering_6";
 import Home from "./components/Home/Home";
+import Faq from "./components/Faq/Faq";
 
 
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -23,6 +24,8 @@ function App() {
       <Switch>
       <Route exact path="/">
           <Home />
+        </Route> <Route exact path="/faq">
+          <Faq />
         </Route>
         <Route path="/order">
           <Ordering_1 />
