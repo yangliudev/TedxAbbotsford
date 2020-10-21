@@ -5,6 +5,8 @@ import "./Info.css"
 class Info extends Component {
 
     render() {
+
+     
         return (
             <ReactBootStrap.Container className="top-space">
             
@@ -24,9 +26,9 @@ class Info extends Component {
                 <p class='size'>The platform  in the Garden  was created by Klangbox <br></br> on May 1, 2020 with the aim of brightening up <br></br> the daily lives of people ...</p>
                 
                
-                <ReactBootStrap.Button variant="primary" size="md">
+                <ReactBootStrap.Button variant="primary" size="md" href="/#/about">
                 Learn More
-                </ReactBootStrap.Button>{' '}
+                </ReactBootStrap.Button>{''}
               
                 </ReactBootStrap.Col>
              
