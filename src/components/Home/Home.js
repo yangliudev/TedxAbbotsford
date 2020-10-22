@@ -39,31 +39,40 @@ class Home extends Component {
                         </div>
                         <ReactBootStrap.Row>
                             <ReactBootStrap.Col class="secondSectionColumn">
-                                <p class = "secondSectionNumbers">1.</p>
+                                <p class = "secondSectionNumbers">1</p>
                                 <p class = "secondSectionTopText">Inquire the occassion being celebrated</p>
-                                <img src = {occasion} class ="secondSectionImages"/>
+                                <div class = "secondSectionImagesDiv">
+                                    <img src = {occasion} class ="secondSectionImages"/>
+                                </div>
                                 <p class = "secondSectionBottomText">"Grandma Léa's birthday!"<br/><br/>
                                 "A little aperitif with friends"<br/><br/>
                                 ​"Violin for a romantic evening!"</p>
                             </ReactBootStrap.Col>
                             <ReactBootStrap.Col class="secondSectionColumn">
-                                <p class = "secondSectionNumbers">2.</p>
+                                <p class = "secondSectionNumbers">2</p>
                                 <p class= "secondSectionTopText">Choose the music</p><br/><br/>
-                                <img src = {band} class ="secondSectionImages"/>
+                                <div class = "secondSectionImagesDiv">
+                                    <img src = {band} class ="secondSectionImages"/>
+                                </div>
                                 <p class = "secondSectionBottomText">You decide the style of music!<br/><br/>
                                 We take care of finding the musicians available in your region on the date and time indicated.</p>
                             </ReactBootStrap.Col>
                             <ReactBootStrap.Col class="secondSectionColumn">
-                                <p class = "secondSectionNumbers">3.</p>
+                                <p class = "secondSectionNumbers">3</p>
                                 <p class= "secondSectionTopText">Pay online</p><br/><br/>
-                                <img src = {pay} class ="secondSectionImages"/>
+                                <div class = "secondSectionImagesDiv">
+                                    <img src = {pay} class ="secondSectionImages"/>
+                                </div>
+                                
                                 <p class = "secondSectionBottomText">After giving us all the necessary information, 
                                 enjoy a fast and secure payment.</p>
                             </ReactBootStrap.Col>
                             <ReactBootStrap.Col class="secondSectionColumn">
-                                <p class = "secondSectionNumbers">4.</p>
+                                <p class = "secondSectionNumbers">4</p>
                                 <p class= "secondSectionTopText">Listen and savor</p><br/><br/>
-                                <img src = {map} class ="secondSectionImages"/>
+                                <div class = "secondSectionImagesDiv">
+                                    <img src = {map} class ="secondSectionImages"/>
+                                </div>
                                 <p class = "secondSectionBottomText">On the day and time indicated, one or two musicians will appear in front of the beneficiary's door on time and will play for 20 minutes. </p>
                             </ReactBootStrap.Col>
                         </ReactBootStrap.Row>

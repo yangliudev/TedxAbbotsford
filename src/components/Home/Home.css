@@ -81,8 +81,9 @@
 
 .secondSectionTitle {
     color: white;
-    font-size: 430%;
+    font-size: 600%;
     font-family: CamperSans2;
+    margin-bottom: -3%;
 }
 
 .secondSectionNumbers {
@@ -106,8 +107,14 @@
 }
 
 .secondSectionImages {
-    width: 100%;
+    width: 70%;
     border-radius: 10px;
+}
+
+.secondSectionImagesDiv {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -151,6 +158,23 @@
         font-family: CamperSans2;
         font-size: 350%;
         line-height: 90%;
+    }
+
+    .secondSectionImages {
+        width: 100%;
+        display: block;
+    }
+
+    .secondSectionTopText {
+        font-size: 100%;
+    }
+
+    .secondSectionBottomText {
+        font-size: 80%;
+    }
+
+    .secondSectionTitle {
+        margin-bottom: -12%;
     }
     
 }
