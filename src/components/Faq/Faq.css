@@ -7,6 +7,11 @@ hr {
 margin-top: 30px;
 }
 
+.justify-content-md-center{
+    margin-top: 1px;
+    margin-bottom: 1px
+}
+
 .fontcol {
 margin-bottom: 40px;
 color: white;
