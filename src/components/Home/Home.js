@@ -37,23 +37,36 @@ class Home extends Component {
                         <div class ="textAlign">
                             <p class = "secondSectionTitle">How Does It Work?</p>
                         </div>
-
-                        <ReactBootStrap.Col class="secondSectionColumn">
-                            <p>1.</p>
-                            <img src = {occasion} class ="secondSectionImages"/>
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col class="secondSectionColumn">
-                            <p>2.</p>
-                            <img src = {band} class ="secondSectionImages"/>
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col class="secondSectionColumn">
-                            <p>3.</p>
-                            <img src = {pay} class ="secondSectionImages"/>
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col class="secondSectionColumn">
-                            <p>4.</p>
-                            <img src = {map} class ="secondSectionImages"/>
-                        </ReactBootStrap.Col>
+                        <ReactBootStrap.Row>
+                            <ReactBootStrap.Col class="secondSectionColumn">
+                                <p class = "secondSectionNumbers">1.</p>
+                                <p class = "secondSectionTopText">Inquire the occassion being celebrated</p>
+                                <img src = {occasion} class ="secondSectionImages"/>
+                                <p class = "secondSectionBottomText">"Grandma Léa's birthday!"<br/><br/>
+                                "A little aperitif with friends"<br/><br/>
+                                ​"Violin for a romantic evening!"</p>
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col class="secondSectionColumn">
+                                <p class = "secondSectionNumbers">2.</p>
+                                <p class= "secondSectionTopText">Choose the music</p><br/><br/>
+                                <img src = {band} class ="secondSectionImages"/>
+                                <p class = "secondSectionBottomText">You decide the style of music!<br/><br/>
+                                We take care of finding the musicians available in your region on the date and time indicated.</p>
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col class="secondSectionColumn">
+                                <p class = "secondSectionNumbers">3.</p>
+                                <p class= "secondSectionTopText">Pay online</p><br/><br/>
+                                <img src = {pay} class ="secondSectionImages"/>
+                                <p class = "secondSectionBottomText">After giving us all the necessary information, 
+                                enjoy a fast and secure payment.</p>
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col class="secondSectionColumn">
+                                <p class = "secondSectionNumbers">4.</p>
+                                <p class= "secondSectionTopText">Listen and savor</p><br/><br/>
+                                <img src = {map} class ="secondSectionImages"/>
+                                <p class = "secondSectionBottomText">On the day and time indicated, one or two musicians will appear in front of the beneficiary's door on time and will play for 20 minutes. </p>
+                            </ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
                     </div>
                 </ReactBootStrap.Row>
 

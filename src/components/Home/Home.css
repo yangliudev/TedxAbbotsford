@@ -1,6 +1,7 @@
 .top-space {
     margin-top: 3%;
     max-width: 100%;
+    overflow-x: hidden;
 }
 
 .firstsection {
@@ -75,6 +76,7 @@
 .secondSection {
     background-color: #2A3C43;
     width: 100%;
+    padding: 1%;
 }
 
 .secondSectionTitle {
@@ -83,12 +85,38 @@
     font-family: CamperSans2;
 }
 
-.secondSectionImages {
-    width: 20%;
+.secondSectionNumbers {
+    font-size: 500%;
+    color: white;
+    font-family: CamperSans2;
+    text-align: center;
+    margin-bottom: -7%;
 }
 
-.secondSectionColumn {
-    width: 25%;
+@font-face {
+    font-family: NeutraTextDemi;
+    src: url(./../../assets/fonts/NeutraTextDemi.otf);
+}
+
+.secondSectionTopText {
+    font-size: 200%;
+    color: white;
+    text-align: center;
+    font-family: NeutraTextDemi;
+}
+
+.secondSectionImages {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+.secondSectionBottomText {
+    font-size: 140%;
+    color: #CACBCB;
+    text-align: center;
+    font-family: NeutraTextDemi;
+    margin-top: 5%;
 }
 
 
