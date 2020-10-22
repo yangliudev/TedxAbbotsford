@@ -26,7 +26,6 @@ class App extends Component {
       <Route exact path="/">
           <Navbar />
           <Home />
-          <Footer />
         </Route>
         <Route path="/order">
           <Ordering1 />

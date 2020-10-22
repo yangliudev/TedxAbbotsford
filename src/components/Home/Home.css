@@ -1,5 +1,63 @@
 .topspace {
     margin-top: 30px;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.topspace2 {
+    margin-top: 250px;
+    background-color: #46555B;
+    display: inline-block;
+}
+
+.cards {
+    background-color: #46555B;
+    text-align: center;
+    display: flexbox;
+    width: 100%
+}
+
+.cards2 {
+    background-color: #282c34;
+    height: 400px;
+    width: 1000px;
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+}
+
+.cards3 {
+    background-color: #282c34;
+    text-align: center;
+    width: 1000px;
+    float: none;
+    margin: 0 auto;
+}
+
+.cards4 {
+    background-color: #D60B52;
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+}
+
+.fourthCards {
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+}
+
+
+.card {
+    height: 500px;
+    background-color: #46555B;
+}
+
+.card2 {
+    text-align: center;
+    height: 300px;
+    width: 300px;
+    background-color: #282c34;;
 }
 
 .tower {
@@ -54,7 +112,74 @@
     margin-right: auto;
 }
 
+.textAlign2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-family: CamperSans2;
+    font-size: 70px;
+}
+
+.cardHeader {
+    text-align: center;
+    font-size: 45px;
+    width: 100%;
+    color: white;
+    font-family: CamperSans2;
+}
+
 .buttonAlign {
     margin-right: auto;
     margin-left: 17%;
+}
+
+.top-buffer { 
+    margin-top:20px; 
+}
+
+.justify-content-md-center{
+    margin-top: 100px;
+    margin-bottom: 30px
+}
+
+.card-text {
+    text-align: center;
+    color: #df0c56;
+}
+
+.card-text2 {
+    text-align: center;
+}
+
+.card-text3 {
+    text-align: center;
+    font-size: 17px;
+    color: #cccccc;
+}
+
+.card-text4 {
+    text-align: center;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.deckHeader {
+    text-align: center;
+}
+
+#img {
+    height: 150px;
+    width: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
