@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import * as ReactBootStrap from "react-bootstrap";
+import { useMediaQuery } from 'react-responsive'
 import "./Faq.css"
 
 class Faq extends Component {
 
     render() {
+        
         return (
             <ReactBootStrap.Container className="top-space">
             <div className="bg-display">
