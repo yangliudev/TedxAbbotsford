@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 
 import Ordering1 from "./components/Ordering/Ordering_1";
 import Home from "./components/Home/Home";
+import Admin from "./components/Admin/Admin";
 
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -22,7 +23,12 @@ class App extends Component {
           <Footer />
         </Route>
         <Route path="/order">
+        <Navbar />
           <Ordering1 />
+        </Route>
+        <Route path="/admin">
+        <Navbar />
+          <Admin />
         </Route>
       </Switch>
       

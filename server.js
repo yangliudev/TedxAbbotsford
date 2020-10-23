@@ -34,6 +34,13 @@ app.get("/api/get", (req, res) => {
     }); 
 });
 
+app.get("/order/get", (req, res) => {
+    const sqlSelect = "SELECT * FROM ordering_table";
+    db.query(sqlSelect, (err, result) => {
+        res.send(result);
+    }); 
+});
+
 app.post("/api/insert", (req, res)=> {
     const musicianName = req.body.musicianName;
     const musicianType = req.body.musicianType;

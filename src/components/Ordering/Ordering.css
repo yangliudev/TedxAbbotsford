@@ -172,3 +172,14 @@
   #order6 {
     display: none;
   }
+  #orderConfirm {
+    display: none;
+  }
+
+  #bolding {
+    font-weight: bold;
+  }
+
+ .intro {
+    color: rgb(223, 84, 107);
+  }
