@@ -16,6 +16,7 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 3%;
 }
 
 .cards2 {
@@ -33,13 +34,16 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 3%;
 }
 
 .cards4 {
     background-color: #D60B52;
     text-align: center;
-    float: none;
-    margin: 0 auto;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 3%;
 }
 
 .fourthCards {
@@ -200,6 +204,20 @@
     margin-right: auto;
 }
 
+.presentImg {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.presentBackground {
+    background-color: white;
+    padding: 20%;
+    width: 100%;
+    border-radius: 100px;
+}
+
 .center {
     text-align: center;
     margin-left: auto;
@@ -242,6 +260,7 @@
 
     .cardHeader{
         font-size: 230%;
+        line-height: 90%;
     }
 
     .card-text3 {

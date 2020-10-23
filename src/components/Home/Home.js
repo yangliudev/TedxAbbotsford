@@ -111,23 +111,26 @@ class Home extends Component {
                     </div>
                 </ReactBootStrap.Row>
 
-                <div class="fourthCards">
-                    <ReactBootStrap.Row className="cards4">
-                        <h1 class="textAlign2">SO, DO YOU WANT TO TRY A UNIQUE EXPERIENCE?</h1>
-                        <br></br>
-                    </ReactBootStrap.Row>
-                    <ReactBootStrap.Row className="cards4">
-                        <p class="card-text4">Whether for your loved ones or for yourself, <br></br>treat yourself with a privileged moment of home music by clicking on this gift.</p>
-                        <br></br>
-                    </ReactBootStrap.Row>
-                    <ReactBootStrap.Row className="cards4">
-                        <div class="center">
+
+                
+                <ReactBootStrap.Row>
+                <div class="cards4">
+                    <h1 class="textAlign2">SO, DO YOU WANT TO TRY A UNIQUE EXPERIENCE?</h1>
+                    <br></br>
+                    <p class="card-text4">Whether for your loved ones or for yourself, <br></br>treat yourself with a privileged moment of home music by clicking on this gift.</p>
+                    <br></br>
+                <ReactBootStrap.Row>
+                    <div class="center">
                         <a class="center" href={process.env.PUBLIC_URL + '/#/order'}>
-                            <img id="img" src={seventhPicture}></img>
+                            <div class="presentBackground">
+                                    <img class="presentImg" src={seventhPicture}></img>
+                            </div>
                         </a>
-                        </div>
-                    </ReactBootStrap.Row>
-                </div>
+                    </div>
+                </ReactBootStrap.Row>
+                    </div>
+                </ReactBootStrap.Row>
+            
 
                 </ReactBootStrap.Container>
                 
