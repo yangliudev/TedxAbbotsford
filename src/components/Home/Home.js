@@ -36,64 +36,51 @@ class Home extends Component {
                 </ReactBootStrap.Row>
                 
                 
+                <ReactBootStrap.Row>
                 <div class="top-space2">
-                <ReactBootStrap.Row className="cards">
-                    <h1 class="textAlign2">IN OUR<span class="secondTowerText"> GARDEN</span> , HOW DOES IT WORK?</h1>
-                </ReactBootStrap.Row>
-                <ReactBootStrap.Row className="cards">
-                    <ReactBootStrap.Col>
-                    <h1 class="textAlign2">1</h1>
-                    <h1 class="cardHeader">Inquire the occasion celebrated</h1>
-                    <div class="topspace">
-                        <div class="card">
-                            <img class="card-img-top" src={firstPicture}></img>
-                        <div class="card-body">
-                            <p class="card-text3">"Grandma Léa's birthday!"</p>
+                    <div class="textAlign">
+                        <h1 class="textAlign2">IN OUR<span class="secondTowerText"> GARDEN</span> , HOW DOES IT WORK?</h1>
+                    </div>
+
+                    <ReactBootStrap.Row className="cards">
+                        <ReactBootStrap.Col>
+                        
+                            <h1 class="textAlign2">1</h1>
+                            <h1 class="cardHeader">Inquire the occasion celebrated</h1>
+                            <img class="card-img-top" src={firstPicture}></img> 
+                            <p class="card-text3"><br/>"Grandma Léa's birthday!"</p>
                             <p class="card-text3">"A little aperitif with friends"</p>
                             <p class="card-text3">"Violin for a romantic evening!"</p>
-                        </div>
-                        </div>
-                        </div>
-                    </ReactBootStrap.Col>
-                    <ReactBootStrap.Col>
-                    <h1 class="textAlign2">2</h1>
-                    <h1 class="cardHeader">Decide music<br></br><br></br></h1>
-                    <div class="topspace">
-                    <div class="card">
+
+                        </ReactBootStrap.Col>
+                        <ReactBootStrap.Col>
+
+                            <h1 class="textAlign2">2</h1>
+                            <h1 class="cardHeader">Decide music<br></br><br></br></h1>
                             <img class="card-img-top" src={secondPicture}></img>
-                        <div class="card-body">
-                            <p class="card-text3">You decide the style of music! In addition to this, you need to know more about it. We take care of finding the musicians available in your region on the date and time indicated.</p>
-                        </div>
-                        </div>
-                        </div>
-                    </ReactBootStrap.Col>
-                    <ReactBootStrap.Col>
-                    <h1 class="textAlign2">3</h1>
-                    <h1 class="cardHeader">Pay online<br></br><br></br></h1>
-                    <div class="topspace">
-                    <div class="card">
+                            <p class="card-text3"><br/>You decide the style of music! In addition to this, you need to know more about it. We take care of finding the musicians available in your region on the date and time indicated.</p>
+                    
+                        </ReactBootStrap.Col>
+                        <ReactBootStrap.Col>
+
+                            <h1 class="textAlign2">3</h1>
+                            <h1 class="cardHeader">Pay online<br></br><br></br></h1>
                             <img class="card-img-top" src={thirdPicture}></img>
-                        <div class="card-body">
-                            <p class="card-text3">After giving us all the necessary information , enjoy a fast and secure payment.</p>
-                        </div>
-                        </div>
-                        </div>
-                    </ReactBootStrap.Col>
-                    <ReactBootStrap.Col>
-                    <h1 class="textAlign2">4</h1>
-                    <h1 class="cardHeader">Listen and savor<br></br><br></br></h1>
-                    <div class="topspace">
-                    <div class="card">
+                            <p class="card-text3"><br/>After giving us all the necessary information , enjoy a fast and secure payment.</p>
+                            
+                        </ReactBootStrap.Col>
+                        <ReactBootStrap.Col>
+
+                            <h1 class="textAlign2">4</h1>
+                            <h1 class="cardHeader">Listen and savor<br></br><br></br></h1>
                             <img class="card-img-top" src={fourthPicture}></img>
-                        <div class="card-body">
-                            <p class="card-text3">On the day-D and at the time indicated, one or two musicians will appear in front of the beneficiary's door on time and will play for 20 minutes. </p>
+                            <p class="card-text3"><br/>On the day-D and at the time indicated, one or two musicians will appear in front of the beneficiary's door on time and will play for 20 minutes. </p>
                             <p class="card-text2">Let the music!</p>
-                        </div>
-                        </div>
-                        </div>
-                    </ReactBootStrap.Col>
+                    
+                        </ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+                    </div>
                 </ReactBootStrap.Row>
-                </div>
                 
                 
                 <ReactBootStrap.Row className="cards3">
