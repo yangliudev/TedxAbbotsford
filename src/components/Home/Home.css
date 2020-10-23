@@ -20,19 +20,19 @@
 
 .cards2 {
     background-color: #282c34;
-    height: 400px;
-    width: 1000px;
+    display: flexbox;
+    width: 100%;
     text-align: center;
-    float: none;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cards3 {
     background-color: #282c34;
     text-align: center;
-    width: 1000px;
-    float: none;
-    margin: 0 auto;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cards4 {
@@ -194,8 +194,7 @@
 }
 
 #img {
-    height: 150px;
-    width: 150px;
+    width: 60%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -251,6 +250,10 @@
 
     .textAlign2 {
         font-size: 50px;
+    }
+
+    #img {
+        width: 100%;
     }
     
 }

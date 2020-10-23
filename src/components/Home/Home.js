@@ -83,37 +83,32 @@ class Home extends Component {
                 </ReactBootStrap.Row>
                 
                 
-                <ReactBootStrap.Row className="cards3">
-                <h1 class="textAlign2">THE GAME'S RULES</h1>
-                </ReactBootStrap.Row>
-                <ReactBootStrap.Row className="cards2">
-                    <ReactBootStrap.Col>
-                        <h1 class="textAlign2">DURATION</h1>
-                        <div class="card2">
-                        <img class="card-img-top" id="img" src={fifthPicture}></img>
-                        <div class="card-body">
+                <ReactBootStrap.Row>
+                <div className="cards3">
+                    <h1 class="textAlign2">THE GAME'S RULES</h1>
+                
+                    <ReactBootStrap.Row className="cards2">
+                        <ReactBootStrap.Col>
+
+                            <h1 class="textAlign2">DURATION</h1>
+                            <img class="card-img-top" id="img" src={fifthPicture}></img>
                             <h1 class="cardHeader">20 minutes of music</h1>
-                        </div>
-                        </div>
-                    </ReactBootStrap.Col>
-                    <ReactBootStrap.Col>
-                        <h1 class="textAlign2">PUBLIC</h1>
-                        <div class="card2">
-                        <img class="card-img-top" id="img" src={fifthPicture}></img>
-                        <div class="card-body">
+
+                        </ReactBootStrap.Col>
+                        <ReactBootStrap.Col>
+                            <h1 class="textAlign2">PUBLIC</h1>
+                            <img class="card-img-top" id="img" src={fifthPicture}></img>
                             <h1 class="cardHeader">in a small group with</h1>
-                        </div>
-                        </div>
-                    </ReactBootStrap.Col>
-                    <ReactBootStrap.Col>
-                        <h1 class="textAlign2">PRICE</h1>
-                        <div class="card2">
-                        <img class="card-img-top" id="img" src={sixthPicture}></img>
-                        <div class="card-body">
+                        </ReactBootStrap.Col>
+                        <ReactBootStrap.Col>
+
+                            <h1 class="textAlign2">PRICE</h1>
+                            <img class="card-img-top" id="img" src={sixthPicture}></img>
                             <h1 class="cardHeader">one or two professional musicians</h1>
-                        </div>
-                        </div>
-                    </ReactBootStrap.Col>
+
+                        </ReactBootStrap.Col>
+                    </ReactBootStrap.Row>
+                    </div>
                 </ReactBootStrap.Row>
 
                 <div class="fourthCards">
