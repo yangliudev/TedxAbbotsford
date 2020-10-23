@@ -1,37 +1,38 @@
-.topspace {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    display: inline-block;
+.top-space {
+    margin-top: 3%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-.topspace2 {
-    margin-top: 250px;
+.top-space2 {
     background-color: #46555B;
-    display: inline-block;
+    width: 100%;
 }
 
 .cards {
     background-color: #46555B;
     text-align: center;
     display: flexbox;
-    width: 100%
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cards2 {
     background-color: #282c34;
-    height: 400px;
-    width: 1000px;
+    display: flexbox;
+    width: 100%;
     text-align: center;
-    float: none;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cards3 {
     background-color: #282c34;
     text-align: center;
-    width: 1000px;
-    float: none;
-    margin: 0 auto;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cards4 {
@@ -49,8 +50,11 @@
 
 
 .card {
-    height: 500px;
+    height: fit-content;
     background-color: #46555B;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card2 {
@@ -60,10 +64,20 @@
     background-color: #282c34;;
 }
 
+
+.firstsection {
+    width: 100%;
+}
+
 .tower {
     height: 400px;
-    margin-left: 30%;
+    margin-left: 100%;
     margin-right: auto;
+}
+
+.towerDiv {
+    float: left;
+    margin-bottom: 5%;
 }
 
 @font-face {
@@ -72,21 +86,22 @@
 }
 
 .towerText {
-    float: right;
     font-family: CamperSans2;
-    font-size: 70px;
+    font-size: 430%;
+    line-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .orderButton {
     background-color: #D60B52;
     border-style: none;
-    padding: 3%;
     color: white;
     margin-top: 3%;
-    font-size: 25px;
+    font-size: 200%;
     padding: 7%;
     border-radius: 6px;
-    width: 200%;
+    width: 100%;
 }
 
 .firstTowerText {
@@ -100,10 +115,12 @@
 .textBG {
     background-color: #2a3c434f;
     padding: 3%;
-    width: 80%;
+    width: 38%;
+    height: auto;
     border-radius: 10px;
+    margin-right: 10%;
     text-align: center;
-    margin-top: 5%;
+    float: right;
 }
 
 .textAlign {
@@ -131,7 +148,7 @@
 
 .buttonAlign {
     margin-right: auto;
-    margin-left: 17%;
+    margin-left: auto;
 }
 
 .top-buffer { 
@@ -166,13 +183,18 @@
     margin-right: auto;
 }
 
+.card-body {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 .deckHeader {
     text-align: center;
 }
 
 #img {
-    height: 150px;
-    width: 150px;
+    width: 60%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -182,4 +204,56 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+@media only screen and (orientation: portrait) {
+    .towerDiv {
+        float: none;
+    }
+
+    .tower {
+        height: 300px;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .textBG {
+        background-color: #2a3c434f;
+        padding: 3%;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        text-align: center;
+        float: none;
+    }
+
+    .orderButton {
+        padding: 3%;
+    }
+
+    .towerText {
+        float: none;
+        font-family: CamperSans2;
+        font-size: 350%;
+        line-height: 90%;
+    }
+
+    .cardHeader{
+        font-size: 230%;
+    }
+
+    .card-text3 {
+        font-size: 80%;
+    }
+
+    .textAlign2 {
+        font-size: 50px;
+    }
+
+    #img {
+        width: 100%;
+    }
+    
 }
