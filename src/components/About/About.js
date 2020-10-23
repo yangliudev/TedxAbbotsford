@@ -6,7 +6,7 @@ class About extends Component {
 
     render() {
         return (
-            <ReactBootStrap.Container className="top-space">
+            <ReactBootStrap.Container className="top-space" style={{marginBottom:'200px'}}>
                  <ReactBootStrap.Container className="bg-display">
                      <ReactBootStrap.Row className="box1">
                      <ReactBootStrap.Col style={{marginLeft:'20px', marginTop:'10px'}}>
