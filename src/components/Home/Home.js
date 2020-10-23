@@ -16,32 +16,27 @@ class Home extends Component {
         return (
             <ReactBootStrap.Container className="top-space">
                 <ReactBootStrap.Row>
-                    <ReactBootStrap.Col>
-                        <div>
-                            <img src={tower} className="tower" alt="tower image"></img>
+                    <div class="firstsection">
+                        <div class="towerDiv">
+                            <img src={tower} className="tower"></img>
                         </div>
-                    </ReactBootStrap.Col>
 
-                    <ReactBootStrap.Col>
                         <div class ="textBG">
-                            <ReactBootStrap.Row>
                                 <div class="textAlign">
-                                    <h1 class="towerText"><span class="firstTowerText">OFFER A MUSICIAN AT HOME <br/>TO THE PEOPLE YOU LOVE,<br/></span> <span class="secondTowerText">IN LESS THAN 3 MINUTES!</span></h1>
+                                    <p class="towerText"><span class="firstTowerText">OFFER A MUSICIAN AT HOME <br/>TO THE PEOPLE YOU LOVE,<br/></span> <span class="secondTowerText">IN LESS THAN 3 MINUTES!</span></p>
                                 </div>
-                            </ReactBootStrap.Row>
-                            <ReactBootStrap.Row>
+                            
                                 <div class="buttonAlign">
                                 <a href={process.env.PUBLIC_URL + '/#/order'}>
                                     <input type="button" value="Order Now" class="orderButton"></input>
                                 </a>
                                 </div>
-                            </ReactBootStrap.Row>
                         </div>
-                    </ReactBootStrap.Col>
+                    </div>
                 </ReactBootStrap.Row>
                 
                 
-                <div class="topspace2">
+                <div class="top-space2">
                 <ReactBootStrap.Row className="cards">
                     <h1 class="textAlign2">IN OUR<span class="secondTowerText"> GARDEN</span> , HOW DOES IT WORK?</h1>
                 </ReactBootStrap.Row>
