@@ -9,7 +9,7 @@ class Info extends Component {
      
         return (
             <ReactBootStrap.Container className="top-space">
-            
+             <div className="bg-display">
             
             <ReactBootStrap.Row className="justify-content-md-center" >
                 <ReactBootStrap.Col><h1 class="info">Practical Information</h1>
@@ -104,7 +104,7 @@ class Info extends Component {
                 </ReactBootStrap.Col>
                 </ReactBootStrap.Row>
                 </ReactBootStrap.Container>
-
+                </div>
             </ReactBootStrap.Container>
 
         )

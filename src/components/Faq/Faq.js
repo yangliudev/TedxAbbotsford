@@ -8,7 +8,7 @@ class Faq extends Component {
     render() {
         
         return (
-            <ReactBootStrap.Container className="top-space">
+            <ReactBootStrap.Container className="top-space" style={{ marginBottom:'110px'}}>
             <div className="bg-display">
         
             <ReactBootStrap.Row className="justify-content-md-center" >
