@@ -14,7 +14,7 @@ import Home from "./components/Home/Home";
 import Faq from "./components/Faq/Faq";
 import Info from "./components/Info/Info";
 import About from "./components/About/About";
-
+import SignIn from "./components/Musician/musicianSignIn";
 
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -35,6 +35,9 @@ function App() {
         <Route exact path="/about">
           <About />
         </Route>
+        <Route path="/SignIn">
+          <SignIn />
+          </Route>
         <Route path="/order">
           <Ordering_1 />
         </Route>
