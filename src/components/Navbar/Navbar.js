@@ -27,6 +27,13 @@ class Navbar extends Component {
         document.getElementById("home").style.color = "white";
         document.getElementById("faq").style.color = "white";
     }
+    function active4(){
+      var x = document.getElementById("info")
+      x.style.color = "red";
+      document.getElementById("home").style.color = "white";
+      document.getElementById("faq").style.color = "white";
+      document.getElementById("info").style.color = "white";
+  }
   
 
         return (
@@ -46,6 +53,7 @@ class Navbar extends Component {
       <a href={process.env.PUBLIC_URL + '/#/'} className="nav-font" id="home" onClick={active}>HOME</a>
       <a href={process.env.PUBLIC_URL + '/#/faq'} className="nav-font" id="faq" onClick={active2}>FAQ</a>
       <a href={process.env.PUBLIC_URL + '/#/info'} className="nav-font" id="info" onClick={active3}>INFO</a>
+      <a href={process.env.PUBLIC_URL + '/#/about'} className="nav-font" id="info" onClick={active4}>ABOUT</a>
 
     </ReactBootStrap.Nav>
   </ReactBootStrap.Navbar.Collapse>
