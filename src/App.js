@@ -20,10 +20,9 @@ class App extends Component {
   render() {
   return (
     <Router>
-
+      <Navbar />
       <Switch>
       <Route exact path="/">
-          <Navbar />
           <Home />
         </Route> <Route exact path="/faq">
           <Faq />
@@ -35,7 +34,6 @@ class App extends Component {
           <About />
         </Route>
         <Route path="/order">
-        <Navbar />
           <Ordering1 />
         </Route>
         <Route path="/admin">
