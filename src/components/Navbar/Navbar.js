@@ -54,6 +54,7 @@ class Navbar extends Component {
       <a href={process.env.PUBLIC_URL + '/#/faq'} className="nav-font" id="faq" onClick={active2}>FAQ</a>
       <a href={process.env.PUBLIC_URL + '/#/info'} className="nav-font" id="info" onClick={active3}>INFO</a>
       <a href={process.env.PUBLIC_URL + '/#/about'} className="nav-font" id="info" onClick={active4}>ABOUT</a>
+      <a href={process.env.PUBLIC_URL + '/#/register'} className="nav-font" id="info" onClick={active4}>Register as a Musician</a>
 
     </ReactBootStrap.Nav>
   </ReactBootStrap.Navbar.Collapse>

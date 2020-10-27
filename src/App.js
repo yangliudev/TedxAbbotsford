@@ -11,6 +11,7 @@ import Admin from "./components/Admin/Admin";
 import Faq from "./components/Faq/Faq";
 import Info from "./components/Info/Info"
 import About from "./components/About/About"
+import MusicianRegister from "./components/Musician/MusicianRegister"
 
 
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
@@ -32,6 +33,9 @@ class App extends Component {
         </Route>
         <Route exact path="/about">
           <About />
+        </Route>
+        <Route exact path="/register">
+          <MusicianRegister />
         </Route>
         <Route path="/order">
           <Ordering1 />
