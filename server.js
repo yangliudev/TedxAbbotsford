@@ -4,35 +4,72 @@ const mysql = require('mysql');
 const cors = require('cors');
 const bodyParser = require('body-parser')
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+const port = 5000;
+
 const db = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: 'Password',
+    password: 'Anantharajah123!',
     database: 'musician'
 })
 
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
-// app.get('/', (req, res) => {
-//     // const sqlInsert = "INSERT INTO musician_table (name, type) VALUES ('Trump', 'bad')"
-//     // const musicians = [
-//     //     {id: 1, firstName: 'John', lastName: 'Doe'},
-//     //     {id: 2, firstName: 'Mary', lastName: 'Goe'},
-//     //     {id: 3, firstName: 'Dame', lastName: 'Dalla'},
-//     // ];
-//     // db.query(sqlInsert, (err, result) => {
-//     //     res.json(musicians);
-//     // })
-// });
 
 
-app.get("/api/get", (req, res) => {
-    const sqlSelect = "SELECT * FROM musician_table";
-    db.query(sqlSelect, (err, result) => {
-        res.send(result);
-    }); 
+app.post("/register", (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    bcrypt.hash(password, saltRounds, (err, hash) => {
+        if (err) {
+            console.log(err);
+        }
+        db.query("INSERT INTO users (username, password) VALUES (?, ?)",
+        [username, hash],
+        (err, result) => {
+            console.log(err);
+        });
+    })
 });
+
+app.post("/login", (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+
+
+    db.query("SELECT * FROM users WHERE username = ?;",
+    username,
+    (err, result) => {
+        if (err) {
+            res.send({ err: err})
+            console.log({err: err})
+        }
+        if (result.length > 0) {
+            bcrypt.compare(password, result[0].password, (error, response) => {
+                if (response) {
+                    res.send(result)
+                    console.log(result)
+                } else {
+                    res.send({message: "Wrong username/password combination!" })
+                    console.log({message: "Wrong username/password combination!" })
+                }
+            })
+        } else {
+            res.send({message: "User doesn't exist" })
+            console.log({message: "User doesn't exist" })
+        }
+    });
+
+});
+
+
+
+
 
 app.get("/order/get", (req, res) => {
     const sqlSelect = "SELECT * FROM ordering_table";
@@ -40,17 +77,6 @@ app.get("/order/get", (req, res) => {
         res.send(result);
     }); 
 });
-
-app.post("/api/insert", (req, res)=> {
-    const musicianName = req.body.musicianName;
-    const musicianType = req.body.musicianType;
-
-    const sqlInsert = "INSERT INTO musician_table (name, type) VALUES (?, ?)"
-    db.query(sqlInsert, [musicianName, musicianType], (err, result)=> {
-        console.log(result);
-    }); 
-});
-
 
 app.post("/order/insert", (req, res)=> {
     const orderGift = req.body.orderGift;
@@ -71,7 +97,6 @@ app.post("/order/insert", (req, res)=> {
     const orderState = req.body.orderState;
     const orderZip = req.body.orderZip;
     const orderComments = req.body.orderComments;
-
     const sqlInsert = "INSERT INTO ordering_table (gift, occasion, type, number_musicians, suprise, firstName, lastName, date_service, time_service, offered, number, email, address, address_2, city, state, zip, comments) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
     db.query(sqlInsert, [
         orderGift, 
@@ -99,13 +124,7 @@ app.post("/order/insert", (req, res)=> {
     }); 
 });
 
-app.get("/order/get", (req, res) => {
-    const sqlSelect = "SELECT * FROM ordering_table";
-    db.query(sqlSelect, (err, result) => {
-        res.send(result);
-    }); 
-});
 
-const port = 5000;
+
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

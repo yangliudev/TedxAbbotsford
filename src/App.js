@@ -12,6 +12,8 @@ import Faq from "./components/Faq/Faq";
 import Info from "./components/Info/Info"
 import About from "./components/About/About"
 
+import Login from "./components/Login/Login";
+
 
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -24,21 +26,27 @@ class App extends Component {
       <Switch>
       <Route exact path="/">
           <Home />
+          <Footer />
         </Route> <Route exact path="/faq">
           <Faq />
+          <Footer />
         </Route>
         <Route exact path="/info">
           <Info />
+          <Footer />
         </Route>
         <Route exact path="/about">
           <About />
+          <Footer />
         </Route>
         <Route path="/order">
           <Ordering1 />
         </Route>
         <Route path="/admin">
-        <Navbar />
           <Admin />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
       </Switch>
       
