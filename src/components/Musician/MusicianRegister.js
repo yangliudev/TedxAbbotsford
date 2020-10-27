@@ -255,10 +255,14 @@ class MusicianRegister extends Component {
                                         <ReactBootStrap.Form.Label id='font'>Availability</ReactBootStrap.Form.Label>
                                     </ReactBootStrap.Form.Group>
 
+                                    <ReactBootStrap.Button variant="primary" size="md" href="/#/about">
+                                Register
+                            </ReactBootStrap.Button>{''}
+
                                 </ReactBootStrap.Col>
                             </ReactBootStrap.Row>
 
-
+                            
                         </ReactBootStrap.Container>
                     </ReactBootStrap.Form>
 
