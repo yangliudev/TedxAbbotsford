@@ -1,3 +1,4 @@
+
 #font{
     font-size: 30px;
 }
@@ -15,3 +16,7 @@ label.harry {
     cursor: pointer;
     font-size: 25px;
 } 
+
+#MDBInput{
+    color:white
+}

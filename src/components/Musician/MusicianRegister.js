@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as ReactBootStrap from "react-bootstrap";
 import "./MusicianRegister.css"
 import "mdbreact/dist/css/mdb.css";
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
 
 class MusicianRegister extends Component {
     
@@ -80,12 +81,14 @@ class MusicianRegister extends Component {
 
                                     <ReactBootStrap.Form.Group controlId="formGridfname">
                                         <ReactBootStrap.Form.Label id='font'>Account Information</ReactBootStrap.Form.Label>
-                                        <ReactBootStrap.Form.Control type="text" placeholder="E-mail" />
+                                        <MDBInput className='white-text' label="Type your email" icon="envelope" group type="email" validate error="wrong"
+                                            success="right" />
+                                        <MDBInput className='white-text' label="Type your password" icon="lock" group type="password" validate />
+                                   
                                     </ReactBootStrap.Form.Group>
 
-                                    <ReactBootStrap.Form.Group controlId="formGridlname">
-                                        <ReactBootStrap.Form.Control type="text" placeholder="Password" />
-                                    </ReactBootStrap.Form.Group>
+                                    
+                                   
 
                                     <ReactBootStrap.Form.Group controlId="formGridlname">
                                         <ReactBootStrap.Form.Control type="text" placeholder="Confirm Password" />
@@ -293,7 +296,7 @@ class MusicianRegister extends Component {
                                                     <ReactBootStrap.Form.Label id='font'>Availability</ReactBootStrap.Form.Label>
                                                 </ReactBootStrap.Form.Group>
 
-                                                <ReactBootStrap.Button variant="primary" size="md" href="/#/about">
+                                                <ReactBootStrap.Button variant="primary" size="md" type='submite'>
                                                     Register
                             </ReactBootStrap.Button>{''}
 
