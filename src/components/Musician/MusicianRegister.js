@@ -437,11 +437,11 @@ class MusicianRegister extends Component {
                                             </ReactBootStrap.Form.Group>
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="solo" />
-                                                <label class="custom-control-label" for="solo">Solo</label>
+                                                <label class="custom-control-label" for="solo">solo</label>
                                             </div>
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="duet" />
-                                                <label class="custom-control-label" for="duet">Duet</label>
+                                                <label class="custom-control-label" for="duet">duet</label>
                                             </div>
                                         </ReactBootStrap.Col>
                                     </ReactBootStrap.Row>
