@@ -171,7 +171,7 @@ function Ordering_1() {
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginLeft: '20px', marginRight: '20px' }}>
             <div class="md-form">
-              <input style={{ color: 'white' }} type="text" id="form1" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
+              <input type="text" id="form1" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
