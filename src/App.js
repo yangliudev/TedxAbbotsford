@@ -8,6 +8,9 @@ import Ordering1 from "./components/Ordering/Ordering_1";
 import Home from "./components/Home/Home";
 import Admin_Dash from "./components/Admin/Admin";
 
+import Test from "./components/Admin/Test";
+
+
 import Faq from "./components/Faq/Faq";
 import Info from "./components/Info/Info";
 import About from "./components/About/About";
@@ -48,6 +51,7 @@ class App extends Component {
           <Route path="/login">
             <Login />
           </Route>
+          <Route path="/test" component={Test}/>
         </Switch>
       </Router>
     );
