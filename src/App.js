@@ -13,6 +13,7 @@ import Info from "./components/Info/Info"
 import About from "./components/About/About"
 import MusicianRegister from "./components/Musician/MusicianRegister"
 import Test from "./components/RegisterTest/RegisterTest"
+import Calender from "./components/MusicianCalender/MusicianCalender"
 
 
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
@@ -28,6 +29,9 @@ class App extends Component {
           <Home />
         </Route> <Route exact path="/faq">
           <Faq />
+        </Route>
+       <Route exact path="/calender">
+          <Calender />
         </Route>
         <Route exact path="/info">
           <Info />
