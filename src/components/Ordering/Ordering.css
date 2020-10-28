@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'MyFont';
-  src: local('MyFont'), url(./assets/fonts/NeutraText\ Book.otf) format('woff');
+  src: local('MyFont'), url(./ordering-assets/fonts/NeutraText\ Book.otf) format('woff');
 }
 
 @font-face {
   font-family: 'MyFont2';
-  src: local('MyFont2'), url(./assets/fonts/NeutraTextDemi.otf) format('woff');
+  src: local('MyFont2'), url(./ordering-assets/fonts/NeutraTextDemi.otf) format('woff');
 }
 
 @font-face {
   font-family: 'MyFont3';
-  src: local('MyFont3'), url(./assets/fonts/NeutraTextLight.otf) format('woff');
+  src: local('MyFont3'), url(./ordering-assets/fonts/NeutraTextLight.otf) format('woff');
 }
 
 .top-space {
