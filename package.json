@@ -20,11 +20,14 @@
     "react": "^16.14.0",
     "react-admin": "^3.9.5",
     "react-bootstrap": "^1.4.0",
+    "react-csv": "^2.0.3",
     "react-dom": "^16.14.0",
     "react-responsive": "^8.1.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-table": "^6.10.0",
+    "react-table-hoc-draggable-columns": "^1.2.5"
   },
   "scripts": {
     "start": "react-scripts start",

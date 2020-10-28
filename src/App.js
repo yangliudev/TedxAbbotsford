@@ -20,37 +20,32 @@ class App extends Component {
   render() {
     return (
       <Router>
-        
+        <Navbar />
         <Switch>
           <Route exact path="/">
-          <Navbar />
+          
             <Home />
             <Footer />
           </Route>
           <Route path="/faq">
-          <Navbar />
             <Faq />
             <Footer />
           </Route>
           <Route path="/info">
-          <Navbar />
             <Info />
             <Footer />
           </Route>
           <Route path="/about">
-          <Navbar />
             <About />
             <Footer />
           </Route>
           <Route path="/order">
-          <Navbar />
             <Ordering1 />
           </Route>
           <Route path="/admin">
             <Admin_Dash />
           </Route>
           <Route path="/login">
-          <Navbar />
             <Login />
           </Route>
         </Switch>

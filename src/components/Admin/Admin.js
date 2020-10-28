@@ -4,10 +4,18 @@ import React, { Component, useEffect, useState } from "react";
 import Axios from "axios";
 import "./Admin.css";
 
+import { CSVLink, CSVDownload } from "react-csv";
+
+import ReactTable from 'react-table';
+import "react-table/react-table.css";
+import withDraggableColumns from 'react-table-hoc-draggable-columns';
+import 'react-table-hoc-draggable-columns/dist/styles.css';
+
 // import { MDBDataTableV5 } from 'mdbreact';
 
 const Admin_Dash = () => {
       const [orderList, setOrderList] = useState([]);
+
 
   useEffect(() => {
     Axios.get("http://localhost:5000/order/get").then((response) => {
@@ -15,57 +23,6 @@ const Admin_Dash = () => {
       setOrderList(response.data);
     });
   });
-
-  function convertArrayOfObjectsToCSV(args) {  
-    var result, ctr, keys, columnDelimiter, lineDelimiter, data;
-
-    data = args.data || null;
-    if (data == null || !data.length) {
-        return null;
-    }
-
-    columnDelimiter = args.columnDelimiter || ',';
-    lineDelimiter = args.lineDelimiter || '\n';
-
-    keys = Object.keys(data[0]);
-
-    result = '';
-    result += keys.join(columnDelimiter);
-    result += lineDelimiter;
-
-    data.forEach(function(item) {
-        ctr = 0;
-        keys.forEach(function(key) {
-            if (ctr > 0) result += columnDelimiter;
-
-            result += item[key];
-            ctr++;
-        });
-        result += lineDelimiter;
-    });
-
-    return result;
-}
-
-  function downloadCSV(args) {  
-    var data, filename, link;
-    var csv = convertArrayOfObjectsToCSV({
-        data: orderList
-    });
-    if (csv == null) return;
-
-    filename = args.filename || 'export.csv';
-
-    if (!csv.match(/^data:text\/csv/i)) {
-        csv = 'data:text/csv;charset=utf-8,' + csv;
-    }
-    data = encodeURI(csv);
-
-    link = document.createElement('a');
-    link.setAttribute('href', data);
-    link.setAttribute('download', filename);
-    link.click();
-}
 
 
   const data = {
@@ -124,9 +81,9 @@ const Admin_Dash = () => {
       small
       data={data}
     />
-    <input type="button" value="Download CSV" onClick={downloadCSV({ filename: "orders.csv" })}/>
+    <CSVLink data={orderList} filename={"client-orders.csv"} className="btn btn-primary">Export CSV</CSVLink>;
+
     </div>
-    // <MDBDataTableV5 hover data={orderList} exportToCSV proSelect />
   );
 }
 
