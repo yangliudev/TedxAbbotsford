@@ -1,35 +1,137 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from "react";
+import Axios from "axios";
 import MUIDataTable from "mui-datatables";
+import "./Admin.css"
+ 
+function Test() {
 
-class Test extends Component {
-    render() {
-        const columns = ["Name", "Company", "City", "State"];
+    useEffect(() => {
+        Axios.get("http://localhost:5000/order/get").then((response) => {
+          setOrderList(response.data);
+        });
+      }, []);
+      
+    const [orderList, setOrderList] = useState([]);
+    const arr = [];
 
-const data = [
- ["Joe James", "Test Corp", "Yonkers", "NY"],
- ["John Walsh", "Test Corp", "Hartford", "CT"],
- ["Bob Herm", "Test Corp", "Tampa", "FL"],
- ["James Houston", "Test Corp", "Dallas", "TX"],
-];
+    var something = (function() {
+      var executed = false;
+      return function() {
+          if (!executed) {
+              executed = true;
+              for (let index = 0; index < orderList.length; index++) {
+                arr.push(Object.values(orderList[index]))
+              }
+          }
+      };
+  })();
 
-const options = {
-//   filterType: 'checkbox',
-  draggableColumns: {enabled: "true", transitionTime: 5},
+  const [responsive, setResponsive] = useState("vertical");
+  const [tableBodyHeight, setTableBodyHeight] = useState("400px");
+  const [tableBodyMaxHeight, setTableBodyMaxHeight] = useState("");
+  const [transitionTime, setTransitionTime] = useState(300);
+  const [selectableRows, setSelectableRows] = useState('none');
 
 
-};
-        return (
-            <div>
-                <MUIDataTable
-  title={"Employee List"}
-  data={data}
-  columns={columns}
-  options={options}
-/>
-                
-            </div>
-        );
-    }
+  const columns = ["ID", "Gift", "Occasion", "Music Type", "# of Musicians", "Suprise", "First Name", "Last Name", "Date Service", "Time Service", "Offered", "Number", "Email", "Address", "Location", "City", "State", "Zip", "Comments", "Tips"];
+
+  const options = {
+    filter: true,
+    filterType: 'dropdown',
+    responsive,
+    tableBodyHeight,
+    tableBodyMaxHeight,
+    resizableColumns: true,
+    draggableColumns: {
+      enabled: true,
+      transitionTime
+    },
+    selectableRows: selectableRows,
+  };
+
+
+    const data = arr;
+    something()
+    
+
+  return (
+    <div style={{marginTop:"20px"}}>
+            <MUIDataTable title={"Order List"} data={data} columns={columns} options={options} />
+    </div>
+  );
 }
 
 export default Test;
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { Component } from 'react';
+// import MUIDataTable from "mui-datatables";
+
+// class Test extends Component {
+//     render() {
+//         const columns = ["Name", "Company", "City", "State"];
+
+// const data = [
+//  ["Joe James", "Test Corp", "Yonkers", "NY"],
+//  ["John Walsh", "Test Corp", "Hartford", "CT"],
+//  ["Bob Herm", "Test Corp", "Tampa", "FL"],
+//  ["James Houston", "Test Corp", "Dallas", "TX"],
+// ];
+
+// const options = {
+// //   filterType: 'checkbox',
+// // resizableColumns: true,
+// //   draggableColumns: {enabled: "true", transitionTime: 5},
+// //   expandableRows: true,
+// //   fixedSelectColumn: true
+// responsive: 'stacked',
+//       filterType: 'dropdown',
+//       pagination: true,
+//       expandableRows: false,
+//       resizableColumns: false,
+//       selectableRows: true,
+//       caseSensitive: false,
+//       serverSide: false,
+//       rowHover: true,
+//       fixedHeader: true,
+//       elevation: 4,
+//       rowsPerPage: 10,
+//       rowsPerPageOptions: [10, 15, 100],
+//       filter: true,
+//       sortFilterList: true,
+//       sort: true,
+//       search: true,
+//       print: true,
+//       viewColumns: true,
+//       download: true,
+//       downloadOptions: {
+//         filename: 'tableDownload.csv',
+//         separator: ',',
+//       },
+
+
+// };
+//         return (
+//             <div style={{backgroundColor:"red"}}>
+//                 <MUIDataTable
+//   title={"Employee List"}
+//   data={data}
+//   columns={columns}
+//   options={options}/>
+                
+//             </div>
+//         );
+//     }
+// }
+
+// export default Test;

@@ -116,8 +116,8 @@ const Admin_Dash = () => {
   };
 
   return (
-      // <div style={{backgroundColor:'grey'}}>
-      <div>
+      <div style={{backgroundColor:'red'}}>
+      {/* <div> */}
     {/* <MDBDataTable
       striped
       bordered
@@ -145,7 +145,7 @@ const Admin_Dash = () => {
         { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
       ]}        
       options={{
-        exportButton: true
+        exportButton: true,
       }}
     />
 
