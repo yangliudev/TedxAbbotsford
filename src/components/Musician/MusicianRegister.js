@@ -4,24 +4,24 @@ import "./MusicianRegister.css"
 import "mdbreact/dist/css/mdb.css";
 
 class MusicianRegister extends Component {
-    
+
 
     render() {
-   
+
         function ShowTextArea() {
             var textArea = document.getElementById("myDIV");
-          
-              textArea.style.display = "block";
-         
-          }
-    
-          function HideTextArea() {
+
+            textArea.style.display = "block";
+
+        }
+
+        function HideTextArea() {
             var textArea = document.getElementById("myDIV");
-            
-              textArea.style.display = "none";
-          
-          }
-        
+
+            textArea.style.display = "none";
+
+        }
+
         return (
             <ReactBootStrap.Container className="top-space">
                 <div className="bg-display" >
@@ -98,36 +98,36 @@ class MusicianRegister extends Component {
 
                                     <ReactBootStrap.Row >
 
-                                        <ReactBootStrap.Col md={{ span:4}}>
+                                        <ReactBootStrap.Col md={{ span: 4 }}>
                                             <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios" onClick={HideTextArea}/>
-                                                    <label class="custom-control-label" for="defaultGroupExample1">Master</label>
-                                                    </div>
+                                                <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios" onClick={HideTextArea} />
+                                                <label class="custom-control-label" for="defaultGroupExample1">Master</label>
+                                            </div>
 
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" onClick={HideTextArea} />
-                                                        <label class="custom-control-label" for="defaultGroupExample2">Currently in School</label>
-                                                        </div>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" onClick={HideTextArea} />
+                                                <label class="custom-control-label" for="defaultGroupExample2">Currently in School</label>
+                                            </div>
 
-                                                   
+
                                         </ReactBootStrap.Col>
 
-                                                    <ReactBootStrap.Col md={{ span:6}} >
-                                                    <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios" onClick={HideTextArea} />
-                                                            <label class="custom-control-label" for="defaultGroupExample3">Bachelor</label>
-                                                        </div>
-                                                        <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input" id="defaultGroupExample4" name="groupOfDefaultRadios" onClick={ShowTextArea} />
-                                                            <label class="custom-control-label" for="defaultGroupExample4">Other</label>
-                                                        </div>
-                                                        <div class="form-group shadow-textarea" id="myDIV" onLoad={HideTextArea}>
-                                                        <label for="exampleFormControlTextarea6"></label>
-                                                        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="5" placeholder="Other Qualifications..."></textarea>
-                                                        </div>
-                                           
-                                                        
-                                                    </ReactBootStrap.Col>
+                                        <ReactBootStrap.Col md={{ span: 6 }} >
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios" onClick={HideTextArea} />
+                                                <label class="custom-control-label" for="defaultGroupExample3">Bachelor</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" class="custom-control-input" id="defaultGroupExample4" name="groupOfDefaultRadios" onClick={ShowTextArea} />
+                                                <label class="custom-control-label" for="defaultGroupExample4">Other</label>
+                                            </div>
+                                            <div class="form-group shadow-textarea" id="myDIV" onLoad={HideTextArea}>
+                                                <label for="exampleFormControlTextarea6"></label>
+                                                <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="5" placeholder="Other Qualifications..."></textarea>
+                                            </div>
+
+
+                                        </ReactBootStrap.Col>
 
                                     </ReactBootStrap.Row>
 
@@ -140,7 +140,7 @@ class MusicianRegister extends Component {
                                     </ReactBootStrap.Form.Group>
 
                                     <ReactBootStrap.Row>
-                                    <ReactBootStrap.Col md={{ span: 3 }} >
+                                        <ReactBootStrap.Col md={{ span: 3 }} >
                                             <ReactBootStrap.Form.Group controlId="formGridlname">
                                                 <ReactBootStrap.Form.Label>Classical Styles</ReactBootStrap.Form.Label>
                                             </ReactBootStrap.Form.Group>
@@ -333,7 +333,7 @@ class MusicianRegister extends Component {
                                                 <input type="checkbox" class="custom-control-input" id="style43" />
                                                 <label class="custom-control-label" for="style43">Traditional</label>
                                             </div>
-                                            
+
                                         </ReactBootStrap.Col>
                                     </ReactBootStrap.Row>
 
@@ -368,17 +368,17 @@ class MusicianRegister extends Component {
 
                                     <ReactBootStrap.Button variant="primary" size="md" href="/#/about">
                                         Register
-                            </ReactBootStrap.Button>{''}
+                                    </ReactBootStrap.Button>{''}
 
                                 </ReactBootStrap.Col>
                             </ReactBootStrap.Row>
 
-                                        <ReactBootStrap.Row>
-                                            <ReactBootStrap.Col>
+                            <ReactBootStrap.Row>
+                                <ReactBootStrap.Col>
 
 
 
-                                                {/* <div class="form-check">
+                                    {/* <div class="form-check">
                                         <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadi" />
                                         <label class="form-check-label" for="materialUnchecked">Material unchecked</label>
                                     </div>
@@ -389,15 +389,15 @@ class MusicianRegister extends Component {
                                         <label class="form-check-label" for="materialChecked">Material checked</label>
                                     </div> */}
 
-                                            </ReactBootStrap.Col>
-                                        </ReactBootStrap.Row>
+                                </ReactBootStrap.Col>
+                            </ReactBootStrap.Row>
 
 
                         </ReactBootStrap.Container>
                     </ReactBootStrap.Form>
 
                 </div>
-                        </ReactBootStrap.Container>
+            </ReactBootStrap.Container>
 
         )
     };
