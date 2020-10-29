@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import * as ReactBootStrap from "react-bootstrap";
 import "./MusicianRegister.css"
 import "mdbreact/dist/css/mdb.css";
 
-class MusicianRegister extends Component {
+function MusicianRegister() {
 
-
-    render() {
+        
 
         function ShowTextArea() {
             var textArea = document.getElementById("myDIV");
@@ -21,6 +20,28 @@ class MusicianRegister extends Component {
             textArea.style.display = "none";
 
         }
+        const [firstName, setFirstName] = useState("");
+        const [lastName, setLastName] = useState("");
+        const [address, setAddress] = useState("");
+        const [postalcode, setPostalCode] = useState("");
+        const [city, setCity] = useState("");
+      const [province, setProvince] = useState("");
+      const [phone, setPhone] = useState("");
+      const [iban, setIban] = useState("");
+      const [email, setEmail] = useState("");
+      const [password, setPassword] = useState("");
+      const [confirmpassword, setConfirmPassword] = useState("");
+      const [training, setTraining] = useState("");
+      const [othertraining, setOtherTraining] = useState("");
+      const [instrument, setInstrument] = useState("");
+      const [style, setStyle] = useState("");
+      const [group, setGroup] = useState("");
+      const [site, setSite] = useState("");
+      const [media, setMedia] = useState("");
+
+
+
+  
 
         return (
             <ReactBootStrap.Container className="top-space">
@@ -130,14 +151,117 @@ class MusicianRegister extends Component {
                                         </ReactBootStrap.Col>
 
                                     </ReactBootStrap.Row>
+                                    
+                                    <ReactBootStrap.Form.Group controlId="formGridfname" >
+                                        <ReactBootStrap.Form.Label id='font'>Professional Information</ReactBootStrap.Form.Label>
+                                       </ReactBootStrap.Form.Group>
 
-                                    <ReactBootStrap.Form.Group controlId="formGridlname" style={{ marginBottom: '40px' }}>
+                                       <ReactBootStrap.Form.Group controlId="formGridlname" style={{ marginBottom: '1px' }}>
+                                        <ReactBootStrap.Form.Label><i>Instruments</i></ReactBootStrap.Form.Label>
+                                    </ReactBootStrap.Form.Group>
+
+                                    
+                                    <ReactBootStrap.Row>
+                                        <ReactBootStrap.Col md={{ span: 3 }} >
+                                            
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style0" />
+                                                <label class="custom-control-label" for="style0">Voice</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style1" />
+                                                <label class="custom-control-label" for="style1">Piano</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style2" />
+                                                <label class="custom-control-label" for="style2">Harp</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style2" />
+                                                <label class="custom-control-label" for="style2">Trumbone</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style2" />
+                                                <label class="custom-control-label" for="style2">Trumpet</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style2" />
+                                                <label class="custom-control-label" for="style2">Bass</label>
+                                            </div>
+
+
+                                        </ReactBootStrap.Col>
+
+                                        
+                                        <ReactBootStrap.Col md={{ span: 3 }} >
+                                            
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style0" />
+                                                <label class="custom-control-label" for="style0">Singing</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style1" />
+                                                <label class="custom-control-label" for="style1">Saxophone</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style2" />
+                                                <label class="custom-control-label" for="style2">Viola-Copper</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style2" />
+                                                <label class="custom-control-label" for="style2">Bassoon</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style2" />
+                                                <label class="custom-control-label" for="style2">Flute</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style2" />
+                                                <label class="custom-control-label" for="style2">Horn</label>
+                                            </div>
+                                        </ReactBootStrap.Col>
+
+                                        
+                                        <ReactBootStrap.Col md={{ span: 3 }} >
+                                            
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style0" />
+                                                <label class="custom-control-label" for="style0">Guitar</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style1" />
+                                                <label class="custom-control-label" for="style1">Accordion</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style2" />
+                                                <label class="custom-control-label" for="style2">Clarinet</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style2" />
+                                                <label class="custom-control-label" for="style2">Cello</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style2" />
+                                                <label class="custom-control-label" for="style2">Purcussion</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="style2" />
+                                                <label class="custom-control-label" for="style2">Alphorn</label>
+                                            </div>
+
+
+                                        </ReactBootStrap.Col>
+
+                                            </ReactBootStrap.Row>
+
+                                    <ReactBootStrap.Form.Group controlId="formGridlname" style={{ marginBottom: '40px', marginTop:'15px' }}>
                                         <ReactBootStrap.Form.Control type="text" placeholder="Other Instrument" />
                                     </ReactBootStrap.Form.Group>
 
                                     <ReactBootStrap.Form.Group controlId="formGridlname" style={{ marginBottom: '1px' }}>
                                         <ReactBootStrap.Form.Label><i>Music Styles</i></ReactBootStrap.Form.Label>
                                     </ReactBootStrap.Form.Group>
+
 
                                     <ReactBootStrap.Row>
                                         <ReactBootStrap.Col md={{ span: 3 }} >
@@ -340,7 +464,7 @@ class MusicianRegister extends Component {
                                     <ReactBootStrap.Row>
 
                                         <ReactBootStrap.Col >
-                                            <ReactBootStrap.Form.Group controlId="formGridlname" style={{ marginBottom: '1px' }}>
+                                            <ReactBootStrap.Form.Group controlId="formGridlname" style={{ marginBottom: '1px', marginTop:'15px' }}>
                                                 <ReactBootStrap.Form.Label><i>You Play In?</i></ReactBootStrap.Form.Label>
                                             </ReactBootStrap.Form.Group>
                                             <div class="custom-control custom-checkbox">
@@ -354,7 +478,8 @@ class MusicianRegister extends Component {
                                         </ReactBootStrap.Col>
                                     </ReactBootStrap.Row>
 
-                                    <ReactBootStrap.Form.Group controlId="formGridlname">
+                                    
+                                    <ReactBootStrap.Form.Group controlId="formGridlname" >
                                         <ReactBootStrap.Form.Label><i>Media</i></ReactBootStrap.Form.Label>
                                         <ReactBootStrap.Form.Control type="text" placeholder="Website" />
                                     </ReactBootStrap.Form.Group>
@@ -378,16 +503,6 @@ class MusicianRegister extends Component {
 
 
 
-                                    {/* <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="materialUnchecked" name="materialExampleRadi" />
-                                        <label class="form-check-label" for="materialUnchecked">Material unchecked</label>
-                                    </div>
-
-
-                                    <div class="form-check">
-                                        <input type="radio" class="form-check-input" id="materialChecked" name="materialExampleRadi" />
-                                        <label class="form-check-label" for="materialChecked">Material checked</label>
-                                    </div> */}
 
                                 </ReactBootStrap.Col>
                             </ReactBootStrap.Row>
@@ -400,7 +515,7 @@ class MusicianRegister extends Component {
             </ReactBootStrap.Container>
 
         )
-    };
+
 };
 
 export default MusicianRegister
