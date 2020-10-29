@@ -74,6 +74,13 @@
 .justify-content-md-center {
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+}
+
+.buttonAlign {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .added-mar {
@@ -196,4 +203,12 @@
 
   #form1 {
     color: white;
+  }
+
+  @media only screen and (orientation: portrait) {
+    .bg-display-test {
+      width: 18em;
+      margin-bottom: 2em;
+    }
+
   }
