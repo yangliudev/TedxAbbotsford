@@ -2,8 +2,31 @@ import React, { Component, useEffect, useState } from "react";
 import Axios from "axios";
 import MUIDataTable from "mui-datatables";
 import "./Admin.css"
+import { createMuiTheme, MuiThemeProvider, withStyles } from '@material-ui/core/styles';
+
  
 function Test() {
+
+  const getMuiTheme = () =>
+  createMuiTheme({
+    overrides: {
+      MuiToolbar: {
+        root: {
+          backgroundColor: '#d7d4d9',
+          '& .MuiTypography-h6': {
+            color: 'black'
+          }
+        },
+      },
+      MuiTableFooter: {
+        root: {
+          '& .MuiToolbar-root': {
+            backgroundColor: 'white',
+          },
+        },
+      },
+    },
+  });
 
     useEffect(() => {
         Axios.get("http://localhost:5000/order/get").then((response) => {
@@ -55,9 +78,12 @@ function Test() {
     
 
   return (
-    <div style={{marginTop:"20px"}}>
-            <MUIDataTable title={"Order List"} data={data} columns={columns} options={options} />
-    </div>
+    <div style={{marginTop:"30px"}}>
+            <MuiThemeProvider theme={getMuiTheme()}>
+
+            <MUIDataTable title={"Orders"} data={data} columns={columns} options={options} />
+            </MuiThemeProvider>
+            </div>
   );
 }
 
