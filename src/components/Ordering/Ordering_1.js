@@ -184,17 +184,17 @@ function Ordering_1() {
 
           <div className="bg-display-test">
             <ReactBootStrap.Col>
-              <a onClick={(e) => { setGift("one person"); forward1(); }}><img src={pic1} className="pic" /><p>One Person In Particular</p></a>
+              <a onClick={(e) => { setGift("one person"); forward1(); }}><img src={pic1} className="pic" /><p>One Person <br /> In Particular</p></a>
             </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setGift("small committee"); forward1(); }}><img src={pic2} className="pic" /><p>A Small Committee</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setGift("small committee"); forward1(); }}><img src={pic2} className="pic" /><p>A Small <br />  Committee</p></a></ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setGift("institution"); forward1(); }}><img src={pic3} className="pic" /><p>An <br />Institution</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setGift("institution"); forward1(); }}><img src={pic3} className="pic" /><p>An <br />  Institution</p></a></ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setGift("donate"); forward1(); }}><img src={pic4} className="pic" /><p>Donate To The Platform</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setGift("donate"); forward1(); }}><img src={pic4} className="pic" /><p>Donate To <br /> The Platform</p></a></ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
       </div>
@@ -291,14 +291,14 @@ function Ordering_1() {
         </ReactBootStrap.Row>
         <ReactBootStrap.Row sm={1} md={6}>
           <a onClick={(e) => { setSuprise("yes"); forward5(); }}><div className="bg-display-button">
-            <ReactBootStrap.Col><p>Yes</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col><p class="surprise">Yes</p></ReactBootStrap.Col>
           </div>
           </a>
         </ReactBootStrap.Row>
         <ReactBootStrap.Row sm={1} md={6}>
           <a onClick={(e) => { setSuprise("no"); forward5(); }}>
-            <div style={{ marginTop: '8px', paddingRight: "5px" }} className="bg-display-button">
-              <ReactBootStrap.Col><p>No</p></ReactBootStrap.Col>
+            <div style={{ marginTop: '10px'}} className="bg-display-button">
+              <ReactBootStrap.Col><p class="surprise">No</p></ReactBootStrap.Col>
             </div>
           </a>
         </ReactBootStrap.Row>
