@@ -22,35 +22,76 @@ import Col from 'react-bootstrap/Col'
 
 
 function Ordering_1() {
-  function hide1() {
+  function forward1() {
     var x = document.getElementById("order1")
     x.style.display = "none";
     document.getElementById("order2").style.display = "block"
   }
-  function hide2() {
+
+  function back2() {
+    var x = document.getElementById("order2")
+    x.style.display = "none";
+    document.getElementById("order1").style.display = "block"
+  }
+
+  function forward2() {
     var x = document.getElementById("order2")
     x.style.display = "none";
     document.getElementById("order3").style.display = "block"
   }
-  function hide3() {
+
+  function back3() {
+    var x = document.getElementById("order3")
+    x.style.display = "none";
+    document.getElementById("order2").style.display = "block"
+  }
+
+  function forward3() {
     var x = document.getElementById("order3")
     x.style.display = "none";
     document.getElementById("order4").style.display = "block"
   }
-  function hide4() {
+
+  function back4() {
+    var x = document.getElementById("order4")
+    x.style.display = "none";
+    document.getElementById("order3").style.display = "block"
+  }
+
+  function forward4() {
     var x = document.getElementById("order4")
     x.style.display = "none";
     document.getElementById("order5").style.display = "block"
   }
-  function hide5() {
+
+  function back5() {
+    var x = document.getElementById("order5")
+    x.style.display = "none";
+    document.getElementById("order4").style.display = "block"
+  }
+
+  function forward5() {
     var x = document.getElementById("order5")
     x.style.display = "none";
     document.getElementById("order6").style.display = "block"
   }
-  function hide6() {
+
+  function back6() {
+    var x = document.getElementById("order6")
+    x.style.display = "none";
+    document.getElementById("order5").style.display = "block"
+  }
+
+  function forward6() {
     var x = document.getElementById("order6")
     x.style.display = "none";
     document.getElementById("orderConfirm").style.display = "block"
+  }
+
+  function back7() {
+    var x = document.getElementById("orderConfirm")
+    x.style.display = "none";
+    document.getElementById("order6").style.display = "block"
   }
 
 
@@ -143,17 +184,17 @@ function Ordering_1() {
 
           <div className="bg-display-test">
             <ReactBootStrap.Col>
-              <a onClick={(e) => { setGift("one person"); hide1(); }}><img src={pic1} className="pic" /><p>One Person In Particular</p></a>
+              <a onClick={(e) => { setGift("one person"); forward1(); }}><img src={pic1} className="pic" /><p>One Person In Particular</p></a>
             </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setGift("small committee"); hide1(); }}><img src={pic2} className="pic" /><p>A Small Committee</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setGift("small committee"); forward1(); }}><img src={pic2} className="pic" /><p>A Small Committee</p></a></ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setGift("institution"); hide1(); }}><img src={pic3} className="pic" /><p>An <br />Institution</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setGift("institution"); forward1(); }}><img src={pic3} className="pic" /><p>An <br />Institution</p></a></ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setGift("donate"); hide1(); }}><img src={pic4} className="pic" /><p>Donate To The Platform</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setGift("donate"); forward1(); }}><img src={pic4} className="pic" /><p>Donate To The Platform</p></a></ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
       </div>
@@ -177,7 +218,8 @@ function Ordering_1() {
         </ReactBootStrap.Row>
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginLeft: '20px', marginTop: '20px' }}>
-            <ReactBootStrap.Button variant="danger" className='button' onClick={hide2}><a>Submit</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back2}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={forward2}><a>Submit</a></ReactBootStrap.Button>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
       </div>
@@ -194,17 +236,22 @@ function Ordering_1() {
         </ReactBootStrap.Row>
         <ReactBootStrap.Row>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("classic"); hide3(); }}><img src={pic5} className="pic" /><p>Classic</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setType("classic"); forward3(); }}><img src={pic5} className="pic" /><p>Classic</p></a></ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("popular"); hide3(); }}><img src={pic6} className="pic" /><p style={{ fontSize: '19px' }}>Popular Music</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setType("popular"); forward3(); }}><img src={pic6} className="pic" /><p style={{ fontSize: '19px' }}>Popular Music</p></a></ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("jazzy/pop"); hide3(); }}><img src={pic7} className="pic" /><p>Jazzy - Pop</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setType("jazzy/pop"); forward3(); }}><img src={pic7} className="pic" /><p>Jazzy - Pop</p></a></ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("suprise"); hide3(); }}><img src={pic8} className="pic" /><p>Suprise!</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setType("suprise"); forward3(); }}><img src={pic8} className="pic" /><p>Suprise!</p></a></ReactBootStrap.Col>
           </div>
+        </ReactBootStrap.Row>
+        <ReactBootStrap.Row>
+          <ReactBootStrap.Col style={{ marginLeft: '20px', marginTop: '20px' }}>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back3}><a>Back</a></ReactBootStrap.Button>
+          </ReactBootStrap.Col>
         </ReactBootStrap.Row>
       </div>
 
@@ -221,11 +268,16 @@ function Ordering_1() {
         </ReactBootStrap.Row>
         <ReactBootStrap.Row sm={1} md={3}>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setNumberMusicians("solo"); hide4(); }}><img src={pic9} className="pic2" /><p>Soloist</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setNumberMusicians("solo"); forward4(); }}><img src={pic9} className="pic2" /><p>Soloist</p></a></ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setNumberMusicians("duo"); hide4(); }}><img src={pic10} className="pic2" /><p>Duo</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setNumberMusicians("duo"); forward4(); }}><img src={pic10} className="pic2" /><p>Duo</p></a></ReactBootStrap.Col>
           </div>
+        </ReactBootStrap.Row>
+        <ReactBootStrap.Row>
+          <ReactBootStrap.Col style={{ marginLeft: '20px', marginTop: '20px' }}>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back4}><a>Back</a></ReactBootStrap.Button>
+          </ReactBootStrap.Col>
         </ReactBootStrap.Row>
       </div>
 
@@ -238,17 +290,22 @@ function Ordering_1() {
           <ReactBootStrap.Col><h3>5. Is it a suprise?</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
         <ReactBootStrap.Row sm={1} md={6}>
-          <a onClick={(e) => { setSuprise("yes"); hide5(); }}><div className="bg-display-button">
+          <a onClick={(e) => { setSuprise("yes"); forward5(); }}><div className="bg-display-button">
             <ReactBootStrap.Col><p>Yes</p></ReactBootStrap.Col>
           </div>
           </a>
         </ReactBootStrap.Row>
         <ReactBootStrap.Row sm={1} md={6}>
-          <a onClick={(e) => { setSuprise("no"); hide5(); }}>
+          <a onClick={(e) => { setSuprise("no"); forward5(); }}>
             <div style={{ marginTop: '8px', paddingRight: "5px" }} className="bg-display-button">
               <ReactBootStrap.Col><p>No</p></ReactBootStrap.Col>
             </div>
           </a>
+        </ReactBootStrap.Row>
+        <ReactBootStrap.Row>
+          <ReactBootStrap.Col style={{ marginLeft: '20px', marginTop: '20px' }}>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back5}><a>Back</a></ReactBootStrap.Button>
+          </ReactBootStrap.Col>
         </ReactBootStrap.Row>
       </div>
 
@@ -338,7 +395,8 @@ function Ordering_1() {
             <h6><i>Leave us a little comment that will help us better target the event and the artist.</i></h6>
             <Form.Control as="textarea" rows={3} placeholder="Anything you'd like us to know" onChange={(e) => { setComments(e.target.value); }} />
           </Form.Group>
-          <ReactBootStrap.Button variant="danger" className='button' onClick={hide6}>Submit</ReactBootStrap.Button>
+          <ReactBootStrap.Button variant="danger" className='button' onClick={back6}><a>Back</a></ReactBootStrap.Button>
+          <ReactBootStrap.Button variant="danger" className='button' onClick={forward6}>Submit</ReactBootStrap.Button>
         </Form>
       </div>
 
@@ -444,6 +502,7 @@ function Ordering_1() {
 
 
         <ReactBootStrap.Row className="justify-content-md-center"> 
+        <ReactBootStrap.Button variant="danger" className='button' onClick={back7}><a>Back</a></ReactBootStrap.Button>
           <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="danger" className='button' onClick={submitOrder}>Submit</ReactBootStrap.Button></a>
         </ReactBootStrap.Row>
 
