@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@date-io/date-fns": "^2.10.6",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -10,6 +11,7 @@
     "body-parser": "^1.19.0",
     "bootstrap": "^4.5.2",
     "cors": "^2.8.5",
+    "date-fns": "^2.16.1",
     "daypilot-pro-react": "https://npm.daypilot.org/daypilot-pro-react/trial/2020.4.4701.tar.gz",
     "material-ui": "^1.0.0-beta.47",
     "mdbreact": "^4.27.0",
@@ -23,7 +25,8 @@
     "react-responsive": "^8.1.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-timeline-range-slider": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",

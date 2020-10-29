@@ -1,0 +1,28 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  background-color: white;
+}
+
+.info {
+  font-family: sans-serif;
+  color: #144a91;
+  font-size: 12px;
+  font-weight: lighter;
+  margin: 20px 0;
+}

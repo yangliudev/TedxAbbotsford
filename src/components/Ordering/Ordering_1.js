@@ -130,15 +130,6 @@ function Ordering_1() {
           <ReactBootStrap.Col><h3>1. Who do you wish to give this gift to?</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
         <ReactBootStrap.Row>
-          {/* <input type="text" name="musicianName" onChange={(e) => {setMusicianName(e.target.value);}}></input>
-              {/* <input type="text" name="musicianType" onChange={(e) => {setMusicianType(e.target.value);}}></input> */}
-          {/* <Form.Control placeholder="yourname@gmail.com" onChange={(e) => {setMusicianType(e.target.value);}}/> */}
-          {/* <button onClick={submitMusician}>Submit</button> */}
-
-
-          {/* {musicanList.map((val) => {
-                return <h5>{val.name}<br /></h5>
-              })} */}
 
 
           <div className="bg-display-test">
