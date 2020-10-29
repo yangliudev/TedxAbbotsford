@@ -168,7 +168,7 @@ function Ordering_1() {
     <ReactBootStrap.Container className="top-space">
       <div className="bg-display" id="order1">
         <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col><h3>1. Who do you wish to give this gift to?</h3></ReactBootStrap.Col>
+          <ReactBootStrap.Col><h3>1. First step, <b>to whom</b> do you want to offer this musical moment?</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
         <ReactBootStrap.Row>
           {/* <input type="text" name="musicianName" onChange={(e) => {setMusicianName(e.target.value);}}></input>
