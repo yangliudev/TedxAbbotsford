@@ -125,4 +125,58 @@ app.post("/order/insert", (req, res) => {
   );
 });
 
+app.get("/musician/get", (req, res) => {
+  const sqlSelect = "SELECT * FROM musician_table";
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.post("/musician/insert", (req, res)=> {
+  const musicianFirstName = req.body.musicianFirstName;
+  const musicianLastName = req.body.musicianLastName;
+  const musicianAddress = req.body.musicianAddress;
+  const musicianPostalCode = req.body.musicianPostalCode;
+  const musicianCity = req.body.musicianCity;
+  const musicianProvince = req.body.musicianProvince;
+  const musicianPhone = req.body.musicianPhone;
+  const musicianIban = req.body.musicianIban;
+  const musicianEmail = req.body.musicianEmail;
+  const musicianPassword = req.body.musicianPassword;
+  const musicianConfirmPassword = req.body.musicianConfirmPassword;
+  const musicianTraining = req.body.musicianTraining;
+  const musicianOtherTraining = req.body.musicianOtherTraining;
+  const musicianInstrument = req.body.musicianInstrument;
+  const musicianStyle = req.body.musicianStyle;
+  const musicianGroup = req.body.musicianGroup;
+  const musicianSite = req.body.musicianSite;
+  const musicianMedia = req.body.musicianMedia;
+
+
+  const sqlInsert = "INSERT INTO musician_table (firstName, lastName, address, postalCode, city, province, phone, iban, email, training, instrument, style, number_musicians, site, media) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+  db.query(sqlInsert, [
+      musicianFirstName, 
+      musicianLastName, 
+      musicianAddress, 
+      musicianPostalCode,
+      musicianCity,
+      musicianProvince,
+      musicianPhone,
+      musicianIban,
+      musicianEmail,
+      musicianTraining,
+      musicianInstrument,
+      musicianStyle,
+      musicianGroup,
+      musicianSite,
+      musicianMedia
+  ],
+
+       (err, result)=> {
+      console.log(result);
+      console.log(err);
+  }); 
+});
+
+
 app.listen(port, () => console.log(`Server started on port ${port}`));
