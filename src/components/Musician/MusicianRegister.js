@@ -106,11 +106,11 @@ function MusicianRegister() {
                                 </ReactBootStrap.Form.Group>
 
                                 <ReactBootStrap.Form.Group >
-                                    <ReactBootStrap.Form.Control type="text" placeholder="Password" onChange={(e) => { setPassword(e.target.value); }} />
+                                    <ReactBootStrap.Form.Control type="password" placeholder="Password" onChange={(e) => { setPassword(e.target.value); }} />
                                 </ReactBootStrap.Form.Group>
 
                                 <ReactBootStrap.Form.Group >
-                                    <ReactBootStrap.Form.Control type="text" placeholder="Confirm Password" onChange={(e) => { setConfirmPassword(e.target.value); }} />
+                                    <ReactBootStrap.Form.Control type="password" placeholder="Confirm Password" onChange={(e) => { setConfirmPassword(e.target.value); }} />
                                 </ReactBootStrap.Form.Group>
 
 
