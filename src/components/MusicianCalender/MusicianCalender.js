@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as ReactBootStrap from "react-bootstrap";
-import { DayPilot, DayPilotScheduler } from "daypilot-pro-react";
+
 import { Slider, Rail, Handles, Tracks, Ticks } from "react-compound-slider";
 import { SliderRail, Handle, Track, Tick } from "./components";
 
