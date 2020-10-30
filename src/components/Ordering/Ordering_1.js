@@ -215,22 +215,13 @@ function Ordering_1() {
   return (
 
     <ReactBootStrap.Container className="top-space">
-      <div className="bg-display" id="order1">
+      <ReactBootStrap.Container className="bg-display" id="order1">
+
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>1. First step, to whom do you want to offer this musical moment?</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
+
         <ReactBootStrap.Row>
-          {/* <input type="text" name="musicianName" onChange={(e) => {setMusicianName(e.target.value);}}></input>
-              {/* <input type="text" name="musicianType" onChange={(e) => {setMusicianType(e.target.value);}}></input> */}
-          {/* <Form.Control placeholder="yourname@gmail.com" onChange={(e) => {setMusicianType(e.target.value);}}/> */}
-          {/* <button onClick={submitMusician}>Submit</button> */}
-
-
-          {/* {musicanList.map((val) => {
-                return <h5>{val.name}<br /></h5>
-              })} */}
-
-
           <div className="bg-display-test">
             <ReactBootStrap.Col>
               <a onClick={(e) => { setGift("one person"); setGiftText("One person in Particular"); forward1(); }}><img src={pic1} className="pic" /><p>One person <br /> in particular</p></a>
@@ -243,41 +234,49 @@ function Ordering_1() {
             <ReactBootStrap.Col><a onClick={(e) => { setGift("institution"); setGiftText("An institution"); forward1(); }}><img src={pic3} className="pic" /><p>An <br />  institution</p></a></ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
-      </div>
+      
+      </ReactBootStrap.Container>
 
 
-      <div className="bg-display" id="order2">
+
+      <ReactBootStrap.Container className="bg-display" id="order2">
+
       <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>2. {giftText}, very good. Who will be the main beneficiary of the concert? </h3></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
-        <ReactBootStrap.Row className="justify-content-md-center" style={{marginBottom: '30px', marginTop:"-30px" }}>
+      </ReactBootStrap.Row>
+
+      <ReactBootStrap.Row className="justify-content-md-center" style={{marginBottom: '30px', marginTop:"-30px" }}>
           <ReactBootStrap.Col><h4>Tell us more about who will be at the centre of this moment, or their name if they live in an institution. For example: "Grandma Léa", "Pré-Fleuri institution" ... </h4></ReactBootStrap.Col>
       </ReactBootStrap.Row>
 
-        <Form style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
-          <Form.Row className="justify-content-md-center">
-            <Form.Group as={Col} xs={6} controlId="formGridFirstName">
-              <Form.Control type="text" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }} />
-            </Form.Group>
+      <Form style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+        
+        <Form.Row className="justify-content-md-center">
+          <Form.Group as={Col} xs={6} controlId="formGridFirstName">
+            <Form.Control type="text" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }} />
+          </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridLastName">
-              <Form.Control type="text" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
-            </Form.Group>
-          </Form.Row>
+          <Form.Group as={Col} controlId="formGridLastName">
+            <Form.Control type="text" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
+          </Form.Group>
+        </Form.Row>
 
           <div class="buttonAlign">
-          <ReactBootStrap.Button variant="danger" className='button' onClick={back2}><a>Back</a></ReactBootStrap.Button>
-          <ReactBootStrap.Button variant="danger" className='button' onClick={forward2}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back2}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={forward2}>Submit</ReactBootStrap.Button>
           </div>
 
         </Form>
-      </div>
+
+      </ReactBootStrap.Container>
 
 
-      <div className="bg-display" id="order3">
+
+      <ReactBootStrap.Container className="bg-display" id="order3">
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>3. {firstName} {lastName}, got it! Now, what are we celebrating</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
+
         <ReactBootStrap.Row className="justify-content-md-center" style={{marginBottom: '30px', marginTop:"-30px" }}>
           <ReactBootStrap.Col><h4>Tell us more about the occasion. For example: "René's 50th birthday", "An aperitif with friends", "A sunny Sunday"...</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -289,26 +288,29 @@ function Ordering_1() {
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
+
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{marginTop: '20px' }}>
             <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back3}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button variant="danger" className='button' onClick={forward3}><a>Submit</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button variant="danger" className='button' onClick={back3}><a>Back</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button variant="danger" className='button' onClick={forward3}><a>Submit</a></ReactBootStrap.Button>
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
-      </div>
+      </ReactBootStrap.Container>
 
 
 
+      <ReactBootStrap.Container className="bg-display" id="order4">
 
-      <div className="bg-display" id="order4">
         <ReactBootStrap.Row className="justify-content-md-center">
             <ReactBootStrap.Col><h3>4. And what style of music would {firstName} like to hear? </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
+
         <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop:"-30px" }}>
           <ReactBootStrap.Col><h4>Choose the style of music, we will take care of finding the ideal musician available near you.</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
+
         <ReactBootStrap.Row>
           <div className="bg-display-test">
             <ReactBootStrap.Col><a onClick={(e) => { setType("classic"); setTypeText("Classical music");forward4(); }}><img src={pic5} className="pic" /><p>Classical</p></a></ReactBootStrap.Col>
@@ -323,6 +325,7 @@ function Ordering_1() {
             <ReactBootStrap.Col><a onClick={(e) => { setType("suprise"); setTypeText("A surprise"); forward4(); }}><img src={pic8} className="pic" /><p>Suprise!</p></a></ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
+
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{marginTop: '20px' }}>
           <div class="buttonAlign">
@@ -330,19 +333,21 @@ function Ordering_1() {
           </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
-      </div>
+
+      </ReactBootStrap.Container>
 
 
 
-
-      <div className="bg-display" id="order5">
+      <ReactBootStrap.Container className="bg-display" id="order5">
 
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>5. {typeText}, very good choice! How many musicians would you like for this musical rendez-vous?</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
+
         <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop:"-30px" }}>
           <ReactBootStrap.Col><h4>A soloist or a duo for 20 minutes</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
+
         <ReactBootStrap.Row sm={1} md={3}>
           <div className="bg-display-test">
             <ReactBootStrap.Col><a onClick={(e) => { setNumberMusicians("solo"); forward5(); }}><img src={pic9} className="pic2" /><p>Soloist</p></a></ReactBootStrap.Col>
@@ -351,6 +356,7 @@ function Ordering_1() {
             <ReactBootStrap.Col><a onClick={(e) => { setNumberMusicians("duo"); forward5(); }}><img src={pic10} className="pic2" /><p>Duo</p></a></ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
+
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{marginTop: '20px' }}>
           <div class="buttonAlign">
@@ -358,16 +364,17 @@ function Ordering_1() {
           </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
-      </div>
+
+      </ReactBootStrap.Container>
 
 
 
-
-      <div className="bg-display" id="order6">
+      <ReactBootStrap.Container className="bg-display" id="order6">
 
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>6. Good. Is this a suprise?</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
+
         <ReactBootStrap.Row className="justify-content-md-center">
         <div className="bg-display-button">
           <a onClick={(e) => { setSuprise("yes"); forward6(); }}>
@@ -375,6 +382,7 @@ function Ordering_1() {
           </a>
         </div>
         </ReactBootStrap.Row>
+
         <ReactBootStrap.Row className="justify-content-md-center">
         <div style={{ marginTop: '10px'}} className="bg-display-button">
           <a onClick={(e) => { setSuprise("no"); forward6(); }}>
@@ -382,6 +390,7 @@ function Ordering_1() {
           </a>
         </div>
         </ReactBootStrap.Row>
+
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{marginTop: '20px' }}>
           <div class="buttonAlign">
@@ -389,11 +398,13 @@ function Ordering_1() {
           </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
-      </div>
+
+      </ReactBootStrap.Container>
 
 
 
-      <div className="bg-display" id="order7">
+      <ReactBootStrap.Container className="bg-display" id="order7">
+
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>7. All right! When do you want the concert?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -416,16 +427,18 @@ function Ordering_1() {
           </Form.Row>
 
           <div class="buttonAlign">
-          <ReactBootStrap.Button variant="danger" className='button' onClick={back7}><a>Back</a></ReactBootStrap.Button>
-          <ReactBootStrap.Button variant="danger" className='button' onClick={forward7}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back7}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={forward7}>Submit</ReactBootStrap.Button>
           </div>
 
         </Form>
-      </div>
+
+      </ReactBootStrap.Container>
 
 
 
-      <div className="bg-display" id="order8">
+      <ReactBootStrap.Container className="bg-display" id="order8">
+
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>8. Perfect! Now where will these festivities take place?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -462,15 +475,18 @@ function Ordering_1() {
           </Form.Row>
 
           <div class="buttonAlign">
-          <ReactBootStrap.Button variant="danger" className='button' onClick={back8}><a>Back</a></ReactBootStrap.Button>
-          <ReactBootStrap.Button variant="danger" className='button' onClick={forward8}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back8}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={forward8}>Submit</ReactBootStrap.Button>
           </div>
 
         </Form>
-      </div>
+
+      </ReactBootStrap.Container>
 
 
-      <div className="bg-display" id="order9">
+
+      <ReactBootStrap.Container className="bg-display" id="order9">
+
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>9. Everything is good for the concert. We need some information about you to be able to confirm the order.  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -503,13 +519,17 @@ function Ordering_1() {
         </div>
 
           <div class="buttonAlign">
-          <ReactBootStrap.Button variant="danger" className='button' onClick={back9}><a>Back</a></ReactBootStrap.Button>
-          <ReactBootStrap.Button variant="danger" className='button' onClick={forward9}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back9}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={forward9}>Submit</ReactBootStrap.Button>
           </div>
         </Form>
-      </div>
 
-      <div className="bg-display" id="order10">
+      </ReactBootStrap.Container>
+
+
+
+      <ReactBootStrap.Container className="bg-display" id="order10">
+
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>10. (Optional) A final comment about the concert or useful information for the musician(s)?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -525,18 +545,17 @@ function Ordering_1() {
           </Form.Group>
 
           <div class="buttonAlign">
-          <ReactBootStrap.Button variant="danger" className='button' onClick={back10}><a>Back</a></ReactBootStrap.Button>
-          <ReactBootStrap.Button variant="danger" className='button' onClick={forward10}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back10}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={forward10}>Submit</ReactBootStrap.Button>
           </div>
 
         </Form>
-      </div>
+
+      </ReactBootStrap.Container>
 
 
 
-
-
-      <div className="bg-display" id="orderConfirm">
+      <ReactBootStrap.Container className="bg-display" id="orderConfirm">
         <div style={{marginLeft:"30px"}}>
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col md="auto"><h3>Perfect, we have everything. Here is a summary of your order before entering payment details.</h3></ReactBootStrap.Col>
@@ -648,8 +667,7 @@ function Ordering_1() {
         </ReactBootStrap.Row>
 
         </div>
-
-      </div>
+      </ReactBootStrap.Container>
 
     </ReactBootStrap.Container>
 
