@@ -63,58 +63,58 @@ function MusicianRegister() {
                                     <ReactBootStrap.Form.Control type="text" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }} />
                                 </ReactBootStrap.Form.Group>
 
-                                <ReactBootStrap.Form.Group controlId="formGridlname">
+                                <ReactBootStrap.Form.Group  >
                                     <ReactBootStrap.Form.Control type="text" placeholder="last Name" onChange={(e) => { setLastName(e.target.value); }} />
                                 </ReactBootStrap.Form.Group>
 
-                                <ReactBootStrap.Form.Group controlId="formGridlname">
+                                <ReactBootStrap.Form.Group  >
                                     <ReactBootStrap.Form.Control type="text" placeholder="Address" onChange={(e) => { setAddress(e.target.value); }} />
                                 </ReactBootStrap.Form.Group>
 
                                 <ReactBootStrap.Row>
                                     <ReactBootStrap.Col md={{ span: 4 }}>
-                                        <ReactBootStrap.Form.Group controlId="formGridlname">
+                                        <ReactBootStrap.Form.Group  >
                                             <ReactBootStrap.Form.Control type="text" placeholder="Postal Code" onChange={(e) => { setPostalCode(e.target.value); }} />
                                         </ReactBootStrap.Form.Group>
                                     </ReactBootStrap.Col>
 
                                     <ReactBootStrap.Col >
-                                        <ReactBootStrap.Form.Group controlId="formGridlname">
+                                        <ReactBootStrap.Form.Group  >
                                             <ReactBootStrap.Form.Control type="text" placeholder="Locality/City" onChange={(e) => { setCity(e.target.value); }} />
                                         </ReactBootStrap.Form.Group>
                                     </ReactBootStrap.Col>
                                 </ReactBootStrap.Row>
 
-                                <ReactBootStrap.Form.Group controlId="formGridlname">
+                                <ReactBootStrap.Form.Group  >
                                     <ReactBootStrap.Form.Control type="text" placeholder="Province" onChange={(e) => { setProvince(e.target.value); }} />
                                 </ReactBootStrap.Form.Group>
 
-                                <ReactBootStrap.Form.Group controlId="formGridlname">
+                                <ReactBootStrap.Form.Group  >
                                     <ReactBootStrap.Form.Control type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone: 012-345-6789" onChange={(e) => { setPhone(e.target.value); }} />
                                 </ReactBootStrap.Form.Group>
 
 
-                                <ReactBootStrap.Form.Group controlId="formGridfname">
+                                <ReactBootStrap.Form.Group >
                                     <ReactBootStrap.Form.Label id='font'>Banking Information</ReactBootStrap.Form.Label>
                                     <ReactBootStrap.Form.Control type="text" placeholder="IBAN" onChange={(e) => { setIban(e.target.value); }} />
                                 </ReactBootStrap.Form.Group>
 
 
-                                <ReactBootStrap.Form.Group controlId="formGridfname">
+                                <ReactBootStrap.Form.Group >
                                     <ReactBootStrap.Form.Label id='font'>Account Information</ReactBootStrap.Form.Label>
                                     <ReactBootStrap.Form.Control type="text" placeholder="E-mail" onChange={(e) => { setEmail(e.target.value); }} />
                                 </ReactBootStrap.Form.Group>
 
-                                <ReactBootStrap.Form.Group controlId="formGridlname">
+                                <ReactBootStrap.Form.Group >
                                     <ReactBootStrap.Form.Control type="text" placeholder="Password" onChange={(e) => { setPassword(e.target.value); }} />
                                 </ReactBootStrap.Form.Group>
 
-                                <ReactBootStrap.Form.Group controlId="formGridlname">
+                                <ReactBootStrap.Form.Group >
                                     <ReactBootStrap.Form.Control type="text" placeholder="Confirm Password" onChange={(e) => { setConfirmPassword(e.target.value); }} />
                                 </ReactBootStrap.Form.Group>
 
 
-                                <ReactBootStrap.Form.Group controlId="formGridlname">
+                                <ReactBootStrap.Form.Group  >
                                     <ReactBootStrap.Form.Label id='font'>Musical Training(s)</ReactBootStrap.Form.Label>
                                 </ReactBootStrap.Form.Group>
 
@@ -150,11 +150,11 @@ function MusicianRegister() {
 
                                 </ReactBootStrap.Row>
 
-                                <ReactBootStrap.Form.Group controlId="formGridfname" >
+                                <ReactBootStrap.Form.Group  >
                                     <ReactBootStrap.Form.Label id='font'>Professional Information</ReactBootStrap.Form.Label>
                                 </ReactBootStrap.Form.Group>
 
-                                <ReactBootStrap.Form.Group controlId="formGridlname" style={{ marginBottom: '1px' }}>
+                                <ReactBootStrap.Form.Group   style={{ marginBottom: '1px' }}>
                                     <ReactBootStrap.Form.Label><i>Instruments</i></ReactBootStrap.Form.Label>
                                 </ReactBootStrap.Form.Group>
 
@@ -252,18 +252,18 @@ function MusicianRegister() {
 
                                 </ReactBootStrap.Row>
 
-                                <ReactBootStrap.Form.Group controlId="formGridlname" style={{ marginBottom: '40px', marginTop: '15px' }}>
+                                <ReactBootStrap.Form.Group   style={{ marginBottom: '40px', marginTop: '15px' }}>
                                     <ReactBootStrap.Form.Control type="text" placeholder="Other Instrument" />
                                 </ReactBootStrap.Form.Group>
 
-                                <ReactBootStrap.Form.Group controlId="formGridlname" style={{ marginBottom: '1px' }}>
+                                <ReactBootStrap.Form.Group   style={{ marginBottom: '1px' }}>
                                     <ReactBootStrap.Form.Label><i>Music Styles</i></ReactBootStrap.Form.Label>
                                 </ReactBootStrap.Form.Group>
 
 
                                 <ReactBootStrap.Row>
                                     <ReactBootStrap.Col md={{ span: 3 }} >
-                                        <ReactBootStrap.Form.Group controlId="formGridlname">
+                                        <ReactBootStrap.Form.Group>
                                             <ReactBootStrap.Form.Label>Classical Styles</ReactBootStrap.Form.Label>
                                         </ReactBootStrap.Form.Group>
                                         <div class="custom-control custom-checkbox">
@@ -298,7 +298,7 @@ function MusicianRegister() {
 
 
                                     <ReactBootStrap.Col md={{ span: 3 }} >
-                                        <ReactBootStrap.Form.Group controlId="formGridlname">
+                                        <ReactBootStrap.Form.Group  >
                                             <ReactBootStrap.Form.Label>Popular Styles</ReactBootStrap.Form.Label>
                                         </ReactBootStrap.Form.Group>
                                         <div class="custom-control custom-checkbox">
@@ -384,7 +384,7 @@ function MusicianRegister() {
                                     </ReactBootStrap.Col>
 
                                     <ReactBootStrap.Col md={{ span: 3 }} >
-                                        <ReactBootStrap.Form.Group controlId="formGridlname">
+                                        <ReactBootStrap.Form.Group  >
                                             <ReactBootStrap.Form.Label>Jazz Styles</ReactBootStrap.Form.Label>
                                         </ReactBootStrap.Form.Group>
                                         <div class="custom-control custom-checkbox">
@@ -462,7 +462,7 @@ function MusicianRegister() {
                                 <ReactBootStrap.Row>
 
                                     <ReactBootStrap.Col >
-                                        <ReactBootStrap.Form.Group controlId="formGridlname" style={{ marginBottom: '1px', marginTop: '15px' }}>
+                                        <ReactBootStrap.Form.Group   style={{ marginBottom: '1px', marginTop: '15px' }}>
                                             <ReactBootStrap.Form.Label><i>You Play In?</i></ReactBootStrap.Form.Label>
                                         </ReactBootStrap.Form.Group>
                                         <div class="custom-control custom-checkbox">
@@ -477,11 +477,11 @@ function MusicianRegister() {
                                 </ReactBootStrap.Row>
 
 
-                                <ReactBootStrap.Form.Group controlId="formGridlname" >
+                                <ReactBootStrap.Form.Group   >
                                     <ReactBootStrap.Form.Label><i>Media</i></ReactBootStrap.Form.Label>
                                     <ReactBootStrap.Form.Control type="text" placeholder="Website" onChange={(e) => { setSite(e.target.value); }} />
                                 </ReactBootStrap.Form.Group>
-                                <ReactBootStrap.Form.Group controlId="formGridlname">
+                                <ReactBootStrap.Form.Group  >
                                     <ReactBootStrap.Form.Control type="text" placeholder="YouTube/Drive/Dropbox Link" onChange={(e) => { setMedia(e.target.value); }} />
                                 </ReactBootStrap.Form.Group>
 
