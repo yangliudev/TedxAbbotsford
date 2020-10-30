@@ -45,7 +45,7 @@ function MusicianRegister() {
 
     return (
         <ReactBootStrap.Container className="top-space">
-            <div className="bg-display" >
+            <ReactBootStrap.Container className="bg-display" >
 
                 <ReactBootStrap.Row className="justify-content-md-center" >
                     <ReactBootStrap.Col><h1 class="info">Register to Become a Musician!</h1>
@@ -510,7 +510,7 @@ function MusicianRegister() {
                     </ReactBootStrap.Container>
                 </ReactBootStrap.Form>
 
-            </div>
+            </ReactBootStrap.Container>
         </ReactBootStrap.Container>
 
     )

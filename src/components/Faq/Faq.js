@@ -9,7 +9,7 @@ class Faq extends Component {
         
         return (
             <ReactBootStrap.Container className="top-space" style={{ marginBottom:'110px'}}>
-            <div className="bg-display">
+            <ReactBootStrap.Container className="bg-display">
         
             <ReactBootStrap.Row className="justify-content-md-center" >
                 <ReactBootStrap.Col><h2 class="faq"><b id="fade">F</b>requently <b id="fade">A</b>sked <b id="fade">Q</b>uestions</h2>
@@ -131,7 +131,7 @@ class Faq extends Component {
                        
 
 
-                </div>
+                </ReactBootStrap.Container>
             </ReactBootStrap.Container>
 
         )

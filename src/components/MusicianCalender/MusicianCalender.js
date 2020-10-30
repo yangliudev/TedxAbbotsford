@@ -135,18 +135,7 @@ class MusicianCalender extends Component {
 
 
   render() {
-    // var {...config} = this.state;
-    // return (
-    //   <div>
-    //     <DayPilotScheduler
-    //       {...config}
-    //       ref={component => {
-    //         this.scheduler = component && component.control;
-    //       }}
-    //     />
-    //   </div>
-    // );
-
+  
     const {
       state: { values, update }
     } = this;
@@ -155,7 +144,7 @@ class MusicianCalender extends Component {
 
       <ReactBootStrap.Container className="top-space">
 
-        <div className="bg-display">
+        <ReactBootStrap.Container className="bg-display">
 
           <ReactBootStrap.Row className="justify-content-md-center" >
             <ReactBootStrap.Col><h1 class="info">Select your Availability</h1>
@@ -600,7 +589,7 @@ class MusicianCalender extends Component {
 
             </ReactBootStrap.Row>
           </ReactBootStrap.Container>
-        </div>
+        </ReactBootStrap.Container>
 
       </ReactBootStrap.Container>
 
