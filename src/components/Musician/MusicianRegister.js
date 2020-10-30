@@ -122,27 +122,34 @@ function MusicianRegister() {
 
                                     <ReactBootStrap.Col md={{ span: 4 }}>
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios" onClick={(e) => { setTraining("master"); }} />
+                                            <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="groupOfDefaultRadios" onClick={(e) => { setTraining("master"); HideTextArea()}} />
                                             <label class="custom-control-label" for="defaultGroupExample1">Master</label>
                                         </div>
 
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" onClick={(e) => { setTraining("in school"); }} />
+                                            <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" onClick={(e) => { setTraining("in school"); HideTextArea() }} />
                                             <label class="custom-control-label" for="defaultGroupExample2">Currently in School</label>
                                         </div>
+
+                                       
 
 
                                     </ReactBootStrap.Col>
 
                                     <ReactBootStrap.Col md={{ span: 6 }} >
                                         <div class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios" onClick={(e) => { setTraining("Bachelor"); }} />
+                                            <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios" onClick={(e) => { setTraining("Bachelor");HideTextArea() }} />
                                             <label class="custom-control-label" for="defaultGroupExample3">Bachelor</label>
+                                        </div>
+
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="defaultGroupExample4" name="groupOfDefaultRadios" onClick={(e) => { setTraining("in school"); ShowTextArea() }} />
+                                            <label class="custom-control-label" for="defaultGroupExample4">Other</label>
                                         </div>
                                        
                                         <div class="form-group shadow-textarea" id="myDIV" >
                                             <label for="exampleFormControlTextarea6"></label>
-                                            <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="5" placeholder="Other Qualifications..."  onChange={(e) => { setOtherTraining(e.target.value); }}></textarea>
+                                            <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="5" placeholder="Other Qualifications..." onChange={(e) => { setOtherTraining(e.target.value); }}></textarea>
                                         </div>
 
 
