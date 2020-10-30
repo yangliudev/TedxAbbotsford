@@ -189,6 +189,23 @@
   #order6 {
     display: none;
   }
+
+  #order7 {
+    display: none;
+  }
+
+  #order8 {
+    display: none;
+  }
+
+  #order9 {
+    display: none;
+  }
+
+  #order10 {
+    display: none;
+  }
+
   #orderConfirm {
     display: none;
   }
@@ -199,6 +216,11 @@
 
  .intro {
     color: rgb(223, 84, 107);
+  }
+
+.confirmHeader {
+    color: #C0C5C7;
+    font-size: 200%;
   }
 
   #form1 {
