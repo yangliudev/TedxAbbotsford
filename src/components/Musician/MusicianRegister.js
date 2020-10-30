@@ -178,16 +178,16 @@ function MusicianRegister() {
                                             <label class="custom-control-label" for="style2">Harp</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style2" />
-                                            <label class="custom-control-label" for="style2">Trumbone</label>
+                                            <input type="checkbox" class="custom-control-input" id="style3" />
+                                            <label class="custom-control-label" for="style3">Trumbone</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style2" />
-                                            <label class="custom-control-label" for="style2" >Trumpet</label>
+                                            <input type="checkbox" class="custom-control-input" id="style4" />
+                                            <label class="custom-control-label" for="style4" >Trumpet</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style2" />
-                                            <label class="custom-control-label" for="style2">Bass</label>
+                                            <input type="checkbox" class="custom-control-input" id="style5" />
+                                            <label class="custom-control-label" for="style5">Bass</label>
                                         </div>
 
 
@@ -197,28 +197,28 @@ function MusicianRegister() {
                                     <ReactBootStrap.Col md={{ span: 3 }} >
 
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style0" />
-                                            <label class="custom-control-label" for="style0">Singing</label>
+                                            <input type="checkbox" class="custom-control-input" id="style6" />
+                                            <label class="custom-control-label" for="style6">Singing</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style1" />
-                                            <label class="custom-control-label" for="style1">Saxophone</label>
+                                            <input type="checkbox" class="custom-control-input" id="style7" />
+                                            <label class="custom-control-label" for="style7">Saxophone</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style2" />
-                                            <label class="custom-control-label" for="style2">Viola-Copper</label>
+                                            <input type="checkbox" class="custom-control-input" id="style8" />
+                                            <label class="custom-control-label" for="style8">Viola-Copper</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style2" />
-                                            <label class="custom-control-label" for="style2">Bassoon</label>
+                                            <input type="checkbox" class="custom-control-input" id="style9" />
+                                            <label class="custom-control-label" for="style9">Bassoon</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style2" />
-                                            <label class="custom-control-label" for="style2">Flute</label>
+                                            <input type="checkbox" class="custom-control-input" id="style10" />
+                                            <label class="custom-control-label" for="style10">Flute</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style2" />
-                                            <label class="custom-control-label" for="style2">Horn</label>
+                                            <input type="checkbox" class="custom-control-input" id="style11" />
+                                            <label class="custom-control-label" for="style11">Horn</label>
                                         </div>
                                     </ReactBootStrap.Col>
 
@@ -226,28 +226,28 @@ function MusicianRegister() {
                                     <ReactBootStrap.Col md={{ span: 3 }} >
 
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style0" />
-                                            <label class="custom-control-label" for="style0">Guitar</label>
+                                            <input type="checkbox" class="custom-control-input" id="style12" />
+                                            <label class="custom-control-label" for="style12">Guitar</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style1" />
-                                            <label class="custom-control-label" for="style1">Accordion</label>
+                                            <input type="checkbox" class="custom-control-input" id="style13" />
+                                            <label class="custom-control-label" for="style13">Accordion</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style2" />
-                                            <label class="custom-control-label" for="style2">Clarinet</label>
+                                            <input type="checkbox" class="custom-control-input" id="style14" />
+                                            <label class="custom-control-label" for="style14">Clarinet</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style2" />
-                                            <label class="custom-control-label" for="style2">Cello</label>
+                                            <input type="checkbox" class="custom-control-input" id="style15" />
+                                            <label class="custom-control-label" for="style15">Cello</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style2" />
-                                            <label class="custom-control-label" for="style2">Purcussion</label>
+                                            <input type="checkbox" class="custom-control-input" id="style16" />
+                                            <label class="custom-control-label" for="style16">Purcussion</label>
                                         </div>
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="style2" />
-                                            <label class="custom-control-label" for="style2">Alphorn</label>
+                                            <input type="checkbox" class="custom-control-input" id="style17" />
+                                            <label class="custom-control-label" for="style17">Alphorn</label>
                                         </div>
 
 
