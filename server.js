@@ -14,17 +14,6 @@ const db = mysql.createPool({
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
-// app.get('/', (req, res) => {
-//     // const sqlInsert = "INSERT INTO musician_table (name, type) VALUES ('Trump', 'bad')"
-//     // const musicians = [
-//     //     {id: 1, firstName: 'John', lastName: 'Doe'},
-//     //     {id: 2, firstName: 'Mary', lastName: 'Goe'},
-//     //     {id: 3, firstName: 'Dame', lastName: 'Dalla'},
-//     // ];
-//     // db.query(sqlInsert, (err, result) => {
-//     //     res.json(musicians);
-//     // })
-// });
 
 
 app.get("/api/get", (req, res) => {
@@ -51,6 +40,52 @@ app.post("/api/insert", (req, res)=> {
     }); 
 });
 
+app.post("/musician/insert", (req, res)=> {
+    const musicianFirstName = req.body.musicianFirstName;
+    const musicianLastName = req.body.musicianLastName;
+    const musicianAddress = req.body.musicianAddress;
+    const musicianPostalCode = req.body.orderNumberMusicians;
+    const musicianProvince = req.body.orderSuprise;
+    const musicianPhone = req.body.orderFirstName;
+    const musicianIban = req.body.orderLastName;
+    const musicianEmail = req.body.orderDateService;
+    const musicianPassword = req.body.orderTimeService;
+    const musicianConfirmPassword = req.body.orderOffered;
+    const musicianTraining = req.body.orderNumber;
+    const musicianOtherTraining = req.body.orderEmail;
+    const musicianInstrument = req.body.orderAddress;
+    const musicianStyle = req.body.orderAddress2;
+    const musicianGroup = req.body.orderCity;
+    const musicianSite = req.body.orderState;
+    const musicianMedia = req.body.orderZip;
+
+
+    const sqlInsert = "INSERT INTO ordering_table (gift, occasion, type, number_musicians, suprise, firstName, lastName, date_service, time_service, offered, number, email, address, address_2, city, state, zip, comments) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    db.query(sqlInsert, [
+        musicianFirstName, 
+        musicianLastName, 
+        musicianAddress, 
+        musicianPostalCode,
+        musicianProvince,
+        musicianPhone,
+        musicianIban,
+        musicianEmail,
+        musicianPassword,
+        musicianConfirmPassword,
+        musicianTraining,
+        musicianOtherTraining,
+        musicianInstrument,
+        musicianStyle,
+        musicianGroup,
+        musicianSite,
+        musicianMedia
+    ],
+
+         (err, result)=> {
+        console.log(result);
+        console.log(err);
+    }); 
+});
 
 app.post("/order/insert", (req, res)=> {
     const orderGift = req.body.orderGift;
@@ -71,6 +106,7 @@ app.post("/order/insert", (req, res)=> {
     const orderState = req.body.orderState;
     const orderZip = req.body.orderZip;
     const orderComments = req.body.orderComments;
+
 
     const sqlInsert = "INSERT INTO ordering_table (gift, occasion, type, number_musicians, suprise, firstName, lastName, date_service, time_service, offered, number, email, address, address_2, city, state, zip, comments) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
     db.query(sqlInsert, [

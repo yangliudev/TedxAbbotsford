@@ -40,7 +40,7 @@ class Info extends Component {
                     <p class='title'>The Games Rules</p>
                     <p class='size'>Some little information so that everything goes well during a musical performance in the Garden.</p>
                
-                    <ReactBootStrap.Button variant="primary" size="md">
+                    <ReactBootStrap.Button variant="primary" size="md" href="/#/test">
                         Learn More
                         </ReactBootStrap.Button>{' '}
 
