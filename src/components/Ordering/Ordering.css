@@ -43,6 +43,7 @@
     border-radius: 6px;
 }
 
+
 .bg-display-button{
   background-color: rgba(255, 255, 255, 0.205);
   text-align: center;
@@ -113,6 +114,8 @@
       margin-left: 20px;
       margin-top: 10px;
       font-family: MyFont2;
+      float: left;
+
   }
 
   .borders {
@@ -161,6 +164,7 @@
     font-style: italic;
     font-size: 20px;
     font-family: MyFont;
+    float: left;
   }
 
   label {
@@ -181,16 +185,30 @@
 
   
   @media screen and (min-width: 1400px) {
-    #order1 {
+    #order1, #order2, #order3, #order6 {
       width: 80%;
       align-items: center;
       align-content: center;
       margin-left: auto;
       margin-right: auto;
     }
+    #order4, #order5, #orderConfirm {
+      width: 40%;
+      align-items: center;
+      align-content: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
     @media screen and (min-width: 1800px) {
-      #order1 {
+      #order1, #order2, #order3, #order6 {
         width: 60%;
+        align-items: center;
+        align-content: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #order4, #order5, #orderConfirm {
+        width: 40%;
         align-items: center;
         align-content: center;
         margin-left: auto;

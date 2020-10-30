@@ -65,7 +65,7 @@ class Home extends Component {
                             <h1 class="textAlign2">1</h1>
                             <h1 class="cardHeader">Inquire the occasion celebrated</h1>
                         
-                            <img class="card-img-top" src={firstPicture}></img> 
+                            <img class="card-img-top" src={firstPicture} style={{width:"75%"}}></img> 
                             <p class="card-text3"><br/>"Grandma Léa's birthday!"</p>
                             <p class="card-text3">"A little aperitif with friends"</p>
                             <p class="card-text3">"Violin for a romantic evening!"</p>
@@ -75,7 +75,7 @@ class Home extends Component {
 
                             <h1 class="textAlign2">2</h1>
                             <h1 class="cardHeader">Decide music<br></br><br></br></h1>
-                            <img class="card-img-top" src={secondPicture}></img>
+                            <img class="card-img-top" style={{width:"75%"}} src={secondPicture}></img>
                             <p class="card-text3"><br/>You decide the style of music! In addition to this, you need to know more about it. We take care of finding the musicians available in your region on the date and time indicated.</p>
                     
                         </ReactBootStrap.Col>
@@ -83,7 +83,7 @@ class Home extends Component {
 
                             <h1 class="textAlign2">3</h1>
                             <h1 class="cardHeader">Pay online<br></br><br></br></h1>
-                            <img class="card-img-top" src={thirdPicture}></img>
+                            <img class="card-img-top" src={thirdPicture} style={{width:"75%"}}></img>
                             <p class="card-text3"><br/>After giving us all the necessary information , enjoy a fast and secure payment.</p>
                             
                         </ReactBootStrap.Col>
@@ -91,7 +91,7 @@ class Home extends Component {
 
                             <h1 class="textAlign2">4</h1>
                             <h1 class="cardHeader">Listen and savor<br></br><br></br></h1>
-                            <img class="card-img-top" src={fourthPicture}></img>
+                            <img class="card-img-top" src={fourthPicture} style={{width:"75%"}}></img>
                             <p class="card-text3"><br/>On the day-D and at the time indicated, one or two musicians will appear in front of the beneficiary's door on time and will play for 20 minutes. </p>
                             <p class="card-text2">Let the music!</p>
                     
@@ -110,19 +110,19 @@ class Home extends Component {
                         <ReactBootStrap.Col md={4}>
 
                             <h1 class="textAlign2">DURATION</h1>
-                            <img class="card-img-top" id="img2" src={fifthPicture}></img>
+                            <img class="card-img-top" id="img2" src={fifthPicture} style={{width:"75%"}}></img>
                             <h1 class="cardHeader">20 minutes of music</h1>
 
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md={4}>
                             <h1 class="textAlign2">PUBLIC</h1>
-                            <img class="card-img-top" id="img2" src={fifthPicture}></img>
+                            <img class="card-img-top" id="img2" src={fifthPicture} style={{width:"75%"}}></img>
                             <h1 class="cardHeader">in a small group with</h1>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md={4}>
 
                             <h1 class="textAlign2">PRICE</h1>
-                            <img class="card-img-top" id="img2" src={sixthPicture}></img>
+                            <img class="card-img-top" id="img2" src={sixthPicture} style={{width:"75%"}}></img>
                             <h1 class="cardHeader">one or two professional musicians</h1>
 
                         </ReactBootStrap.Col>

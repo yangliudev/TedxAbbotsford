@@ -13,6 +13,7 @@
     "body-parser": "^1.19.0",
     "bootstrap": "^4.5.3",
     "cors": "^2.8.5",
+    "google-maps-react": "^2.0.6",
     "material-table": "^1.69.1",
     "material-ui": "^1.0.0-beta.47",
     "mdbreact": "^4.27.0",

@@ -15,6 +15,10 @@ function MusicianRegister() {
     textArea.style.display = "none";
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [address, setAddress] = useState("");

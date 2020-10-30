@@ -81,6 +81,7 @@ function Musician_Dash() {
   
               <MUIDataTable title={"Musicians"} data={data} columns={columns} options={options} />
               </MuiThemeProvider>
+              <a href="/#/admin">Orders</a>
               </div>
     );
   }

@@ -15,7 +15,7 @@ class Footer extends Component {
         <h5 class="mb-1">Register as a Musician</h5>
       </li>
       <li class="list-inline-item">
-        <a href="#!" class="btn btn-outline-white btn-rounded">Sign up!</a>
+        <a href="/#/musician" class="btn btn-outline-white btn-rounded">Sign up!</a>
       </li>
     </ul>
 

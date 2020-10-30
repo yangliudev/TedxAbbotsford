@@ -1,0 +1,13 @@
+#block1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+#block2 {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 3px 8px;
+    color: #fff;
+    z-index: 1;
+}
