@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'MyFont';
-  src: local('MyFont'), url(./ordering-assets/fonts/NeutraText\ Book.otf) format('woff');
+  src: local('MyFont'), url(../../assets/fonts/NeutraText\ Book.otf) format('woff');
 }
 
 @font-face {
   font-family: 'MyFont2';
-  src: local('MyFont2'), url(./ordering-assets/fonts/NeutraTextDemi.otf) format('woff');
+  src: local('MyFont2'), url(../../assets/fonts/NeutraTextDemi.otf) format('woff');
 }
 
 @font-face {
   font-family: 'MyFont3';
-  src: local('MyFont3'), url(./ordering-assets/fonts/NeutraTextLight.otf) format('woff');
+  src: local('MyFont3'), url(../../assets/fonts/NeutraTextLight.otf) format('woff');
 }
 
 .top-space {
@@ -25,7 +25,9 @@
     box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
     padding-bottom: 50px;
     border-radius: 20px;
-    width: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 .bg-display-test {
@@ -42,7 +44,6 @@
     border-width: 1px;
     border-radius: 6px;
 }
-
 
 .bg-display-button{
   background-color: rgba(255, 255, 255, 0.205);
@@ -114,8 +115,6 @@
       margin-left: 20px;
       margin-top: 10px;
       font-family: MyFont2;
-      float: left;
-
   }
 
   .borders {
@@ -164,7 +163,6 @@
     font-style: italic;
     font-size: 20px;
     font-family: MyFont;
-    float: left;
   }
 
   label {
@@ -178,46 +176,9 @@
     font-family: MyFont;
   }
 
-  
   #order2 {
     display: none;
   }
-
-  
-  @media screen and (min-width: 1400px) {
-    #order1, #order2, #order3, #order6 {
-      width: 80%;
-      align-items: center;
-      align-content: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    #order4, #order5, #orderConfirm {
-      width: 40%;
-      align-items: center;
-      align-content: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    @media screen and (min-width: 1800px) {
-      #order1, #order2, #order3, #order6 {
-        width: 60%;
-        align-items: center;
-        align-content: center;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      #order4, #order5, #orderConfirm {
-        width: 40%;
-        align-items: center;
-        align-content: center;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-  
-  }
-
   #order3 {
     display: none;
   }
@@ -230,6 +191,23 @@
   #order6 {
     display: none;
   }
+
+  #order7 {
+    display: none;
+  }
+
+  #order8 {
+    display: none;
+  }
+
+  #order9 {
+    display: none;
+  }
+
+  #order10 {
+    display: none;
+  }
+
   #orderConfirm {
     display: none;
   }
@@ -242,14 +220,26 @@
     color: rgb(223, 84, 107);
   }
 
+.confirmHeader {
+    color: #C0C5C7;
+    font-size: 200%;
+  }
+
   #form1 {
     color: white;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @media only screen and (orientation: portrait) {
     .bg-display-test {
-      width: 18em;
+      width: 70%;
       margin-bottom: 2em;
+    }
+
+    #form1 {
+      width: 100%;
     }
 
   }
