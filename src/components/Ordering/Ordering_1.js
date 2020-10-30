@@ -165,8 +165,8 @@ function Ordering_1() {
 
   return (
 
-    <ReactBootStrap.Container className="top-space">
-      <div className="bg-display" id="order1">
+    <ReactBootStrap.Container className="top-space" >
+      <ReactBootStrap.Container className="bg-display" id="order1" >
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>1. First step, <b>to whom</b> do you want to offer this musical moment?</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -197,11 +197,11 @@ function Ordering_1() {
             <ReactBootStrap.Col><a onClick={(e) => { setGift("donate"); forward1(); }}><img src={pic4} className="pic" /><p>Donate To <br /> The Platform</p></a></ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
-      </div>
+      </ReactBootStrap.Container>
 
 
 
-      <div className="bg-display" id="order2">
+      <ReactBootStrap.Container className="bg-display" id="order2">
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>2. For Which Occasion?</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -210,7 +210,7 @@ function Ordering_1() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
-          <ReactBootStrap.Col style={{ marginLeft: '20px', marginRight: '20px' }}>
+          <ReactBootStrap.Col style={{ marginLeft: '300px', marginRight: '300px' }}>
             <div class="md-form">
               <input type="text" id="form1" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
             </div>
@@ -224,12 +224,12 @@ function Ordering_1() {
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
-      </div>
+      </ReactBootStrap.Container>
 
 
 
 
-      <div className="bg-display" id="order3">
+      <ReactBootStrap.Container className="bg-display" id="order3">
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>3. What Type of Musican in you Garden?</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -257,12 +257,12 @@ function Ordering_1() {
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
-      </div>
+      </ReactBootStrap.Container>
 
 
 
 
-      <div className="bg-display" id="order4">
+      <ReactBootStrap.Container className="bg-display" id="order4">
 
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>4. Number of Musicians</h3></ReactBootStrap.Col>
@@ -285,12 +285,12 @@ function Ordering_1() {
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
-      </div>
+      </ReactBootStrap.Container>
 
 
 
 
-      <div className="bg-display" id="order5">
+      <ReactBootStrap.Container className="bg-display" id="order5">
 
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>5. Is it a suprise?</h3></ReactBootStrap.Col>
@@ -316,12 +316,12 @@ function Ordering_1() {
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
-      </div>
+      </ReactBootStrap.Container>
 
 
 
 
-      <div className="bg-display" id="order6">
+      <ReactBootStrap.Container className="bg-display" id="order6">
 
 
 
@@ -409,13 +409,13 @@ function Ordering_1() {
             <ReactBootStrap.Button variant="danger" className='button' onClick={forward6}>Submit</ReactBootStrap.Button>
           </div>
         </Form>
-      </div>
+      </ReactBootStrap.Container>
 
 
 
 
 
-      <div className="bg-display" id="orderConfirm">
+      <ReactBootStrap.Container className="bg-display" id="orderConfirm">
         <div style={{ marginLeft: "30px" }}>
           <ReactBootStrap.Row className="justify-content-md-center">
             <ReactBootStrap.Col md="auto"><h3>Confirm Order</h3></ReactBootStrap.Col>
@@ -519,7 +519,7 @@ function Ordering_1() {
             </div>
           </ReactBootStrap.Row>
         </div>
-      </div>
+      </ReactBootStrap.Container>
 
     </ReactBootStrap.Container>
   )
