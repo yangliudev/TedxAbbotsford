@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import * as ReactBootStrap from "react-bootstrap";
 import main_logo from './logo-image/01_Logo-principal.png';
 import main_logo2 from "./logo-image/01_logo-horizontal - Copy.png";
-import "./Navbar.css"
-
+import "./Navbar.css";
 
 class Navbar extends Component {
 
@@ -23,7 +22,7 @@ class Navbar extends Component {
       <ReactBootStrap.Nav.Link href="/info" className="nav-text">INFO</ReactBootStrap.Nav.Link>
       <ReactBootStrap.Nav.Link href="/order1" className="nav-text">ORDER</ReactBootStrap.Nav.Link> */}
       <a href={process.env.PUBLIC_URL + '/#/'} className="nav-font">HOME</a>
-      <a href={process.env.PUBLIC_URL + '/#/faq'} className="nav-font">FAQ</a>
+      <a href={process.env.PUBLIC_URL + '/#/map'} className="nav-font">MAP</a>
       <a href={process.env.PUBLIC_URL + '/#/info'} className="nav-font">INFO</a>
       <a href={process.env.PUBLIC_URL + '/#/about'} className="nav-font">ABOUT</a>
 

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from "react";
 // import logo from './logo.svg';
 // import Navbar from 'react-bootstrap/Navbar';
 // import Button from '@material-ui/core/Button';
-import './App.css';
+import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
@@ -14,35 +14,38 @@ import Ordering1 from "./components/Ordering/Ordering_1";
 // import Ordering6 from "./components/Ordering/Ordering_6";
 import Home from "./components/Home/Home";
 
+import Map from "./components/Map/Map";
+
+import OrderDataService from "./services/OrderService";
+
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
-
 class App extends Component {
+  
   render() {
-  return (
-    <Router>
-
-      <Switch>
-      <Route exact path="/">
-          <Navbar />
-          <Home />
-          <Footer />
-        </Route>
-        <Route path="/order">
-          <Ordering1 />
-        </Route>
-      </Switch>
-
-      
-  </Router>
-  );
-        
+    return (
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/map">
+            <Map />
+          </Route>
+          {/* <Footer /> */}
+          <Route path="/order">
+            <Ordering1 />
+          </Route>
+        </Switch>
+      </Router>
+    );
   }
-};
+}
 
 export default App;
 
-    /* <Route path="/order2">
+/* <Route path="/order2">
           <Ordering2/>
         </Route>
         <Route path="/order3">
