@@ -651,37 +651,7 @@ function Ordering_1() {
 
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </ReactBootStrap.Container>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   )
 };
