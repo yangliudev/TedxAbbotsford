@@ -22,7 +22,7 @@ input[type=checkbox] {
 
 label :checked + span {
     background: #81A92F;
-    color: black;
+    color: white;
     border-radius: 15px;
     padding: 5px;
 }
@@ -38,4 +38,9 @@ label span {
     text-align: center;
     padding: 5px;
 
+}
+
+label :hover + span {
+    border-color: rgb(59, 173, 39);
+    margin-left: 3px;
 }
