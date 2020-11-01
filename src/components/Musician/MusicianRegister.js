@@ -220,7 +220,7 @@ function MusicianRegister() {
                         onClick={
                           (HideTextArea,
                           (e) => {
-                            setTraining("master");
+                            setTraining("master"); ;HideTextArea()
                           })
                         }
                       />
@@ -241,7 +241,7 @@ function MusicianRegister() {
                         onClick={
                           (HideTextArea,
                           (e) => {
-                            setTraining("in school");
+                            setTraining("in school"); ;HideTextArea()
                           })
                         }
                       />
@@ -264,7 +264,7 @@ function MusicianRegister() {
                         onClick={
                           (HideTextArea,
                           (e) => {
-                            setTraining("Bachelor");
+                            setTraining("Bachelor"); ;HideTextArea()
                           })
                         }
                       />
@@ -326,21 +326,28 @@ function MusicianRegister() {
 
                 <ReactBootStrap.Row>
                   <ReactBootStrap.Col md={{ span: 3 }}>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style0"
                         onChange={(e) => {
                           setInstrument("voice");
                         }}
-                      />
-                      <label class="custom-control-label" for="style0">
+                      /> */}
+                      {/* <button class="btn btn-info btn-sm btn-rounded" for='style0'>Voice</button> */}
+                      {/* <label class="btn btn-info btn-rounded" for="style0">
                         Voice
+                      </label> */}
+                      <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("voice");
+                        }} />
+                        <span>Voice</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style1"
@@ -350,10 +357,18 @@ function MusicianRegister() {
                       />
                       <label class="custom-control-label" for="style1">
                         Piano
+                      </label> */}
+                      {/* <button class="btn btn-success btn-sm btn-rounded" for='style1'>Piano</button> */}
+                      <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("piano");
+                        }}/>
+                        <span>Piano</span>
                       </label>
+                    
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style2"
@@ -363,93 +378,147 @@ function MusicianRegister() {
                       />
                       <label class="custom-control-label" for="style2">
                         Harp
+                      </label> */}
+                       <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("harp");
+                        }}/>
+                        <span>Harp</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style2"
                       />
-                      <label class="custom-control-label" for="style2">
+                      <label class="custom-control-label" for="style3">
                         Trumbone
+                      </label> */}
+                       <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("trumbone");
+                        }}/>
+                        <span>Trumbone</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
-                        id="style2"
+                        id="style3"
                       />
                       <label class="custom-control-label" for="style2">
                         Trumpet
+                      </label> */}
+                       <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("trumpet");
+                        }}/>
+                        <span>Trumpet</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style2"
                       />
                       <label class="custom-control-label" for="style2">
                         Bass
+                      </label> */}
+                       <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("bass");
+                        }}/>
+                        <span>Bass</span>
                       </label>
                     </div>
                   </ReactBootStrap.Col>
 
                   <ReactBootStrap.Col md={{ span: 3 }}>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div>
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style0"
                       />
                       <label class="custom-control-label" for="style0">
                         Singing
+                      </label> */}
+                        <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("singing");
+                        }}/>
+                        <span>Singing</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style1"
                       />
                       <label class="custom-control-label" for="style1">
                         Saxophone
+                      </label> */}
+                        <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("saxophone");
+                        }}/>
+                        <span>Saxophone</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style2"
                       />
                       <label class="custom-control-label" for="style2">
                         Viola-Copper
+                      </label> */}
+                        <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("viola-copper");
+                        }}/>
+                        <span>Viola-Copper</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style2"
                       />
                       <label class="custom-control-label" for="style2">
                         Bassoon
+                      </label> */}
+                        <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("bassoon");
+                        }}/>
+                        <span>Bassoon</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style2"
                       />
                       <label class="custom-control-label" for="style2">
                         Flute
+                      </label> */}
+                        <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("flute");
+                        }}/>
+                        <span>Flute</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style2"
@@ -457,68 +526,111 @@ function MusicianRegister() {
                       <label class="custom-control-label" for="style2">
                         Horn
                       </label>
-                    </div>
+                    </div> */}
+                      <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("horn");
+                        }}/>
+                        <span>Horn</span>
+                      </label>
+                      </div>
                   </ReactBootStrap.Col>
 
                   <ReactBootStrap.Col md={{ span: 3 }}>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div>
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style0"
                       />
                       <label class="custom-control-label" for="style0">
                         Guitar
+                      </label> */}
+                        <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("guitar");
+                        }}/>
+                        <span>Guitar</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style1"
                       />
                       <label class="custom-control-label" for="style1">
                         Accordion
+                      </label> */}
+                        <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("accordion");
+                        }}/>
+                        <span>Accordion</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style2"
                       />
                       <label class="custom-control-label" for="style2">
                         Clarinet
+                      </label> */}
+                        <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("clarinet");
+                        }}/>
+                        <span>Clarinet</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style2"
                       />
                       <label class="custom-control-label" for="style2">
                         Cello
+                      </label> */}
+                        <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("cello");
+                        }}/>
+                        <span>Cello</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style2"
                       />
                       <label class="custom-control-label" for="style2">
                         Purcussion
+                      </label> */}
+                        <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("percussion");
+                        }}/>
+                        <span>Percussion</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
+                    <div >
+                      {/* <input
                         type="checkbox"
                         class="custom-control-input"
                         id="style2"
                       />
                       <label class="custom-control-label" for="style2">
                         Alphorn
+                      </label> */}
+                        <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setInstrument("alphorn");
+                        }}/>
+                        <span>Alphorn</span>
                       </label>
                     </div>
                   </ReactBootStrap.Col>

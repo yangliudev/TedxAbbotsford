@@ -15,3 +15,27 @@ label.harry {
     cursor: pointer;
     font-size: 25px;
 } 
+
+input[type=checkbox] {
+    display: none;
+}
+
+label :checked + span {
+    background: #81A92F;
+    color: black;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+label span {
+    display: inline-block;
+    background: #2a3c43be;
+    /* height: 2em;
+    width: 2em;
+    line-height: 2em; */
+    cursor: pointer;
+    border-radius: 15px;
+    text-align: center;
+    padding: 5px;
+
+}
