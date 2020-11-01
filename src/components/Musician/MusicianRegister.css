@@ -20,6 +20,10 @@ input[type=checkbox] {
     display: none;
 }
 
+input[type=radio] {
+    display: none;
+}
+
 label :checked + span {
     background: #81A92F;
     color: white;
@@ -30,9 +34,6 @@ label :checked + span {
 label span {
     display: inline-block;
     background: #2a3c43be;
-    /* height: 2em;
-    width: 2em;
-    line-height: 2em; */
     cursor: pointer;
     border-radius: 15px;
     text-align: center;
@@ -41,6 +42,19 @@ label span {
 }
 
 label :hover + span {
-    border-color: rgb(59, 173, 39);
+    background: #81A92F;
     margin-left: 3px;
 }
+
+.bg-display-reg {
+    /* background-color: #2a3c434f; */
+    background-color: #2a3c43cc;
+    -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    padding-bottom: 50px;
+    border-radius: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }

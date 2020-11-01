@@ -65,7 +65,7 @@ function MusicianRegister() {
 
   return (
     <ReactBootStrap.Container className="top-space">
-      <div className="bg-display">
+      <div className="bg-display-reg">
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col>
             <h1 class="info">Register to Become a Musician!</h1>
@@ -157,7 +157,7 @@ function MusicianRegister() {
                   />
                 </ReactBootStrap.Form.Group>
 
-                <ReactBootStrap.Form.Group controlId="formGridfname">
+                <ReactBootStrap.Form.Group >
                   <ReactBootStrap.Form.Label id="font">
                     Banking Information
                   </ReactBootStrap.Form.Label>
@@ -170,7 +170,7 @@ function MusicianRegister() {
                   />
                 </ReactBootStrap.Form.Group>
 
-                <ReactBootStrap.Form.Group controlId="formGridfname">
+                <ReactBootStrap.Form.Group >
                   <ReactBootStrap.Form.Label id="font">
                     Account Information
                   </ReactBootStrap.Form.Label>
@@ -183,7 +183,7 @@ function MusicianRegister() {
                   />
                 </ReactBootStrap.Form.Group>
 
-                <ReactBootStrap.Form.Group controlId="formGridlname">
+                <ReactBootStrap.Form.Group >
                   <ReactBootStrap.Form.Control
                     type="text"
                     placeholder="Password"
@@ -203,7 +203,7 @@ function MusicianRegister() {
                   />
                 </ReactBootStrap.Form.Group>
 
-                <ReactBootStrap.Form.Group controlId="formGridlname">
+                <ReactBootStrap.Form.Group >
                   <ReactBootStrap.Form.Label id="font">
                     Musical Training(s)
                   </ReactBootStrap.Form.Label>
@@ -211,83 +211,52 @@ function MusicianRegister() {
 
                 <ReactBootStrap.Row>
                   <ReactBootStrap.Col md={{ span: 4 }}>
-                    <div class="custom-control custom-radio">
-                      <input
-                        type="radio"
-                        class="custom-control-input"
-                        id="defaultGroupExample1"
-                        name="groupOfDefaultRadios"
-                        onClick={
-                          (HideTextArea,
-                          (e) => {
-                            setTraining("master"); ;HideTextArea()
-                          })
-                        }
-                      />
-                      <label
-                        class="custom-control-label"
-                        for="defaultGroupExample1"
-                      >
-                        Master
-                      </label>
-                    </div>
-
-                    <div class="custom-control custom-radio">
-                      <input
-                        type="radio"
-                        class="custom-control-input"
-                        id="defaultGroupExample2"
-                        name="groupOfDefaultRadios"
-                        onClick={
-                          (HideTextArea,
-                          (e) => {
-                            setTraining("in school"); ;HideTextArea()
-                          })
-                        }
-                      />
-                      <label
-                        class="custom-control-label"
-                        for="defaultGroupExample2"
-                      >
-                        Currently in School
-                      </label>
-                    </div>
-                  </ReactBootStrap.Col>
-
-                  <ReactBootStrap.Col md={{ span: 6 }}>
-                    <div class="custom-control custom-radio">
-                      <input
-                        type="radio"
-                        class="custom-control-input"
-                        id="defaultGroupExample3"
-                        name="groupOfDefaultRadios"
-                        onClick={
+                    <div >
+                    
+                       <label for = 'master'>
+                        <input type="radio" id='master' name="groupOfDefaultRadios"onClick={
                           (HideTextArea,
                           (e) => {
                             setTraining("Bachelor"); ;HideTextArea()
                           })
-                        }
-                      />
-                      <label
-                        class="custom-control-label"
-                        for="defaultGroupExample3"
-                      >
-                        Bachelor
+                        } />
+                        <span>Master</span>
+                      </label>
+                      
+                    </div>
+
+                    <div >
+                 
+                    <label for = 'inschool'>
+                        <input type="radio" id='inschool' name="groupOfDefaultRadios"onClick={
+                          (HideTextArea,
+                          (e) => {
+                            setTraining("Bachelor"); ;HideTextArea()
+                          })
+                        } />
+                        <span>Currently in School</span>
+                      </label>
+
+                    </div>
+                  </ReactBootStrap.Col>
+
+                  <ReactBootStrap.Col md={{ span: 6 }}>
+                    <div>
+                        <label for = 'bachelor'>
+                        <input type="radio" id='bachelor' name="groupOfDefaultRadios" onClick={
+                          (HideTextArea,
+                          (e) => {
+                            setTraining("Bachelor"); ;HideTextArea()
+                          })
+                        } />
+                        <span>Bachelor</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-radio">
-                      <input
-                        type="radio"
-                        class="custom-control-input"
-                        id="defaultGroupExample4"
-                        name="groupOfDefaultRadios"
-                        onClick={ShowTextArea}
-                      />
-                      <label
-                        class="custom-control-label"
-                        for="defaultGroupExample4"
-                      >
-                        Other
+                    <div >
+                     
+                      <label for = 'Other'>
+                        <input type="radio" id='Other' name="groupOfDefaultRadios"  onClick={ShowTextArea} />
+                        <span>Other</span>
                       </label>
                     </div>
                     <div
@@ -309,15 +278,14 @@ function MusicianRegister() {
                   </ReactBootStrap.Col>
                 </ReactBootStrap.Row>
 
-                <ReactBootStrap.Form.Group controlId="formGridfname">
+                <ReactBootStrap.Form.Group >
                   <ReactBootStrap.Form.Label id="font">
                     Professional Information
                   </ReactBootStrap.Form.Label>
                 </ReactBootStrap.Form.Group>
 
                 <ReactBootStrap.Form.Group
-                  controlId="formGridlname"
-                  style={{ marginBottom: "1px" }}
+                   style={{ marginBottom: "1px" }}
                 >
                   <ReactBootStrap.Form.Label>
                     <i>Instruments</i>
@@ -327,18 +295,7 @@ function MusicianRegister() {
                 <ReactBootStrap.Row>
                   <ReactBootStrap.Col md={{ span: 3 }}>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style0"
-                        onChange={(e) => {
-                          setInstrument("voice");
-                        }}
-                      /> */}
-                      {/* <button class="btn btn-info btn-sm btn-rounded" for='style0'>Voice</button> */}
-                      {/* <label class="btn btn-info btn-rounded" for="style0">
-                        Voice
-                      </label> */}
+                     
                       <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("voice");
@@ -346,19 +303,8 @@ function MusicianRegister() {
                         <span>Voice</span>
                       </label>
                     </div>
+
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style1"
-                        onChange={(e) => {
-                          setInstrument("piano");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style1">
-                        Piano
-                      </label> */}
-                      {/* <button class="btn btn-success btn-sm btn-rounded" for='style1'>Piano</button> */}
                       <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("piano");
@@ -368,17 +314,7 @@ function MusicianRegister() {
                     
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style2"
-                        onChange={(e) => {
-                          setInstrument("harp");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style2">
-                        Harp
-                      </label> */}
+                    
                        <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("harp");
@@ -387,14 +323,7 @@ function MusicianRegister() {
                       </label>
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style2"
-                      />
-                      <label class="custom-control-label" for="style3">
-                        Trumbone
-                      </label> */}
+                    
                        <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("trumbone");
@@ -403,14 +332,7 @@ function MusicianRegister() {
                       </label>
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style3"
-                      />
-                      <label class="custom-control-label" for="style2">
-                        Trumpet
-                      </label> */}
+                   
                        <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("trumpet");
@@ -419,14 +341,7 @@ function MusicianRegister() {
                       </label>
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style2"
-                      />
-                      <label class="custom-control-label" for="style2">
-                        Bass
-                      </label> */}
+                      
                        <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("bass");
@@ -438,14 +353,7 @@ function MusicianRegister() {
 
                   <ReactBootStrap.Col md={{ span: 3 }}>
                     <div>
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style0"
-                      />
-                      <label class="custom-control-label" for="style0">
-                        Singing
-                      </label> */}
+                     
                         <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("singing");
@@ -454,14 +362,7 @@ function MusicianRegister() {
                       </label>
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style1"
-                      />
-                      <label class="custom-control-label" for="style1">
-                        Saxophone
-                      </label> */}
+                      
                         <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("saxophone");
@@ -470,14 +371,7 @@ function MusicianRegister() {
                       </label>
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style2"
-                      />
-                      <label class="custom-control-label" for="style2">
-                        Viola-Copper
-                      </label> */}
+                    
                         <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("viola-copper");
@@ -486,14 +380,7 @@ function MusicianRegister() {
                       </label>
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style2"
-                      />
-                      <label class="custom-control-label" for="style2">
-                        Bassoon
-                      </label> */}
+                
                         <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("bassoon");
@@ -502,14 +389,7 @@ function MusicianRegister() {
                       </label>
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style2"
-                      />
-                      <label class="custom-control-label" for="style2">
-                        Flute
-                      </label> */}
+                   
                         <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("flute");
@@ -518,15 +398,7 @@ function MusicianRegister() {
                       </label>
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style2"
-                      />
-                      <label class="custom-control-label" for="style2">
-                        Horn
-                      </label>
-                    </div> */}
+                   
                       <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("horn");
@@ -538,14 +410,7 @@ function MusicianRegister() {
 
                   <ReactBootStrap.Col md={{ span: 3 }}>
                     <div>
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style0"
-                      />
-                      <label class="custom-control-label" for="style0">
-                        Guitar
-                      </label> */}
+                   
                         <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("guitar");
@@ -554,14 +419,7 @@ function MusicianRegister() {
                       </label>
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style1"
-                      />
-                      <label class="custom-control-label" for="style1">
-                        Accordion
-                      </label> */}
+                     
                         <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("accordion");
@@ -570,14 +428,7 @@ function MusicianRegister() {
                       </label>
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style2"
-                      />
-                      <label class="custom-control-label" for="style2">
-                        Clarinet
-                      </label> */}
+                   
                         <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("clarinet");
@@ -586,14 +437,7 @@ function MusicianRegister() {
                       </label>
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style2"
-                      />
-                      <label class="custom-control-label" for="style2">
-                        Cello
-                      </label> */}
+                  
                         <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("cello");
@@ -602,14 +446,7 @@ function MusicianRegister() {
                       </label>
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style2"
-                      />
-                      <label class="custom-control-label" for="style2">
-                        Purcussion
-                      </label> */}
+                 
                         <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("percussion");
@@ -618,14 +455,7 @@ function MusicianRegister() {
                       </label>
                     </div>
                     <div >
-                      {/* <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style2"
-                      />
-                      <label class="custom-control-label" for="style2">
-                        Alphorn
-                      </label> */}
+                 
                         <label>
                         <input type="checkbox"  onChange={(e) => {
                           setInstrument("alphorn");
@@ -637,9 +467,8 @@ function MusicianRegister() {
                 </ReactBootStrap.Row>
 
                 <ReactBootStrap.Form.Group
-                  controlId="formGridlname"
-                  style={{ marginBottom: "40px", marginTop: "15px" }}
-                >
+            
+                  style={{ marginBottom: "40px", marginTop: "15px" }}>
                   <ReactBootStrap.Form.Control
                     type="text"
                     placeholder="Other Instrument"
@@ -647,7 +476,7 @@ function MusicianRegister() {
                 </ReactBootStrap.Form.Group>
 
                 <ReactBootStrap.Form.Group
-                  controlId="formGridlname"
+                  
                   style={{ marginBottom: "1px" }}
                 >
                   <ReactBootStrap.Form.Label>
@@ -657,597 +486,399 @@ function MusicianRegister() {
 
                 <ReactBootStrap.Row>
                   <ReactBootStrap.Col md={{ span: 3 }}>
-                    <ReactBootStrap.Form.Group controlId="formGridlname">
+                    <ReactBootStrap.Form.Group >
                       <ReactBootStrap.Form.Label>
                         Classical Styles
                       </ReactBootStrap.Form.Label>
                     </ReactBootStrap.Form.Group>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style0"
-                        onChange={(e) => {
+                    <div >
+                     
+                      <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("baroque");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style0">
-                        Baroque
+                        }}/>
+                        <span>Baroque</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style1"
-                        onChange={(e) => {
+
+                    <div>
+                   
+                      <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("classic");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style1">
-                        Classic
+                        }}/>
+                        <span>Classic</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style2"
-                        onChange={(e) => {
+                    <div>
+                     
+                      <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("contemporary");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style2">
-                        Contemporary
+                        }}/>
+                        <span>Contemporary</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style3"
-                        onChange={(e) => {
+                    <div>
+                    
+                      <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("lied");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style3">
-                        Lied
+                        }}/>
+                        <span>Lied</span>
                       </label>
+
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style4"
-                        onChange={(e) => {
+                    <div >
+                     
+                         <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("opera");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style4">
-                        Opera
+                        }}/>
+                        <span>Lied</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style5"
-                        onChange={(e) => {
+                    <div >                      
+                         <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("romantic");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style5">
-                        Romantic
+                        }}/>
+                        <span>Romantic</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style6"
-                        onChange={(e) => {
+
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("sacred");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style6">
-                        Sacred
+                        }}/>
+                        <span>Sacred</span>
                       </label>
                     </div>
                   </ReactBootStrap.Col>
 
                   <ReactBootStrap.Col md={{ span: 3 }}>
-                    <ReactBootStrap.Form.Group controlId="formGridlname">
+                    <ReactBootStrap.Form.Group >
                       <ReactBootStrap.Form.Label>
                         Popular Styles
                       </ReactBootStrap.Form.Label>
                     </ReactBootStrap.Form.Group>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style7"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("songwriter");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style7">
-                        Songwriter
+                        }}/>
+                        <span>Songwriter</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style8"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("blues");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style8">
-                        Blues
+                        }}/>
+                        <span>Blues</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style9"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("brass band");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style9">
-                        Brass band
+                        }}/>
+                        <span>Brass Band</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style10"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("musical comedy");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style10">
-                        Musical comedy
+                        }}/>
+                        <span>Musical Comedy</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style11"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("country");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style11">
-                        Country
+                        }}/>
+                        <span>Country</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style12"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("fado");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style12">
-                        Fado
+                        }}/>
+                        <span>Fado</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style13"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("fanfare");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style13">
-                        Fanfare
+                        }}/>
+                        <span>Fanfare</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style14"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("flamenco");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style14">
-                        Flamenco
+                        }}/>
+                        <span>Flamenco</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style15"
-                        onChange={(e) => {
+
+                    <div>                      
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("folk");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style15">
-                        Folk
+                        }}/>
+                        <span>Folk</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style16"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("swiss folk");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style16">
-                        Swiss Folk{" "}
+                        }}/>
+                        <span>Swiss Folk</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style17"
-                        onChange={(e) => {
+                    
+
+                    </ReactBootStrap.Col>
+                    <ReactBootStrap.Col >
+                    <ReactBootStrap.Form.Group >
+                      <ReactBootStrap.Form.Label>
+                        Popular Styles
+                      </ReactBootStrap.Form.Label>
+                    </ReactBootStrap.Form.Group>
+
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("french");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style17">
-                        French
+                        }}/>
+                        <span>French</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style18"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("irish");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style18">
-                        Irish
+                        }}/>
+                        <span>Irish</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style19"
-                        onChange={(e) => {
+                
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("italian");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style19">
-                        Italian
+                        }}/>
+                        <span>Italian</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style20"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("klezmer");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style20">
-                        Klezmer
+                        }}/>
+                        <span>Klezmer</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style21"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("mariachi");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style21">
-                        Mariachi
+                        }}/>
+                        <span>Mariachi</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style22"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("popular");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style22">
-                        Popular
+                        }}/>
+                        <span>Popular</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style23"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("rock");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style23">
-                        Rock
+                        }}/>
+                        <span>Rock</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style24"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("salsa");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style24">
-                        Salsa
+                        }}/>
+                        <span>Salsa</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style25"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("tango");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style25">
-                        Tango
+                        }}/>
+                        <span>Tango</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style26"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("world music");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style26">
-                        World Music
+                        }}/>
+                        <span>World Music</span>
                       </label>
                     </div>
                   </ReactBootStrap.Col>
 
                   <ReactBootStrap.Col md={{ span: 3 }}>
-                    <ReactBootStrap.Form.Group controlId="formGridlname">
+                    <ReactBootStrap.Form.Group >
                       <ReactBootStrap.Form.Label>
                         Jazz Styles
                       </ReactBootStrap.Form.Label>
                     </ReactBootStrap.Form.Group>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style27"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("afro jazz");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style27">
-                        Afro Jazz
+                        }}/>
+                        <span>Afro Jazz</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style28"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("songwriter");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style28">
-                        Songwriter
+                        }}/>
+                        <span>Song Writer</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style29"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("be-bop");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style29">
-                        Be-Bop
+                        }}/>
+                        <span>Be-Bop</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style30"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("bossanova");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style30">
-                        Bossanova
+                        }}/>
+                        <span>Bossanova</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style31"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("contemporary");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style31">
-                        Contemporary
+                        }}/>
+                        <span>Contemporary</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style32"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("free jazz");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style32">
-                        Free Jazz
+                        }}/>
+                        <span>Free Jazz</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style33"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("funk");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style33">
-                        Funk
+                        }}/>
+                        <span>Funk</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style34"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("gospel");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style34">
-                        Gospel
+                        }}/>
+                        <span>Gospel</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style35"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("jazz");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style35">
-                        Jazz
+                        }}/>
+                        <span>Jazz</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style36"
-                        onChange={(e) => {
-                          setStyle("latic jaz");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style36">
-                        Latin Jazz{" "}
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setStyle("latin jazz");
+                        }}/>
+                        <span>Latin Jazz</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style37"
-                        onChange={(e) => {
+                   
+
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("manouche");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style37">
-                        Manouche
+                        }}/>
+                        <span>Manouche</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style38"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("new orleans");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style38">
-                        New Orleans
+                        }}/>
+                        <span>New Orleans</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style39"
-                        onChange={(e) => {
-                          setStyle("R'n'B");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style39">
-                        R'n'B
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
+                          setStyle("r'n'b");
+                        }}/>
+                        <span>R'n'B</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style40"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("salsa");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style40">
-                        Salsa
+                        }}/>
+                        <span>Salsa</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style41"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("drunk");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style41">
-                        Drunk
+                        }}/>
+                        <span>Drunk</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style42"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("swing");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style42">
-                        Swing
+                        }}/>
+                        <span>Swing</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="style43"
-                        onChange={(e) => {
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setStyle("traditional");
-                        }}
-                      />
-                      <label class="custom-control-label" for="style43">
-                        Traditional
+                        }}/>
+                        <span>Traditional</span>
                       </label>
                     </div>
                   </ReactBootStrap.Col>
@@ -1256,7 +887,6 @@ function MusicianRegister() {
                 <ReactBootStrap.Row>
                   <ReactBootStrap.Col>
                     <ReactBootStrap.Form.Group
-                      controlId="formGridlname"
                       style={{ marginBottom: "1px", marginTop: "15px" }}
                     >
                       <ReactBootStrap.Form.Label>
@@ -1292,7 +922,7 @@ function MusicianRegister() {
                   </ReactBootStrap.Col>
                 </ReactBootStrap.Row>
 
-                <ReactBootStrap.Form.Group controlId="formGridlname">
+                <ReactBootStrap.Form.Group >
                   <ReactBootStrap.Form.Label>
                     <i>Media</i>
                   </ReactBootStrap.Form.Label>
@@ -1304,7 +934,7 @@ function MusicianRegister() {
                     }}
                   />
                 </ReactBootStrap.Form.Group>
-                <ReactBootStrap.Form.Group controlId="formGridlname">
+                <ReactBootStrap.Form.Group >
                   <ReactBootStrap.Form.Control
                     type="text"
                     placeholder="YouTube/Drive/Dropbox Link"
