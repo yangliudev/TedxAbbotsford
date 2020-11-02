@@ -947,7 +947,7 @@ function MusicianRegister() {
                 <ReactBootStrap.Button
                   variant="primary"
                   size="md"
-                  href="/#/about"
+                  href="/#/faq"
                   onClick={submitMusician}
                 >
                   Register

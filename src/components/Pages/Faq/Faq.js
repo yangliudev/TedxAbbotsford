@@ -9,12 +9,12 @@ class Faq extends Component {
         
         return (
             <ReactBootStrap.Container className="top-space" style={{ marginBottom:'110px'}}>
-            <div className="faq-display">
+            <div className="bg-display">
         
             <ReactBootStrap.Row className="justify-content-md-center" >
                 <ReactBootStrap.Col><h2 class="faq"><b id="fade">F</b>requently <b id="fade">A</b>sked <b id="fade">Q</b>uestions</h2>
                 </ReactBootStrap.Col>
-                </ReactBootStrap.Row>
+                </ReactBootStrap.Row> 
 
                 <ReactBootStrap.Row className="justify-content-md-center" >
                 <ReactBootStrap.Col className="fontcol" style={{marginLeft:'20px', marginTop:'1px'}}>
