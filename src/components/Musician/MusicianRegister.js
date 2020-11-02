@@ -185,7 +185,7 @@ function MusicianRegister() {
 
                 <ReactBootStrap.Form.Group >
                   <ReactBootStrap.Form.Control
-                    type="text"
+                    type="password"
                     placeholder="Password"
                     onChange={(e) => {
                       setPassword(e.target.value);
@@ -195,7 +195,7 @@ function MusicianRegister() {
 
                 <ReactBootStrap.Form.Group controlId="formGridlname">
                   <ReactBootStrap.Form.Control
-                    type="text"
+                    type="password"
                     placeholder="Confirm Password"
                     onChange={(e) => {
                       setConfirmPassword(e.target.value);
@@ -884,41 +884,35 @@ function MusicianRegister() {
                   </ReactBootStrap.Col>
                 </ReactBootStrap.Row>
 
-                <ReactBootStrap.Row>
-                  <ReactBootStrap.Col>
-                    <ReactBootStrap.Form.Group
-                      style={{ marginBottom: "1px", marginTop: "15px" }}
-                    >
+                <ReactBootStrap.Form.Group
+                      style={{ marginBottom: "1px", marginTop: "15px" }}>
                       <ReactBootStrap.Form.Label>
                         <i>You Play In?</i>
                       </ReactBootStrap.Form.Label>
                     </ReactBootStrap.Form.Group>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="solo"
-                        onChange={(e) => {
+
+                <ReactBootStrap.Row>
+                  
+                  <ReactBootStrap.Col md={{ span: 1 }}>                                    
+                     <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setGroup("solo");
-                        }}
-                      />
-                      <label class="custom-control-label" for="solo">
-                        solo
+                        }}/>
+                        <span>Solo</span>
                       </label>
                     </div>
-                    <div class="custom-control custom-checkbox">
-                      <input
-                        type="checkbox"
-                        class="custom-control-input"
-                        id="duet"
-                        onChange={(e) => {
+                    </ReactBootStrap.Col>
+                    <ReactBootStrap.Col>
+                    <div>
+                    <label>
+                        <input type="checkbox"  onChange={(e) => {
                           setGroup("duet");
-                        }}
-                      />
-                      <label class="custom-control-label" for="duet">
-                        duet
+                        }}/>
+                        <span>Duet</span>
                       </label>
                     </div>
+
                   </ReactBootStrap.Col>
                 </ReactBootStrap.Row>
 
