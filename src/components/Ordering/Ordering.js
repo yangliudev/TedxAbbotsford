@@ -215,7 +215,7 @@ function Ordering() {
   return (
 
     <ReactBootStrap.Container className="top-space">
-      <ReactBootStrap.Container className="bg-display" id="order1">
+      <ReactBootStrap.Container className="bg-display" id="order1"> 
 
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>1. First step, to whom do you want to offer this musical moment?</h3></ReactBootStrap.Col>
