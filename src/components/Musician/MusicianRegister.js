@@ -949,6 +949,15 @@ function MusicianRegister() {
                 >
                   Register
                 </ReactBootStrap.Button>
+
+                <ReactBootStrap.Button
+                  variant="primary"
+                  size="md"
+                  href="/#/calender"
+                   >
+                  Calender
+                </ReactBootStrap.Button>
+
               </ReactBootStrap.Col>
             </ReactBootStrap.Row>
 
