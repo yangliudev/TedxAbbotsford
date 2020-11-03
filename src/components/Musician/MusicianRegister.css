@@ -58,3 +58,11 @@ label :hover + span {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .topspace {
+    margin-top: 10%;
+    margin-bottom: 30px;
+    margin-right: 10%;
+    margin-left:10%;
+    background-color: white;
+}

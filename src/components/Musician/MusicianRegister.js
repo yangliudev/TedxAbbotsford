@@ -1,5 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import * as ReactBootStrap from "react-bootstrap";
+import ScheduleSelector from 'react-schedule-selector';
 import Axios from "axios";
 import "./MusicianRegister.css";
 import "mdbreact/dist/css/mdb.css";
@@ -62,6 +63,8 @@ function MusicianRegister() {
       alert("sucessful insert");
     });
   };
+
+
 
   return (
     <ReactBootStrap.Container className="top-space">
@@ -955,6 +958,9 @@ function MusicianRegister() {
           </ReactBootStrap.Container>
         </ReactBootStrap.Form>
       </div>
+
+   
+
     </ReactBootStrap.Container>
   );
 }

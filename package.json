@@ -28,8 +28,10 @@
     "react-responsive": "^8.1.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "react-schedule-selector": "^3.0.0",
     "react-scripts": "3.4.3",
-    "react-table": "^6.10.0"
+    "react-table": "^6.10.0",
+    "styled-components": "^5.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -17,6 +17,7 @@ import About from "./components/Pages/About/About";
 import Login from "./components/Login/Login";
 import Musician from "./components/Musician/MusicianRegister"
 import Musician_Dash from "./components/Musician/Musician_Dash"
+import Calender from "./components/Musician/MusicianCalender"
 
 import Maps from "./components/Musician_Dash/Map"
 
@@ -36,6 +37,7 @@ class App extends Component {
           <Route path="/faq"><Faq /><Footer /></Route>
           <Route path="/info"><Info /><Footer /></Route>
           <Route path="/about"><About /><Footer /></Route>
+          <Route path="/calender"><Calender /><Footer /></Route>
  
           <Route exact path="/order" component={Ordering}/>
           <Route exact path="/admin" component={Admin_Dash}/>
