@@ -16,8 +16,8 @@ function MusicianRegister() {
   }
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -26,19 +26,25 @@ function MusicianRegister() {
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
   const [phone, setPhone] = useState("");
+
   const [iban, setIban] = useState("");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
+
   const [training, setTraining] = useState("");
   const [othertraining, setOtherTraining] = useState("");
-  const [instrument, setInstrument] = useState("");
+
+  const [instrument, setInstrument] = useState([]);
   const [style, setStyle] = useState("");
   const [group, setGroup] = useState("");
   const [site, setSite] = useState("");
   const [media, setMedia] = useState("");
 
+
   const submitMusician = () => {
+    const instrumentList = JSON.stringify(instrument);
     Axios.post("http://localhost:5000/musician/insert", {
       musicianFirstName: firstName,
       musicianLastName: lastName,
@@ -53,7 +59,7 @@ function MusicianRegister() {
       musicianConfirmPassword: confirmpassword,
       musicianTraining: training,
       musicianOtherTraining: othertraining,
-      musicianInstrument: instrument,
+      musicianInstrument: instrumentList,
       musicianStyle: style,
       musicianGroup: group,
       musicianSite: site,
@@ -68,10 +74,11 @@ function MusicianRegister() {
       <div className="bg-display-reg">
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col>
-            <h1 class="info">Register to Become a Musician!</h1>
+            <h1 class="info">Register as a Musician!</h1>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
+        {/* ########## (PERSONAL INFORMATION) ########## */}
         <ReactBootStrap.Form>
           <ReactBootStrap.Container>
             <ReactBootStrap.Row>
@@ -157,7 +164,9 @@ function MusicianRegister() {
                   />
                 </ReactBootStrap.Form.Group>
 
-                <ReactBootStrap.Form.Group >
+                {/* ########## (BANKING INFORMATION) ########## */}
+
+                <ReactBootStrap.Form.Group>
                   <ReactBootStrap.Form.Label id="font">
                     Banking Information
                   </ReactBootStrap.Form.Label>
@@ -170,7 +179,9 @@ function MusicianRegister() {
                   />
                 </ReactBootStrap.Form.Group>
 
-                <ReactBootStrap.Form.Group >
+                {/* ########## (BANKING INFORMATION) ########## */}
+
+                <ReactBootStrap.Form.Group>
                   <ReactBootStrap.Form.Label id="font">
                     Account Information
                   </ReactBootStrap.Form.Label>
@@ -183,7 +194,7 @@ function MusicianRegister() {
                   />
                 </ReactBootStrap.Form.Group>
 
-                <ReactBootStrap.Form.Group >
+                <ReactBootStrap.Form.Group>
                   <ReactBootStrap.Form.Control
                     type="password"
                     placeholder="Password"
@@ -203,7 +214,9 @@ function MusicianRegister() {
                   />
                 </ReactBootStrap.Form.Group>
 
-                <ReactBootStrap.Form.Group >
+                {/* ########## (MUSICAL TRAINING) ########## */}
+
+                <ReactBootStrap.Form.Group>
                   <ReactBootStrap.Form.Label id="font">
                     Musical Training(s)
                   </ReactBootStrap.Form.Label>
@@ -211,51 +224,69 @@ function MusicianRegister() {
 
                 <ReactBootStrap.Row>
                   <ReactBootStrap.Col md={{ span: 4 }}>
-                    <div >
-                    
-                       <label for = 'master'>
-                        <input type="radio" id='master' name="groupOfDefaultRadios"onClick={
-                          (HideTextArea,
-                          (e) => {
-                            setTraining("Bachelor"); ;HideTextArea()
-                          })
-                        } />
+                    <div>
+                      <label for="master">
+                        <input
+                          type="radio"
+                          id="master"
+                          name="groupOfDefaultRadios"
+                          onClick={
+                            (HideTextArea,
+                            (e) => {
+                              setTraining("Bachelor");
+                              HideTextArea();
+                            })
+                          }
+                        />
                         <span>Master</span>
                       </label>
-                      
                     </div>
 
-                    <div >
-                 
-                    <label for = 'inschool'>
-                        <input type="radio" id='inschool' name="groupOfDefaultRadios"onClick={
-                          (HideTextArea,
-                          (e) => {
-                            setTraining("Bachelor"); ;HideTextArea()
-                          })
-                        } />
+                    <div>
+                      <label for="inschool">
+                        <input
+                          type="radio"
+                          id="inschool"
+                          name="groupOfDefaultRadios"
+                          onClick={
+                            (HideTextArea,
+                            (e) => {
+                              setTraining("Bachelor");
+                              HideTextArea();
+                            })
+                          }
+                        />
                         <span>Currently in School</span>
                       </label>
-
                     </div>
                   </ReactBootStrap.Col>
 
                   <ReactBootStrap.Col md={{ span: 6 }}>
                     <div>
-                        <label for = 'bachelor'>
-                        <input type="radio" id='bachelor' name="groupOfDefaultRadios" onClick={
-                          (HideTextArea,
-                          (e) => {
-                            setTraining("Bachelor"); ;HideTextArea()
-                          })
-                        } />
+                      <label for="bachelor">
+                        <input
+                          type="radio"
+                          id="bachelor"
+                          name="groupOfDefaultRadios"
+                          onClick={
+                            (HideTextArea,
+                            (e) => {
+                              setTraining("Bachelor");
+                              HideTextArea();
+                            })
+                          }
+                        />
                         <span>Bachelor</span>
                       </label>
                     </div>
-                    <div >
-                     
-                      <label for = 'Other'>
-                        <input type="radio" id='Other' name="groupOfDefaultRadios"  onClick={ShowTextArea} />
+                    <div>
+                      <label for="Other">
+                        <input
+                          type="radio"
+                          id="Other"
+                          name="groupOfDefaultRadios"
+                          onClick={ShowTextArea}
+                        />
                         <span>Other</span>
                       </label>
                     </div>
@@ -278,74 +309,82 @@ function MusicianRegister() {
                   </ReactBootStrap.Col>
                 </ReactBootStrap.Row>
 
-                <ReactBootStrap.Form.Group >
+                {/* ########## (PROFESSIONAL INFORMATION) ########## */}
+
+                <ReactBootStrap.Form.Group>
                   <ReactBootStrap.Form.Label id="font">
                     Professional Information
                   </ReactBootStrap.Form.Label>
                 </ReactBootStrap.Form.Group>
 
-                <ReactBootStrap.Form.Group
-                   style={{ marginBottom: "1px" }}
-                >
+                <ReactBootStrap.Form.Group style={{ marginBottom: "1px" }}>
                   <ReactBootStrap.Form.Label>
                     <i>Instruments</i>
                   </ReactBootStrap.Form.Label>
                 </ReactBootStrap.Form.Group>
 
+                {/* ########## (INSTRUMENTS) ########## */}
+
                 <ReactBootStrap.Row>
                   <ReactBootStrap.Col md={{ span: 3 }}>
-                    <div >
-                     
+                    <div>
                       <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("voice");
-                        }} />
+                        <input
+                          type="checkbox"
+                          onChange={()=>{if (instrument.includes("voice")) {instrument.splice(instrument.indexOf("voice"), 1)} else {setInstrument([...instrument,"voice"]);}}}
+                        />
                         <span>Voice</span>
                       </label>
                     </div>
 
-                    <div >
+                    <div>
                       <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("piano");
-                        }}/>
+                        <input
+                          type="checkbox"
+                          onChange={()=>{if (instrument.includes("piano")) {instrument.splice(instrument.indexOf("piano"), 1)} else {setInstrument([...instrument,"piano"]);}}}
+                        />
+
                         <span>Piano</span>
                       </label>
-                    
                     </div>
-                    <div >
-                    
-                       <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("harp");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onClick={()=>{if (instrument.includes("harp")) {instrument.splice(instrument.indexOf("piano"), 1)} else {setInstrument([...instrument,"harp"]);}}}
+                        />
                         <span>Harp</span>
                       </label>
                     </div>
-                    <div >
-                    
-                       <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("trumbone");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={
+                            ()=>{if (instrument.includes("trumbone")) {instrument.splice(instrument.indexOf("trumbone"), 1)} else {setInstrument([...instrument,"trumbone"]);}}
+
+                          }
+                        />
                         <span>Trumbone</span>
                       </label>
                     </div>
-                    <div >
-                   
-                       <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("trumpet");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={
+                            ()=>{if (instrument.includes("trumpet")) {instrument.splice(instrument.indexOf("trumpet"), 1)} else {setInstrument([...instrument,"trumpet"]);}}
+                          }
+                        />
                         <span>Trumpet</span>
                       </label>
                     </div>
-                    <div >
-                      
-                       <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("bass");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={()=>{if (instrument.includes("bass")) {instrument.splice(instrument.indexOf("bass"), 1)} else {setInstrument([...instrument,"bass"]);}}}
+                        />
                         <span>Bass</span>
                       </label>
                     </div>
@@ -353,113 +392,131 @@ function MusicianRegister() {
 
                   <ReactBootStrap.Col md={{ span: 3 }}>
                     <div>
-                     
-                        <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("singing");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={()=>{if (instrument.includes("singing")) {instrument.splice(instrument.indexOf("singing"), 1)} else {setInstrument([...instrument,"singing"]);}}}
+                        />
                         <span>Singing</span>
                       </label>
                     </div>
-                    <div >
-                      
-                        <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("saxophone");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={()=>{if (instrument.includes("saxophone")) {instrument.splice(instrument.indexOf("saxophone"), 1)} else {setInstrument([...instrument,"saxophone"]);}}}
+                        />
                         <span>Saxophone</span>
                       </label>
                     </div>
-                    <div >
-                    
-                        <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("viola-copper");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={
+                            ()=>{if (instrument.includes("viola-copper")) {instrument.splice(instrument.indexOf("viola-copper"), 1)} else {setInstrument([...instrument,"viola-copper"]);}}
+                          }
+                        />
                         <span>Viola-Copper</span>
                       </label>
                     </div>
-                    <div >
-                
-                        <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("bassoon");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={
+                            ()=>{if (instrument.includes("bassoon")) {instrument.splice(instrument.indexOf("bassoon"), 1);} else {setInstrument([...instrument,"bassoon"]);}}
+                          }
+                        />
                         <span>Bassoon</span>
                       </label>
                     </div>
-                    <div >
-                   
-                        <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("flute");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={
+                            ()=>{if (instrument.includes("flute")) {instrument.splice(instrument.indexOf("flute"), 1)} else {setInstrument([...instrument,"flute"]);}}
+                          }
+                        />
                         <span>Flute</span>
                       </label>
                     </div>
-                    <div >
-                   
+                    <div>
                       <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("horn");
-                        }}/>
+                        <input
+                          type="checkbox"
+                          onChange={
+                            ()=>{if (instrument.includes("horn")) {instrument.splice(instrument.indexOf("horn"), 1)} else {setInstrument([...instrument,"horn"]);}}
+                          }
+                        />
                         <span>Horn</span>
                       </label>
-                      </div>
+                    </div>
                   </ReactBootStrap.Col>
 
                   <ReactBootStrap.Col md={{ span: 3 }}>
                     <div>
-                   
-                        <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("guitar");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={
+                            ()=>{if (instrument.includes("guitar")) {instrument.splice(instrument.indexOf("guitar"), 1)} else {setInstrument([...instrument,"guitar"]);}}
+                          }
+                        />
                         <span>Guitar</span>
                       </label>
                     </div>
-                    <div >
-                     
-                        <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("accordion");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={
+                            ()=>{if (instrument.includes("accordion")) {instrument.splice(instrument.indexOf("accordion"), 1)} else {setInstrument([...instrument,"accordion"]);}}
+                          }
+                        />
                         <span>Accordion</span>
                       </label>
                     </div>
-                    <div >
-                   
-                        <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("clarinet");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={
+                            ()=>{if (instrument.includes("clarinet")) {instrument.splice(instrument.indexOf("clarinet"), 1)} else {setInstrument([...instrument,"clarinet"]);}}
+                          }
+                        />
                         <span>Clarinet</span>
                       </label>
                     </div>
-                    <div >
-                  
-                        <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("cello");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={
+                            ()=>{if (instrument.includes("cello")) {instrument.splice(instrument.indexOf("cello"), 1)} else {setInstrument([...instrument,"cello"]);}}
+                          }
+                        />
                         <span>Cello</span>
                       </label>
                     </div>
-                    <div >
-                 
-                        <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("percussion");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={
+                            ()=>{if (instrument.includes("percussion")) {instrument.splice(instrument.indexOf("percussion"), 1)} else {setInstrument([...instrument,"percussion"]);}}}
+                        />
                         <span>Percussion</span>
                       </label>
                     </div>
-                    <div >
-                 
-                        <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setInstrument("alphorn");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={
+                            ()=>{if (instrument.includes("alphorn")) {instrument.splice(instrument.indexOf("alphorn"), 1)} else {setInstrument([...instrument,"alphorn"]);}}}
+                        />
                         <span>Alphorn</span>
                       </label>
                     </div>
@@ -467,417 +524,539 @@ function MusicianRegister() {
                 </ReactBootStrap.Row>
 
                 <ReactBootStrap.Form.Group
-            
-                  style={{ marginBottom: "40px", marginTop: "15px" }}>
+                  style={{ marginBottom: "40px", marginTop: "15px" }}
+                >
                   <ReactBootStrap.Form.Control
                     type="text"
                     placeholder="Other Instrument"
                   />
                 </ReactBootStrap.Form.Group>
 
-                <ReactBootStrap.Form.Group
-                  
-                  style={{ marginBottom: "1px" }}
-                >
+                <ReactBootStrap.Form.Group style={{ marginBottom: "1px" }}>
                   <ReactBootStrap.Form.Label>
                     <i>Music Styles</i>
                   </ReactBootStrap.Form.Label>
                 </ReactBootStrap.Form.Group>
 
+                {/* ########## (MUSIC STYLES) ########## */}
+
                 <ReactBootStrap.Row>
                   <ReactBootStrap.Col md={{ span: 3 }}>
-                    <ReactBootStrap.Form.Group >
+                    <ReactBootStrap.Form.Group>
                       <ReactBootStrap.Form.Label>
                         Classical Styles
                       </ReactBootStrap.Form.Label>
                     </ReactBootStrap.Form.Group>
-                    <div >
-                     
+                    <div>
                       <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("baroque");
-                        }}/>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("baroque");
+                          }}
+                        />
                         <span>Baroque</span>
                       </label>
                     </div>
 
                     <div>
-                   
                       <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("classic");
-                        }}/>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("classic");
+                          }}
+                        />
                         <span>Classic</span>
                       </label>
                     </div>
                     <div>
-                     
                       <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("contemporary");
-                        }}/>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("contemporary");
+                          }}
+                        />
                         <span>Contemporary</span>
                       </label>
                     </div>
                     <div>
-                    
                       <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("lied");
-                        }}/>
-                        <span>Lied</span>
-                      </label>
-
-                    </div>
-                    <div >
-                     
-                         <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("opera");
-                        }}/>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("lied");
+                          }}
+                        />
                         <span>Lied</span>
                       </label>
                     </div>
-                    <div >                      
-                         <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("romantic");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("opera");
+                          }}
+                        />
+                        <span>Opera</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("romantic");
+                          }}
+                        />
                         <span>Romantic</span>
                       </label>
                     </div>
 
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("sacred");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("sacred");
+                          }}
+                        />
                         <span>Sacred</span>
                       </label>
                     </div>
                   </ReactBootStrap.Col>
 
                   <ReactBootStrap.Col md={{ span: 3 }}>
-                    <ReactBootStrap.Form.Group >
+                    <ReactBootStrap.Form.Group>
                       <ReactBootStrap.Form.Label>
                         Popular Styles
                       </ReactBootStrap.Form.Label>
                     </ReactBootStrap.Form.Group>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("songwriter");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("songwriter");
+                          }}
+                        />
                         <span>Songwriter</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("blues");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("blues");
+                          }}
+                        />
                         <span>Blues</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("brass band");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("brass band");
+                          }}
+                        />
                         <span>Brass Band</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("musical comedy");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("musical comedy");
+                          }}
+                        />
                         <span>Musical Comedy</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("country");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("country");
+                          }}
+                        />
                         <span>Country</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("fado");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("fado");
+                          }}
+                        />
                         <span>Fado</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("fanfare");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("fanfare");
+                          }}
+                        />
                         <span>Fanfare</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("flamenco");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("flamenco");
+                          }}
+                        />
                         <span>Flamenco</span>
                       </label>
                     </div>
 
-                    <div>                      
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("folk");
-                        }}/>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("folk");
+                          }}
+                        />
                         <span>Folk</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("swiss folk");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("swiss folk");
+                          }}
+                        />
                         <span>Swiss Folk</span>
                       </label>
                     </div>
-                    
-
-                    </ReactBootStrap.Col>
-                    <ReactBootStrap.Col >
-                    <ReactBootStrap.Form.Group >
+                  </ReactBootStrap.Col>
+                  <ReactBootStrap.Col>
+                    <ReactBootStrap.Form.Group>
                       <ReactBootStrap.Form.Label>
                         Popular Styles
                       </ReactBootStrap.Form.Label>
                     </ReactBootStrap.Form.Group>
 
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("french");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("french");
+                          }}
+                        />
                         <span>French</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("irish");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("irish");
+                          }}
+                        />
                         <span>Irish</span>
                       </label>
                     </div>
-                
+
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("italian");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("italian");
+                          }}
+                        />
                         <span>Italian</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("klezmer");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("klezmer");
+                          }}
+                        />
                         <span>Klezmer</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("mariachi");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("mariachi");
+                          }}
+                        />
                         <span>Mariachi</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("popular");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("popular");
+                          }}
+                        />
                         <span>Popular</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("rock");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("rock");
+                          }}
+                        />
                         <span>Rock</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("salsa");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("salsa");
+                          }}
+                        />
                         <span>Salsa</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("tango");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("tango");
+                          }}
+                        />
                         <span>Tango</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("world music");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("world music");
+                          }}
+                        />
                         <span>World Music</span>
                       </label>
                     </div>
                   </ReactBootStrap.Col>
 
                   <ReactBootStrap.Col md={{ span: 3 }}>
-                    <ReactBootStrap.Form.Group >
+                    <ReactBootStrap.Form.Group>
                       <ReactBootStrap.Form.Label>
                         Jazz Styles
                       </ReactBootStrap.Form.Label>
                     </ReactBootStrap.Form.Group>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("afro jazz");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("afro jazz");
+                          }}
+                        />
                         <span>Afro Jazz</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("songwriter");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("songwriter");
+                          }}
+                        />
                         <span>Song Writer</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("be-bop");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("be-bop");
+                          }}
+                        />
                         <span>Be-Bop</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("bossanova");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("bossanova");
+                          }}
+                        />
                         <span>Bossanova</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("contemporary");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("contemporary");
+                          }}
+                        />
                         <span>Contemporary</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("free jazz");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("free jazz");
+                          }}
+                        />
                         <span>Free Jazz</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("funk");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("funk");
+                          }}
+                        />
                         <span>Funk</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("gospel");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("gospel");
+                          }}
+                        />
                         <span>Gospel</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("jazz");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("jazz");
+                          }}
+                        />
                         <span>Jazz</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("latin jazz");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("latin jazz");
+                          }}
+                        />
                         <span>Latin Jazz</span>
                       </label>
                     </div>
-                   
 
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("manouche");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("manouche");
+                          }}
+                        />
                         <span>Manouche</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("new orleans");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("new orleans");
+                          }}
+                        />
                         <span>New Orleans</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("r'n'b");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("r'n'b");
+                          }}
+                        />
                         <span>R'n'B</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("salsa");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("salsa");
+                          }}
+                        />
                         <span>Salsa</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("drunk");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("drunk");
+                          }}
+                        />
                         <span>Drunk</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("swing");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("swing");
+                          }}
+                        />
                         <span>Swing</span>
                       </label>
                     </div>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setStyle("traditional");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setStyle("traditional");
+                          }}
+                        />
                         <span>Traditional</span>
                       </label>
                     </div>
@@ -885,41 +1064,51 @@ function MusicianRegister() {
                 </ReactBootStrap.Row>
 
                 <ReactBootStrap.Form.Group
-                      style={{ marginBottom: "1px", marginTop: "15px" }}>
-                      <ReactBootStrap.Form.Label>
-                        <i>You Play In?</i>
-                      </ReactBootStrap.Form.Label>
-                    </ReactBootStrap.Form.Group>
+                  style={{ marginBottom: "1px", marginTop: "15px" }}
+                >
+                  <ReactBootStrap.Form.Label>
+                    <i>You Play In?</i>
+                  </ReactBootStrap.Form.Label>
+                </ReactBootStrap.Form.Group>
+
+                {/* ########## (SOLO / DUO) ########## */}
 
                 <ReactBootStrap.Row>
-                  
-                  <ReactBootStrap.Col md={{ span: 1 }}>                                    
-                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setGroup("solo");
-                        }}/>
+                  <ReactBootStrap.Col md={{ span: 1 }}>
+                    <div>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setGroup("solo");
+                          }}
+                        />
                         <span>Solo</span>
                       </label>
                     </div>
-                    </ReactBootStrap.Col>
-                    <ReactBootStrap.Col>
+                  </ReactBootStrap.Col>
+                  <ReactBootStrap.Col>
                     <div>
-                    <label>
-                        <input type="checkbox"  onChange={(e) => {
-                          setGroup("duet");
-                        }}/>
+                      <label>
+                        <input
+                          type="checkbox"
+                          onChange={(e) => {
+                            setGroup("duet");
+                          }}
+                        />
                         <span>Duet</span>
                       </label>
                     </div>
-
                   </ReactBootStrap.Col>
                 </ReactBootStrap.Row>
 
-                <ReactBootStrap.Form.Group >
+                <ReactBootStrap.Form.Group>
                   <ReactBootStrap.Form.Label>
                     <i>Media</i>
                   </ReactBootStrap.Form.Label>
+
+                  {/* ########## (MEDIA) ########## */}
+
                   <ReactBootStrap.Form.Control
                     type="text"
                     placeholder="Website"
@@ -928,7 +1117,7 @@ function MusicianRegister() {
                     }}
                   />
                 </ReactBootStrap.Form.Group>
-                <ReactBootStrap.Form.Group >
+                <ReactBootStrap.Form.Group>
                   <ReactBootStrap.Form.Control
                     type="text"
                     placeholder="YouTube/Drive/Dropbox Link"
@@ -941,7 +1130,7 @@ function MusicianRegister() {
                 <ReactBootStrap.Button
                   variant="primary"
                   size="md"
-                  href="/#/faq"
+                  href="/#/"
                   onClick={submitMusician}
                 >
                   Register
