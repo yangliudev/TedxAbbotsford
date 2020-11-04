@@ -8,14 +8,35 @@ class MusicianCalender extends Component {
 
  
     state = { schedule : [] }
- 
+     
+    
+
+
     handleChange = newSchedule => {
+      let days = [] 
       this.setState({ schedule: newSchedule });
-        console.log(this.state)
+      for (let i=0; i<=this.state.schedule.length; i++){
+        // console.log(this.state.schedule[i])
+        if (typeof this.state.schedule[i] == 'object'){
+
+          days.push(this.state.schedule[i])
+          // console.log(days)
+
+
+        }
+      
+
+        }
+        console.log(days) 
+      
+     
+      
+   
   
     }
 
   render() {
+    
   
     // const [monday, setMonday] = useState("");
     // const [tuesday, setTuesday] = useState("");
@@ -26,18 +47,36 @@ class MusicianCalender extends Component {
 
     return (
 
-        <div className='topspace'>
+        <div className='topspace' >
         <ScheduleSelector
         selection={this.state.schedule}
         numDays={7}
         minTime={9}
         maxTime={22}
         hourlyChunks={1}
-        startDate={new Date('Mon Nov 02 2020 17:57:06')}
-        dateFormat="ddd"
+        startDate={new Date('Sunday Nov 01 2020 17:57:06')}
+        dateFormat="dddd"
         onChange={this.handleChange}
       />
+
+
+<div style={{marginLeft:'50px',marginTop:'50px'}}>
+      <ReactBootStrap.Button
+          variant="primary"
+          size="md"
+        
+         
+          >
+          Submit
+          </ReactBootStrap.Button>
+
             </div>
+
+
+      </div>
+     
+
+          
 
 
     );
