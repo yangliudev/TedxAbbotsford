@@ -16,8 +16,9 @@ import About from "./components/Pages/About/About";
 
 import Login from "./components/Login/Login";
 import Musician from "./components/Musician/MusicianRegister"
-import Musician_Dash from "./components/Musician/Musician_Dash"
+import Musician_Table from "./components/Musician/Musician_Dash"
 import Calender from "./components/Musician/MusicianCalender"
+import Musician_Dashboard from "./components/Musician_Dashboard/MusicianDashboard"
 
 import Maps from "./components/Musician_Dash/Map"
 
@@ -44,7 +45,8 @@ class App extends Component {
           <Route exact path="/login" component={Login}/>
           <Route exact path="/test" component={Test}/>
           <Route exact path="/musician" component={Musician}/>
-          <Route path="/musician/admin" component={Musician_Dash}/>
+          <Route path="/musician/admin" component={Musician_Table}/>
+          <Route path="/musician/dashboard" component={Musician_Dashboard}/>
           <Route path="/maps" component={Maps}/>
 
 
