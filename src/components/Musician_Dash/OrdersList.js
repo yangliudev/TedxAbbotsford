@@ -11,7 +11,8 @@ const OrdersList = () => {
   }, []);
 
   const retrieveOrder = () => {
-    OrderDataService.getAll()
+    //OrderDataService.getAll()
+    axios.get("http://localhost:5000/order/get")
       .then((response) => {
         //orders = response.data;
         setOrders(response.data);
@@ -25,7 +26,7 @@ const OrdersList = () => {
 
   let address = "";
   if (orders != undefined && orders.length > 0) {
-    address = orders[orders.length - 1].address1;
+    address = orders[orders.length - 1].address;
   }
 
   axios
