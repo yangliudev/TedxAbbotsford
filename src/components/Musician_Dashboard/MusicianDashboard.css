@@ -61,9 +61,21 @@ h2 {
 }
 
 #profilePage {
-    display: none;
+    display: block;
 }
 
 #requestsPage {
+    display: none;
+}
+
+#statsPage {
+    display: none;
+}
+
+#schedulePage {
+    display: none;
+}
+
+#incomePage {
     display: none;
 }
