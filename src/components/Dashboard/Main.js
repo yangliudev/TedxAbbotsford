@@ -2,7 +2,8 @@ import React, { Component, useState, useEffect } from "react";
 import Axios from "axios";
 
 import AdminDash from "../Admin/Admin";
-import MusicianDash from "../Musician_Dash/Map";
+import MusicianDash from "./MusicianDash";
+// import Home from "../Home/Home"
 
 
 function Main() {
@@ -18,7 +19,11 @@ function Main() {
     });
   }, []);
 
-return <div>{role == "admin" && <AdminDash />} {role == "musician" && <MusicianDash />}</div>;
+return <div>
+{role == "admin" && <AdminDash />} 
+{role == "musician" && <MusicianDash />} 
+{/* {role == "" && <Home />} */}
+</div>;
 }
 
 export default Main;

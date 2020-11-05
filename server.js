@@ -225,4 +225,38 @@ app.post("/musicianOrder/insert", (req, res) => {
   });
 });
 
+
+
+app.get("/match/musician", (req, res) => {
+  var musicianEmail = "000"
+
+  if (req.session.user) {
+    musicianEmail = req.session.user[0].username;
+    // console.log(req.session.user[0].username);
+  }
+
+  // const musicianEmail = req.body.musicianEmail;
+  
+  // const musicianID = req.body.setMusicianID;
+
+  const sqlGet = "SELECT * FROM musician_table WHERE email = ?";
+  db.query(sqlGet, [musicianEmail], (err, result) => {
+    res.send(result);
+  });
+});
+
+
+app.get("/match/orders/:musicianID", (req, res) => {
+  const id = req.params.musicianID;
+
+  // const musicianEmail = req.body.musicianEmail;
+  
+  // const musicianID = req.body.setMusicianID;
+
+  const sqlGet = "SELECT ot.id, ot.gift, ot.occasion, ot.type, ot.number_musicians, ot.suprise, ot.firstName, ot.lastName, ot.date_service, ot.time_service, ot.offered, ot.number, ot.email, ot.address, ot.address_2, ot.city, ot.state, ot.zip, ot.comments FROM ordering_table as ot INNER JOIN musician_orders ON ot.id = musician_orders.orderID WHERE musician_orders.musicianID = ?";
+  db.query(sqlGet, id, (err, result) => {
+    res.send(result);
+  });
+});
+
 app.listen(port, () => console.log(`Server started on port ${port}`));
