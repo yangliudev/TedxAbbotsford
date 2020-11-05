@@ -3,7 +3,8 @@ const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -16,9 +17,30 @@ const db = mysql.createPool({
   database: "musician",
 });
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
+
+app.use(cookieParser());
+
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(
+  session({
+    key: "userID",
+    secret: "dansljardin",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      expires: 60 * 60 * 24,
+    },
+  })
+);
 
 app.post("/register", (req, res) => {
   const username = req.body.username;
@@ -38,6 +60,14 @@ app.post("/register", (req, res) => {
   });
 });
 
+app.get("/login", (req, res) => {
+  if (req.session.user) {
+    res.send({loggedIn: true, user: req.session.user})
+  } else {
+    res.send({loggedIn: false});
+  }
+});
+
 app.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
@@ -53,16 +83,18 @@ app.post("/login", (req, res) => {
       if (result.length > 0) {
         bcrypt.compare(password, result[0].password, (error, response) => {
           if (response) {
+            req.session.user = result;
+            console.log(req.session.user);
             res.send(result);
-            console.log(result);
+            // console.log(result);
           } else {
             res.send({ message: "Wrong username/password combination!" });
-            console.log({ message: "Wrong username/password combination!" });
+            // console.log({ message: "Wrong username/password combination!" });
           }
         });
       } else {
         res.send({ message: "User doesn't exist" });
-        console.log({ message: "User doesn't exist" });
+        // console.log({ message: "User doesn't exist" });
       }
     }
   );
@@ -132,7 +164,7 @@ app.get("/musician/get", (req, res) => {
   });
 });
 
-app.post("/musician/insert", (req, res)=> {
+app.post("/musician/insert", (req, res) => {
   const musicianFirstName = req.body.musicianFirstName;
   const musicianLastName = req.body.musicianLastName;
   const musicianAddress = req.body.musicianAddress;
@@ -151,14 +183,15 @@ app.post("/musician/insert", (req, res)=> {
   const musicianGroup = req.body.musicianGroup;
   const musicianSite = req.body.musicianSite;
   const musicianMedia = req.body.musicianMedia;
-  
 
-
-  const sqlInsert = "INSERT INTO musician_table (firstName, lastName, address, postalCode, city, province, phone, iban, email, training, instrument, style, number_musicians, site, media) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-  db.query(sqlInsert, [
-      musicianFirstName, 
-      musicianLastName, 
-      musicianAddress, 
+  const sqlInsert =
+    "INSERT INTO musician_table (firstName, lastName, address, postalCode, city, province, phone, iban, email, training, instrument, style, number_musicians, site, media) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+  db.query(
+    sqlInsert,
+    [
+      musicianFirstName,
+      musicianLastName,
+      musicianAddress,
       musicianPostalCode,
       musicianCity,
       musicianProvince,
@@ -170,14 +203,26 @@ app.post("/musician/insert", (req, res)=> {
       musicianStyle,
       musicianGroup,
       musicianSite,
-      musicianMedia
-  ],
+      musicianMedia,
+    ],
 
-       (err, result)=> {
+    (err, result) => {
       console.log(result);
       console.log(err);
-  }); 
+    }
+  );
 });
 
+app.post("/musicianOrder/insert", (req, res) => {
+  const orderID = req.body.setOrderID;
+  const musicianID = req.body.setMusicianID;
+
+  const sqlInsert =
+    "INSERT INTO musician_orders (orderID, musicianID) VALUES (?, ?)";
+  db.query(sqlInsert, [orderID, musicianID], (err, result) => {
+    console.log(result);
+    console.log(err);
+  });
+});
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

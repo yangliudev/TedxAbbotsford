@@ -43,7 +43,6 @@ function Musician_Dash() {
             if (!executed) {
                 executed = true;
                 for (let index = 0; index < orderList.length; index++) {
-                  // if (Object.keys(orderList[index]))
                   arr.push(Object.values(orderList[index]))
                 }
             }

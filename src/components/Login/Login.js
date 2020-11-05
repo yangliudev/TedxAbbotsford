@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import Axios from 'axios';
 
 function Login() {
@@ -9,6 +9,8 @@ function Login() {
     const [password, setPassword] = useState("");
 
     const [loginStatus, setLoginStatus] = useState("");
+
+    Axios.defaults.withCredentials = true;
 
     const register = () => {
         Axios.post("http://localhost:5000/register", {
@@ -31,10 +33,18 @@ function Login() {
                 setLoginStatus("Logged In");
                 console.log(setLoginStatus)
                 // TODO: FIX REDIRECT MAKE PROTECTED ROUTE /ADMIN
-                window.location.href = "http://localhost:3000/#/admin";
+                // window.location.href = "http://localhost:3000/#/admin";
             }
         });
     };
+
+    useEffect(()=>{
+        Axios.get("http://localhost:5000/login").then((response) => {
+            if (response.data.loggedIn == true) {
+            setLoginStatus(response.data.user[0].username);
+        }
+        })
+    }, [])
 
     return (
         <div>

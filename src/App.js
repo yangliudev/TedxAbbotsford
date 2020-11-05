@@ -20,9 +20,9 @@ import Musician_Dash from "./components/Musician/Musician_Dash"
 
 import Maps from "./components/Musician_Dash/Map"
 
+import Main from "./components/Dashboard/Main"
 
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
-// import { findAllByTestId } from "@testing-library/react";
 
 class App extends Component {
   render() {
@@ -36,6 +36,9 @@ class App extends Component {
           <Route path="/faq"><Faq /><Footer /></Route>
           <Route path="/info"><Info /><Footer /></Route>
           <Route path="/about"><About /><Footer /></Route>
+
+          <Route exact path="/main" component={Main}/>
+
  
           <Route exact path="/order" component={Ordering}/>
           <Route exact path="/admin" component={Admin_Dash}/>
