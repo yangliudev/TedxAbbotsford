@@ -4,8 +4,31 @@ import ScheduleSelector from 'react-schedule-selector';
 import Axios from "axios";
 import "./MusicianRegister.css";
 import "mdbreact/dist/css/mdb.css";
+import { Satellite } from "@material-ui/icons";
+
 
 function MusicianRegister() {
+
+  // var state = { schedule : [] }
+
+  const [state, setSchedule] = useState({})
+
+  var monday = {};
+
+  const handleChange = newSchedule => {
+    setSchedule({ schedule: newSchedule });
+    console.log(state.schedule)
+    }
+
+  const seperate = () => {
+    // for (let index = 0; index < state.length; index++) {
+    //   console.log(state.schedule[index])
+      
+    // }
+    console.log(state.schedule[0].getDate())
+  }
+
+
   function ShowTextArea() {
     var textArea = document.getElementById("myDIV");
     textArea.style.display = "block";
@@ -960,9 +983,33 @@ function MusicianRegister() {
 
               </ReactBootStrap.Col>
             </ReactBootStrap.Row>
+            
 
             <ReactBootStrap.Row>
-              <ReactBootStrap.Col></ReactBootStrap.Col>
+              <ReactBootStrap.Col>
+              <div className='topspace' >
+
+              <ScheduleSelector
+        selection={state.schedule}
+        numDays={7}
+        minTime={9}
+        maxTime={22}
+        hourlyChunks={1}
+        startDate={new Date('Monday Nov 02 2020 00:00:00')}
+        dateFormat="dddd"
+        onChange={handleChange}
+      /><div style={{marginLeft:'50px',marginTop:'50px'}}>
+      <ReactBootStrap.Button
+          variant="primary"
+          size="md"
+          onClick={seperate}>
+          Submit
+          </ReactBootStrap.Button>
+
+            </div></div>
+
+      
+              </ReactBootStrap.Col>
             </ReactBootStrap.Row>
           </ReactBootStrap.Container>
         </ReactBootStrap.Form>
