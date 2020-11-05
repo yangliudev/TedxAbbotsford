@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as ReactBootStrap from "react-bootstrap";
 import Axios from "axios";
 import "./MusicianDashboard.css";
+import MusicianRequests from "./MusicianRequests";
 
 function MusicianDashboard() {
 
@@ -244,11 +245,7 @@ function MusicianDashboard() {
 
 
                     <ReactBootStrap.Container className="dashboardContainer" id="requestsPage">
-                        <ReactBootStrap.Row className="justify-content-md-center">
-                            <ReactBootStrap.Col>
-                                <h2>Requests</h2>
-                            </ReactBootStrap.Col>
-                        </ReactBootStrap.Row>
+                        <MusicianRequests />
                     </ReactBootStrap.Container>
 
 
