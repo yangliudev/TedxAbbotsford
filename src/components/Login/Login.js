@@ -48,12 +48,12 @@ function Login() {
 
     return (
         <div>
-            {/* <h2>Register</h2>
+            <h2>Register</h2>
             <label>Username </label>
             <input type="text" onChange={(e) => {setUsernameReg(e.target.value)}}/><br />
             <label>Password </label>
             <input type="text" onChange={(e) => {setPasswordReg(e.target.value)}}/><br />
-            <input type="button" value="Register" onClick={register}/> */}
+            <input type="button" value="Register" onClick={register}/>
 
             <br/>
             <h2>Login</h2>
