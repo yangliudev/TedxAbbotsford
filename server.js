@@ -151,10 +151,16 @@ app.post("/musician/insert", (req, res)=> {
   const musicianGroup = req.body.musicianGroup;
   const musicianSite = req.body.musicianSite;
   const musicianMedia = req.body.musicianMedia;
-  const mon  = req.body.monday
+  const mon  = req.body.monday;
+  const tue  = req.body.tuesday;
+  const wed  = req.body.wednesday;
+  const thu  = req.body.thursday;
+  const fri  = req.body.friday;
+  const sat  = req.body.saturday;
+  const sun  = req.body.sunday
 
 
-  const sqlInsert = "INSERT INTO musician_table (firstName, lastName, address, postalCode, city, province, phone, iban ,email, training, instrument, style, number_musicians, site, media, monday) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)"
+  const sqlInsert = "INSERT INTO musician_table (firstName, lastName, address, postalCode, city, province, phone, iban ,email, training, instrument, style, number_musicians, site, media, monday, tuesday, wednesday, thursday, friday, saturday, sunday) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
   db.query(sqlInsert, [
       musicianFirstName, 
       musicianLastName, 
@@ -171,7 +177,13 @@ app.post("/musician/insert", (req, res)=> {
       musicianGroup,
       musicianSite,
       musicianMedia,
-      mon
+      mon,
+      tue,
+      wed,
+      thu,
+      fri,
+      sat,
+      sun
   ],
 
        (err, result)=> {

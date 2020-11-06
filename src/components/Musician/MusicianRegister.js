@@ -11,51 +11,63 @@ function MusicianRegister() {
 
 
   const [state, setSchedule] = useState({});
-  const[mon,setMon] = useState({});
-  const[tue,setTue] = useState([]);
-  const[wed,setWed] = useState([]);
-  const[thu,setThu] = useState([]);
-  const[fri,setFri] = useState([]);
-  const[sat,setSat] = useState([]);
-  const[sun,setSun] = useState([]);
+  const[mon,setMon] = useState("");
+  const[tue,setTue] = useState("");
+  const[wed,setWed] = useState("");
+  const[thu,setThu] = useState("");
+  const[fri,setFri] = useState("");
+  const[sat,setSat] = useState("");
+  const[sun,setSun] = useState("");
 
   const handleChange = newSchedule => {
     setSchedule({ schedule: newSchedule });
-    console.log(mon)
+  
   }
 
   const seperate = () => {
 
-    let monx = []
-   
+    let monx = [];
+    let tuex = [];
+    let wedx = [];
+    let thux = [];
+    let frix = [];
+    let satx = [];
+    let sunx = [];
+
     for (let index = 0; index < state.schedule.length; index++) {
       if (state.schedule[index].getDate() == 2) {
         monx.push(state.schedule[index]);
-        // setMon(mon.concat(state.schedule[index]));
-        // console.log(monx)
 
       } if (state.schedule[index].getDate() == 3) {
-        setTue(tue.concat(state.schedule[index]));
+        tuex.push(state.schedule[index]);
 
       } if (state.schedule[index].getDate() == 4) {
-        setWed(wed.concat(state.schedule[index]));
+        wedx.push(state.schedule[index]);
+
 
       } if (state.schedule[index].getDate() == 5) {
-        setThu(thu.concat(state.schedule[index]));
+        thux.push(state.schedule[index]);
 
       } if (state.schedule[index].getDate() == 6) {
-        setFri(fri.concat(state.schedule[index]));
+        frix.push(state.schedule[index]);
 
       } if (state.schedule[index].getDate() == 7) {
-        setSat(sat.concat(state.schedule[index]));
+        satx.push(state.schedule[index]);
 
       } if (state.schedule[index].getDate() == 8) {
-        setSun(sun.concat(state.schedule[index]));
+        sunx.push(state.schedule[index]);
       }
-    } setMon({mon:monx});
-    console.log(JSON.stringify(mon));
-    var d = new Date("2020-11-02T20:00:00.000Z");
-console.log(d); 
+    }
+    setMon(JSON.stringify(monx));
+    setTue(JSON.stringify(tuex));
+    setWed(JSON.stringify(wedx));
+    setThu(JSON.stringify(thux));
+    setFri(JSON.stringify(frix));
+    setSat(JSON.stringify(satx));
+    setSun(JSON.stringify(sunx)); 
+
+    // // var d = new Date("2020-11-02T20:00:00.000Z");
+    // console.log(mon); 
     if (state.schedule.length == 0) {
       alert("nothing has been selected")
     }
@@ -114,7 +126,14 @@ console.log(d);
       musicianGroup: group,
       musicianSite: site,
       musicianMedia: media,
-      monday:mon
+      monday:mon,
+      tuesday:tue,
+      wednesday:wed,
+      thursday:thu,
+      friday:fri,
+      saturday:sat,
+      sunday:sun
+
     }).then(() => {
       alert("sucessful insert");
     });

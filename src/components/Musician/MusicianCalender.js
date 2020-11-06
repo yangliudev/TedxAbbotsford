@@ -20,17 +20,10 @@ class MusicianCalender extends Component {
         if (typeof this.state.schedule[i] == 'object'){
 
           days.push(this.state.schedule[i])
-          // console.log(days)
-
 
         }
-      
-
-        }
+           }
         console.log(days) 
-      
-     
-      
    
   
     }
