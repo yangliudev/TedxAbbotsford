@@ -17,7 +17,7 @@ function Login() {
             username: usernameReg, 
             password: passwordReg
         }).then((response) => {
-            console.log(response);
+            // console.log(response);
         });
     };
 
@@ -28,10 +28,10 @@ function Login() {
         }).then((response) => {
             if (response.data.message) {
                 setLoginStatus("Error Wrong Login");
-                console.log(setLoginStatus)
+                // console.log(setLoginStatus)
             } else {
                 setLoginStatus("Logged In");
-                console.log(setLoginStatus)
+                // console.log(setLoginStatus)
                 // TODO: FIX REDIRECT MAKE PROTECTED ROUTE /ADMIN
                 window.location.href = "http://localhost:3000/#/main";
             }

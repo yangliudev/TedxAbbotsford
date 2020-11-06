@@ -16,11 +16,13 @@ import About from "./components/Pages/About/About";
 
 import Login from "./components/Login/Login";
 import Musician from "./components/Musician/MusicianRegister"
-import Musician_Dash from "./components/Musician/Musician_Dash"
+// import Musician_Dash from "./components/Musician/Musician_Dash"
+import Musician_Dash from "./components/Musician_Dashboard/MusicianDashboard"
 
 import Maps from "./components/Musician_Dash/Map"
 
 import Main from "./components/Dashboard/Main"
+
 
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -41,11 +43,12 @@ class App extends Component {
 
  
           <Route exact path="/order" component={Ordering}/>
-          <Route exact path="/admin" component={Admin_Dash}/>
+          {/* <Route exact path="/admin" component={Admin_Dash}/> */}
+          <Route path="/musician/admin" component={Musician_Dash}/>
+
           <Route exact path="/login" component={Login}/>
           <Route exact path="/test" component={Test}/>
           <Route exact path="/musician" component={Musician}/>
-          <Route path="/musician/admin" component={Musician_Dash}/>
           <Route path="/maps" component={Maps}/>
 
 

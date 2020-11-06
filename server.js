@@ -20,7 +20,7 @@ const db = mysql.createPool({
 app.use(
   cors({
     origin: ["http://localhost:3000"],
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "PUT"],
     credentials: true,
   })
 );
@@ -54,7 +54,11 @@ app.post("/register", (req, res) => {
       "INSERT INTO users (username, password) VALUES (?, ?)",
       [username, hash],
       (err, result) => {
-        console.log(err);
+        if (err) {
+          console.log(err)
+        } else {
+          console.log("Succesfully Registered")
+        }
       }
     );
   });
@@ -84,9 +88,9 @@ app.post("/login", (req, res) => {
         bcrypt.compare(password, result[0].password, (error, response) => {
           if (response) {
             req.session.user = result;
-            console.log(req.session.user);
+            // console.log(req.session.user);
             res.send(result);
-            // console.log(result);
+            console.log("Sucessfully Logged In");
           } else {
             res.send({ message: "Wrong username/password combination!" });
             // console.log({ message: "Wrong username/password combination!" });
@@ -151,8 +155,11 @@ app.post("/order/insert", (req, res) => {
       orderComments,
     ],
     (err, result) => {
-      console.log(result);
-      console.log(err);
+      if (err) {
+        console.log(err)
+      } else {
+        console.log("Created New Order")
+      }
     }
   );
 });
@@ -207,8 +214,11 @@ app.post("/musician/insert", (req, res) => {
     ],
 
     (err, result) => {
-      console.log(result);
-      console.log(err);
+      if (err) {
+        console.log(err)
+      } else {
+        console.log("Sucesfully Inserted Musician")
+      }
     }
   );
 });
@@ -220,15 +230,18 @@ app.post("/musicianOrder/insert", (req, res) => {
   const sqlInsert =
     "INSERT INTO musician_orders (orderID, musicianID) VALUES (?, ?)";
   db.query(sqlInsert, [orderID, musicianID], (err, result) => {
-    console.log(result);
-    console.log(err);
+    if (err) {
+      console.log(err)
+    } else {
+      console.log("-> Succesfully Added Order")
+    }
   });
 });
 
 
 
 app.get("/match/musician", (req, res) => {
-  var musicianEmail = "000"
+  var musicianEmail = "Harish@email.com"
 
   if (req.session.user) {
     musicianEmail = req.session.user[0].username;
@@ -256,6 +269,34 @@ app.get("/match/orders/:musicianID", (req, res) => {
   const sqlGet = "SELECT ot.id, ot.gift, ot.occasion, ot.type, ot.number_musicians, ot.suprise, ot.firstName, ot.lastName, ot.date_service, ot.time_service, ot.offered, ot.number, ot.email, ot.address, ot.address_2, ot.city, ot.state, ot.zip, ot.comments FROM ordering_table as ot INNER JOIN musician_orders ON ot.id = musician_orders.orderID WHERE musician_orders.musicianID = ?";
   db.query(sqlGet, id, (err, result) => {
     res.send(result);
+  });
+});
+
+app.put("/musician/update", (req, res) => {
+  const id = req.body.musicianID;
+
+  const firstName = req.body.musicianFirstName;
+  const lastName = req.body.musicianLastName;
+  const phone = req.body.musicianPhone;
+  const email = req.body.musicianEmail;
+  const address = req.body.musicianAddress;
+  const training = req.body.musicianTraining;
+  // const group = req.body.musicianGroup;
+  const sqlUpdate = "UPDATE musician_table SET firstName = ?, lastName = ?, phone = ?, email = ?, address = ?, training = ? WHERE id = ?";
+  db.query(sqlUpdate, [
+    firstName,
+    lastName,
+    phone,
+    email,
+    address,
+    training,
+    id
+  ], (err, result) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log("Succesfully Updated")
+    }
   });
 });
 

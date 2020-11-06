@@ -4,10 +4,10 @@ import * as ReactBootStrap from "react-bootstrap";
 import "./MusicianDashboard.css";
 // import MusicianRequests from "./MusicianRequests";
 
-function MusicianDash() {
+function MusicianDashboard() {
 
 
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState("Harish@email.com");
     const [musicianDetails, setMusicianDetails] = useState({});
 
     var firstName = musicianDetails.firstName;
@@ -47,13 +47,13 @@ function MusicianDash() {
 
   Axios.defaults.withCredentials = true;
 
-  useEffect(() => {
-    Axios.get("http://localhost:5000/login").then((response) => {
-      if (response.data.loggedIn == true) {
-        setUser(response.data.user[0].username);
-      }
-    });
-  }, []);
+//   useEffect(() => {
+//     Axios.get("http://localhost:5000/login").then((response) => {
+//       if (response.data.loggedIn == true) {
+//         setUser(response.data.user[0].username);
+//       }
+//     });
+//   }, []);
 
   useEffect(() => {
     Axios.get("http://localhost:5000/match/musician", {
@@ -302,5 +302,5 @@ function MusicianDash() {
         )
     };
 
-export default MusicianDash
+export default MusicianDashboard
 
