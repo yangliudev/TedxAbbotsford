@@ -142,7 +142,7 @@ function MusicianDashboard() {
 
 
 
-                    <ReactBootStrap.Container className="dashboardContainer" id="profilePage">
+                    <ReactBootStrap.Container className="profileContainer" id="profilePage">
                         <MusicianProfile />
                     </ReactBootStrap.Container>
 

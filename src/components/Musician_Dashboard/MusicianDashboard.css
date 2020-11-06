@@ -56,6 +56,10 @@ h2 {
     margin-left: auto;
 }
 
+.profileContainer {
+    margin-top: 20px;
+}
+
 .profileHeader {
     color: rgb(223, 84, 107);
 }
@@ -77,5 +81,9 @@ h2 {
 }
 
 #incomePage {
+    display: none;
+}
+
+#editing {
     display: none;
 }
