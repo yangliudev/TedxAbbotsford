@@ -4,6 +4,7 @@ import Axios from "axios";
 import "./MusicianDashboard.css";
 import MusicianProfile from "./MusicianProfile"
 import MusicianRequests from "./MusicianRequests";
+import MusicianCalendar from "./MusicianCalender";
 
 function MusicianDashboard() {
 
@@ -154,11 +155,7 @@ function MusicianDashboard() {
 
 
                     <ReactBootStrap.Container className="dashboardContainer" id="schedulePage">
-                        <ReactBootStrap.Row className="justify-content-md-center">
-                            <ReactBootStrap.Col>
-                                <h2>Schedule</h2>
-                            </ReactBootStrap.Col>
-                        </ReactBootStrap.Row>
+                        <MusicianCalendar />
                     </ReactBootStrap.Container> 
 
 

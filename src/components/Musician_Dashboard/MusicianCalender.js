@@ -25,19 +25,28 @@ class MusicianCalender extends Component {
     // const [sunday, setSunday] = useState("");
 
     return (
+      <ReactBootStrap.Container>
+        <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Col>
+              <h2>Schedule</h2>
+          </ReactBootStrap.Col>
+        </ReactBootStrap.Row>
+        
+
 
         <div className='topspace'>
         <ScheduleSelector
-        selection={this.state.schedule}
-        numDays={7}
-        minTime={9}
-        maxTime={22}
-        hourlyChunks={1}
-        startDate={new Date('Mon Nov 02 2020 17:57:06')}
-        dateFormat="ddd"
-        onChange={this.handleChange}
-      />
-            </div>
+          selection={this.state.schedule}
+          numDays={7}
+          minTime={9}
+          maxTime={22}
+          hourlyChunks={1}
+          startDate={new Date('Mon Nov 02 2020 17:57:06')}
+          dateFormat="ddd"
+          onChange={this.handleChange}
+        />
+        </div>
+      </ReactBootStrap.Container> 
 
 
     );

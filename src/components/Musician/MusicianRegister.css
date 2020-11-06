@@ -60,10 +60,10 @@ label :hover + span {
   }
 
   .topspace {
-    margin-top: 50px;
-    margin-bottom: 10%;
-    margin-right: 10%;
-    margin-left:10%;
+    margin-top: 20px;
+    margin-bottom: 5%;
+    margin-right: auto;
+    margin-left:auto;
     background-color: white;
     padding: 20px;
     border-radius: 15px;

@@ -17,7 +17,7 @@ import About from "./components/Pages/About/About";
 import Login from "./components/Login/Login";
 import Musician from "./components/Musician/MusicianRegister"
 import Musician_Table from "./components/Musician/Musician_Dash"
-import Calender from "./components/Musician/MusicianCalender"
+import Calender from "./components/Musician_Dashboard/MusicianCalender"
 import Musician_Dashboard from "./components/Musician_Dashboard/MusicianDashboard"
 
 import Maps from "./components/Musician_Dash/Map"
