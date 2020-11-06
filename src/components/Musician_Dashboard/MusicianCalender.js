@@ -40,9 +40,10 @@ class MusicianCalender extends Component {
           numDays={7}
           minTime={9}
           maxTime={22}
-          hourlyChunks={1}
+          hourlyChunks={2}
           startDate={new Date('Mon Nov 02 2020 17:57:06')}
           dateFormat="ddd"
+          timeFormat="h:mma"
           onChange={this.handleChange}
         />
         </div>
