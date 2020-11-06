@@ -1,0 +1,74 @@
+/* #font{
+    font-size: 30px;
+}
+
+i{
+    font-size: 25px;
+}
+
+#ck-button label:hover + span {
+    background-color:blue;
+}
+
+label.harry { 
+    background-color:blue;
+    cursor: pointer;
+    font-size: 25px;
+} 
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=radio] {
+    display: none;
+}
+
+label :checked + span {
+    background: #81A92F;
+    color: white;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+label span {
+    display: inline-block;
+    background: #2a3c43be;
+    cursor: pointer;
+    border-radius: 15px;
+    text-align: center;
+    padding: 5px;
+
+}
+
+label :hover + span {
+    background: #81A92F;
+    margin-left: 3px;
+} */
+
+.bg-display-reg {
+    /* background-color: #2a3c434f; */
+    background-color: #2a3c43cc;
+    -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    padding-bottom: 50px;
+    border-radius: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* .topspace {
+    margin-top: 50px;
+    margin-bottom: 10%;
+    margin-right: 2%;
+    margin-left:2%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.iso.div :hover{
+    cursor: pointer;
+} */

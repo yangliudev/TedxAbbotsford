@@ -2,12 +2,15 @@ import React, { Component, useState, useEffect } from "react";
 import Axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
 import "./MusicianDashboard.css";
+import Scheduler from "./MusicianCalander";
 // import MusicianRequests from "./MusicianRequests";
 
 function MusicianDashboard() {
 
 
     const [user, setUser] = useState("Harish@email.com");
+    const [orders, setOrders] = useState([]);
+
     const [musicianDetails, setMusicianDetails] = useState({});
 
     var firstName = musicianDetails.firstName;
@@ -73,7 +76,8 @@ function MusicianDashboard() {
 
   const getOrders = (id) => {
     Axios.get(`http://localhost:5000/match/orders/${id}`).then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
+        setOrders(response.data);
     });
   };
 
@@ -262,8 +266,16 @@ function MusicianDashboard() {
 
 
 
-                    <ReactBootStrap.Container className="dashboardContainer" id="requestsPage">
-                        {/* <MusicianRequests /> */}
+                    <ReactBootStrap.Container id="requestsPage">
+                                    {orders.map((value, index) => {
+                                        return <div style={{backgroundColor:"grey", marginBottom: "10px", borderRadius:"10px", paddingBottom:"10px"}}><div style={{marginLeft:"10px"}}>
+                                            <h5>Order For: {value.firstName} {value.lastName}</h5>
+                                            <h6>Address: {value.address}, {value.city}, {value.zip} <a href="https://www.google.com/maps/dir/?api=1&{}origin=Space+Needle+Seattle+WA&destination=Pike+Place+Market+Seattle+WA"><input type="button" value="Google Maps"/></a></h6>
+                                            <h6>Date: {value.date_service} Time: {value.time_service}</h6>
+                                            <input type="button" value="Accept" style={{backgroundColor:"green"}}/><input type="button" value="Decline" style={{backgroundColor:"red"}}/>
+                                            </div>
+                                            </div>
+                                    })}
                     </ReactBootStrap.Container>
 
 
@@ -272,6 +284,7 @@ function MusicianDashboard() {
                         <ReactBootStrap.Row className="justify-content-md-center">
                             <ReactBootStrap.Col>
                                 <h2>Schedule</h2>
+                                <Scheduler />
                             </ReactBootStrap.Col>
                         </ReactBootStrap.Row>
                     </ReactBootStrap.Container> 

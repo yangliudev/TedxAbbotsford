@@ -1,10 +1,78 @@
 import React, { Component, useEffect, useState } from "react";
 import * as ReactBootStrap from "react-bootstrap";
+import ScheduleSelector from 'react-schedule-selector';
 import Axios from "axios";
 import "./MusicianRegister.css";
 import "mdbreact/dist/css/mdb.css";
+import { Satellite } from "@material-ui/icons";
 
 function MusicianRegister() {
+
+  const [state, setSchedule] = useState({});
+  const [mon, setMon] = useState("");
+  const [tue, setTue] = useState("");
+  const [wed, setWed] = useState("");
+  const [thu, setThu] = useState("");
+  const [fri, setFri] = useState("");
+  const [sat, setSat] = useState("");
+  const [sun, setSun] = useState("");
+
+  const handleChange = newSchedule => {
+    setSchedule({ schedule: newSchedule });
+
+  }
+
+  const seperate = () => {
+
+    let monx = [];
+    let tuex = [];
+    let wedx = [];
+    let thux = [];
+    let frix = [];
+    let satx = [];
+    let sunx = [];
+
+    for (let index = 0; index < state.schedule.length; index++) {
+      if (state.schedule[index].getDate() == 2) {
+        monx.push(state.schedule[index]);
+
+      } if (state.schedule[index].getDate() == 3) {
+        tuex.push(state.schedule[index]);
+
+      } if (state.schedule[index].getDate() == 4) {
+        wedx.push(state.schedule[index]);
+
+
+      } if (state.schedule[index].getDate() == 5) {
+        thux.push(state.schedule[index]);
+
+      } if (state.schedule[index].getDate() == 6) {
+        frix.push(state.schedule[index]);
+
+      } if (state.schedule[index].getDate() == 7) {
+        satx.push(state.schedule[index]);
+
+      } if (state.schedule[index].getDate() == 8) {
+        sunx.push(state.schedule[index]);
+      }
+    }
+    setMon(JSON.stringify(monx));
+    setTue(JSON.stringify(tuex));
+    setWed(JSON.stringify(wedx));
+    setThu(JSON.stringify(thux));
+    setFri(JSON.stringify(frix));
+    setSat(JSON.stringify(satx));
+    setSun(JSON.stringify(sunx));
+
+    // // var d = new Date("2020-11-02T20:00:00.000Z");
+    // console.log(mon); 
+    if (state.schedule.length == 0) {
+      alert("nothing has been selected")
+    }
+  }
+
+
+
   function ShowTextArea() {
     var textArea = document.getElementById("myDIV");
     textArea.style.display = "block";
@@ -45,6 +113,8 @@ function MusicianRegister() {
 
   const submitMusician = () => {
     const instrumentList = JSON.stringify(instrument);
+    const styleList = JSON.stringify(style);
+
     Axios.post("http://localhost:5000/musician/insert", {
       musicianFirstName: firstName,
       musicianLastName: lastName,
@@ -60,7 +130,7 @@ function MusicianRegister() {
       musicianTraining: training,
       musicianOtherTraining: othertraining,
       musicianInstrument: instrumentList,
-      musicianStyle: style,
+      musicianStyle: styleList,
       musicianGroup: group,
       musicianSite: site,
       musicianMedia: media,
@@ -540,214 +610,168 @@ function MusicianRegister() {
 
                 {/* ########## (MUSIC STYLES) ########## */}
 
+                <ReactBootStrap.Form.Label>
+                    <i>Music Styles</i>
+                  </ReactBootStrap.Form.Label>
+                {/* </ReactBootStrap.Form.Group> */}
+
                 <ReactBootStrap.Row>
                   <ReactBootStrap.Col md={{ span: 3 }}>
-                    <ReactBootStrap.Form.Group>
+                    <ReactBootStrap.Form.Group >
                       <ReactBootStrap.Form.Label>
                         Classical Styles
                       </ReactBootStrap.Form.Label>
                     </ReactBootStrap.Form.Group>
-                    <div>
+                    <div >
+
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("baroque");
-                          }}
-                        />
+                        <input type="checkbox"                           
+                        onChange={() => { if (style.includes("baroque")) { style.splice(style.indexOf("baroque"), 1) } else { setStyle([...style, "baroque"]); } }}
+ />
                         <span>Baroque</span>
                       </label>
                     </div>
 
                     <div>
+
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("classic");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("classic")) { style.splice(style.indexOf("classic"), 1) } else { setStyle([...style, "classic"]); } }}
+ />
                         <span>Classic</span>
                       </label>
                     </div>
                     <div>
+
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("contemporary");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("contemporary")) { style.splice(style.indexOf("contemporary"), 1) } else { setStyle([...style, "contemporary"]); } }}
+/>
                         <span>Contemporary</span>
                       </label>
                     </div>
                     <div>
+
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("lied");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("lied")) { style.splice(style.indexOf("lied"), 1) } else { setStyle([...style, "lied"]); } }}
+ />
                         <span>Lied</span>
                       </label>
+
                     </div>
-                    <div>
+                  
+                    <div >
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("opera");
-                          }}
-                        />
-                        <span>Opera</span>
-                      </label>
-                    </div>
-                    <div>
-                      <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("romantic");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("romantic")) { style.splice(style.indexOf("romantic"), 1) } else { setStyle([...style, "romantic"]); } }}
+ />
                         <span>Romantic</span>
                       </label>
                     </div>
 
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("sacred");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("Sacred")) { style.splice(style.indexOf("Sacred"), 1) } else { setStyle([...style, "Sacred"]); } }}
+ />
                         <span>Sacred</span>
                       </label>
                     </div>
                   </ReactBootStrap.Col>
 
                   <ReactBootStrap.Col md={{ span: 3 }}>
-                    <ReactBootStrap.Form.Group>
+                    <ReactBootStrap.Form.Group >
                       <ReactBootStrap.Form.Label>
                         Popular Styles
                       </ReactBootStrap.Form.Label>
                     </ReactBootStrap.Form.Group>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("songwriter");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("songwriter")) { style.splice(style.indexOf("songwriter"), 1) } else { setStyle([...style, "songwriter"]); } }}
+ />
                         <span>Songwriter</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("blues");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("blues")) { style.splice(style.indexOf("blues"), 1) } else { setStyle([...style, "blues"]); } }}
+ />
                         <span>Blues</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("brass band");
-                          }}
-                        />
+                        <input type="checkbox"                        
+                        onChange={() => { if (style.includes("brass-band")) { style.splice(style.indexOf("brass-band"), 1) } else { setStyle([...style, "brass-band"]); } }}
+ />
                         <span>Brass Band</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("musical comedy");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("musical-comedy")) { style.splice(style.indexOf("musical-comedy"), 1) } else { setStyle([...style, "musical-comedy"]); } }}
+ />
                         <span>Musical Comedy</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("country");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("country")) { style.splice(style.indexOf("country"), 1) } else { setStyle([...style, "country"]); } }}
+ />
                         <span>Country</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("fado");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("fado")) { style.splice(style.indexOf("fado"), 1) } else { setStyle([...style, "fado"]); } }}
+ />
                         <span>Fado</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("fanfare");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("fanfare")) { style.splice(style.indexOf("fanfare"), 1) } else { setStyle([...style, "fanfare"]); } }}
+ />
                         <span>Fanfare</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("flamenco");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("flamenco")) { style.splice(style.indexOf("flamenco"), 1) } else { setStyle([...style, "flamenco"]); } }}
+ />
                         <span>Flamenco</span>
                       </label>
                     </div>
 
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("folk");
-                          }}
-                        />
+                        <input type="checkbox"                        
+                        onChange={() => { if (style.includes("folk")) { style.splice(style.indexOf("folk"), 1) } else { setStyle([...style, "folk"]); } }}
+ />
                         <span>Folk</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("swiss folk");
-                          }}
-                        />
+                        <input type="checkbox"                        
+                        onChange={() => { if (style.includes("swiss-folk")) { style.splice(style.indexOf("swiss-folk"), 1) } else { setStyle([...style, "swiss-folk"]); } }}
+/>
                         <span>Swiss Folk</span>
                       </label>
                     </div>
+
+
                   </ReactBootStrap.Col>
-                  <ReactBootStrap.Col>
-                    <ReactBootStrap.Form.Group>
+                  <ReactBootStrap.Col >
+                    <ReactBootStrap.Form.Group >
                       <ReactBootStrap.Form.Label>
                         Popular Styles
                       </ReactBootStrap.Form.Label>
@@ -755,308 +779,203 @@ function MusicianRegister() {
 
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("french");
-                          }}
-                        />
+                        <input type="checkbox"                        
+                         onChange={() => { if (style.includes("french")) { style.splice(style.indexOf("french"), 1) } else { setStyle([...style, "french"]); } }}
+ />
                         <span>French</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("irish");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("irish")) { style.splice(style.indexOf("irish"), 1) } else { setStyle([...style, "irish"]); } }}
+ />
                         <span>Irish</span>
                       </label>
                     </div>
 
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("italian");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("italian")) { style.splice(style.indexOf("italian"), 1) } else { setStyle([...style, "italian"]); } }}
+/>
                         <span>Italian</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("klezmer");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("klezmer")) { style.splice(style.indexOf("klezmer"), 1) } else { setStyle([...style, "klezmer"]); } }}
+ />
                         <span>Klezmer</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("mariachi");
-                          }}
-                        />
+                        <input type="checkbox"                        
+                         onChange={() => { if (style.includes("mariachi")) { style.splice(style.indexOf("mariachi"), 1) } else { setStyle([...style, "mariachi"]); } }}
+ />
                         <span>Mariachi</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("popular");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("popular")) { style.splice(style.indexOf("popular"), 1) } else { setStyle([...style, "popular"]); } }}
+ />
                         <span>Popular</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("rock");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("rock")) { style.splice(style.indexOf("rock"), 1) } else { setStyle([...style, "rock"]); } }}
+/>
                         <span>Rock</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("salsa");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("salsa")) { style.splice(style.indexOf("salsa"), 1) } else { setStyle([...style, "salsa"]); } }}
+ />
                         <span>Salsa</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("tango");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("tango")) { style.splice(style.indexOf("tango"), 1) } else { setStyle([...style, "tango"]); } }}
+ />
                         <span>Tango</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("world music");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("world-music")) { style.splice(style.indexOf("world-music"), 1) } else { setStyle([...style, "world-music"]); } }}
+ />
                         <span>World Music</span>
                       </label>
                     </div>
                   </ReactBootStrap.Col>
 
                   <ReactBootStrap.Col md={{ span: 3 }}>
-                    <ReactBootStrap.Form.Group>
+                    <ReactBootStrap.Form.Group >
                       <ReactBootStrap.Form.Label>
                         Jazz Styles
                       </ReactBootStrap.Form.Label>
                     </ReactBootStrap.Form.Group>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("afro jazz");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("affro-jazz")) { style.splice(style.indexOf("affro-jazz"), 1) } else { setStyle([...style, "affro-jazz"]); } }}
+ />
                         <span>Afro Jazz</span>
                       </label>
                     </div>
+                   
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("songwriter");
-                          }}
-                        />
-                        <span>Song Writer</span>
-                      </label>
-                    </div>
-                    <div>
-                      <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("be-bop");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("be-bop")) { style.splice(style.indexOf("be-bop"), 1) } else { setStyle([...style, "be-bop"]); } }}
+ />
                         <span>Be-Bop</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("bossanova");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("bossanova")) { style.splice(style.indexOf("bossanova"), 1) } else { setStyle([...style, "bossanova"]); } }}
+ />
                         <span>Bossanova</span>
                       </label>
                     </div>
+           
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("contemporary");
-                          }}
-                        />
-                        <span>Contemporary</span>
-                      </label>
-                    </div>
-                    <div>
-                      <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("free jazz");
-                          }}
-                        />
+                        <input type="checkbox"                        
+                         onChange={() => { if (style.includes("free-jazz")) { style.splice(style.indexOf("free-jazz"), 1) } else { setStyle([...style, "free-jazz"]); } }}
+/>
                         <span>Free Jazz</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("funk");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("funk")) { style.splice(style.indexOf("funk"), 1) } else { setStyle([...style, "funk"]); } }}/>
                         <span>Funk</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("gospel");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("gospel")) { style.splice(style.indexOf("gospel"), 1) } else { setStyle([...style, "gospel"]); } }}/>
                         <span>Gospel</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("jazz");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("jazz")) { style.splice(style.indexOf("jazz"), 1) } else { setStyle([...style, "jazz"]); } }}/>
                         <span>Jazz</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("latin jazz");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("latin-jazz")) { style.splice(style.indexOf("latin-jazz"), 1) } else { setStyle([...style, "latin-jazz"]); } }}/>
                         <span>Latin Jazz</span>
                       </label>
                     </div>
 
+
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("manouche");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("manouche")) { style.splice(style.indexOf("manouche"), 1) } else { setStyle([...style, "manouche"]); } }}/>
                         <span>Manouche</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("new orleans");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("new-orleans")) { style.splice(style.indexOf("new-orleans"), 1) } else { setStyle([...style, "new-orleans"]); } }}/>
                         <span>New Orleans</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("r'n'b");
-                          }}
-                        />
+                        <input type="checkbox"                        
+                        onChange={() => { if (style.includes("r-n-b")) { style.splice(style.indexOf("r-n-b"), 1) } else { setStyle([...style, "r-n-b"]); } }}/>
                         <span>R'n'B</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("salsa");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("salsa")) { style.splice(style.indexOf("salsa"), 1) } else { setStyle([...style, "salsa"]); }}}/>
                         <span>Salsa</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("drunk");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("drunk")) { style.splice(style.indexOf("drunk"), 1) } else { setStyle([...style, "drunk"]); } }}/>
                         <span>Drunk</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("swing");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("swing")) { style.splice(style.indexOf("swing"), 1) } else { setStyle([...style, "swing"]); } }}/>
                         <span>Swing</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input
-                          type="checkbox"
-                          onChange={(e) => {
-                            setStyle("traditional");
-                          }}
-                        />
+                        <input type="checkbox"                         
+                        onChange={() => { if (style.includes("traditional")) { style.splice(style.indexOf("traditional"), 1) } else { setStyle([...style, "traditional"]); } }}/>
                         <span>Traditional</span>
                       </label>
                     </div>
@@ -1139,7 +1058,29 @@ function MusicianRegister() {
             </ReactBootStrap.Row>
 
             <ReactBootStrap.Row>
-              <ReactBootStrap.Col></ReactBootStrap.Col>
+              <ReactBootStrap.Col>
+
+              <div className='topspace' >
+
+<ScheduleSelector
+  selection={state.schedule}
+  numDays={7}
+  minTime={9}
+  maxTime={22}
+  hourlyChunks={1}
+  startDate={new Date('Monday Nov 02 2020 00:00:00')}
+  dateFormat="dddd"
+  onChange={handleChange}
+/><div style={{ marginLeft: '50px', marginTop: '50px' }}>
+  <ReactBootStrap.Button
+    variant="primary"
+    size="md"
+    onClick={seperate}>
+    Submit
+</ReactBootStrap.Button>
+
+</div></div>
+              </ReactBootStrap.Col>
             </ReactBootStrap.Row>
           </ReactBootStrap.Container>
         </ReactBootStrap.Form>
