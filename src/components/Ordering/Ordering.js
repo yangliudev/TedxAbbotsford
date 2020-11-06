@@ -329,7 +329,7 @@ function Ordering() {
           <ReactBootStrap.Col style={{ marginTop: '20px' }}>
             <div class="buttonAlign">
               <ReactBootStrap.Button variant="danger" className='button' onClick={back3}><a>Back</a></ReactBootStrap.Button>
-              <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward3}><a>Submit</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward3}><a>Next</a></ReactBootStrap.Button>
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -445,12 +445,12 @@ function Ordering() {
           <ReactBootStrap.Col><h3>7. All right! When do you want the concert?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <Form style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
           <Form.Row className="justify-content-md-center">
             <Form.Group controlId="formGridDate">
               <Form.Label>Date of Service</Form.Label>
               <h6><i>The order must be placed at least 72 hours in advance to be considered.</i></h6>
-              <Form.Control type="date" placeholder="1234 Main St" onChange={(e) => { setDateService("2020-01-01 10:10:10"); }} />
+              <Form.Control required type="date" placeholder="1234 Main St" onChange={(e) => { setDateService("2020-01-01 10:10:10"); }} />
             </Form.Group>
           </Form.Row>
 
@@ -458,13 +458,13 @@ function Ordering() {
             <Form.Group controlId="formGridTime">
               <Form.Label>Time of Service</Form.Label>
               <h6><i>Enter the time between 08:00 and 21:00 maximum</i></h6>
-              <Form.Control type="time" placeholder="1234 Main St" onChange={(e) => { setTimeService(e.target.value); }} />
+              <Form.Control required type="time" placeholder="1234 Main St" onChange={(e) => { setTimeService(e.target.value); }} />
             </Form.Group>
           </Form.Row>
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back7}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button variant="danger" className='button' onClick={forward7}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward7}>Next</ReactBootStrap.Button>
           </div>
 
         </Form>
@@ -479,26 +479,26 @@ function Ordering() {
           <ReactBootStrap.Col><h3>8. Perfect! Now where will these festivities take place?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <Form style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
           <Form.Group controlId="formGridAddress1">
-            <Form.Label>Address 1</Form.Label>
-            <Form.Control placeholder="1234 Main St" onChange={(e) => { setAddress(e.target.value); }} />
+            <Form.Label>Address Line</Form.Label>
+            <Form.Control required minLength="4" placeholder="1234 Main St" onChange={(e) => { setAddress(e.target.value); }} />
           </Form.Group>
 
-          <Form.Group controlId="formGridAddress2">
+          {/* <Form.Group controlId="formGridAddress2">
             <Form.Label>Address 2</Form.Label>
             <Form.Control placeholder="Apartment, studio, or floor" onChange={(e) => { setAddress2(e.target.value); }} />
-          </Form.Group>
+          </Form.Group> */}
 
           <Form.Row>
             <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>City</Form.Label>
-              <Form.Control onChange={(e) => { setCity(e.target.value); }} />
+              <Form.Control required minLength="3" onChange={(e) => { setCity(e.target.value); }} />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>State</Form.Label>
-              <Form.Control as="select" defaultValue="Choose..." onChange={(e) => { setState("British Columbia"); }}>
+              <Form.Control required as="select" defaultValue="Choose..." onChange={(e) => { setState("British Columbia"); }}>
                 <option>British Columbia</option>
                 <option>Alberta</option>
               </Form.Control>
@@ -506,13 +506,13 @@ function Ordering() {
 
             <Form.Group as={Col} controlId="formGridZip">
               <Form.Label>Zip</Form.Label>
-              <Form.Control onChange={(e) => { setZip(e.target.value); }} />
+              <Form.Control required minLength="6" onChange={(e) => { setZip(e.target.value); }} />
             </Form.Group>
           </Form.Row>
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back8}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button variant="danger" className='button' onClick={forward8}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward8}>Next</ReactBootStrap.Button>
           </div>
 
         </Form>
@@ -531,24 +531,24 @@ function Ordering() {
           <ReactBootStrap.Col><h4>All this information remains confidential and is necessary for security reasons and in case we need to contact you..</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <Form style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
           <div className="justify-content-md-center">
             <div className="w-50 d-inline-block">
 
               <Form.Group controlId="formGridHost">
                 <Form.Label>Offered by</Form.Label>
-                <Form.Control type="text" placeholder="Your name here" onChange={(e) => { setOffered(e.target.value); }} />
+                <Form.Control required minLength="3" type="text" placeholder="Your name here" onChange={(e) => { setOffered(e.target.value); }} />
               </Form.Group>
 
               <Form.Group controlId="formGridPhone">
                 <Form.Label>Contact Number</Form.Label>
                 <h6><i>Please enter a canadian number</i> </h6>
-                <Form.Control type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="012-345-6789" onChange={(e) => { setNumber(e.target.value); }} />
+                <Form.Control required minLength="10" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="012-345-6789" onChange={(e) => { setNumber(e.target.value); }} />
               </Form.Group>
 
               <Form.Group controlId="formGridEmail">
                 <Form.Label>Email Address</Form.Label>
-                <Form.Control placeholder="yourname@gmail.com" onChange={(e) => { setEmail(e.target.value); }} />
+                <Form.Control required minLength="4" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" type="email" placeholder="yourname@gmail.com" onChange={(e) => { setEmail(e.target.value); }} />
               </Form.Group>
 
             </div>
@@ -556,7 +556,7 @@ function Ordering() {
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back9}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button variant="danger" className='button' onClick={forward9}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward9}>Next</ReactBootStrap.Button>
           </div>
         </Form>
 
@@ -582,7 +582,7 @@ function Ordering() {
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back10}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button variant="danger" className='button' onClick={forward10}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="success" className='button' onClick={forward10}>Submit</ReactBootStrap.Button>
           </div>
 
         </Form>
@@ -698,7 +698,7 @@ function Ordering() {
           <ReactBootStrap.Row className="justify-content-md-center">
             <div class="buttonAlign">
               <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}><a>Back</a></ReactBootStrap.Button>
-              <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="danger" className='button' onClick={submitOrder}>Submit</ReactBootStrap.Button></a>
+              <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="success" className='button' onClick={submitOrder}>Go back to Home</ReactBootStrap.Button></a>
             </div>
           </ReactBootStrap.Row>
 
