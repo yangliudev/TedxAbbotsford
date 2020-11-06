@@ -42,7 +42,7 @@ label span {
 }
 
 label :hover + span {
-    background: #81A92F;
+    /* background: #81A92F; */
     margin-left: 3px;
 }
 

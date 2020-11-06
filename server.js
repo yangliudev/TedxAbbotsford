@@ -12,7 +12,7 @@ const port = 5000;
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "12345",
+  password: "4255",
   database: "musician",
 });
 
@@ -151,9 +151,10 @@ app.post("/musician/insert", (req, res)=> {
   const musicianGroup = req.body.musicianGroup;
   const musicianSite = req.body.musicianSite;
   const musicianMedia = req.body.musicianMedia;
+  const mon  = req.body.monday
 
 
-  const sqlInsert = "INSERT INTO musician_table (firstName, lastName, address, postalCode, city, province, phone, iban, email, training, instrument, style, number_musicians, site, media) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+  const sqlInsert = "INSERT INTO musician_table (firstName, lastName, address, postalCode, city, province, phone, iban ,email, training, instrument, style, number_musicians, site, media, monday) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)"
   db.query(sqlInsert, [
       musicianFirstName, 
       musicianLastName, 
@@ -169,7 +170,8 @@ app.post("/musician/insert", (req, res)=> {
       musicianStyle,
       musicianGroup,
       musicianSite,
-      musicianMedia
+      musicianMedia,
+      mon
   ],
 
        (err, result)=> {
