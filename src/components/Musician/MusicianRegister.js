@@ -134,6 +134,13 @@ function MusicianRegister() {
       musicianGroup: group,
       musicianSite: site,
       musicianMedia: media,
+      monday: mon,
+      tuesday: tue,
+      wednesday: wed,
+      thursday: thu,
+      friday: fri,
+      saturday: sat,
+      sunday: sun
     }).then(() => {
       alert("sucessful insert");
     });
@@ -297,6 +304,7 @@ function MusicianRegister() {
                     <div>
                       <label for="master">
                         <input
+                        className='education'
                           type="radio"
                           id="master"
                           name="groupOfDefaultRadios"
@@ -315,6 +323,7 @@ function MusicianRegister() {
                     <div>
                       <label for="inschool">
                         <input
+                        className='education'
                           type="radio"
                           id="inschool"
                           name="groupOfDefaultRadios"
@@ -335,6 +344,7 @@ function MusicianRegister() {
                     <div>
                       <label for="bachelor">
                         <input
+                        className='education'
                           type="radio"
                           id="bachelor"
                           name="groupOfDefaultRadios"
@@ -352,6 +362,7 @@ function MusicianRegister() {
                     <div>
                       <label for="Other">
                         <input
+                        className='education'
                           type="radio"
                           id="Other"
                           name="groupOfDefaultRadios"
@@ -400,6 +411,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                        className='music_styles'
                           type="checkbox"
                           onChange={()=>{if (instrument.includes("voice")) {instrument.splice(instrument.indexOf("voice"), 1)} else {setInstrument([...instrument,"voice"]);}}}
                         />
@@ -410,6 +422,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={()=>{if (instrument.includes("piano")) {instrument.splice(instrument.indexOf("piano"), 1)} else {setInstrument([...instrument,"piano"]);}}}
                         />
@@ -420,8 +433,9 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
-                          onClick={()=>{if (instrument.includes("harp")) {instrument.splice(instrument.indexOf("piano"), 1)} else {setInstrument([...instrument,"harp"]);}}}
+                          onChange={()=>{if (instrument.includes("harp")) {instrument.splice(instrument.indexOf("piano"), 1)} else {setInstrument([...instrument,"harp"]);}}}
                         />
                         <span>Harp</span>
                       </label>
@@ -429,6 +443,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={
                             ()=>{if (instrument.includes("trumbone")) {instrument.splice(instrument.indexOf("trumbone"), 1)} else {setInstrument([...instrument,"trumbone"]);}}
@@ -441,6 +456,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={
                             ()=>{if (instrument.includes("trumpet")) {instrument.splice(instrument.indexOf("trumpet"), 1)} else {setInstrument([...instrument,"trumpet"]);}}
@@ -452,6 +468,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={()=>{if (instrument.includes("bass")) {instrument.splice(instrument.indexOf("bass"), 1)} else {setInstrument([...instrument,"bass"]);}}}
                         />
@@ -464,6 +481,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={()=>{if (instrument.includes("singing")) {instrument.splice(instrument.indexOf("singing"), 1)} else {setInstrument([...instrument,"singing"]);}}}
                         />
@@ -473,6 +491,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={()=>{if (instrument.includes("saxophone")) {instrument.splice(instrument.indexOf("saxophone"), 1)} else {setInstrument([...instrument,"saxophone"]);}}}
                         />
@@ -482,6 +501,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={
                             ()=>{if (instrument.includes("viola-copper")) {instrument.splice(instrument.indexOf("viola-copper"), 1)} else {setInstrument([...instrument,"viola-copper"]);}}
@@ -493,6 +513,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={
                             ()=>{if (instrument.includes("bassoon")) {instrument.splice(instrument.indexOf("bassoon"), 1);} else {setInstrument([...instrument,"bassoon"]);}}
@@ -504,6 +525,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={
                             ()=>{if (instrument.includes("flute")) {instrument.splice(instrument.indexOf("flute"), 1)} else {setInstrument([...instrument,"flute"]);}}
@@ -515,6 +537,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={
                             ()=>{if (instrument.includes("horn")) {instrument.splice(instrument.indexOf("horn"), 1)} else {setInstrument([...instrument,"horn"]);}}
@@ -529,6 +552,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={
                             ()=>{if (instrument.includes("guitar")) {instrument.splice(instrument.indexOf("guitar"), 1)} else {setInstrument([...instrument,"guitar"]);}}
@@ -540,6 +564,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={
                             ()=>{if (instrument.includes("accordion")) {instrument.splice(instrument.indexOf("accordion"), 1)} else {setInstrument([...instrument,"accordion"]);}}
@@ -551,6 +576,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={
                             ()=>{if (instrument.includes("clarinet")) {instrument.splice(instrument.indexOf("clarinet"), 1)} else {setInstrument([...instrument,"clarinet"]);}}
@@ -562,6 +588,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={
                             ()=>{if (instrument.includes("cello")) {instrument.splice(instrument.indexOf("cello"), 1)} else {setInstrument([...instrument,"cello"]);}}
@@ -573,6 +600,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={
                             ()=>{if (instrument.includes("percussion")) {instrument.splice(instrument.indexOf("percussion"), 1)} else {setInstrument([...instrument,"percussion"]);}}}
@@ -583,6 +611,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={
                             ()=>{if (instrument.includes("alphorn")) {instrument.splice(instrument.indexOf("alphorn"), 1)} else {setInstrument([...instrument,"alphorn"]);}}}
@@ -625,7 +654,7 @@ function MusicianRegister() {
                     <div >
 
                       <label>
-                        <input type="checkbox"                           
+                        <input type="checkbox"    className='music_styles'                          
                         onChange={() => { if (style.includes("baroque")) { style.splice(style.indexOf("baroque"), 1) } else { setStyle([...style, "baroque"]); } }}
  />
                         <span>Baroque</span>
@@ -635,7 +664,7 @@ function MusicianRegister() {
                     <div>
 
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("classic")) { style.splice(style.indexOf("classic"), 1) } else { setStyle([...style, "classic"]); } }}
  />
                         <span>Classic</span>
@@ -644,7 +673,7 @@ function MusicianRegister() {
                     <div>
 
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("contemporary")) { style.splice(style.indexOf("contemporary"), 1) } else { setStyle([...style, "contemporary"]); } }}
 />
                         <span>Contemporary</span>
@@ -653,7 +682,7 @@ function MusicianRegister() {
                     <div>
 
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("lied")) { style.splice(style.indexOf("lied"), 1) } else { setStyle([...style, "lied"]); } }}
  />
                         <span>Lied</span>
@@ -663,7 +692,7 @@ function MusicianRegister() {
                   
                     <div >
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("romantic")) { style.splice(style.indexOf("romantic"), 1) } else { setStyle([...style, "romantic"]); } }}
  />
                         <span>Romantic</span>
@@ -672,7 +701,7 @@ function MusicianRegister() {
 
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("Sacred")) { style.splice(style.indexOf("Sacred"), 1) } else { setStyle([...style, "Sacred"]); } }}
  />
                         <span>Sacred</span>
@@ -688,7 +717,7 @@ function MusicianRegister() {
                     </ReactBootStrap.Form.Group>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("songwriter")) { style.splice(style.indexOf("songwriter"), 1) } else { setStyle([...style, "songwriter"]); } }}
  />
                         <span>Songwriter</span>
@@ -696,7 +725,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("blues")) { style.splice(style.indexOf("blues"), 1) } else { setStyle([...style, "blues"]); } }}
  />
                         <span>Blues</span>
@@ -704,7 +733,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                        
+                        <input type="checkbox"   className='music_styles'                        
                         onChange={() => { if (style.includes("brass-band")) { style.splice(style.indexOf("brass-band"), 1) } else { setStyle([...style, "brass-band"]); } }}
  />
                         <span>Brass Band</span>
@@ -712,7 +741,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("musical-comedy")) { style.splice(style.indexOf("musical-comedy"), 1) } else { setStyle([...style, "musical-comedy"]); } }}
  />
                         <span>Musical Comedy</span>
@@ -720,7 +749,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("country")) { style.splice(style.indexOf("country"), 1) } else { setStyle([...style, "country"]); } }}
  />
                         <span>Country</span>
@@ -728,7 +757,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("fado")) { style.splice(style.indexOf("fado"), 1) } else { setStyle([...style, "fado"]); } }}
  />
                         <span>Fado</span>
@@ -736,7 +765,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("fanfare")) { style.splice(style.indexOf("fanfare"), 1) } else { setStyle([...style, "fanfare"]); } }}
  />
                         <span>Fanfare</span>
@@ -744,7 +773,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("flamenco")) { style.splice(style.indexOf("flamenco"), 1) } else { setStyle([...style, "flamenco"]); } }}
  />
                         <span>Flamenco</span>
@@ -753,7 +782,7 @@ function MusicianRegister() {
 
                     <div>
                       <label>
-                        <input type="checkbox"                        
+                        <input type="checkbox"   className='music_styles'                        
                         onChange={() => { if (style.includes("folk")) { style.splice(style.indexOf("folk"), 1) } else { setStyle([...style, "folk"]); } }}
  />
                         <span>Folk</span>
@@ -761,7 +790,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                        
+                        <input type="checkbox"   className='music_styles'                        
                         onChange={() => { if (style.includes("swiss-folk")) { style.splice(style.indexOf("swiss-folk"), 1) } else { setStyle([...style, "swiss-folk"]); } }}
 />
                         <span>Swiss Folk</span>
@@ -779,7 +808,7 @@ function MusicianRegister() {
 
                     <div>
                       <label>
-                        <input type="checkbox"                        
+                        <input type="checkbox"   className='music_styles'                        
                          onChange={() => { if (style.includes("french")) { style.splice(style.indexOf("french"), 1) } else { setStyle([...style, "french"]); } }}
  />
                         <span>French</span>
@@ -787,7 +816,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("irish")) { style.splice(style.indexOf("irish"), 1) } else { setStyle([...style, "irish"]); } }}
  />
                         <span>Irish</span>
@@ -796,7 +825,7 @@ function MusicianRegister() {
 
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("italian")) { style.splice(style.indexOf("italian"), 1) } else { setStyle([...style, "italian"]); } }}
 />
                         <span>Italian</span>
@@ -804,7 +833,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("klezmer")) { style.splice(style.indexOf("klezmer"), 1) } else { setStyle([...style, "klezmer"]); } }}
  />
                         <span>Klezmer</span>
@@ -812,7 +841,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                        
+                        <input type="checkbox"   className='music_styles'                        
                          onChange={() => { if (style.includes("mariachi")) { style.splice(style.indexOf("mariachi"), 1) } else { setStyle([...style, "mariachi"]); } }}
  />
                         <span>Mariachi</span>
@@ -820,7 +849,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("popular")) { style.splice(style.indexOf("popular"), 1) } else { setStyle([...style, "popular"]); } }}
  />
                         <span>Popular</span>
@@ -828,7 +857,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("rock")) { style.splice(style.indexOf("rock"), 1) } else { setStyle([...style, "rock"]); } }}
 />
                         <span>Rock</span>
@@ -836,7 +865,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("salsa")) { style.splice(style.indexOf("salsa"), 1) } else { setStyle([...style, "salsa"]); } }}
  />
                         <span>Salsa</span>
@@ -844,7 +873,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("tango")) { style.splice(style.indexOf("tango"), 1) } else { setStyle([...style, "tango"]); } }}
  />
                         <span>Tango</span>
@@ -852,7 +881,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("world-music")) { style.splice(style.indexOf("world-music"), 1) } else { setStyle([...style, "world-music"]); } }}
  />
                         <span>World Music</span>
@@ -868,7 +897,7 @@ function MusicianRegister() {
                     </ReactBootStrap.Form.Group>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("affro-jazz")) { style.splice(style.indexOf("affro-jazz"), 1) } else { setStyle([...style, "affro-jazz"]); } }}
  />
                         <span>Afro Jazz</span>
@@ -877,7 +906,7 @@ function MusicianRegister() {
                    
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("be-bop")) { style.splice(style.indexOf("be-bop"), 1) } else { setStyle([...style, "be-bop"]); } }}
  />
                         <span>Be-Bop</span>
@@ -885,7 +914,7 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("bossanova")) { style.splice(style.indexOf("bossanova"), 1) } else { setStyle([...style, "bossanova"]); } }}
  />
                         <span>Bossanova</span>
@@ -894,7 +923,7 @@ function MusicianRegister() {
            
                     <div>
                       <label>
-                        <input type="checkbox"                        
+                        <input type="checkbox"   className='music_styles'                        
                          onChange={() => { if (style.includes("free-jazz")) { style.splice(style.indexOf("free-jazz"), 1) } else { setStyle([...style, "free-jazz"]); } }}
 />
                         <span>Free Jazz</span>
@@ -902,28 +931,28 @@ function MusicianRegister() {
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("funk")) { style.splice(style.indexOf("funk"), 1) } else { setStyle([...style, "funk"]); } }}/>
                         <span>Funk</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"    className='music_styles'                        
                         onChange={() => { if (style.includes("gospel")) { style.splice(style.indexOf("gospel"), 1) } else { setStyle([...style, "gospel"]); } }}/>
                         <span>Gospel</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"    className='music_styles'                        
                         onChange={() => { if (style.includes("jazz")) { style.splice(style.indexOf("jazz"), 1) } else { setStyle([...style, "jazz"]); } }}/>
                         <span>Jazz</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("latin-jazz")) { style.splice(style.indexOf("latin-jazz"), 1) } else { setStyle([...style, "latin-jazz"]); } }}/>
                         <span>Latin Jazz</span>
                       </label>
@@ -932,49 +961,49 @@ function MusicianRegister() {
 
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("manouche")) { style.splice(style.indexOf("manouche"), 1) } else { setStyle([...style, "manouche"]); } }}/>
                         <span>Manouche</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("new-orleans")) { style.splice(style.indexOf("new-orleans"), 1) } else { setStyle([...style, "new-orleans"]); } }}/>
                         <span>New Orleans</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                        
+                        <input type="checkbox"   className='music_styles'                        
                         onChange={() => { if (style.includes("r-n-b")) { style.splice(style.indexOf("r-n-b"), 1) } else { setStyle([...style, "r-n-b"]); } }}/>
                         <span>R'n'B</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("salsa")) { style.splice(style.indexOf("salsa"), 1) } else { setStyle([...style, "salsa"]); }}}/>
                         <span>Salsa</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox"   className='music_styles'                         
                         onChange={() => { if (style.includes("drunk")) { style.splice(style.indexOf("drunk"), 1) } else { setStyle([...style, "drunk"]); } }}/>
                         <span>Drunk</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox" className='music_styles'                        
                         onChange={() => { if (style.includes("swing")) { style.splice(style.indexOf("swing"), 1) } else { setStyle([...style, "swing"]); } }}/>
                         <span>Swing</span>
                       </label>
                     </div>
                     <div>
                       <label>
-                        <input type="checkbox"                         
+                        <input type="checkbox" className='music_styles'                     
                         onChange={() => { if (style.includes("traditional")) { style.splice(style.indexOf("traditional"), 1) } else { setStyle([...style, "traditional"]); } }}/>
                         <span>Traditional</span>
                       </label>
@@ -997,6 +1026,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={(e) => {
                             setGroup("solo");
@@ -1010,6 +1040,7 @@ function MusicianRegister() {
                     <div>
                       <label>
                         <input
+                           className='music_styles'
                           type="checkbox"
                           onChange={(e) => {
                             setGroup("duet");
@@ -1066,10 +1097,11 @@ function MusicianRegister() {
   selection={state.schedule}
   numDays={7}
   minTime={9}
-  maxTime={22}
-  hourlyChunks={1}
+  maxTime={21}
+  hourlyChunks={2}
   startDate={new Date('Monday Nov 02 2020 00:00:00')}
   dateFormat="dddd"
+  timeFormat='h:mma'
   onChange={handleChange}
 /><div style={{ marginLeft: '50px', marginTop: '50px' }}>
   <ReactBootStrap.Button

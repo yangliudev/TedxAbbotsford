@@ -1,4 +1,4 @@
-/* #font{
+#font{
     font-size: 30px;
 }
 
@@ -16,11 +16,11 @@ label.harry {
     font-size: 25px;
 } 
 
-input[type=checkbox] {
+input[type=checkbox].music_styles {
     display: none;
 }
 
-input[type=radio] {
+input[type=radio].education {
     display: none;
 }
 
@@ -44,7 +44,7 @@ label span {
 label :hover + span {
     background: #81A92F;
     margin-left: 3px;
-} */
+}
 
 .bg-display-reg {
     /* background-color: #2a3c434f; */
