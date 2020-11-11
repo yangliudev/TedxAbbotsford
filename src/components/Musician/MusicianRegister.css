@@ -62,11 +62,13 @@ label :hover + span {
   .topspace {
     margin-top: 50px;
     margin-bottom: 10%;
-    margin-right: 2%;
-    margin-left:2%;
+    margin-right: 10%;
+    margin-left:10%;
     background-color: white;
     padding: 20px;
     border-radius: 15px;
+
+
 }
 
 .iso.div :hover{

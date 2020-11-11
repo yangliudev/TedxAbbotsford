@@ -35,6 +35,12 @@ class MusicianCalender extends Component {
   
     }
 
+    renderCustomDateCell = (time, selected, innerRef) => (
+      <div style={{ textAlign: 'center' }}>
+        {selected ? '✅' : '❌'}
+      </div>
+    ) 
+
   render() {
     
   
@@ -55,7 +61,8 @@ class MusicianCalender extends Component {
         maxTime={22}
         hourlyChunks={1}
         startDate={new Date('Sunday Nov 01 2020 17:57:06')}
-        dateFormat="dddd"
+        dateFormat="ddd"
+        renderDateCell={this.renderCustomDateCell}
         onChange={this.handleChange}
       />
 
