@@ -66,6 +66,5 @@ label :hover + span {
     padding: 20px;
     border-radius: 15px;
     cursor: pointer;
-
-  }
+    }
 
