@@ -250,7 +250,7 @@ function MusicianRegister() {
                   </ReactBootStrap.Form.Label>
                   <ReactBootStrap.Form.Control
                     type="text"
-                    placeholder="IBAN"
+                    placeholder="E-Transer Email"
                     onChange={(e) => {
                       setIban(e.target.value);
                     }}
@@ -1011,7 +1011,7 @@ function MusicianRegister() {
                 </ReactBootStrap.Row>
 
                 <ReactBootStrap.Form.Group
-                  style={{ marginBottom: "1px", marginTop: "15px" }}
+                  style={{ marginTop: "15px" }}
                 >
                   <ReactBootStrap.Form.Label>
                     <i>You Play In?</i>
@@ -1075,28 +1075,29 @@ function MusicianRegister() {
                     }}
                   />
                 </ReactBootStrap.Form.Group>
+               
                 <ReactBootStrap.Form.Group>
-                  <ReactBootStrap.Form.Label>
-                    <i>Media</i>
+                  <ReactBootStrap.Form.Label id="font">
+                   Availability
                   </ReactBootStrap.Form.Label>
+                 </ReactBootStrap.Form.Group>
 
-                  {/* ########## (MEDIA) ########## */}
-
-                  <ReactBootStrap.Form.Control
-                    type="text"
-                    placeholder="Website"
-                    onChange={(e) => {
-                      setSite(e.target.value);
-                    }}
-                  />
-                </ReactBootStrap.Form.Group>
-
-
+                 <ReactBootStrap.Form.Group >
+                      <ReactBootStrap.Form.Label>
+                      <ul>
+                        <li>Click on individual slots or click and drag to select multiple slots.</li>
+                        <li>Click on selected slots to deselect them.</li>
+                        <li>Click on Save Calender before clicking register.</li>
+                      </ul> 
+                       </ReactBootStrap.Form.Label>
+                       </ReactBootStrap.Form.Group>
               </ReactBootStrap.Col>
             </ReactBootStrap.Row>
 
+{/* ##################AVAILABLITY############################ */}
             <ReactBootStrap.Row>
               <ReactBootStrap.Col>
+              
              
                 <div className='calander' >
 
