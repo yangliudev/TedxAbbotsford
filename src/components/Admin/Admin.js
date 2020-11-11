@@ -9,6 +9,9 @@ import {
 } from "@material-ui/core/styles";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
+import CustomToolbarSelect from "./CustomToolbarSelect";
+
+import OrderEdit from "./OrderEdit";
 
 function Test() {
 
@@ -42,6 +45,12 @@ function Test() {
               backgroundColor: "white",
             },
           },
+        },
+        MUIDataTableBodyCell: {
+          root: {
+            backgroundColor: "white",
+            width: "auto"
+          }
         },
       },
     });
@@ -89,6 +98,17 @@ function Test() {
     };
 })();
 
+// const [editable, setEditable] = useState(false);
+var editable = false;
+const rowSelect = (row) => {
+  if (editable === false) {
+    editable = true;
+  } else {
+    editable = false;
+  }
+  console.log(row, editable);
+}
+
   // const [tableBodyHeight, setTableBodyHeight] = useState("400px");
   // const [tableBodyMaxHeight, setTableBodyMaxHeight] = useState("");
   // const [transitionTime, setTransitionTime] = useState(300);
@@ -113,8 +133,8 @@ function Test() {
     "City",
     "State",
     "Zip",
-    "Comments",
-    "Tips",
+    {name: "Comments", options: {display: false}},
+    {name: "Tips", options: {display: false}}
   ];
 
   const columnsMusician = ["ID", "First Name", "Last Name", "Address", "Postal Code", "City", "Province", "Phone", "IBAN", "Email", "Training", "Instrument", "Style", "# of Musicians", "Site", "Media"];
@@ -123,13 +143,18 @@ function Test() {
   const options = {
     filter: true,
     filterType: "dropdown",
-    responsive: "vertical",
-    tableBodyHeight: "400px",
+    responsive: "standard",
+    // tableBodyHeight: "400px",
     resizableColumns: true,
     draggableColumns: {
       enabled: true,
       transitionTime: 300,
     },
+    selectableRows: "single",
+    customToolbarSelect: selectedRows => (
+      <CustomToolbarSelect selectedRows={selectedRows} data={data[selectedRows.data[0].index]}/>
+    ),
+    onRowSelectionChange: currentRowsSelected => {rowSelect(currentRowsSelected)},
   };
 
   const optionsMusician = {
@@ -166,7 +191,10 @@ function Test() {
         </TableRow>
       );
     },
-    onRowExpansionChange: (curExpanded, allExpanded, rowsExpanded) => console.log(curExpanded, allExpanded, rowsExpanded)
+    onRowExpansionChange: (curExpanded, allExpanded, rowsExpanded) => console.log(curExpanded, allExpanded, rowsExpanded),
+    customToolbarSelect: selectedRows => (
+      <CustomToolbarSelect selectedRows={selectedRows} />
+    )
   };
 
   const components = {
@@ -194,10 +222,12 @@ function Test() {
         />
       </MuiThemeProvider>
       </div>
+      {editable === true && <OrderEdit />}
+
 
       
 
-      <div style={{ marginTop: "30px" }}>
+      {/* <div style={{ marginTop: "30px" }}>
 
       <MuiThemeProvider theme={getMuiTheme()}>
         <MUIDataTable title={"Musicians"} data={dataMusician} columns={columnsMusician} options={optionsMusician} components={components} />
@@ -206,12 +236,11 @@ function Test() {
       </div>
 
       <div style={{paddingBottom:"500px", marginTop:"20px"}}>
-      {/* <a href="/#/musician/admin">Musicians</a> */}
 
       <label>Musican:</label><input onChange={(e) => { setMusicianID(e.target.value)}}/>
       <label>Order:</label><input onChange={(e) => { setOrderID(e.target.value)}}/>
       <input type="button" value="submit" onClick={submitMusicianOrder} />
-      </div>
+      </div> */}
     </div>
     
   );

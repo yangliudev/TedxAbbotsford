@@ -43,7 +43,7 @@ class App extends Component {
 
  
           <Route exact path="/order" component={Ordering}/>
-          {/* <Route exact path="/admin" component={Admin_Dash}/> */}
+          <Route exact path="/admin" component={Admin_Dash}/>
           <Route path="/musician/admin" component={Musician_Dash}/>
 
           <Route exact path="/login" component={Login}/>
