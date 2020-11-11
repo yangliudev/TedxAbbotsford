@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FilterIcon from "@material-ui/icons/FilterList";
 import EditIcon from '@material-ui/icons/Edit';
 import { withStyles } from "@material-ui/core/styles";
+
+import OrderEdit from "./OrderEdit";
 
 const defaultToolbarSelectStyles = {
   iconButton: {
@@ -19,23 +21,28 @@ const defaultToolbarSelectStyles = {
   }
 };
 
+
 class CustomToolbarSelect extends React.Component {
   handleClick = () => {
     console.log("click! current selected rows", this.props.selectedRows);
     console.log("click! current selected rows", this.props.data);
 
   };
-  editRow = () => {
-      console.log("edit");
-  }
+  
+  
 
   render() {
     const { classes } = this.props;
+    var editable = false;
+    const editRow = () => {
+      editable = true;
+  }
+
 
     return (
       <div className={"custom-toolbar-select"}>
         <Tooltip title={"icon 3"}>
-          <IconButton className={classes.iconButton} onClick={this.handleClick}>
+          <IconButton className={classes.iconButton} onClick={editRow}>
             <FilterIcon />
           </IconButton>
         </Tooltip>
@@ -50,6 +57,10 @@ class CustomToolbarSelect extends React.Component {
           </IconButton>
         </Tooltip>
       </div>
+
+
+
+      
     );
   }
 }

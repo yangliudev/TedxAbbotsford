@@ -98,15 +98,17 @@ function Test() {
     };
 })();
 
-// const [editable, setEditable] = useState(false);
-var editable = false;
-const rowSelect = (row) => {
-  if (editable === false) {
-    editable = true;
+const [editable, setEditable] = useState([]);
+var editableTest = false;
+
+
+const rowSelect = (row, row2) => {
+  if (row2.length === 1) {
+   document.getElementById("edit").style.display = "block";
+  console.log(row, row2);
   } else {
-    editable = false;
+    document.getElementById("edit").style.display = "none";
   }
-  console.log(row, editable);
 }
 
   // const [tableBodyHeight, setTableBodyHeight] = useState("400px");
@@ -154,7 +156,7 @@ const rowSelect = (row) => {
     customToolbarSelect: selectedRows => (
       <CustomToolbarSelect selectedRows={selectedRows} data={data[selectedRows.data[0].index]}/>
     ),
-    onRowSelectionChange: currentRowsSelected => {rowSelect(currentRowsSelected)},
+    onRowSelectionChange: (currentRowsSelected, rowsSelected) => {rowSelect(currentRowsSelected, rowsSelected)},
   };
 
   const optionsMusician = {
@@ -222,7 +224,12 @@ const rowSelect = (row) => {
         />
       </MuiThemeProvider>
       </div>
-      {editable === true && <OrderEdit />}
+
+      <div id="edit">
+        <input placeholder="First Name" type="text" />
+        <input placeholder="Last Name" type="text2" />
+        <input placeholder="Date Service" type="text3" />
+      </div>
 
 
       
