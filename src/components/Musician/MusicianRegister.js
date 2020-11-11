@@ -34,26 +34,33 @@ function MusicianRegister() {
 
     for (let index = 0; index < state.schedule.length; index++) {
       if (state.schedule[index].getDate() == 2) {
-        monx.push(state.schedule[index]);
+        let monHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
+        monx.push(monHour);
 
       } if (state.schedule[index].getDate() == 3) {
-        tuex.push(state.schedule[index]);
+        let tueHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
+        tuex.push(tueHour);
 
       } if (state.schedule[index].getDate() == 4) {
-        wedx.push(state.schedule[index]);
+        let wedHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
+        wedx.push(wedHour);
 
 
       } if (state.schedule[index].getDate() == 5) {
-        thux.push(state.schedule[index]);
+        let thuHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
+        thux.push(thuHour);
 
       } if (state.schedule[index].getDate() == 6) {
-        frix.push(state.schedule[index]);
+        let friHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
+        frix.push(friHour);
 
       } if (state.schedule[index].getDate() == 7) {
-        satx.push(state.schedule[index]);
+        let satHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
+        satx.push(satHour);
 
       } if (state.schedule[index].getDate() == 8) {
-        sunx.push(state.schedule[index]);
+        let sunHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
+        sunx.push(sunHour);
       }
     }
     setMon(JSON.stringify(monx));
@@ -65,7 +72,7 @@ function MusicianRegister() {
     setSun(JSON.stringify(sunx));
 
     // // var d = new Date("2020-11-02T20:00:00.000Z");
-    // console.log(mon); 
+    console.log(mon); 
     if (state.schedule.length == 0) {
       alert("nothing has been selected")
     }
@@ -149,7 +156,7 @@ function MusicianRegister() {
 
   return (
     <ReactBootStrap.Container className="top-space">
-      <div className="bg-display-reg">
+      <div className='display-reg'>
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col>
             <h1 class="info">Register as a Musician!</h1>
@@ -1093,11 +1100,11 @@ function MusicianRegister() {
                        </ReactBootStrap.Form.Group>
               </ReactBootStrap.Col>
             </ReactBootStrap.Row>
+            </ReactBootStrap.Container>
 
 {/* ##################AVAILABLITY############################ */}
-            <ReactBootStrap.Row>
-              <ReactBootStrap.Col>
-              
+      
+
              
                 <div className='calander' >
 
@@ -1108,7 +1115,7 @@ function MusicianRegister() {
                     maxTime={21}
                     hourlyChunks={2}
                     startDate={new Date('Monday Nov 02 2020 00:00:00')}
-                    dateFormat="dddd"
+                    dateFormat="ddd"
                     timeFormat='h:mma'
                     onChange={handleChange}
                   /><div style={{ marginLeft: '50px', marginTop: '10px' }}>
@@ -1129,10 +1136,8 @@ function MusicianRegister() {
 
                   </div>
                 </div>
-               
-              </ReactBootStrap.Col>
-            </ReactBootStrap.Row>
-          </ReactBootStrap.Container>
+
+      
         </ReactBootStrap.Form>
       </div>
     </ReactBootStrap.Container>
