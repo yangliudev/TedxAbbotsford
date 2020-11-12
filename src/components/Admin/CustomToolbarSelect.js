@@ -42,7 +42,7 @@ class CustomToolbarSelect extends React.Component {
     return (
       <div className={"custom-toolbar-select"}>
         <Tooltip title={"icon 3"}>
-          <IconButton className={classes.iconButton} onClick={editRow}>
+          <IconButton className={classes.iconButton} onClick={this.props.saveRowEdit}>
             <FilterIcon />
           </IconButton>
         </Tooltip>

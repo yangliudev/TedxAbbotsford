@@ -13,6 +13,15 @@ import CustomToolbarSelect from "./CustomToolbarSelect";
 
 import OrderEdit from "./OrderEdit";
 
+
+import IconButton from "@material-ui/core/IconButton";
+import Tooltip from "@material-ui/core/Tooltip";
+import DeleteIcon from "@material-ui/icons/Delete";
+import FilterIcon from "@material-ui/icons/FilterList";
+import EditIcon from '@material-ui/icons/Edit';
+import MusicNoteIcon from '@material-ui/icons/MusicNote';
+// import { withStyles } from "@material-ui/core/styles";
+
 function Test() {
 
   const [musicianID, setMusicianID] = useState(0);
@@ -67,8 +76,17 @@ function Test() {
     });
   }, []);
 
+  const getMusicians = (id) => {
+    Axios.get(`http://localhost:5000/match/musicians/${id}`).then((response) => {
+        console.log(response.data);
+        setMatchedMusicians(response.data);
+        console.log(matchedMusicians);
+    });
+  };
+
   const [orderList, setOrderList] = useState([]);
   const [musicianList, setMusicianList] = useState([]);
+  const [matchedMusicians, setMatchedMusicians] = useState([]);
 
   const arr = [];
   const arr2 = [];
@@ -98,14 +116,33 @@ function Test() {
     };
 })();
 
-const [editable, setEditable] = useState([]);
-var editableTest = false;
+var rowEdit = [];
+var editFirstName = rowEdit.firstName;
+var editLastName = rowEdit.lastName;
+var editDate = rowEdit.date_service;
+var editTime = rowEdit.time_service;
+var editEmail = rowEdit.email;
+var editAddress = rowEdit.address;
 
+const saveRowEdit = () => {
+  console.log(editFirstName)
+}
 
-const rowSelect = (row, row2) => {
-  if (row2.length === 1) {
-   document.getElementById("edit").style.display = "block";
-  console.log(row, row2);
+const testing = () => {
+  document.getElementById("edit").style.display = "block";
+  console.log(editRow);
+}
+
+const [editRow, setEditRow] = useState([]);
+
+const rowSelect = (row) => {
+  // console.log(row);
+  if (row.length === 1) {
+    rowEdit = orderList[row[0].index];
+    document.getElementById("edit").style.display = "none";
+
+  //  document.getElementById("edit").style.display = "block";
+  console.log(rowEdit, orderList[0].gift);
   } else {
     document.getElementById("edit").style.display = "none";
   }
@@ -153,10 +190,15 @@ const rowSelect = (row, row2) => {
       transitionTime: 300,
     },
     selectableRows: "single",
-    customToolbarSelect: selectedRows => (
-      <CustomToolbarSelect selectedRows={selectedRows} data={data[selectedRows.data[0].index]}/>
+    customToolbarSelect: (selectedRows, rowsSelected) => (
+      // <CustomToolbarSelect selectedRows={selectedRows} data={data[selectedRows.data[0].index]} test={saveRowEdit}/>
+      <div className={"custom-toolbar-select"}>
+        <Tooltip title={"Match"}><IconButton onClick={() => {getMusicians(rowEdit.id)}}><MusicNoteIcon /></IconButton></Tooltip>
+        <Tooltip title={"Edit"}><IconButton onClick={() => {testing(); setEditRow(rowEdit)}}><EditIcon /></IconButton></Tooltip>
+        <Tooltip title={"Delete"}><IconButton><DeleteIcon/></IconButton></Tooltip>
+      </div>
     ),
-    onRowSelectionChange: (currentRowsSelected, rowsSelected) => {rowSelect(currentRowsSelected, rowsSelected)},
+    onRowSelectionChange: (rowsSelected) => {rowSelect(rowsSelected)},
   };
 
   const optionsMusician = {
@@ -212,8 +254,9 @@ const rowSelect = (row, row2) => {
   something();
   something2();
 
+
   return (
-    <div style={{ marginTop: "30px" }}>
+    <div style={{ marginTop: "30px" }} id="orders">
       <div>
       <MuiThemeProvider theme={getMuiTheme()}>
         <MUIDataTable
@@ -223,12 +266,17 @@ const rowSelect = (row, row2) => {
           options={options}
         />
       </MuiThemeProvider>
+      <h1>{matchedMusicians.firstName}</h1>
       </div>
 
       <div id="edit">
-        <input placeholder="First Name" type="text" />
-        <input placeholder="Last Name" type="text2" />
-        <input placeholder="Date Service" type="text3" />
+        <input placeholder={editRow.firstName} type="text" onChange={(e) => {editFirstName = e.target.value}}/>
+        <input placeholder={editRow.lastName} type="text" onChange={(e) => {editLastName = e.target.value}}/>
+        <input placeholder={editRow.time_service} type="text" onChange={(e) => {editTime = e.target.value}}/>
+        <input placeholder={editRow.date_service} type="text" onChange={(e) => {editDate = e.target.value}}/>
+        <input placeholder={editRow.email} type="text" onChange={(e) => {editEmail = e.target.value}}/>
+        <input placeholder={editRow.address} type="text" onChange={(e) => {editAddress = e.target.value}}/>
+        <input value="save" type="button" onClick={saveRowEdit}/>
       </div>
 
 

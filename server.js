@@ -300,4 +300,14 @@ app.put("/musician/update", (req, res) => {
   });
 });
 
+
+app.get("/match/musicians/:orderID", (req, res) => {
+  const id = req.params.orderID;
+
+  const sqlGet = "SELECT musician_table.* FROM ordering_table, musician_table WHERE ordering_table.id = ? AND ordering_table.city = musician_table.city";
+  db.query(sqlGet, id, (err, result) => {
+    res.send(result);
+  });
+});
+
 app.listen(port, () => console.log(`Server started on port ${port}`));
