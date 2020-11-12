@@ -1,107 +1,91 @@
-import React, { Component, useEffect, useState } from 'react';
-import Axios from 'axios';
-import "./Admin.css";
+import React, { Component, useEffect, useState } from "react";
+import Axios from "axios";
+import MUIDataTable from "mui-datatables";
+import "./Admin.css"
+import { createMuiTheme, MuiThemeProvider, withStyles } from '@material-ui/core/styles';
 
-function Admin() {
-        const [orderList, setOrderList] = useState([]);
+ 
+function Test() {
 
-        useEffect(() => {
-            Axios.get("http://localhost:5000/order/get").then((response) => {
-              // console.log(response.data)
-              setOrderList(response.data)
-            })
-          })
-        return (
+  const getMuiTheme = () =>
+  createMuiTheme({
+    overrides: {
+      MuiToolbar: {
+        root: {
+          backgroundColor: '#d7d4d9',
+          '& .MuiTypography-h6': {
+            color: 'black'
+          }
+        },
+      },
+      MuiTableFooter: {
+        root: {
+          '& .MuiToolbar-root': {
+            backgroundColor: 'white',
+          },
+        },
+      },
+    },
+  });
 
-    <div>
-        <h1>Orders</h1>
-                    <table id="customers">
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Gift</th>
-                        <th>Occasion</th>
-                        <th>Type</th>
-                        <th>Number Musicians</th>
-                        <th>Surprise</th>
-                        <th>Date of Service</th>
-                        <th>Time of Service</th>
-                        <th>Offered</th>
-                        <th>Number</th>
-                        <th>Email</th>
-                        <th>Address</th>
-                        <th>City</th>
-                        <th>Zip</th>
-                    </tr>
-                    <tr>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.firstName}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.lastName}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.gift}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.occasion}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.type}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.number_musicians}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.suprise}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.date_service}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.time_service}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.offered}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.number}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.email}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.address}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.city}</div>
-                        })}</td>
-                        <td>{orderList.map((val) => { 
-                            return <div>{val.zip}</div>
-                        })}</td>
-                    </tr>
-                    </table>
+    useEffect(() => {
+        Axios.get("http://localhost:5000/order/get").then((response) => {
+          setOrderList(response.data);
+        });
+      }, []);
+      
+    const [orderList, setOrderList] = useState([]);
+    const arr = [];
 
-                    
-        {/* {orderList.map((val) => {
-                return <div> 
-                    <table>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Testing</th>
-                    </tr>
-                    <tr>
-                        <th>{val.firstName}</th>
-                        <th>{val.lastName}</th>
-                        <th>{val.lastName}</th>
-                    </tr>
-                    </table>
+    var something = (function() {
+      var executed = false;
+      return function() {
+          if (!executed) {
+              executed = true;
+              for (let index = 0; index < orderList.length; index++) {
+                arr.push(Object.values(orderList[index]))
+              }
+          }
+      };
+  })();
 
-                    </div>
-              })} */}
-    </div>
-        );
-    }
+  const [responsive, setResponsive] = useState("vertical");
+  const [tableBodyHeight, setTableBodyHeight] = useState("400px");
+  const [tableBodyMaxHeight, setTableBodyMaxHeight] = useState("");
+  const [transitionTime, setTransitionTime] = useState(300);
+  const [selectableRows, setSelectableRows] = useState('none');
 
-export default Admin;
+
+  const columns = ["ID", "Gift", "Occasion", "Music Type", "# of Musicians", "Suprise", "First Name", "Last Name", "Date Service", "Time Service", "Offered", "Number", "Email", "Address", "Location", "City", "State", "Zip", "Comments", "Tips"];
+
+  const options = {
+    filter: true,
+    filterType: 'dropdown',
+    responsive,
+    tableBodyHeight,
+    tableBodyMaxHeight,
+    resizableColumns: true,
+    draggableColumns: {
+      enabled: true,
+      transitionTime
+    },
+    selectableRows: selectableRows,
+  };
+
+
+    const data = arr;
+    something()
+    
+
+  return (
+    <div style={{marginTop:"30px"}}>
+            <MuiThemeProvider theme={getMuiTheme()}>
+
+            <MUIDataTable title={"Orders"} data={data} columns={columns} options={options} />
+            </MuiThemeProvider>
+            <a href="/#/musician/admin">Musicians</a>
+            </div>
+  );
+}
+
+export default Test;

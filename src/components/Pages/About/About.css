@@ -1,0 +1,23 @@
+p{
+    font-family: MyFont2;
+    color: white;
+}
+
+box1{
+    padding: 50px;
+    margin: 1px;
+}
+
+p.titleAbout{
+    font-size: 35px;
+}
+
+p.subtitleAbout{
+    font-size: 30px;
+}
+
+#highlite {
+
+    color:#fd357b;
+    
+    }

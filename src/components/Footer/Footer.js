@@ -6,16 +6,16 @@ class Footer extends Component {
     render() {
         return (
             
-            <footer class="page-footer font-small unique-color-dark pt-4 fixed-bottom">
+            <footer class="page-footer font-small unique-color-dark pt-4 bottom">
 < link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"></link>
   <div class="container">
 
     <ul class="list-unstyled list-inline text-center py-2">
       <li class="list-inline-item">
-        <h5 class="mb-1">Become a Musician</h5>
+        <h5 class="mb-1">Register as a Musician</h5>
       </li>
       <li class="list-inline-item">
-        <a href="#!" class="btn btn-outline-white btn-rounded">Sign up!</a>
+        <a href="/#/musician" class="btn btn-outline-white btn-rounded">Sign up!</a>
       </li>
     </ul>
 
@@ -47,10 +47,13 @@ class Footer extends Component {
       </li>
     </ul>
 
+    
+
   </div>
 
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
     <a href="https://www.dansljardin.ch/"> Dansljardin.ch</a>
+    <a href="/#/login" style={{marginLeft: "20px"}}>Admin Login</a>
   </div>
 
 </footer>

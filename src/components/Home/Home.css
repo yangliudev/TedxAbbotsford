@@ -102,10 +102,22 @@
     border-style: none;
     color: white;
     margin-top: 3%;
-    font-size: 200%;
+    font-size: 175%;
     padding: 7%;
     border-radius: 6px;
-    width: 100%;
+    width: 50%;
+}
+
+.LearnMoreButton {
+    background-color: white;
+    border-style: none;
+    color: #D60B52;
+    margin-top: 1%;
+    font-size: 50px;
+    padding-left: 15px;
+    border-radius: 6px;
+    font-family: CamperSans2;
+    letter-spacing: 8px;
 }
 
 .firstTowerText {
@@ -127,6 +139,11 @@
     float: right;
 }
 
+.firstCard {
+    float: right;
+    width: 50%;
+}
+
 .textAlign {
     text-align: center;
     margin-left: auto;
@@ -146,6 +163,7 @@
     text-align: center;
     font-size: 45px;
     width: 100%;
+    height: 100px;
     color: white;
     font-family: CamperSans2;
 }
@@ -155,6 +173,12 @@
     margin-left: auto;
 }
 
+.buttonAlign2 {
+    max-height: 400px;
+    max-width: 1000px;
+    margin: auto;
+}
+
 .top-buffer { 
     margin-top:20px; 
 }
@@ -162,6 +186,15 @@
 .justify-content-md-center{
     margin-top: 100px;
     margin-bottom: 30px
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+}
+
+a+a {
+    margin-left: 20px;
 }
 
 .card-text {
@@ -187,6 +220,24 @@
     margin-right: auto;
 }
 
+.card-text5 {
+    text-align: center;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+    font-size: 25px;
+}
+
+.card-text6 {
+    color: #df0c56;
+}
+
+.card-text7 {
+    font-size: 25px;
+}
+
 .card-body {
     margin-left: auto;
     margin-right: auto;
@@ -198,7 +249,14 @@
 }
 
 #img {
-    width: 60%;
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#img2 {
+    max-width: 250px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -275,4 +333,34 @@
         width: 100%;
     }
     
+}
+
+
+
+.player-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 500px;
+    max-width: 2000px;
+}
+  
+.react-player {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.react-player:focus {
+    outline: none;
+    outline-offset: none; 
+}
+
+.player-wrapper:focus {
+    outline: none;
+    outline-offset: none
+}
+
+.carouselImage {
+    min-width: 60%;
+    width: 300px;
+    margin: auto;
 }

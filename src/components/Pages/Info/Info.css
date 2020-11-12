@@ -1,0 +1,51 @@
+h1.info {
+    margin-bottom: 40px;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    font-family: MyFont2;
+    size: 30px;
+    }
+
+    div.box {
+        background-color: lightgrey;
+        width: 300px;
+        border: 15px solid rgb(133, 247, 161);
+        padding: 50px;
+        margin: 70px;
+      }
+
+    p.size{
+        font-size: 20px;
+        font-family: MyFont2;
+    }
+
+    p.title{
+        font-size: 30px;
+        font-family: MyFont2;
+    }
+
+.info-display {
+    background-color: #2a3c43cc;
+    -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+  
+    border-radius: 20px;
+    width: 100%;
+}
+
+@media screen and (min-width: 1400px) {
+    .info-display {
+        background-color: #2a3c43cc;
+        -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+        /* padding-bottom: 50px; */
+        border-radius: 20px;
+        width: 70%;
+        text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    }
+}
