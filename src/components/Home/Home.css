@@ -337,6 +337,10 @@ a+a {
     #img {
         width: 100%;
     }
+
+    .Feed a {
+        width: 30% !important;
+    }
     
 }
 

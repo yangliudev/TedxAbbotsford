@@ -122,15 +122,37 @@ h1.info {
 
 @media screen and (min-width: 1400px) {
     .info-display {
-        background-color: #2a3c43cc;
-        -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
-        box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
-        /* padding-bottom: 50px; */
-        border-radius: 20px;
-        width: 70%;
-        text-align: center;
+    background-color: #2a3c43cc;
+    -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    /* padding-bottom: 50px; */
+    border-radius: 20px;
+    width: 70%;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
+    }
+
+    
+}
+
+@media screen and (orientation: portrait) {
+    .infobox1 {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .infobox2 {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .infobox3 {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
