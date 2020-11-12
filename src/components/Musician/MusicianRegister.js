@@ -4,6 +4,7 @@ import "./MusicianRegister.css"
 import "mdbreact/dist/css/mdb.css";
 
 function MusicianRegister() {
+<<<<<<< Updated upstream
 
 
 
@@ -16,6 +17,140 @@ function MusicianRegister() {
 
     function HideTextArea() {
         var textArea = document.getElementById("myDIV");
+=======
+  function ShowTextArea() {
+    var textArea = document.getElementById("myDIV");
+    textArea.style.display = "block";
+  }
+
+  function HideTextArea() {
+    var textArea = document.getElementById("myDIV");
+    textArea.style.display = "none";
+  }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
+  const [phone, setPhone] = useState("");
+  const [iban, setIban] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmPassword] = useState("");
+  const [training, setTraining] = useState("");
+  const [othertraining, setOtherTraining] = useState("");
+  const [instrument, setInstrument] = useState("");
+  const [style, setStyle] = useState("");
+  const [group, setGroup] = useState("");
+  const [site, setSite] = useState("");
+  const [media, setMedia] = useState("");
+
+  const submitMusician = () => {
+    Axios.post("http://localhost:5000/musician/insert", {
+      musicianFirstName: firstName,
+      musicianLastName: lastName,
+      musicianAddress: address,
+      musicianPostalCode: postalCode,
+      musicianCity: city,
+      musicianProvince: province,
+      musicianPhone: phone,
+      musicianIban: iban,
+      musicianEmail: email,
+      musicianPassword: password,
+      musicianConfirmPassword: confirmpassword,
+      musicianTraining: training,
+      musicianOtherTraining: othertraining,
+      musicianInstrument: instrument,
+      musicianStyle: style,
+      musicianGroup: group,
+      musicianSite: site,
+      musicianMedia: media,
+    }).then(() => {
+      alert("sucessful insert");
+    });
+  };
+
+
+
+  return (
+    <ReactBootStrap.Container className="top-space">
+      <div className="bg-display-reg">
+        <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Col>
+            <h1 class="info">Register to Become a Musician!</h1>
+          </ReactBootStrap.Col>
+        </ReactBootStrap.Row>
+
+        <ReactBootStrap.Form>
+          <ReactBootStrap.Container>
+            <ReactBootStrap.Row>
+              <ReactBootStrap.Col md={{ span: 8, offset: 2 }}>
+                <ReactBootStrap.Form.Group controlId="formGridfname">
+                  <ReactBootStrap.Form.Label id="font">
+                    Personal Information
+                  </ReactBootStrap.Form.Label>
+
+                  <ReactBootStrap.Form.Control
+                    type="text"
+                    placeholder="First Name"
+                    onChange={(e) => {
+                      setFirstName(e.target.value);
+                    }}
+                  />
+                </ReactBootStrap.Form.Group>
+
+                <ReactBootStrap.Form.Group controlId="formGridlname">
+                  <ReactBootStrap.Form.Control
+                    type="text"
+                    placeholder="last Name"
+                    onChange={(e) => {
+                      setLastName(e.target.value);
+                    }}
+                  />
+                </ReactBootStrap.Form.Group>
+
+                <ReactBootStrap.Form.Group controlId="formGridlname">
+                  <ReactBootStrap.Form.Control
+                    type="text"
+                    placeholder="Address"
+                    onChange={(e) => {
+                      setAddress(e.target.value);
+                    }}
+                  />
+                </ReactBootStrap.Form.Group>
+
+                <ReactBootStrap.Row>
+                  <ReactBootStrap.Col md={{ span: 4 }}>
+                    <ReactBootStrap.Form.Group controlId="formGridlname">
+                      <ReactBootStrap.Form.Control
+                        type="text"
+                        placeholder="Postal Code"
+                        onChange={(e) => {
+                          setPostalCode(e.target.value);
+                        }}
+                      />
+                    </ReactBootStrap.Form.Group>
+                  </ReactBootStrap.Col>
+
+                  <ReactBootStrap.Col>
+                    <ReactBootStrap.Form.Group controlId="formGridlname">
+                      <ReactBootStrap.Form.Control
+                        type="text"
+                        placeholder="Locality/City"
+                        onChange={(e) => {
+                          setCity(e.target.value);
+                        }}
+                      />
+                    </ReactBootStrap.Form.Group>
+                  </ReactBootStrap.Col>
+                </ReactBootStrap.Row>
+>>>>>>> Stashed changes
 
         textArea.style.display = "none";
 
@@ -94,6 +229,7 @@ function MusicianRegister() {
                                 </ReactBootStrap.Form.Group>
 
 
+<<<<<<< Updated upstream
                                 <ReactBootStrap.Form.Group controlId="formGridfname">
                                     <ReactBootStrap.Form.Label id='font'>Banking Information</ReactBootStrap.Form.Label>
                                     <ReactBootStrap.Form.Control type="text" placeholder="IBAN" onChange={(e) => { setIban(e.target.value); }} />
@@ -518,3 +654,61 @@ function MusicianRegister() {
 };
 
 export default MusicianRegister
+=======
+                <ReactBootStrap.Form.Group >
+                  <ReactBootStrap.Form.Label>
+                    <i>Media</i>
+                  </ReactBootStrap.Form.Label>
+                  <ReactBootStrap.Form.Control
+                    type="text"
+                    placeholder="Website"
+                    onChange={(e) => {
+                      setSite(e.target.value);
+                    }}
+                  />
+                </ReactBootStrap.Form.Group>
+                <ReactBootStrap.Form.Group >
+                  <ReactBootStrap.Form.Control
+                    type="text"
+                    placeholder="YouTube/Drive/Dropbox Link"
+                    onChange={(e) => {
+                      setMedia(e.target.value);
+                    }}
+                  />
+                </ReactBootStrap.Form.Group>
+
+                <ReactBootStrap.Button
+                  variant="primary"
+                  size="md"
+                  href="/#/faq"
+                  onClick={submitMusician}
+                >
+                  Register
+                </ReactBootStrap.Button>
+
+                <ReactBootStrap.Button
+                  variant="primary"
+                  size="md"
+                  href="/#/calender"
+                   >
+                  Calender
+                </ReactBootStrap.Button>
+
+              </ReactBootStrap.Col>
+            </ReactBootStrap.Row>
+
+            <ReactBootStrap.Row>
+              <ReactBootStrap.Col></ReactBootStrap.Col>
+            </ReactBootStrap.Row>
+          </ReactBootStrap.Container>
+        </ReactBootStrap.Form>
+      </div>
+
+   
+
+    </ReactBootStrap.Container>
+  );
+}
+
+export default MusicianRegister;
+>>>>>>> Stashed changes

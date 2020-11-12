@@ -25,6 +25,8 @@ import instagramLogo from "./../../assets/logos/instagramLogo.png"
 import gardenLogo from"./../../assets/logos/01_Logo-principal.png"
 import "./Home.css"
 
+import Feed from "react-instagram-authless-feed"
+
 class Home extends Component {
 
     render() {
@@ -234,64 +236,15 @@ class Home extends Component {
                 <ReactBootStrap.Row>
                 <div className="cards3">
                 <br></br>
-                    
-                
-                    <ReactBootStrap.Row className="cards2">
-                        <ReactBootStrap.Col md={{ span: 2, offset: 2}}>
 
-    
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-                       
-
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col md={2}>
-                            
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-                           
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col md={2}>
-
-                            
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-
-
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col md={2}>
-
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-
-
-                        </ReactBootStrap.Col>
-                    </ReactBootStrap.Row>
-                    <ReactBootStrap.Row className="cards2">
-                        <ReactBootStrap.Col md={{ span: 2, offset: 2}}>
-
-    
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-                       
-
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col md={2}>
-                            
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-                           
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col md={2}>
-
-                            
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-
-
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col md={2}>
-
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-
-
-                        </ReactBootStrap.Col>
-                    </ReactBootStrap.Row>
+                    <Feed userName="dans_l_jardin" className="Feed" classNameLoading="Loading"/>
                 </div>
                 </ReactBootStrap.Row>
+
+               
+               
+
+                
                 
 
                 </ReactBootStrap.Container>
