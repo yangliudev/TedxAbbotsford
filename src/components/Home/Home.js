@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactPlayer from "react-player"
 import * as ReactBootStrap from "react-bootstrap";
+import MediaQuery from 'react-responsive';
 import tower from "./../../assets/tower/Tour_z.png"
 import firstPicture from "./../../assets/logos/02_picto-canton.png"
 import secondPicture from "./../../assets/logos/02-picto-adresse.png"
@@ -26,6 +27,7 @@ import gardenLogo from"./../../assets/logos/01_Logo-principal.png"
 import "./Home.css"
 
 import Feed from "react-instagram-authless-feed"
+import { Landscape, Portrait } from '@material-ui/icons';
 
 class Home extends Component {
 
@@ -158,14 +160,29 @@ class Home extends Component {
                 <br></br>
                     <h1 class="textAlign2">IN THE GARDEN, IN REAL LIFE, IT GIVES THAT!</h1>
                     <div className="player-wrapper">
+                        <MediaQuery orientation= {"Landscape"}>
                         <ReactPlayer 
                             className="react-player"
                             url={video}
+                            
                             width="50%"
                             height="50%"
                             controls="true"
                             style={{outline: "none"}}
                             />
+                        </MediaQuery>
+
+                        <MediaQuery orientation= {"Portrait"}>
+                        <ReactPlayer 
+                            className="react-player"
+                            url={video}
+                            
+                            width="80%"
+                            height="80%"
+                            controls="true"
+                            style={{outline: "none"}}
+                            />
+                        </MediaQuery>
                     </div>
                     <br></br>
                     <div class="textAlign">

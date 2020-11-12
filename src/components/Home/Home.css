@@ -287,64 +287,6 @@ a+a {
     margin-right: auto;
 }
 
-
-@media only screen and (orientation: portrait) {
-    .towerDiv {
-        float: none;
-    }
-
-    .tower {
-        height: 300px;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    .textBG {
-        background-color: #2a3c434f;
-        padding: 3%;
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        text-align: center;
-        float: none;
-    }
-
-    .orderButton {
-        padding: 3%;
-    }
-
-    .towerText {
-        float: none;
-        font-family: CamperSans2;
-        font-size: 350%;
-        line-height: 90%;
-    }
-
-    .cardHeader{
-        font-size: 230%;
-        line-height: 90%;
-    }
-
-    .card-text3 {
-        font-size: 80%;
-    }
-
-    .textAlign2 {
-        font-size: 50px;
-    }
-
-    #img {
-        width: 100%;
-    }
-
-    .Feed a {
-        width: 30% !important;
-    }
-    
-}
-
-
 .Loading {
     animation: spin 2s linear infinite;
     position: block;
@@ -412,4 +354,68 @@ a+a {
     min-width: 60%;
     width: 300px;
     margin: auto;
+}
+
+@media only screen and (orientation: portrait) {
+    .towerDiv {
+        float: none;
+    }
+
+    .tower {
+        height: 300px;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .textBG {
+        background-color: #2a3c434f;
+        padding: 3%;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        text-align: center;
+        float: none;
+    }
+
+    .orderButton {
+        padding: 3%;
+    }
+
+    .towerText {
+        float: none;
+        font-family: CamperSans2;
+        font-size: 350%;
+        line-height: 90%;
+    }
+
+    .cardHeader{
+        font-size: 230%;
+        line-height: 90%;
+    }
+
+    .card-text3 {
+        font-size: 80%;
+    }
+
+    .textAlign2 {
+        font-size: 50px;
+    }
+
+    #img {
+        width: 100%;
+    }
+
+    .Feed {
+        padding: 0%;
+    }
+
+    .Feed a {
+        width: 31%;
+    }
+
+    .player-wrapper {
+        min-width: 100%;
+    }
+
 }
