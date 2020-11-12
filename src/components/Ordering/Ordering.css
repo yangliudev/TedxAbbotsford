@@ -1,0 +1,245 @@
+@font-face {
+  font-family: 'MyFont';
+  src: local('MyFont'), url(../../assets/fonts/NeutraText\ Book.otf) format('woff');
+}
+
+@font-face {
+  font-family: 'MyFont2';
+  src: local('MyFont2'), url(../../assets/fonts/NeutraTextDemi.otf) format('woff');
+}
+
+@font-face {
+  font-family: 'MyFont3';
+  src: local('MyFont3'), url(../../assets/fonts/NeutraTextLight.otf) format('woff');
+}
+
+.top-space {
+    margin-top: 80px;
+}
+
+.bg-display {
+    /* background-color: #2a3c434f; */
+    background-color: #2a3c43cc;
+    -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    padding-bottom: 50px;
+    border-radius: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.bg-display-test {
+    background-color: rgba(255, 255, 255, 0.205);
+    text-align: center;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    width: 13em;
+    height: auto;
+    text-decoration: none;
+    border-color: rgba(255, 255, 255, 0.459);
+    border-width: 1px;
+    border-radius: 6px;
+}
+
+.bg-display-button{
+  background-color: rgba(255, 255, 255, 0.205);
+  text-align: center;
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+  border-style: solid;
+  width: 8em;
+  text-decoration: none;
+  border-color: rgba(255, 255, 255, 0.925);
+  border-width: 1px;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.surprise {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.bg-display-test:hover {
+    background-color: rgba(255, 255, 255, 0.39);
+}
+
+.bg-display-button:hover {
+  background-color: rgba(255, 255, 255, 0.39);
+}
+
+.justify-content-md-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.buttonAlign {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.added-mar {
+    margin-top: -50px;
+}
+
+  .pic {
+      display: block;
+      width: auto;
+      max-height: 120px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 15px;
+      text-decoration: none;
+  }
+  .pic2 {
+    display: block;
+    width: auto;
+    max-height: 160px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+}
+
+  h3 {
+      margin-bottom: 40px;
+      color: white;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      margin-left: 20px;
+      margin-top: 10px;
+      font-family: MyFont2;
+  }
+
+  .borders {
+    border-style: dashed;
+  }
+
+  .test {
+      text-align: center;
+  }
+
+  p {
+      font-size: 20px;
+      text-decoration: none;
+      font-family: MyFont3;
+      color: white;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  a:link {
+    text-decoration: none;
+    color: white;
+  }
+  
+  a:visited {
+    text-decoration: none;
+    color: white;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: white;
+  }
+  
+  a:active {
+    text-decoration: none;
+    color: white;
+  }
+
+  h4 {
+    color: rgba(255, 255, 255, 0.74);
+    font-style: italic;
+    font-size: 20px;
+    font-family: MyFont;
+  }
+
+  label {
+    color: white;
+    font-size: 20px;
+    font-family: MyFont2;
+  }
+
+  h6 {
+    color: rgba(255, 255, 255, 0.829);
+    font-family: MyFont;
+  }
+
+  #order2 {
+    display: none;
+  }
+  #order3 {
+    display: none;
+  }
+  #order4 {
+    display: none;
+  }
+  #order5 {
+    display: none;
+  }
+  #order6 {
+    display: none;
+  }
+
+  #order7 {
+    display: none;
+  }
+
+  #order8 {
+    display: none;
+  }
+
+  #order9 {
+    display: none;
+  }
+
+  #order10 {
+    display: none;
+  }
+
+  #orderConfirm {
+    display: none;
+  }
+
+  #bolding {
+    font-weight: bold;
+  }
+
+ .intro {
+    color: rgb(223, 84, 107);
+  }
+
+.confirmHeader {
+    color: #C0C5C7;
+    font-size: 200%;
+  }
+
+  #form1 {
+    color: white;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media only screen and (orientation: portrait) {
+    .bg-display-test {
+      width: 70%;
+      margin-bottom: 2em;
+    }
+
+    #form1 {
+      width: 100%;
+    }
+
+  }
