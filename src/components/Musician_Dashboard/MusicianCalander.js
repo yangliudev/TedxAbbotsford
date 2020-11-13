@@ -50,10 +50,11 @@ class MusicianCalender extends Component {
         selection={this.state.schedule}
         numDays={7}
         minTime={9}
-        maxTime={22}
-        hourlyChunks={1}
-        startDate={new Date('Sunday Nov 01 2020 17:57:06')}
-        dateFormat="dddd"
+        maxTime={21}
+        hourlyChunks={2}
+        startDate={new Date('Monday Nov 02 2020 00:00:00')}
+        dateFormat="ddd"
+        timeFormat='h:mma'
         onChange={this.handleChange}
       />
 
