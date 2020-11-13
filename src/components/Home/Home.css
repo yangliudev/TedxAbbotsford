@@ -7,6 +7,7 @@
 .top-space2 {
     background-color: #46555B;
     width: 100%;
+    margin-top: 3%;
 }
 
 .cards {
@@ -91,7 +92,7 @@
 
 .towerText {
     font-family: CamperSans2;
-    font-size: 430%;
+    font-size: 70px;
     line-height: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -128,6 +129,11 @@
     color: #df0c56
 }
 
+
+.thirdTowerText {
+    color: rgb(186, 218, 85);
+}
+
 .textBG {
     background-color: #2a3c434f;
     padding: 3%;
@@ -161,11 +167,15 @@
 
 .cardHeader {
     text-align: center;
-    font-size: 45px;
+    font-size: 60px;
     width: 100%;
     height: 100px;
     color: white;
     font-family: CamperSans2;
+}
+
+.card-img-top {
+    margin-top: -10%;
 }
 
 .buttonAlign {
@@ -204,11 +214,12 @@ a+a {
 
 .card-text2 {
     text-align: center;
+    font-size: 25px;
 }
 
 .card-text3 {
     text-align: center;
-    font-size: 17px;
+    font-size: 20px;
     color: #cccccc;
 }
 
@@ -282,60 +293,46 @@ a+a {
     margin-right: auto;
 }
 
+.Loading {
+    animation: spin 2s linear infinite;
+    position: block;
+    width: 5vh;
+    height: 5vh;
+  }
 
-@media only screen and (orientation: portrait) {
-    .towerDiv {
-        float: none;
+  .Feed {
+    margin: auto;
+    padding: 1% 1%;
+  }
+
+  .Feed a {
+    display: inline-block;
+    margin: 1% 1%;
+    width: 13%;
+    line-height: 0;
+  }
+
+  .Feed a img {
+    width: 100%;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
     }
-
-    .tower {
-        height: 300px;
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
+    100% {
+      transform: rotate(360deg);
     }
+  }
 
-    .textBG {
-        background-color: #2a3c434f;
-        padding: 3%;
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        text-align: center;
-        float: none;
+  @keyframes fadein {
+    from {
+      opacity: 0;
     }
-
-    .orderButton {
-        padding: 3%;
+    to {
+      opacity: 1;
     }
-
-    .towerText {
-        float: none;
-        font-family: CamperSans2;
-        font-size: 350%;
-        line-height: 90%;
-    }
-
-    .cardHeader{
-        font-size: 230%;
-        line-height: 90%;
-    }
-
-    .card-text3 {
-        font-size: 80%;
-    }
-
-    .textAlign2 {
-        font-size: 50px;
-    }
-
-    #img {
-        width: 100%;
-    }
-    
-}
-
-
+  }
 
 .player-wrapper {
     margin-left: auto;
@@ -363,4 +360,86 @@ a+a {
     min-width: 60%;
     width: 300px;
     margin: auto;
+}
+
+@media only screen and (orientation: portrait) {
+    .towerDiv {
+        float: none;
+    }
+
+    .tower {
+        height: 300px;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .textBG {
+        background-color: #2a3c434f;
+        padding: 3%;
+        width: 100%;
+        border-radius: 0%;
+        height: auto;
+        text-align: center;
+        float: none;
+    }
+
+    .top-space2 {
+        margin-top: 0%;
+    }
+
+    .orderButton {
+        padding: 3%;
+    }
+
+    .towerText {
+        float: none;
+        font-family: CamperSans2;
+        font-size: 350%;
+        line-height: 90%;
+    }
+
+    .cardHeader {
+        font-size: 45px;
+        line-height: 80%;
+    }
+
+    .card-text3 {
+        font-size: 20px;
+    }
+
+    .card-text2 {
+        font-size: 25px;
+    }
+
+    .textAlign2 {
+        font-size: 60px;
+        line-height: 80%;
+    }
+    
+    .cards2 {
+        margin-top: 10%;
+    }
+
+    .card-img-top2 {
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+
+    #img {
+        width: 100%;
+    }
+
+    .Feed {
+        padding: 0%;
+    }
+
+    .Feed a {
+        width: 31%;
+    }
+
+    .player-wrapper {
+        min-width: 100%;
+    }
+
 }

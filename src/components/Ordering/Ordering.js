@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import * as ReactBootStrap from "react-bootstrap";
 import Axios from 'axios';
 
@@ -6,7 +6,7 @@ import "./Ordering.css"
 import pic1 from "./ordering-assets/GRANDMERE2.png"
 import pic2 from "./ordering-assets/02-picto-artiste.png"
 import pic3 from "./ordering-assets/institutionnew - Copy.png"
-import pic4 from "./ordering-assets/03-picto-don.png"
+// import pic4 from "./ordering-assets/03-picto-don.png"
 
 import pic5 from "./ordering-assets/violonsiteblanc.png"
 import pic6 from "./ordering-assets/accordeonisteblanc.png"
@@ -35,9 +35,14 @@ function Ordering() {
   }
 
   function forward2() {
-    var x = document.getElementById("order2")
+    if (validated === false){
+      console.log("names not valid");
+      return;
+    }
+    var x = document.getElementById("order2");
     x.style.display = "none";
-    document.getElementById("order3").style.display = "block"
+    document.getElementById("order3").style.display = "block";
+    setValidated(false);
   }
 
   function back3() {
@@ -47,6 +52,10 @@ function Ordering() {
   }
 
   function forward3() {
+    if (validated === false){
+      console.log("ocasion not valid");
+      return;
+    }
     var x = document.getElementById("order3")
     x.style.display = "none";
     document.getElementById("order4").style.display = "block"
@@ -142,6 +151,12 @@ function Ordering() {
     document.getElementById("order10").style.display = "block"
   }
 
+  // function validName(name) {
+  //   if (name == ""){
+  //     console.log("empty name");
+  //   }
+  // }
+
 
   const [musicianName, setMusicianName] = useState("");
   const [musicianType, setMusicianType] = useState("");
@@ -195,6 +210,36 @@ function Ordering() {
   };
 
 
+
+  useEffect(() => {
+    Axios.get("http://localhost:5000/api/get").then((response) => {
+      // console.log(response.data)
+      setMusicanList(response.data)
+    })
+  })
+
+  const submitMusician = () => {
+    Axios.post("http://localhost:5000/api/insert", {
+      musicianName: musicianName,
+      musicianType: musicianType
+    }).then(() => {
+      alert("sucessful insert");
+    })
+  };
+
+  // Validatoin contents below \/ \/
+  const [validated, setValidated] = useState(false);
+
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+  };
+
   return (
 
     <ReactBootStrap.Container className="top-space">
@@ -217,36 +262,38 @@ function Ordering() {
             <ReactBootStrap.Col><a onClick={(e) => { setGift("institution"); setGiftText("An institution"); forward1(); }}><img src={pic3} className="pic" /><p>An <br />  institution</p></a></ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
-      
+
       </ReactBootStrap.Container>
 
 
 
       <ReactBootStrap.Container className="bg-display" id="order2">
 
-      <ReactBootStrap.Row className="justify-content-md-center">
+        <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col><h3>2. {giftText}, very good. Who will be the main beneficiary of the concert? </h3></ReactBootStrap.Col>
-      </ReactBootStrap.Row>
+        </ReactBootStrap.Row>
 
-      <ReactBootStrap.Row className="justify-content-md-center" style={{marginBottom: '30px', marginTop:"-30px" }}>
-          <ReactBootStrap.Col><h4>Tell us more about who will be at the centre of this moment, or their name if they live in an institution. For example: "Grandma Léa", "Pré-Fleuri institution" ... </h4></ReactBootStrap.Col>
-      </ReactBootStrap.Row>
+        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
+          <ReactBootStrap.Col><h4>&#x1F6C8; Tell us more about who will be at the centre of this moment, or their name if they live in an institution. For example: "Grandma Léa", "Pré-Fleuri institution" ... </h4></ReactBootStrap.Col>
+        </ReactBootStrap.Row>
 
-      <Form style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
-        
-        <Form.Row className="justify-content-md-center">
-          <Form.Group as={Col} xs={6} controlId="formGridFirstName">
-            <Form.Control type="text" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }} />
-          </Form.Group>
+        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
 
-          <Form.Group as={Col} controlId="formGridLastName">
-            <Form.Control type="text" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
-          </Form.Group>
-        </Form.Row>
+          <Form.Row className="justify-content-md-center">
+            <Form.Group as={Col} xs={6} controlId="formGridFirstName">
+              <Form.Control className="form-control" required minLength="3" type="text" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }}  />
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridLastName">
+              <Form.Control className="form-control" required minLength="3" type="text" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            </Form.Group>
+          </Form.Row>
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back2}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button variant="danger" className='button' onClick={forward2}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward2}>Next</ReactBootStrap.Button>
           </div>
 
         </Form>
@@ -260,23 +307,29 @@ function Ordering() {
           <ReactBootStrap.Col><h3>3. {firstName} {lastName}, got it! Now, what are we celebrating</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center" style={{marginBottom: '30px', marginTop:"-30px" }}>
-          <ReactBootStrap.Col><h4>Tell us more about the occasion. For example: "René's 50th birthday", "An aperitif with friends", "A sunny Sunday"...</h4></ReactBootStrap.Col>
+        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
+          <ReactBootStrap.Col><h4>&#x1F6C8; Tell us more about the occasion. For example: "René's 50th birthday", "An aperitif with friends", "A sunny Sunday"...</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginLeft: '20px', marginRight: '20px' }}>
+            <Form noValidate validated={validated}  onSubmit={handleSubmit}>
+              <Form.Group>
             <div class="md-form">
-              <input type="text" id="form1" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
+              <input type="text" required minLength="3" id="form1" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
             </div>
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            </Form.Group>
+            </Form>
+            
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
-          <ReactBootStrap.Col style={{marginTop: '20px' }}>
+          <ReactBootStrap.Col style={{ marginTop: '20px' }}>
             <div class="buttonAlign">
               <ReactBootStrap.Button variant="danger" className='button' onClick={back3}><a>Back</a></ReactBootStrap.Button>
-              <ReactBootStrap.Button variant="danger" className='button' onClick={forward3}><a>Submit</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward3}><a>Next</a></ReactBootStrap.Button>
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -287,22 +340,22 @@ function Ordering() {
       <ReactBootStrap.Container className="bg-display" id="order4">
 
         <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col><h3>4. And what style of music would {firstName} like to hear? </h3></ReactBootStrap.Col>
+          <ReactBootStrap.Col><h3>4. And what style of music would {firstName} like to hear? </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop:"-30px" }}>
-          <ReactBootStrap.Col><h4>Choose the style of music, we will take care of finding the ideal musician available near you.</h4></ReactBootStrap.Col>
+        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
+          <ReactBootStrap.Col><h4>&#x1F6C8; Choose the style of music, we will take care of finding the ideal musician available near you.</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("classic"); setTypeText("Classical music");forward4(); }}><img src={pic5} className="pic" /><p>Classical</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setType("classic"); setTypeText("Classical music"); forward4(); }}><img src={pic5} className="pic" /><p>Classical</p></a></ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
             <ReactBootStrap.Col><a onClick={(e) => { setType("popular"); setTypeText("Popular music"); forward4(); }}><img src={pic6} className="pic" /><p style={{ fontSize: '19px' }}>Popular Music</p></a></ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("jazzy/pop"); setTypeText("Jazzy-Pop music");forward4(); }}><img src={pic7} className="pic" /><p>Jazzy - Pop</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col><a onClick={(e) => { setType("jazzy/pop"); setTypeText("Jazzy-Pop music"); forward4(); }}><img src={pic7} className="pic" /><p>Jazzy - Pop</p></a></ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
             <ReactBootStrap.Col><a onClick={(e) => { setType("suprise"); setTypeText("A surprise"); forward4(); }}><img src={pic8} className="pic" /><p>Suprise!</p></a></ReactBootStrap.Col>
@@ -310,10 +363,10 @@ function Ordering() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
-          <ReactBootStrap.Col style={{marginTop: '20px' }}>
-          <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back4}><a>Back</a></ReactBootStrap.Button>
-          </div>
+          <ReactBootStrap.Col style={{ marginTop: '20px' }}>
+            <div class="buttonAlign">
+              <ReactBootStrap.Button variant="danger" className='button' onClick={back4}><a>Back</a></ReactBootStrap.Button>
+            </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
@@ -327,8 +380,8 @@ function Ordering() {
           <ReactBootStrap.Col><h3>5. {typeText}, very good choice! How many musicians would you like for this musical rendez-vous?</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop:"-30px" }}>
-          <ReactBootStrap.Col><h4>A soloist or a duo for 20 minutes</h4></ReactBootStrap.Col>
+        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
+          <ReactBootStrap.Col><h4>&#x1F6C8; A soloist or a duo for 20 minutes</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row sm={1} md={3}>
@@ -341,10 +394,10 @@ function Ordering() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
-          <ReactBootStrap.Col style={{marginTop: '20px' }}>
-          <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back5}><a>Back</a></ReactBootStrap.Button>
-          </div>
+          <ReactBootStrap.Col style={{ marginTop: '20px' }}>
+            <div class="buttonAlign">
+              <ReactBootStrap.Button variant="danger" className='button' onClick={back5}><a>Back</a></ReactBootStrap.Button>
+            </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
@@ -359,26 +412,26 @@ function Ordering() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center">
-        <div className="bg-display-button">
-          <a onClick={(e) => { setSuprise("yes"); forward6(); }}>
-            <ReactBootStrap.Col><p class="surprise">Yes</p></ReactBootStrap.Col>
-          </a>
-        </div>
+          <div className="bg-display-button">
+            <a onClick={(e) => { setSuprise("yes"); forward6(); }}>
+              <ReactBootStrap.Col><p class="surprise">Yes</p></ReactBootStrap.Col>
+            </a>
+          </div>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center">
-        <div style={{ marginTop: '10px'}} className="bg-display-button">
-          <a onClick={(e) => { setSuprise("no"); forward6(); }}>
+          <div style={{ marginTop: '10px' }} className="bg-display-button">
+            <a onClick={(e) => { setSuprise("no"); forward6(); }}>
               <ReactBootStrap.Col><p class="surprise">No</p></ReactBootStrap.Col>
-          </a>
-        </div>
+            </a>
+          </div>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
-          <ReactBootStrap.Col style={{marginTop: '20px' }}>
-          <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back6}><a>Back</a></ReactBootStrap.Button>
-          </div>
+          <ReactBootStrap.Col style={{ marginTop: '20px' }}>
+            <div class="buttonAlign">
+              <ReactBootStrap.Button variant="danger" className='button' onClick={back6}><a>Back</a></ReactBootStrap.Button>
+            </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
@@ -392,26 +445,30 @@ function Ordering() {
           <ReactBootStrap.Col><h3>7. All right! When do you want the concert?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <Form style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
           <Form.Row className="justify-content-md-center">
             <Form.Group controlId="formGridDate">
-                <Form.Label>Date of Service</Form.Label>
-                <h6><i>The order must be placed at least 72 hours in advance to be considered.</i></h6>
-                <Form.Control type="date" placeholder="1234 Main St" onChange={(e) => { setDateService("2020-01-01 10:10:10"); }} />
-              </Form.Group>
-            </Form.Row>
-
-          <Form.Row className="justify-content-md-center">
-              <Form.Group controlId="formGridTime">
-                <Form.Label>Time of Service</Form.Label>
-                <h6><i>Enter the time between 08:00 and 21:00 maximum</i></h6>
-                <Form.Control type="time" placeholder="1234 Main St" onChange={(e) => { setTimeService(e.target.value); }} />
-              </Form.Group>
+              {/* <Form.Label>Date and Time of Service</Form.Label> */}
+              <h6><i>&#x1F6C8; The order must be placed at least 72 hours in advance to be considered.</i></h6>
+              <h6><i>&#x1F6C8; Enter the time between 08:00 and 21:00 maximum</i></h6>
+              <Form.Control 
+              required
+              type="datetime-local" 
+              onChange={(e) => {let date=e.target.value.substring(0,10); let time=e.target.value.substring(11,16) ; setDateService(date); setTimeService(time); }} />
+            </Form.Group>
           </Form.Row>
+
+          {/* <Form.Row className="justify-content-md-center">
+            <Form.Group controlId="formGridTime">
+              <Form.Label>Time of Service</Form.Label>
+              
+              <Form.Control required type="time" placeholder="1234 Main St" onChange={(e) => { setTimeService(e.target.value); }} />
+            </Form.Group>
+          </Form.Row> */}
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back7}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button variant="danger" className='button' onClick={forward7}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward7}>Next</ReactBootStrap.Button>
           </div>
 
         </Form>
@@ -426,26 +483,27 @@ function Ordering() {
           <ReactBootStrap.Col><h3>8. Perfect! Now where will these festivities take place?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <Form style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
-            <Form.Group controlId="formGridAddress1">
-              <Form.Label>Address 1</Form.Label>
-              <Form.Control placeholder="1234 Main St" onChange={(e) => { setAddress(e.target.value); }} />
-            </Form.Group>
+        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+          <Form.Group controlId="formGridAddress1">
+            <Form.Label>Address Line</Form.Label>
+            <Form.Control required minLength="4" placeholder="1234 Main St" onChange={(e) => { setAddress(e.target.value); }} />
+          </Form.Group>
 
-            <Form.Group controlId="formGridAddress2">
-              <Form.Label>Address 2</Form.Label>
-              <Form.Control placeholder="Apartment, studio, or floor" onChange={(e) => { setAddress2(e.target.value); }} />
-            </Form.Group>
+          {/* <Form.Group controlId="formGridAddress2">
+            <Form.Label>Address 2</Form.Label>
+            <Form.Control placeholder="Apartment, studio, or floor" onChange={(e) => { setAddress2(e.target.value); }} />
+          </Form.Group> */}
 
-            <Form.Row>
+          <Form.Row>
             <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>City</Form.Label>
-              <Form.Control onChange={(e) => { setCity(e.target.value); }} />
+              <Form.Control required minLength="3" placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>State</Form.Label>
-              <Form.Control as="select" defaultValue="Choose..." onChange={(e) => { setState("British Columbia"); }}>
+              <Form.Control required as="select" defaultValue="Choose..." onChange={(e) => { setState("British Columbia"); }}>
+                <option>Choose from below</option>
                 <option>British Columbia</option>
                 <option>Alberta</option>
               </Form.Control>
@@ -453,13 +511,13 @@ function Ordering() {
 
             <Form.Group as={Col} controlId="formGridZip">
               <Form.Label>Zip</Form.Label>
-              <Form.Control onChange={(e) => { setZip(e.target.value); }} />
+              <Form.Control required minLength="6" placeholder="V3W9N3" onChange={(e) => { setZip(e.target.value); }} />
             </Form.Group>
           </Form.Row>
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back8}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button variant="danger" className='button' onClick={forward8}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward8}>Next</ReactBootStrap.Button>
           </div>
 
         </Form>
@@ -474,36 +532,36 @@ function Ordering() {
           <ReactBootStrap.Col><h3>9. Everything is good for the concert. We need some information about you to be able to confirm the order.  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop:"-30px" }}>
-          <ReactBootStrap.Col><h4>All this information remains confidential and is necessary for security reasons and in case we need to contact you..</h4></ReactBootStrap.Col>
+        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
+          <ReactBootStrap.Col><h4>&#x1F6C8; All this information remains confidential and is necessary for security reasons and in case we need to contact you..</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <Form style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
-        <div className="justify-content-md-center">
-          <div className="w-50 d-inline-block">
+        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+          <div className="justify-content-md-center">
+            <div className="w-50 d-inline-block">
 
-            <Form.Group controlId="formGridHost">
-              <Form.Label>Offered by</Form.Label>
-              <Form.Control type="text" placeholder="Your name here" onChange={(e) => { setOffered(e.target.value); }} />
-            </Form.Group>
+              <Form.Group controlId="formGridHost">
+                <Form.Label>Offered by</Form.Label>
+                <Form.Control required minLength="3" type="text" placeholder="Your name here" onChange={(e) => { setOffered(e.target.value); }} />
+              </Form.Group>
 
-            <Form.Group controlId="formGridPhone">
-              <Form.Label>Contact Number</Form.Label>
-              <h6><i>Please enter a canadian number</i> </h6>
-              <Form.Control type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="012-345-6789" onChange={(e) => { setNumber(e.target.value); }} />
-            </Form.Group>
+              <Form.Group controlId="formGridPhone">
+                <Form.Label>Contact Number</Form.Label>
+                <h6><i>&#x1F6C8; Please enter a canadian number</i> </h6>
+                <Form.Control required minLength="10" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="012-345-6789" onChange={(e) => { setNumber(e.target.value); }} />
+              </Form.Group>
 
-            <Form.Group controlId="formGridEmail">
-              <Form.Label>Email Address</Form.Label>
-              <Form.Control placeholder="yourname@gmail.com" onChange={(e) => { setEmail(e.target.value); }} />
-            </Form.Group>
+              <Form.Group controlId="formGridEmail">
+                <Form.Label>Email Address</Form.Label>
+                <Form.Control required minLength="4" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" type="email" placeholder="yourname@gmail.com" onChange={(e) => { setEmail(e.target.value); }} />
+              </Form.Group>
 
+            </div>
           </div>
-        </div>
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back9}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button variant="danger" className='button' onClick={forward9}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward9}>Next</ReactBootStrap.Button>
           </div>
         </Form>
 
@@ -517,8 +575,8 @@ function Ordering() {
           <ReactBootStrap.Col><h3>10. (Optional) A final comment about the concert or useful information for the musician(s)?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop:"-30px" }}>
-          <ReactBootStrap.Col><h4>For example: "The beneficiary loves the violin", "A big dog guards the garden", "The road is difficult to access in the winter", ...
+        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
+          <ReactBootStrap.Col><h4>&#x1F6C8; For example: "The beneficiary loves the violin", "A big dog guards the garden", "The road is difficult to access in the winter", ...
 </h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
@@ -529,7 +587,7 @@ function Ordering() {
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back10}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button variant="danger" className='button' onClick={forward10}>Submit</ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="success" className='button' onClick={forward10}>Submit</ReactBootStrap.Button>
           </div>
 
         </Form>
@@ -539,115 +597,115 @@ function Ordering() {
 
 
       <ReactBootStrap.Container className="bg-display" id="orderConfirm">
-        <div style={{marginLeft:"30px"}}>
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><h3>Perfect, we have everything. Here is a summary of your order before entering payment details.</h3></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+        <div style={{ marginLeft: "30px" }}>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><h3>Perfect, we have everything. Here is a summary of your order before entering payment details.</h3></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="confirmHeader">Beneficiary</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="confirmHeader">Beneficiary</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p>{firstName} {lastName}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p>{firstName} {lastName}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p>({giftText})</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p>({giftText})</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="intro">Occasion:</p></ReactBootStrap.Col>
-          <ReactBootStrap.Col md="auto"><p>{occasion}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
-        
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="confirmHeader">Information about the concert</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">Occasion:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto"><p>{occasion}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="intro">Suprise concert:</p></ReactBootStrap.Col>
-          <ReactBootStrap.Col md="auto" ><p>{suprise}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="confirmHeader">Information about the concert</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="intro">Style of music:</p></ReactBootStrap.Col>
-          <ReactBootStrap.Col md="auto"><p>{type}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">Suprise concert:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto" ><p>{suprise}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="intro">Number of Musicians:</p></ReactBootStrap.Col>
-          <ReactBootStrap.Col md="auto"><p>{numberMusicians}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">Style of music:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto"><p>{type}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="intro">Date of Service:</p></ReactBootStrap.Col>
-          <ReactBootStrap.Col md="auto"><p>{dateService}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">Number of Musicians:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto"><p>{numberMusicians}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="intro">Time of Service:</p></ReactBootStrap.Col>
-          <ReactBootStrap.Col md="auto"><p>{timeService}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">Date of Service:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto"><p>{dateService}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="intro">Address:</p></ReactBootStrap.Col>
-          <ReactBootStrap.Col md="auto"><p>{address}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">Time of Service:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto"><p>{timeService}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="intro">Address 2:</p></ReactBootStrap.Col>
-          <ReactBootStrap.Col md="auto"><p>{address2}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">Address:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto"><p>{address}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="intro">City:</p></ReactBootStrap.Col>
-          <ReactBootStrap.Col md="auto"><p>{city}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          {/* <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">Address 2:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto"><p>{address2}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row> */}
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="intro">State:</p></ReactBootStrap.Col>
-          <ReactBootStrap.Col md="auto"><p>{state}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">City:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto"><p>{city}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="intro">Zip:</p></ReactBootStrap.Col>
-          <ReactBootStrap.Col md="auto"><p>{zip}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">State:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto"><p>{state}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="confirmHeader">Thanks to the generosity of:</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">Zip:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto"><p>{zip}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p>{offered}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="confirmHeader">Thanks to the generosity of:</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="intro">Phone Number:</p></ReactBootStrap.Col>
-          <ReactBootStrap.Col md="auto"><p>{number}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p>{offered}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="intro">Email:</p></ReactBootStrap.Col>
-          <ReactBootStrap.Col md="auto"><p>{email}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">Phone Number:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto"><p>{number}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p className="confirmHeader">Comment (optional)</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">Email:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto"><p>{email}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col md="auto"><p>{comments}</p></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="confirmHeader">Comment (optional)</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p>{comments}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
 
-        <ReactBootStrap.Row className="justify-content-md-center"> 
-        <div class="buttonAlign">
-        <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}><a>Back</a></ReactBootStrap.Button>
-        <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="danger" className='button' onClick={submitOrder}>Submit</ReactBootStrap.Button></a>
-        </div>
-        </ReactBootStrap.Row>
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <div class="buttonAlign">
+              <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}><a>Back</a></ReactBootStrap.Button>
+              <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="success" className='button' onClick={submitOrder}>Go back to Home</ReactBootStrap.Button></a>
+            </div>
+          </ReactBootStrap.Row>
 
         </div>
       </ReactBootStrap.Container>

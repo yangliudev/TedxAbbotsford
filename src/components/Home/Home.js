@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactPlayer from "react-player"
 import * as ReactBootStrap from "react-bootstrap";
+import MediaQuery from 'react-responsive';
 import tower from "./../../assets/tower/Tour_z.png"
 import firstPicture from "./../../assets/logos/02_picto-canton.png"
 import secondPicture from "./../../assets/logos/02-picto-adresse.png"
@@ -24,6 +25,9 @@ import facebookLogo from "./../../assets/logos/facebookLogo.png"
 import instagramLogo from "./../../assets/logos/instagramLogo.png"
 import gardenLogo from"./../../assets/logos/01_Logo-principal.png"
 import "./Home.css"
+
+import Feed from "react-instagram-authless-feed"
+import { Landscape, Portrait } from '@material-ui/icons';
 
 class Home extends Component {
 
@@ -49,14 +53,19 @@ class Home extends Component {
                         </div>
                     </div>
                 </ReactBootStrap.Row>
-                <br></br>
+              
                 
                 
                 <ReactBootStrap.Row>
                 <div class="top-space2">
                     <br></br>
                     <div class="textAlign">
+                    <MediaQuery orientation= {"Landscape"}>
                         <h1 class="textAlign2">IN OUR<span class="secondTowerText"> GARDEN</span> , HOW DOES IT WORK?</h1>
+                    </MediaQuery>
+                    <MediaQuery orientation = {"portrait"}>
+                    <h1 class="textAlign2">IN OUR<span class="secondTowerText"> GARDEN</span> , <br></br> HOW DOES IT WORK?</h1>
+                    </MediaQuery>
                     </div>
 
                     <ReactBootStrap.Row className="cards">
@@ -65,7 +74,7 @@ class Home extends Component {
                             <h1 class="textAlign2">1</h1>
                             <h1 class="cardHeader">Inquire the occasion celebrated</h1>
                         
-                            <img class="card-img-top" src={firstPicture} style={{width:"75%"}}></img> 
+                            <img class="card-img-top" src={firstPicture} style={{width:"55%"}}></img> 
                             <p class="card-text3"><br/>"Grandma Léa's birthday!"</p>
                             <p class="card-text3">"A little aperitif with friends"</p>
                             <p class="card-text3">"Violin for a romantic evening!"</p>
@@ -75,7 +84,7 @@ class Home extends Component {
 
                             <h1 class="textAlign2">2</h1>
                             <h1 class="cardHeader">Decide music<br></br><br></br></h1>
-                            <img class="card-img-top" style={{width:"75%"}} src={secondPicture}></img>
+                            <img class="card-img-top" style={{width:"55%"}} src={secondPicture}></img>
                             <p class="card-text3"><br/>You decide the style of music! In addition to this, you need to know more about it. We take care of finding the musicians available in your region on the date and time indicated.</p>
                     
                         </ReactBootStrap.Col>
@@ -83,7 +92,7 @@ class Home extends Component {
 
                             <h1 class="textAlign2">3</h1>
                             <h1 class="cardHeader">Pay online<br></br><br></br></h1>
-                            <img class="card-img-top" src={thirdPicture} style={{width:"75%"}}></img>
+                            <img class="card-img-top" src={thirdPicture} style={{width:"55%"}}></img>
                             <p class="card-text3"><br/>After giving us all the necessary information , enjoy a fast and secure payment.</p>
                             
                         </ReactBootStrap.Col>
@@ -91,7 +100,7 @@ class Home extends Component {
 
                             <h1 class="textAlign2">4</h1>
                             <h1 class="cardHeader">Listen and savor<br></br><br></br></h1>
-                            <img class="card-img-top" src={fourthPicture} style={{width:"75%"}}></img>
+                            <img class="card-img-top" src={fourthPicture} style={{width:"55%"}}></img>
                             <p class="card-text3"><br/>On the day-D and at the time indicated, one or two musicians will appear in front of the beneficiary's door on time and will play for 20 minutes. </p>
                             <p class="card-text2">Let the music!</p>
                     
@@ -110,19 +119,19 @@ class Home extends Component {
                         <ReactBootStrap.Col md={4}>
 
                             <h1 class="textAlign2">DURATION</h1>
-                            <img class="card-img-top" id="img2" src={fifthPicture} style={{width:"75%"}}></img>
+                            <img class="card-img-top2" id="img2" src={fifthPicture} style={{width:"75%"}}></img>
                             <h1 class="cardHeader">20 minutes of music</h1>
 
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md={4}>
                             <h1 class="textAlign2">PUBLIC</h1>
-                            <img class="card-img-top" id="img2" src={fifthPicture} style={{width:"75%"}}></img>
+                            <img class="card-img-top2" id="img2" src={fifthPicture} style={{width:"75%"}}></img>
                             <h1 class="cardHeader">in a small group with</h1>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md={4}>
 
                             <h1 class="textAlign2">PRICE</h1>
-                            <img class="card-img-top" id="img2" src={sixthPicture} style={{width:"75%"}}></img>
+                            <img class="card-img-top2" id="img2" src={sixthPicture} style={{width:"75%"}}></img>
                             <h1 class="cardHeader">one or two professional musicians</h1>
 
                         </ReactBootStrap.Col>
@@ -156,14 +165,29 @@ class Home extends Component {
                 <br></br>
                     <h1 class="textAlign2">IN THE GARDEN, IN REAL LIFE, IT GIVES THAT!</h1>
                     <div className="player-wrapper">
+                        <MediaQuery orientation= {"Landscape"}>
                         <ReactPlayer 
                             className="react-player"
                             url={video}
+                            
                             width="50%"
                             height="50%"
                             controls="true"
                             style={{outline: "none"}}
                             />
+                        </MediaQuery>
+
+                        <MediaQuery orientation= {"Portrait"}>
+                        <ReactPlayer 
+                            className="react-player"
+                            url={video}
+                            
+                            width="80%"
+                            height="80%"
+                            controls="true"
+                            style={{outline: "none"}}
+                            />
+                        </MediaQuery>
                     </div>
                     <br></br>
                     <div class="textAlign">
@@ -234,64 +258,15 @@ class Home extends Component {
                 <ReactBootStrap.Row>
                 <div className="cards3">
                 <br></br>
-                    
-                
-                    <ReactBootStrap.Row className="cards2">
-                        <ReactBootStrap.Col md={{ span: 2, offset: 2}}>
 
-    
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-                       
-
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col md={2}>
-                            
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-                           
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col md={2}>
-
-                            
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-
-
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col md={2}>
-
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-
-
-                        </ReactBootStrap.Col>
-                    </ReactBootStrap.Row>
-                    <ReactBootStrap.Row className="cards2">
-                        <ReactBootStrap.Col md={{ span: 2, offset: 2}}>
-
-    
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-                       
-
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col md={2}>
-                            
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-                           
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col md={2}>
-
-                            
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-
-
-                        </ReactBootStrap.Col>
-                        <ReactBootStrap.Col md={2}>
-
-                            <img class="card-img-top" id="img2" src={gardenLogo}></img>
-
-
-                        </ReactBootStrap.Col>
-                    </ReactBootStrap.Row>
+                    <Feed userName="dans_l_jardin" className="Feed" classNameLoading="Loading"/>
                 </div>
                 </ReactBootStrap.Row>
+
+               
+               
+
+                
                 
 
                 </ReactBootStrap.Container>
