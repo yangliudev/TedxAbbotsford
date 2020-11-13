@@ -53,14 +53,19 @@ class Home extends Component {
                         </div>
                     </div>
                 </ReactBootStrap.Row>
-                <br></br>
+              
                 
                 
                 <ReactBootStrap.Row>
                 <div class="top-space2">
                     <br></br>
                     <div class="textAlign">
+                    <MediaQuery orientation= {"Landscape"}>
                         <h1 class="textAlign2">IN OUR<span class="secondTowerText"> GARDEN</span> , HOW DOES IT WORK?</h1>
+                    </MediaQuery>
+                    <MediaQuery orientation = {"portrait"}>
+                    <h1 class="textAlign2">IN OUR<span class="secondTowerText"> GARDEN</span> , <br></br> HOW DOES IT WORK?</h1>
+                    </MediaQuery>
                     </div>
 
                     <ReactBootStrap.Row className="cards">
@@ -114,19 +119,19 @@ class Home extends Component {
                         <ReactBootStrap.Col md={4}>
 
                             <h1 class="textAlign2">DURATION</h1>
-                            <img class="card-img-top" id="img2" src={fifthPicture} style={{width:"75%"}}></img>
+                            <img class="card-img-top2" id="img2" src={fifthPicture} style={{width:"75%"}}></img>
                             <h1 class="cardHeader">20 minutes of music</h1>
 
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md={4}>
                             <h1 class="textAlign2">PUBLIC</h1>
-                            <img class="card-img-top" id="img2" src={fifthPicture} style={{width:"75%"}}></img>
+                            <img class="card-img-top2" id="img2" src={fifthPicture} style={{width:"75%"}}></img>
                             <h1 class="cardHeader">in a small group with</h1>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md={4}>
 
                             <h1 class="textAlign2">PRICE</h1>
-                            <img class="card-img-top" id="img2" src={sixthPicture} style={{width:"75%"}}></img>
+                            <img class="card-img-top2" id="img2" src={sixthPicture} style={{width:"75%"}}></img>
                             <h1 class="cardHeader">one or two professional musicians</h1>
 
                         </ReactBootStrap.Col>

@@ -7,6 +7,7 @@
 .top-space2 {
     background-color: #46555B;
     width: 100%;
+    margin-top: 3%;
 }
 
 .cards {
@@ -91,7 +92,7 @@
 
 .towerText {
     font-family: CamperSans2;
-    font-size: 430%;
+    font-size: 70px;
     line-height: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -166,11 +167,15 @@
 
 .cardHeader {
     text-align: center;
-    font-size: 45px;
+    font-size: 60px;
     width: 100%;
     height: 100px;
     color: white;
     font-family: CamperSans2;
+}
+
+.card-img-top {
+    margin-top: -10%;
 }
 
 .buttonAlign {
@@ -209,11 +214,12 @@ a+a {
 
 .card-text2 {
     text-align: center;
+    font-size: 25px;
 }
 
 .card-text3 {
     text-align: center;
-    font-size: 17px;
+    font-size: 20px;
     color: #cccccc;
 }
 
@@ -372,10 +378,14 @@ a+a {
         background-color: #2a3c434f;
         padding: 3%;
         width: 100%;
+        border-radius: 0%;
         height: auto;
-        border-radius: 10px;
         text-align: center;
         float: none;
+    }
+
+    .top-space2 {
+        margin-top: 0%;
     }
 
     .orderButton {
@@ -389,17 +399,31 @@ a+a {
         line-height: 90%;
     }
 
-    .cardHeader{
-        font-size: 230%;
-        line-height: 90%;
+    .cardHeader {
+        font-size: 45px;
+        line-height: 80%;
     }
 
     .card-text3 {
-        font-size: 80%;
+        font-size: 20px;
+    }
+
+    .card-text2 {
+        font-size: 25px;
     }
 
     .textAlign2 {
-        font-size: 50px;
+        font-size: 60px;
+        line-height: 80%;
+    }
+    
+    .cards2 {
+        margin-top: 10%;
+    }
+
+    .card-img-top2 {
+        margin-top: 10%;
+        margin-bottom: 10%;
     }
 
     #img {
