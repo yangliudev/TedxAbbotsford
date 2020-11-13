@@ -451,7 +451,10 @@ function Ordering() {
               {/* <Form.Label>Date and Time of Service</Form.Label> */}
               <h6><i>&#x1F6C8; The order must be placed at least 72 hours in advance to be considered.</i></h6>
               <h6><i>&#x1F6C8; Enter the time between 08:00 and 21:00 maximum</i></h6>
-              <Form.Control required type="datetime-local" onChange={(e) => {let date=e.target.value.substring(0,10); let time=e.target.value.substring(11,16) ; setDateService(date); setTimeService(time); }} />
+              <Form.Control 
+              required
+              type="datetime-local" 
+              onChange={(e) => {let date=e.target.value.substring(0,10); let time=e.target.value.substring(11,16) ; setDateService(date); setTimeService(time); }} />
             </Form.Group>
           </Form.Row>
 
