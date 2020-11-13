@@ -393,20 +393,17 @@ function Ordering() {
         </ReactBootStrap.Row>
 
         <Form style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
-          <Form.Row className="justify-content-md-center">
+        <Form.Row className="justify-content-md-center">
             <Form.Group controlId="formGridDate">
-                <Form.Label>Date of Service</Form.Label>
-                <h6><i>The order must be placed at least 72 hours in advance to be considered.</i></h6>
-                <Form.Control type="date" placeholder="1234 Main St" onChange={(e) => { setDateService("2020-01-01 10:10:10"); }} />
-              </Form.Group>
-            </Form.Row>
-
-          <Form.Row className="justify-content-md-center">
-              <Form.Group controlId="formGridTime">
-                <Form.Label>Time of Service</Form.Label>
-                <h6><i>Enter the time between 08:00 and 21:00 maximum</i></h6>
-                <Form.Control type="time" placeholder="1234 Main St" onChange={(e) => { setTimeService(e.target.value); }} />
-              </Form.Group>
+              {/* <Form.Label>Date and Time of Service</Form.Label> */}
+              <h6><i>&#x1F6C8; The order must be placed at least 72 hours in advance to be considered.</i></h6>
+              <h6><i>&#x1F6C8; Enter the time between 08:00 and 21:00 maximum</i></h6>
+              <Form.Control 
+              required
+              type="datetime-local" 
+              format-value="yyyy-MM-ddTHH:mm" 
+              onChange={(e) => {let date=e.target.value.substring(0,10); let time=e.target.value.substring(11,16) ; setDateService(date); setTimeService(time); }} />
+            </Form.Group>
           </Form.Row>
 
           <div class="buttonAlign">

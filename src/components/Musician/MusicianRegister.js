@@ -83,11 +83,17 @@ function MusicianRegister() {
   function ShowTextArea() {
     var textArea = document.getElementById("myDIV");
     textArea.style.display = "block";
+    var textBox = document.getElementById("school");
+    textBox.style.display = "none";
+
   }
 
   function HideTextArea() {
     var textArea = document.getElementById("myDIV");
+    var textBox = document.getElementById("school");
     textArea.style.display = "none";
+    textBox.style.display = "block";
+
   }
 
 
@@ -344,7 +350,20 @@ function MusicianRegister() {
                           }
                         />
                         <span>Currently in School</span>
+                        </label>
+                        <div id='school'>
+                        <label style={{ marginTop: '20px'}}>
+                      <input
+                          className='education'
+                          type="text"
+                          id="inschool"
+                          name="groupOfDefaultRadios"
+                          placeholder="Enter School.."
+
+                          
+                        />
                       </label>
+                      </div>
                     </div>
                   </ReactBootStrap.Col>
 
