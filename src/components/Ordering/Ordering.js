@@ -20,6 +20,7 @@ import pic10 from "./ordering-assets/duomusiciens.png"
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col'
 
+import emailjs from "emailjs-com";
 
 function Ordering() {
   function forward1() {
@@ -170,6 +171,7 @@ function Ordering() {
   const [comments, setComments] = useState("_  _  _  _  _  _");
 
   const submitOrder = () => {
+
     Axios.post("http://localhost:5000/order/insert", {
       orderGift: gift,
       orderOccasion: occasion,
@@ -192,6 +194,15 @@ function Ordering() {
     }).then(() => {
       alert("sucessful insert");
     })
+
+    //e.preventDefault();
+    emailjs.sendForm('gmail', 'tedx_email_temp', this, 'user_76DbToLEI7qddXqRzVzqp')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+
   };
 
 
@@ -236,11 +247,11 @@ function Ordering() {
         
         <Form.Row className="justify-content-md-center">
           <Form.Group as={Col} xs={6} controlId="formGridFirstName">
-            <Form.Control type="text" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }} />
+            <Form.Control type="text" placeholder="First Name" name="first_name" onChange={(e) => { setFirstName(e.target.value); }} />
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridLastName">
-            <Form.Control type="text" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
+            <Form.Control type="text" placeholder="Last Name" name="last_name" onChange={(e) => { setLastName(e.target.value); }} />
           </Form.Group>
         </Form.Row>
 

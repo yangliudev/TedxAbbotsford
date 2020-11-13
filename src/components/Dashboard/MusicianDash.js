@@ -268,9 +268,11 @@ function MusicianDashboard() {
 
                     <ReactBootStrap.Container id="requestsPage">
                                     {orders.map((value, index) => {
+                                        let addressURL = "https://www.google.com/maps/dir/?api=1&{}origin=Space+Needle+Seattle+WA&destination=" + value.address + "+" + value.city
+                                        console.log(addressURL)
                                         return <div style={{backgroundColor:"grey", marginBottom: "10px", borderRadius:"10px", paddingBottom:"10px"}}><div style={{marginLeft:"10px"}}>
                                             <h5>Order For: {value.firstName} {value.lastName}</h5>
-                                            <h6>Address: {value.address}, {value.city}, {value.zip} <a href="https://www.google.com/maps/dir/?api=1&{}origin=Space+Needle+Seattle+WA&destination=Pike+Place+Market+Seattle+WA"><input type="button" value="Google Maps"/></a></h6>
+                                            <h6>Address: {value.address}, {value.city}, {value.zip} <a href={addressURL}><input type="button" value="Google Maps"/></a></h6>
                                             <h6>Date: {value.date_service} Time: {value.time_service}</h6>
                                             <input type="button" value="Accept" style={{backgroundColor:"green"}}/><input type="button" value="Decline" style={{backgroundColor:"red"}}/>
                                             </div>
