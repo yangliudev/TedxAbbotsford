@@ -151,6 +151,18 @@ function Ordering() {
     document.getElementById("order10").style.display = "block"
   }
 
+  function dateAndTime() {
+    var d = new Date();
+    d.setDate(d.getDate() + 3);
+    var month = d.getMonth() + 1;
+    var hour = d.getHours();
+    hour = ("0" + hour).slice(-2);
+    var minutes = d.getMinutes();
+    minutes = ("0" + minutes).slice(-2)
+    var dateFormatted = d.getFullYear() + "-" + month + "-" + d.getDate() + "T" + hour + ":" + minutes;
+    return dateFormatted
+  }
+
   // function validName(name) {
   //   if (name == ""){
   //     console.log("empty name");
@@ -413,7 +425,7 @@ function Ordering() {
 
         <ReactBootStrap.Row className="justify-content-md-center">
           <div className="bg-display-button">
-            <a onClick={(e) => { setSuprise("yes"); forward6(); }}>
+            <a onClick={(e) => { setSuprise("yes"); forward6();}}>
               <ReactBootStrap.Col><p class="surprise">Yes</p></ReactBootStrap.Col>
             </a>
           </div>
@@ -421,7 +433,7 @@ function Ordering() {
 
         <ReactBootStrap.Row className="justify-content-md-center">
           <div style={{ marginTop: '10px' }} className="bg-display-button">
-            <a onClick={(e) => { setSuprise("no"); forward6(); }}>
+            <a onClick={(e) => { setSuprise("no"); forward6();}}>
               <ReactBootStrap.Col><p class="surprise">No</p></ReactBootStrap.Col>
             </a>
           </div>
@@ -454,9 +466,11 @@ function Ordering() {
               <Form.Control 
               required
               type="datetime-local" 
+              min={dateAndTime()}
               onChange={(e) => {let date=e.target.value.substring(0,10); let time=e.target.value.substring(11,16) ; setDateService(date); setTimeService(time); }} />
             </Form.Group>
           </Form.Row>
+          <p id = "a"></p>
 
           {/* <Form.Row className="justify-content-md-center">
             <Form.Group controlId="formGridTime">

@@ -71,6 +71,8 @@ label :hover + span {
     }
 
 @media only screen and (min-width: 1000px) {
+    
+
     .calander{
         margin-top: 30px;
         background-color: white;
@@ -82,4 +84,10 @@ label :hover + span {
         width: 700px;
         }
     }
-    
+
+    @media only screen and (orientation: portrait) {
+        .display-reg {
+            width: 100%;
+        }
+       
+    }
