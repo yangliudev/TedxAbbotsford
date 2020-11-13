@@ -14,7 +14,7 @@ import video from "./../../assets/video/homepage-video.mp4"
 import firstPhoto from "./../../assets/photos/firstPhoto.jpg"
 import secondPhoto from "./../../assets/photos/secondPhoto.jpg"
 import thirdPhoto from "./../../assets/photos/thirdPhoto.jpg"
-import fourthPhoto from "./../../assets/photos/fourthPhoto.jpg"
+// import fourthPhoto from "./../../assets/photos/fourthPhoto.jpg"
 import fifthPhoto from "./../../assets/photos/fifthPhoto.jpg"
 import sixthPhoto from "./../../assets/photos/sixthPhoto.jpg"
 import seventhPhoto from "./../../assets/photos/seventhPhoto.jpg"
@@ -33,7 +33,7 @@ class Home extends Component {
                 <ReactBootStrap.Row>
                     <div class="firstsection">
                         <div class="towerDiv">
-                            <img src={tower} className="tower"></img>
+                            <img src={tower} alt="Tower Image" className="tower"></img>
                         </div>
 
                         <div class ="textBG">

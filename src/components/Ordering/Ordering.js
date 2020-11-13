@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import * as ReactBootStrap from "react-bootstrap";
 import Axios from 'axios';
 
@@ -6,7 +6,7 @@ import "./Ordering.css"
 import pic1 from "./ordering-assets/GRANDMERE2.png"
 import pic2 from "./ordering-assets/02-picto-artiste.png"
 import pic3 from "./ordering-assets/institutionnew - Copy.png"
-import pic4 from "./ordering-assets/03-picto-don.png"
+// import pic4 from "./ordering-assets/03-picto-don.png"
 
 import pic5 from "./ordering-assets/violonsiteblanc.png"
 import pic6 from "./ordering-assets/accordeonisteblanc.png"
@@ -151,11 +151,11 @@ function Ordering() {
     document.getElementById("order10").style.display = "block"
   }
 
-  function validName(name) {
-    if (name == ""){
-      console.log("empty name");
-    }
-  }
+  // function validName(name) {
+  //   if (name == ""){
+  //     console.log("empty name");
+  //   }
+  // }
 
 
   const [musicianName, setMusicianName] = useState("");
@@ -274,7 +274,7 @@ function Ordering() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
-          <ReactBootStrap.Col><h4>Tell us more about who will be at the centre of this moment, or their name if they live in an institution. For example: "Grandma Léa", "Pré-Fleuri institution" ... </h4></ReactBootStrap.Col>
+          <ReactBootStrap.Col><h4>&#x1F6C8; Tell us more about who will be at the centre of this moment, or their name if they live in an institution. For example: "Grandma Léa", "Pré-Fleuri institution" ... </h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
@@ -308,7 +308,7 @@ function Ordering() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
-          <ReactBootStrap.Col><h4>Tell us more about the occasion. For example: "René's 50th birthday", "An aperitif with friends", "A sunny Sunday"...</h4></ReactBootStrap.Col>
+          <ReactBootStrap.Col><h4>&#x1F6C8; Tell us more about the occasion. For example: "René's 50th birthday", "An aperitif with friends", "A sunny Sunday"...</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
@@ -344,7 +344,7 @@ function Ordering() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
-          <ReactBootStrap.Col><h4>Choose the style of music, we will take care of finding the ideal musician available near you.</h4></ReactBootStrap.Col>
+          <ReactBootStrap.Col><h4>&#x1F6C8; Choose the style of music, we will take care of finding the ideal musician available near you.</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
@@ -381,7 +381,7 @@ function Ordering() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
-          <ReactBootStrap.Col><h4>A soloist or a duo for 20 minutes</h4></ReactBootStrap.Col>
+          <ReactBootStrap.Col><h4>&#x1F6C8; A soloist or a duo for 20 minutes</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row sm={1} md={3}>
@@ -448,19 +448,20 @@ function Ordering() {
         <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
           <Form.Row className="justify-content-md-center">
             <Form.Group controlId="formGridDate">
-              <Form.Label>Date of Service</Form.Label>
-              <h6><i>The order must be placed at least 72 hours in advance to be considered.</i></h6>
-              <Form.Control required type="date" placeholder="1234 Main St" onChange={(e) => { setDateService("2020-01-01 10:10:10"); }} />
+              {/* <Form.Label>Date and Time of Service</Form.Label> */}
+              <h6><i>&#x1F6C8; The order must be placed at least 72 hours in advance to be considered.</i></h6>
+              <h6><i>&#x1F6C8; Enter the time between 08:00 and 21:00 maximum</i></h6>
+              <Form.Control required type="datetime-local" onChange={(e) => {let date=e.target.value.substring(0,10); let time=e.target.value.substring(11,16) ; setDateService(date); setTimeService(time); }} />
             </Form.Group>
           </Form.Row>
 
-          <Form.Row className="justify-content-md-center">
+          {/* <Form.Row className="justify-content-md-center">
             <Form.Group controlId="formGridTime">
               <Form.Label>Time of Service</Form.Label>
-              <h6><i>Enter the time between 08:00 and 21:00 maximum</i></h6>
+              
               <Form.Control required type="time" placeholder="1234 Main St" onChange={(e) => { setTimeService(e.target.value); }} />
             </Form.Group>
-          </Form.Row>
+          </Form.Row> */}
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back7}><a>Back</a></ReactBootStrap.Button>
@@ -493,12 +494,13 @@ function Ordering() {
           <Form.Row>
             <Form.Group as={Col} controlId="formGridCity">
               <Form.Label>City</Form.Label>
-              <Form.Control required minLength="3" onChange={(e) => { setCity(e.target.value); }} />
+              <Form.Control required minLength="3" placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>State</Form.Label>
               <Form.Control required as="select" defaultValue="Choose..." onChange={(e) => { setState("British Columbia"); }}>
+                <option>Choose from below</option>
                 <option>British Columbia</option>
                 <option>Alberta</option>
               </Form.Control>
@@ -506,7 +508,7 @@ function Ordering() {
 
             <Form.Group as={Col} controlId="formGridZip">
               <Form.Label>Zip</Form.Label>
-              <Form.Control required minLength="6" onChange={(e) => { setZip(e.target.value); }} />
+              <Form.Control required minLength="6" placeholder="V3W9N3" onChange={(e) => { setZip(e.target.value); }} />
             </Form.Group>
           </Form.Row>
 
@@ -528,7 +530,7 @@ function Ordering() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
-          <ReactBootStrap.Col><h4>All this information remains confidential and is necessary for security reasons and in case we need to contact you..</h4></ReactBootStrap.Col>
+          <ReactBootStrap.Col><h4>&#x1F6C8; All this information remains confidential and is necessary for security reasons and in case we need to contact you..</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
@@ -542,7 +544,7 @@ function Ordering() {
 
               <Form.Group controlId="formGridPhone">
                 <Form.Label>Contact Number</Form.Label>
-                <h6><i>Please enter a canadian number</i> </h6>
+                <h6><i>&#x1F6C8; Please enter a canadian number</i> </h6>
                 <Form.Control required minLength="10" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="012-345-6789" onChange={(e) => { setNumber(e.target.value); }} />
               </Form.Group>
 
@@ -571,7 +573,7 @@ function Ordering() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
-          <ReactBootStrap.Col><h4>For example: "The beneficiary loves the violin", "A big dog guards the garden", "The road is difficult to access in the winter", ...
+          <ReactBootStrap.Col><h4>&#x1F6C8; For example: "The beneficiary loves the violin", "A big dog guards the garden", "The road is difficult to access in the winter", ...
 </h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
@@ -648,10 +650,10 @@ function Ordering() {
             <ReactBootStrap.Col md="auto"><p>{address}</p></ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          {/* <ReactBootStrap.Row className="justify-content-md-center">
             <ReactBootStrap.Col md="auto"><p className="intro">Address 2:</p></ReactBootStrap.Col>
             <ReactBootStrap.Col md="auto"><p>{address2}</p></ReactBootStrap.Col>
-          </ReactBootStrap.Row>
+          </ReactBootStrap.Row> */}
 
           <ReactBootStrap.Row className="justify-content-md-center">
             <ReactBootStrap.Col md="auto"><p className="intro">City:</p></ReactBootStrap.Col>
