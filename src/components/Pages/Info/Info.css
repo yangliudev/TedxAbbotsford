@@ -5,25 +5,110 @@ h1.info {
     margin-top: 10px;
     font-family: MyFont2;
     size: 30px;
-    }
+}
 
-    div.box {
-        background-color: lightgrey;
-        width: 300px;
-        border: 15px solid rgb(133, 247, 161);
-        padding: 50px;
-        margin: 70px;
-      }
+div.box {
+    background-color: lightgrey;
+    width: 300px;
+    border: 15px solid rgb(133, 247, 161);
+    padding: 50px;
+    margin: 70px;
+}
 
-    p.size{
-        font-size: 20px;
-        font-family: MyFont2;
-    }
+button {
+    height: 50px;
+    width: 120px;
+}
 
-    p.title{
-        font-size: 30px;
-        font-family: MyFont2;
-    }
+button.button1 {
+    background-color: white;
+    border-radius: 15px;
+    border-color: white;
+    font-family: CamperSans2;
+    font-size: 30px;
+    border-style: solid;
+    color: rgb(93, 188, 210);
+}
+
+button.button1:hover {
+    letter-spacing: 2px;
+}
+
+button.button2 {
+    background-color: white;
+    border-radius: 15px;
+    border-color: white;
+    font-family: CamperSans2;
+    font-size: 30px;
+    border-style: solid;
+    color: #D60B52;
+}
+
+button.button2:hover {
+    letter-spacing: 2px;
+}
+
+button.button3 {
+    background-color: white;
+    border-radius: 15px;
+    border-color: white;
+    font-family: CamperSans2;
+    font-size: 30px;
+    border-style: solid;
+    color: rgb(186, 218, 85);
+}
+
+button.button3:hover {
+    letter-spacing: 2px;
+}
+
+
+p.size {
+    font-size: 40px;
+    font-family: CamperSans2;
+    line-height: 0.8;
+}
+
+p.title {
+    font-size: 50px;
+    font-family: CamperSans2;
+}
+
+h1.info {
+    font-family: CamperSans2;
+    font-size: 70px;
+}
+
+.infobox1 {
+    background-color: rgb(93, 188, 210);
+    padding: 20px;
+    border-radius: 15px;
+    max-height: 350px;
+    color:'white';
+    text-align:'center'; 
+    margin-bottom: 50px;
+}
+
+.infobox2 {
+    background-color: #D60B52;
+    padding: 20px;
+    border-radius: 15px;
+    max-height: 350px;
+    color:'white';
+    text-align:'center'; 
+    margin-bottom: 50px;
+}
+
+.infobox3 {
+    background-color: rgb(186, 218, 85);
+    padding: 20px;
+    border-radius: 15px;
+    max-height: 350px;
+    color:'white';
+    text-align:'center'; 
+    margin-bottom: 50px;
+}
+
 
 .info-display {
     background-color: #2a3c43cc;
@@ -37,15 +122,37 @@ h1.info {
 
 @media screen and (min-width: 1400px) {
     .info-display {
-        background-color: #2a3c43cc;
-        -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
-        box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
-        /* padding-bottom: 50px; */
-        border-radius: 20px;
-        width: 70%;
-        text-align: center;
+    background-color: #2a3c43cc;
+    -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    /* padding-bottom: 50px; */
+    border-radius: 20px;
+    width: 70%;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
+    }
+
+    
+}
+
+@media screen and (orientation: portrait) {
+    .infobox1 {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .infobox2 {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .infobox3 {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

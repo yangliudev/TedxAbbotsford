@@ -59,6 +59,8 @@ h2 {
 
 .profileHeader {
     color: rgb(223, 84, 107);
+    width: 7em;
+    text-align: left;
 }
 
 #profilePage {
@@ -97,4 +99,11 @@ h2 {
 
 .setting {
     margin-left: 2px;
+}
+
+@media only screen and (orientation: portrait) {
+    .profileHeader {
+        width: auto;
+        text-align: center;
+    }
 }
