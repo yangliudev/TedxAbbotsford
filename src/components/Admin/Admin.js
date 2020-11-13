@@ -12,6 +12,7 @@ import TableCell from "@material-ui/core/TableCell";
 import CustomToolbarSelect from "./CustomToolbarSelect";
 
 import OrderEdit from "./OrderEdit";
+import * as ReactBootStrap from "react-bootstrap";
 
 
 import IconButton from "@material-ui/core/IconButton";
@@ -20,6 +21,11 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import FilterIcon from "@material-ui/icons/FilterList";
 import EditIcon from '@material-ui/icons/Edit';
 import MusicNoteIcon from '@material-ui/icons/MusicNote';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import HomeIcon from '@material-ui/icons/Home';
 // import { withStyles } from "@material-ui/core/styles";
 
 function Test() {
@@ -27,9 +33,10 @@ function Test() {
   const [musicianID, setMusicianID] = useState(0);
   const [orderID, setOrderID] = useState(0);
 
-  const submitMusicianOrder = () => {
+  const submitMusicianOrder = (musID) => {
+    // console.log(musID, orderID);
     Axios.post("http://localhost:5000/musicianOrder/insert", {
-      setMusicianID: musicianID,
+      setMusicianID: musID,
       setOrderID: orderID
     }).then(() => {
       console.log("sucessful insert");
@@ -78,15 +85,19 @@ function Test() {
 
   const getMusicians = (id) => {
     Axios.get(`http://localhost:5000/match/musicians/${id}`).then((response) => {
-        console.log(response.data);
-        setMatchedMusicians(response.data);
-        console.log(matchedMusicians);
+        // console.log(Object.values(response.data[0]));
+        // setMatchedMusicians(Object.values(response.data));
+        var matched = []
+        for (let index = 0; index < response.data.length; index++) {
+          matched.push(Object.values(response.data[index]));
+        }
+        setMatchedMusicians(matched)
     });
   };
 
   const [orderList, setOrderList] = useState([]);
   const [musicianList, setMusicianList] = useState([]);
-  const [matchedMusicians, setMatchedMusicians] = useState([]);
+  const [matchedMusicians, setMatchedMusicians] = useState([{}]);
 
   const arr = [];
   const arr2 = [];
@@ -116,7 +127,10 @@ function Test() {
     };
 })();
 
+
 var rowEdit = [];
+var rowSelectMusician = 0;
+
 var editFirstName = rowEdit.firstName;
 var editLastName = rowEdit.lastName;
 var editDate = rowEdit.date_service;
@@ -138,14 +152,39 @@ const [editRow, setEditRow] = useState([]);
 const rowSelect = (row) => {
   // console.log(row);
   if (row.length === 1) {
-    rowEdit = orderList[row[0].index];
+    rowEdit = orderList[row[0].dataIndex];
     document.getElementById("edit").style.display = "none";
-
-  //  document.getElementById("edit").style.display = "block";
-  console.log(rowEdit, orderList[0].gift);
   } else {
     document.getElementById("edit").style.display = "none";
   }
+}
+
+const setMusician = (row) => {
+  rowSelectMusician = matchedMusicians[row[0].dataIndex][0];
+  // setMusicianID(matchedMusicians[row[0].dataIndex][0]);
+}
+
+const ToolbarAssign = () => {
+  // console.log(rowSelectMusician);
+  // setMusicianID(rowSelectMusician);
+  submitMusicianOrder(rowSelectMusician);
+  document.getElementById("orders").style.display = "block";
+  document.getElementById("matched").style.display = "none";
+  // console.log(musicianID, rowSelectMusician);
+}
+
+const displayMusicians = () => {
+  setMatchedMusicians(dataMusician);
+  document.getElementById("orders").style.display = "none";
+  document.getElementById("edit").style.display = "none";
+  document.getElementById("musiciansTable").style.display = "block";
+}
+
+const displayOrders = () => {
+  // setMatchedMusicians(dataMusician);
+  document.getElementById("musiciansTable").style.display = "none";
+  document.getElementById("edit").style.display = "none";
+  document.getElementById("orders").style.display = "block";
 }
 
   // const [tableBodyHeight, setTableBodyHeight] = useState("400px");
@@ -176,7 +215,7 @@ const rowSelect = (row) => {
     {name: "Tips", options: {display: false}}
   ];
 
-  const columnsMusician = ["ID", "First Name", "Last Name", "Address", "Postal Code", "City", "Province", "Phone", "IBAN", "Email", "Training", "Instrument", "Style", "# of Musicians", "Site", "Media"];
+  const columnsMusician = ["ID", "First Name", "Last Name", "Address", "Postal Code", "City", "Province", "Phone", "IBAN", "Email", "Training", {name: "Instrument", options: {display: false}}, {name: "Style", options: {display: false}}, "# of Musicians", "Site", "Media"];
 
 
   const options = {
@@ -193,12 +232,18 @@ const rowSelect = (row) => {
     customToolbarSelect: (selectedRows, rowsSelected) => (
       // <CustomToolbarSelect selectedRows={selectedRows} data={data[selectedRows.data[0].index]} test={saveRowEdit}/>
       <div className={"custom-toolbar-select"}>
-        <Tooltip title={"Match"}><IconButton onClick={() => {getMusicians(rowEdit.id)}}><MusicNoteIcon /></IconButton></Tooltip>
+        <Tooltip title={"Match"}><IconButton onClick={() => {getMusicians(rowEdit.id); setOrderID(rowEdit.id); document.getElementById("orders").style.display = "none"; document.getElementById("matched").style.display = "block"; document.getElementById("edit").style.display = "none";
+}}><MusicNoteIcon /></IconButton></Tooltip>
         <Tooltip title={"Edit"}><IconButton onClick={() => {testing(); setEditRow(rowEdit)}}><EditIcon /></IconButton></Tooltip>
         <Tooltip title={"Delete"}><IconButton><DeleteIcon/></IconButton></Tooltip>
       </div>
     ),
-    onRowSelectionChange: (rowsSelected) => {rowSelect(rowsSelected)},
+    onRowSelectionChange: (rowsSelected) => {rowSelect(rowsSelected)
+    },
+    customToolbar: () => (
+     <Tooltip title={"Musicians"}><IconButton onClick={displayMusicians}><NavigateNextIcon /></IconButton></Tooltip>
+    
+  ),
   };
 
   const optionsMusician = {
@@ -212,40 +257,38 @@ const rowSelect = (row) => {
       enabled: true,
       transitionTime: 300
     },
-    // selectableRows: selectableRows,
-    // selectableRows: selectableRows,
-  // responsive: 'standard',
-    expandableRows: false,
-    expandableRowsHeader: false,
-    expandableRowsOnClick: true,
-    isRowExpandable: (dataIndex, expandedRows) => {
-
-    // Prevent expand/collapse of any row if there are 4 rows expanded already (but allow those already expanded to be collapsed)
-      if (expandedRows.data.length > 4 && expandedRows.data.filter(d => d.dataIndex === dataIndex).length === 0) return false;
-      return true;
-    },
-    rowsExpanded: [0, 1],
-    renderExpandableRow: (rowData, rowMeta) => {
-      const colSpan = rowData.length + 1;
-      return (
-        <TableRow>
-          <TableCell colSpan={colSpan}>
-            Custom expandable row option. Data: {JSON.stringify(rowData)}
-          </TableCell>
-        </TableRow>
-      );
-    },
-    onRowExpansionChange: (curExpanded, allExpanded, rowsExpanded) => console.log(curExpanded, allExpanded, rowsExpanded),
+    selectableRows: "single",
     customToolbarSelect: selectedRows => (
-      <CustomToolbarSelect selectedRows={selectedRows} />
-    )
+      <div className={"custom-toolbar-select"}>
+        <Tooltip title={"Assign"}><a href="/#/admin"><IconButton style={{marginRight: "20px"}} onClick={ToolbarAssign}><CheckCircleIcon /></IconButton></a></Tooltip>
+        {/* <Tooltip title={"Edit"}><IconButton onClick={() => {testing(); setEditRow(rowEdit)}}><EditIcon /></IconButton></Tooltip> */}
+        {/* <Tooltip title={"Delete"}><IconButton><DeleteIcon/></IconButton></Tooltip> */}
+      </div>
+    ),
+    customToolbar: () => (
+        <span><Tooltip title={"View All"}><IconButton onClick={() => {setMatchedMusicians(dataMusician)}}><VisibilityIcon /></IconButton></Tooltip>
+        <Tooltip title={"Home"}><IconButton onClick={() => {document.getElementById("matched").style.display = "none"; document.getElementById("orders").style.display = "block";}}><HomeIcon /></IconButton></Tooltip></span>
+    ),
+    onRowSelectionChange: (rowsSelected) => {setMusician(rowsSelected)},
   };
+  // setMusicianID(matchedMusicians[rowsSelected[0].dataIndex][0])
 
-  const components = {
-    ExpandButton: function(props) {
-      if (props.dataIndex === 3 || props.dataIndex === 4) return <div style={{width:'24px'}} />;
-      return <ExpandButton {...props} />;
-    }
+  const optionsMusician2 = {
+    filter: true,
+    filterType: 'dropdown',
+    responsive: "vertical",
+    tableBodyHeight: "400px",
+    // tableBodyMaxHeight,
+    resizableColumns: true,
+    draggableColumns: {
+      enabled: true,
+      transitionTime: 300
+    },
+    selectableRows: "single",
+    customToolbar: () => (
+        <Tooltip title={"Orders"}><IconButton onClick={displayOrders}><NavigateBeforeIcon /></IconButton></Tooltip>
+    ),
+
   };
 
   const data = arr;
@@ -256,8 +299,11 @@ const rowSelect = (row) => {
 
 
   return (
-    <div style={{ marginTop: "30px" }} id="orders">
-      <div>
+
+    
+    <div style={{ marginTop: "30px" }}>
+
+      <div id="orders"> 
       <MuiThemeProvider theme={getMuiTheme()}>
         <MUIDataTable
           title={"Orders"}
@@ -266,8 +312,8 @@ const rowSelect = (row) => {
           options={options}
         />
       </MuiThemeProvider>
-      <h1>{matchedMusicians.firstName}</h1>
       </div>
+      {/* <input type="button" onClick={()=> {console.log(musicianID); console.log(orderID)}}/> */}
 
       <div id="edit">
         <input placeholder={editRow.firstName} type="text" onChange={(e) => {editFirstName = e.target.value}}/>
@@ -282,20 +328,23 @@ const rowSelect = (row) => {
 
       
 
-      {/* <div style={{ marginTop: "30px" }}>
+      <div style={{ marginTop: "30px" }} id="matched">
 
       <MuiThemeProvider theme={getMuiTheme()}>
-        <MUIDataTable title={"Musicians"} data={dataMusician} columns={columnsMusician} options={optionsMusician} components={components} />
+        <MUIDataTable title={"Musicians"} data={matchedMusicians} columns={columnsMusician} options={optionsMusician} />
       </MuiThemeProvider>
 
       </div>
 
-      <div style={{paddingBottom:"500px", marginTop:"20px"}}>
+      <div style={{ marginTop: "30px" }} id="musiciansTable">
 
-      <label>Musican:</label><input onChange={(e) => { setMusicianID(e.target.value)}}/>
-      <label>Order:</label><input onChange={(e) => { setOrderID(e.target.value)}}/>
-      <input type="button" value="submit" onClick={submitMusicianOrder} />
-      </div> */}
+      <MuiThemeProvider theme={getMuiTheme()}>
+        <MUIDataTable title={"Musicians"} data={matchedMusicians} columns={columnsMusician} options={optionsMusician2} />
+      </MuiThemeProvider>
+
+      </div>
+
+
     </div>
     
   );
