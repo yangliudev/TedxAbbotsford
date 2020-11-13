@@ -68,7 +68,7 @@ function MusicianRegister() {
     setWed(JSON.stringify(wedx));
     setThu(JSON.stringify(thux));
     setFri(JSON.stringify(frix));
-    setSat(JSON.stringify(satx));
+    setSat(JSON.stringify(satx)); 
     setSun(JSON.stringify(sunx));
 
     // // var d = new Date("2020-11-02T20:00:00.000Z");
@@ -103,7 +103,7 @@ function MusicianRegister() {
   const [province, setProvince] = useState("");
   const [phone, setPhone] = useState("");
 
-  const [iban, setIban] = useState("");
+  const [etransfer, setEtransfer] = useState("");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -131,7 +131,7 @@ function MusicianRegister() {
       musicianCity: city,
       musicianProvince: province,
       musicianPhone: phone,
-      musicianIban: iban,
+      musicianEtransfer: etransfer,
       musicianEmail: email,
       musicianPassword: password,
       musicianConfirmPassword: confirmpassword,
@@ -259,12 +259,12 @@ function MusicianRegister() {
                     type="text"
                     placeholder="E-Transer Email"
                     onChange={(e) => {
-                      setIban(e.target.value);
+                      setEtransfer(e.target.value);
                     }}
                   />
                 </ReactBootStrap.Form.Group>
 
-                {/* ########## (BANKING INFORMATION) ########## */}
+                {/* ########## (USER ACOUNT INFORMATION) ########## */}
 
                 <ReactBootStrap.Form.Group>
                   <ReactBootStrap.Form.Label id="font">
@@ -391,7 +391,7 @@ function MusicianRegister() {
                         rows="5"
                         placeholder="Other Qualifications..."
                         onChange={(e) => {
-                          setOtherTraining(e.target.value);
+                          setTraining(e.target.value);
                         }}
                       ></textarea>
                     </div>

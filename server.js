@@ -179,7 +179,7 @@ app.post("/musician/insert", (req, res) => {
   const musicianCity = req.body.musicianCity;
   const musicianProvince = req.body.musicianProvince;
   const musicianPhone = req.body.musicianPhone;
-  const musicianIban = req.body.musicianIban;
+  const musicianEtransfer = req.body.musicianEtransfer;
   const musicianEmail = req.body.musicianEmail;
   const musicianPassword = req.body.musicianPassword;
   const musicianConfirmPassword = req.body.musicianConfirmPassword;
@@ -210,7 +210,7 @@ app.post("/musician/insert", (req, res) => {
       musicianCity,
       musicianProvince,
       musicianPhone,
-      musicianIban,
+      musicianEtransfer,
       musicianEmail,
       musicianTraining,
       musicianInstrument,
