@@ -314,7 +314,7 @@ function MusicianRegister() {
                 </ReactBootStrap.Form.Group>
 
                 <ReactBootStrap.Row>
-                  <ReactBootStrap.Col md={{ span: 4 }}>
+                  <ReactBootStrap.Col>
                     <div>
                       <label for="master" className='register'>
                         <input
@@ -367,7 +367,7 @@ function MusicianRegister() {
                     </div>
                   </ReactBootStrap.Col>
 
-                  <ReactBootStrap.Col md={{ span: 6 }}>
+                  <ReactBootStrap.Col >
                     <div>
                       <label for="bachelor" className='register'>
                         <input
@@ -434,7 +434,7 @@ function MusicianRegister() {
                 {/* ########## (INSTRUMENTS) ########## */}
 
                 <ReactBootStrap.Row >
-                  <ReactBootStrap.Col md='auto'>
+                  <ReactBootStrap.Col xs={6} md={4}>
                     <div>
                       <label className='register'>
                         <input
@@ -504,7 +504,7 @@ function MusicianRegister() {
                     </div>
                   </ReactBootStrap.Col>
 
-                  <ReactBootStrap.Col md='auto'> 
+                  <ReactBootStrap.Col xs={6} md={4} > 
                     <div>
                       <label className='register'>
                         <input
@@ -575,7 +575,7 @@ function MusicianRegister() {
                     </div>
                   </ReactBootStrap.Col>
 
-                  <ReactBootStrap.Col md='auto'>
+                  <ReactBootStrap.Col xs={6} md={4}>
                     <div>
                       <label className='register'>
                         <input
@@ -671,7 +671,7 @@ function MusicianRegister() {
                 {/* </ReactBootStrap.Form.Group> */}
 
                 <ReactBootStrap.Row>
-                  <ReactBootStrap.Col md='auto'>
+                  <ReactBootStrap.Col xs={6} md={4}>
                     <ReactBootStrap.Form.Group >
                       <ReactBootStrap.Form.Label>
                         Classical Styles
@@ -702,7 +702,7 @@ function MusicianRegister() {
                         <input type="checkbox" className='music_styles'
                           onChange={() => { if (style.includes("contemporary")) { style.splice(style.indexOf("contemporary"), 1) } else { setStyle([...style, "contemporary"]); } }}
                         />
-                        <span>Contemporary</span>
+                        <span>Contemp</span>
                       </label>
                     </div>
                     <div>
@@ -735,7 +735,7 @@ function MusicianRegister() {
                     </div>
                   </ReactBootStrap.Col>
 
-                  <ReactBootStrap.Col md='auto'>
+                  <ReactBootStrap.Col xs={6} md={4}>
                     <ReactBootStrap.Form.Group >
                       <ReactBootStrap.Form.Label>
                         Popular Styles
@@ -825,7 +825,7 @@ function MusicianRegister() {
 
 
                   </ReactBootStrap.Col>
-                  <ReactBootStrap.Col md='auto'>
+                  <ReactBootStrap.Col xs={6} md={4}>
                     <ReactBootStrap.Form.Group >
                       <ReactBootStrap.Form.Label>
                         Popular Styles
@@ -915,7 +915,7 @@ function MusicianRegister() {
                     </div>
                   </ReactBootStrap.Col>
 
-                  <ReactBootStrap.Col md='auto'>
+                  <ReactBootStrap.Col xs={6} md={4}>
                     <ReactBootStrap.Form.Group >
                       <ReactBootStrap.Form.Label>
                         Jazz Styles

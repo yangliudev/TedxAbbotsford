@@ -48,6 +48,31 @@ input[type=radio].education {
     margin-left: 3px;
 }
 
+@media only screen and (max-width: 600px) {
+    .register :checked + span {
+        background: #81A92F;
+        color: white;
+        border-radius: 15px;
+        padding: 5px;
+        font-size: 15px;
+        width: 80px;
+    }
+    
+    
+    .register span {
+        display: inline-block;
+        background: #2a3c43be;
+        cursor: pointer;
+        border-radius: 15px;
+        text-align: center;
+        padding: 5px;
+        font-size: 15px;
+        width: 80px;
+ 
+    
+    }
+
+}
 @media only screen and (min-width: 1000px) {
 .display-reg {
     /* background-color: #2a3c434f; */
