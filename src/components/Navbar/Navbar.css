@@ -41,6 +41,15 @@
     }
   }
 
+  @media screen and (orientation: portrait) {
+      .nav-font {
+          margin-left: 0px;
+      }
+
+      .navDropDown {
+          margin-left: -15%;
+      }
+  }
 #home {
     color: red;
 }
