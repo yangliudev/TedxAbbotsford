@@ -21,6 +21,7 @@ import Musician_Dash from "./components/Musician_Dashboard/MusicianDashboard"
 
 import Maps from "./components/Musician_Dash/Map"
 
+
 import Main from "./components/Dashboard/Main"
 
 
@@ -43,7 +44,7 @@ class App extends Component {
 
  
           <Route exact path="/order" component={Ordering}/>
-          {/* <Route exact path="/admin" component={Admin_Dash}/> */}
+          <Route exact path="/admin" component={Admin_Dash}/>
           <Route path="/musician/admin" component={Musician_Dash}/>
 
           <Route exact path="/login" component={Login}/>

@@ -31,7 +31,7 @@ label :checked + span {
     padding: 5px;
 }
 
-label span {
+label span.lk {
     display: inline-block;
     background: #2a3c43be;
     cursor: pointer;
@@ -42,10 +42,10 @@ label span {
 
 }
 
-label :hover + span {
+/* label :hover + span {
     background: #81A92F;
     margin-left: 3px;
-}
+} */
 
 .display-reg {
     /* background-color: #2a3c434f; */
@@ -60,6 +60,7 @@ label :hover + span {
     margin-right: auto;
   }
 
+  @media only screen and (min-width:100px){
   .calander{
     margin-top: 30px;
     background-color: white;
@@ -69,4 +70,5 @@ label :hover + span {
     margin-left: 5px;
     margin-right: 5px;
     }
+  }
 

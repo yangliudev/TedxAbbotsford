@@ -1,0 +1,12 @@
+label :checked + span {
+    
+    padding: 5px;
+}
+
+label span {
+  
+    cursor: pointer;
+    text-align: center;
+   
+
+}
