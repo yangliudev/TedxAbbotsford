@@ -516,10 +516,10 @@ function Ordering() {
 
             <Form.Group as={Col} controlId="formGridState">
               <Form.Label>State</Form.Label>
-              <Form.Control required as="select" defaultValue="Choose..." onChange={(e) => { setState("British Columbia"); }}>
-                <option>Choose from below</option>
-                <option>British Columbia</option>
-                <option>Alberta</option>
+              <Form.Control required as="select" minLength="3" defaultValue="Choose..." onChange={(e) => { setState(e.target.value); }}>
+                <option value="">Choose from below</option>
+                <option value="British Columbia">British Columbia</option>
+                <option value="Alberta">Alberta</option>
               </Form.Control>
             </Form.Group>
 
@@ -717,7 +717,7 @@ function Ordering() {
           <ReactBootStrap.Row className="justify-content-md-center">
             <div class="buttonAlign">
               <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}><a>Back</a></ReactBootStrap.Button>
-              <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="success" className='button' onClick={submitOrder}>Go back to Home</ReactBootStrap.Button></a>
+              <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="success" className='button' style={{width: '185px'}} onClick={submitOrder}>Go back to Home</ReactBootStrap.Button></a>
             </div>
           </ReactBootStrap.Row>
 
