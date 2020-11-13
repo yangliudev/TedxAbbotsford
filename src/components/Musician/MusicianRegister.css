@@ -24,14 +24,15 @@ input[type=radio].education {
     display: none;
 }
 
-label :checked + span {
+.register :checked + span {
     background: #81A92F;
     color: white;
     border-radius: 15px;
     padding: 5px;
 }
 
-label span {
+
+.register span {
     display: inline-block;
     background: #2a3c43be;
     cursor: pointer;
@@ -42,11 +43,12 @@ label span {
 
 }
 
-label :hover + span {
-    background: #81A92F;
+.register :hover + span {
+    /* background: #81A92F; */
     margin-left: 3px;
 }
 
+@media only screen and (min-width: 1000px) {
 .display-reg {
     /* background-color: #2a3c434f; */
     background-color: #2a3c43cc;
@@ -55,10 +57,23 @@ label :hover + span {
     box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
     padding-bottom: 50px;
     border-radius: 20px;
-    width: 63%;
+    width: 65%;
     margin-left: auto;
     margin-right: auto;
-  }
+  }}
+
+  @media only screen and (max-width: 999px) {
+    .display-reg {
+        /* background-color: #2a3c434f; */
+        background-color: #2a3c43cc;
+        -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+        padding-bottom: 50px;
+        border-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+      }}
 
   .calander{
     margin-top: 30px;
@@ -83,3 +98,10 @@ label :hover + span {
         }
     }
     
+    #commentBox{
+        display: none;
+    }
+
+    #school{
+        display: none;
+    }
