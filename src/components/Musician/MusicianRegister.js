@@ -1122,6 +1122,9 @@ function MusicianRegister() {
             </ReactBootStrap.Container>
 
 {/* ##################AVAILABLITY############################ */}
+
+
+                    <div className="calSize">
       
 
              
@@ -1154,6 +1157,7 @@ function MusicianRegister() {
                 </ReactBootStrap.Button>
 
                   </div>
+                </div>
                 </div>
 
       

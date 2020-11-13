@@ -211,21 +211,21 @@ function Ordering() {
 
 
 
-  useEffect(() => {
-    Axios.get("http://localhost:5000/api/get").then((response) => {
-      // console.log(response.data)
-      setMusicanList(response.data)
-    })
-  })
+  // useEffect(() => {
+  //   Axios.get("http://localhost:5000/api/get").then((response) => {
+  //     // console.log(response.data)
+  //     setMusicanList(response.data)
+  //   })
+  // })
 
-  const submitMusician = () => {
-    Axios.post("http://localhost:5000/api/insert", {
-      musicianName: musicianName,
-      musicianType: musicianType
-    }).then(() => {
-      alert("sucessful insert");
-    })
-  };
+  // const submitMusician = () => {
+  //   Axios.post("http://localhost:5000/api/insert", {
+  //     musicianName: musicianName,
+  //     musicianType: musicianType
+  //   }).then(() => {
+  //     alert("sucessful insert");
+  //   })
+  // };
 
   // Validatoin contents below \/ \/
   const [validated, setValidated] = useState(false);

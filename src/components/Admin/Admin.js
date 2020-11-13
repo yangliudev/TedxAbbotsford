@@ -260,7 +260,7 @@ const displayOrders = () => {
     selectableRows: "single",
     customToolbarSelect: selectedRows => (
       <div className={"custom-toolbar-select"}>
-        <Tooltip title={"Assign"}><a href="/#/admin"><IconButton style={{marginRight: "20px"}} onClick={ToolbarAssign}><CheckCircleIcon /></IconButton></a></Tooltip>
+        <Tooltip title={"Assign"}><IconButton style={{marginRight: "20px"}} onClick={ToolbarAssign}><CheckCircleIcon /></IconButton></Tooltip>
         {/* <Tooltip title={"Edit"}><IconButton onClick={() => {testing(); setEditRow(rowEdit)}}><EditIcon /></IconButton></Tooltip> */}
         {/* <Tooltip title={"Delete"}><IconButton><DeleteIcon/></IconButton></Tooltip> */}
       </div>
