@@ -20,6 +20,7 @@ import pic10 from "./ordering-assets/duomusiciens.png"
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col'
 import MediaQuery from 'react-responsive';
+import { Pause } from '@material-ui/icons';
 
 
 function Ordering() {
@@ -36,14 +37,9 @@ function Ordering() {
   }
 
   function forward2() {
-    if (validated === false){
-      console.log("names not valid");
-      return;
-    }
     var x = document.getElementById("order2");
     x.style.display = "none";
     document.getElementById("order3").style.display = "block";
-    setValidated(false);
   }
 
   function back3() {
@@ -53,13 +49,9 @@ function Ordering() {
   }
 
   function forward3() {
-    if (validated === false){
-      console.log("ocasion not valid");
-      return;
-    }
-    var x = document.getElementById("order3")
-    x.style.display = "none";
-    document.getElementById("order4").style.display = "block"
+      var x = document.getElementById("order3")
+      x.style.display = "none";
+      document.getElementById("order4").style.display = "block";
   }
 
   function back4() {
@@ -248,10 +240,77 @@ function Ordering() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+      console.log("names not valid");
     }
+    else {
+      event.preventDefault();
+      event.stopPropagation();
+      console.log("true");
+      forward2();
+    }
+  }
 
-    setValidated(true);
+    const handleSubmit2 = (event) => {
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("occasion not valid");
+      }
+      else {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("true");
+        forward3();
+    }
+  }
+
+    const handleSubmit7 = (event) => {
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("date or time is not valid");
+      }
+      else {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("true");
+        forward7();
+    }
+  }
+
+    const handleSubmit8 = (event) => {
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("address, city, state or postal code is not valid");
+      }
+      else {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("true");
+        forward8();
+    }
+  }
+
+    const handleSubmit9 = (event) => {
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("personal information is not valid");
+      }
+      else {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("true");
+        forward9();
+    }
+    
   };
+
 
   return (
 
@@ -306,7 +365,7 @@ function Ordering() {
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back2}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward2}>Next</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
         </Form>
@@ -324,16 +383,17 @@ function Ordering() {
           <ReactBootStrap.Col><h4>&#x1F6C8; Tell us more about the occasion. For example: "René's 50th birthday", "An aperitif with friends", "A sunny Sunday"...</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
+        <Form noValidate validated={validated} onSubmit={handleSubmit2}>
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginLeft: '20px', marginRight: '20px' }}>
-            <Form noValidate validated={validated}  onSubmit={handleSubmit}>
+            
               <Form.Group>
             <div class="md-form">
               <input type="text" required minLength="3" id="form1" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
             </div>
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
-            </Form>
+            
             
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -342,10 +402,11 @@ function Ordering() {
           <ReactBootStrap.Col style={{ marginTop: '20px' }}>
             <div class="buttonAlign">
               <ReactBootStrap.Button variant="danger" className='button' onClick={back3}><a>Back</a></ReactBootStrap.Button>
-              <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward3}><a>Next</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button type="submit" variant="success" className='button'><a>Next</a></ReactBootStrap.Button>
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
+        </Form>
       </ReactBootStrap.Container>
 
 
@@ -463,7 +524,7 @@ function Ordering() {
                 <h6><i>&#x1F6C8; Enter the time between 08:00 and 21:00 maximum</i></h6>
         </ReactBootStrap.Row>
 
-        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+        <Form noValidate validated={validated}  onSubmit={handleSubmit7} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
           <Form.Row className="justify-content-md-center">
             <Form.Group controlId="formGridDate" className="justify-content-md-center">
               {/* <Form.Label>Date and Time of Service</Form.Label> */}
@@ -486,7 +547,7 @@ function Ordering() {
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back7}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward7}>Next</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
         </Form>
@@ -501,7 +562,7 @@ function Ordering() {
           <ReactBootStrap.Col><h3>8. Perfect! Now where will these festivities take place?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+        <Form noValidate validated={validated}  onSubmit={handleSubmit8} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
           <MediaQuery orientation = {"landscape"}>
             <Form.Group controlId="formGridAddress1">
               <Form.Label>Address Line</Form.Label>
@@ -575,7 +636,7 @@ function Ordering() {
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back8}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward8}>Next</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
         </Form>
@@ -594,7 +655,7 @@ function Ordering() {
           <ReactBootStrap.Col><h4>&#x1F6C8; All this information remains confidential and is necessary for security reasons and in case we need to contact you..</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+        <Form noValidate validated={validated}  onSubmit={handleSubmit9} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
           <div className="justify-content-md-center">
             <div>
 
@@ -619,7 +680,7 @@ function Ordering() {
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back9}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward9}>Next</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
         </Form>
 
