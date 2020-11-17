@@ -18,6 +18,8 @@ input[type=radio].education {
     display: none;
 }
 
+@media only screen and (orientation:landscape) {
+
 .register :checked + span {
     background: #81A92F;
     color: white;
@@ -36,11 +38,13 @@ input[type=radio].education {
     width: 150px;
 }
 
-/* .register :hover + span {
+.register :hover + span {
     margin-left: 3px;
-} */
+    background: #81A92F;
+}
 
-@media only screen and (max-width: 600px) {
+}
+@media only screen and (orientation:portrait) {
     .register :checked + span {
         background: #81A92F;
         color: white;
@@ -93,54 +97,52 @@ input[type=radio].education {
         margin-right: auto;
       }}
 
-  .calander{
+.calander{
+margin-top: 30px;
+background-color: white;
+padding: 20px;
+border-radius: 15px;
+cursor: pointer;
+margin-left: 5px;
+margin-right: 5px;
+}
+
+@media only screen and (min-width: 1000px) {
+.calander{
     margin-top: 30px;
     background-color: white;
     padding: 20px;
     border-radius: 15px;
     cursor: pointer;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
     }
+}
 
-@media only screen and (min-width: 1000px) {
-    .calander{
-        margin-top: 30px;
-        background-color: white;
-        padding: 20px;
-        border-radius: 15px;
-        cursor: pointer;
-        margin-left: auto;
-        margin-right: auto;
-        width: 700px;
-        }
-    }
-    
-    #commentBox{
-        display: none;
-    }
+#commentBox{
+    display: none;
+}
 
-    #school{
-        display: none;
-    }
+#school{
+    display: none;
+}
 
-    #regedit{
-        display: none;
-    }
+#regedit{
+    display: none;
+}
 
-    .justify-content-md-center{
-        margin-top: 1px;
-        margin-bottom: 1px
-    }
+.justify-content-md-center{
+    margin-top: 1px;
+    margin-bottom: 1px
+}
 
-    .justify-buttons{
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-
+.justify-buttons{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 

@@ -426,6 +426,7 @@ function MusicianRegister() {
                   </ReactBootStrap.Form.Label>
                 </ReactBootStrap.Form.Group>
 
+<ReactBootStrap.Container>
                 <ReactBootStrap.Form.Group style={{ marginBottom: "1px" }}>
                   <ReactBootStrap.Form.Label>
                     <i>Instruments</i>
@@ -434,8 +435,8 @@ function MusicianRegister() {
 
                 {/* ########## (INSTRUMENTS) ########## */}
 
-
-                <div className='style'>
+                <ReactBootStrap.Row>
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -443,8 +444,10 @@ function MusicianRegister() {
                       onChange={() => { if (instrument.includes("voice")) { instrument.splice(instrument.indexOf("voice"), 1) } else { setInstrument([...instrument, "voice"]); } }}
                     />
                     <span>Voice</span>
-                  </label>
+                  </label>                  </ReactBootStrap.Col>
 
+
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -453,8 +456,9 @@ function MusicianRegister() {
                     />
 
                     <span>Piano</span>
-                  </label>
+                  </label></ReactBootStrap.Col>
 
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -463,6 +467,13 @@ function MusicianRegister() {
                     />
                     <span>Harp</span>
                   </label>
+
+                    
+                  </ReactBootStrap.Col>
+                </ReactBootStrap.Row>
+
+<ReactBootStrap.Row>
+                  <ReactBootStrap.Col>
 
                   <label className='register'>
                     <input
@@ -474,7 +485,9 @@ function MusicianRegister() {
                       }
                     />
                     <span>Trumbone</span>
-                  </label>
+                  </label></ReactBootStrap.Col>
+
+                  <ReactBootStrap.Col>
 
                   <label className='register'>
                     <input
@@ -485,8 +498,9 @@ function MusicianRegister() {
                       }
                     />
                     <span>Trumpet</span>
-                  </label>
+                  </label></ReactBootStrap.Col>
 
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -495,6 +509,11 @@ function MusicianRegister() {
                     />
                     <span>Bass</span>
                   </label>
+                  </ReactBootStrap.Col>
+                </ReactBootStrap.Row>
+
+                <ReactBootStrap.Row>
+                  <ReactBootStrap.Col>
 
                   <label className='register'>
                     <input
@@ -503,8 +522,9 @@ function MusicianRegister() {
                       onChange={() => { if (instrument.includes("singing")) { instrument.splice(instrument.indexOf("singing"), 1) } else { setInstrument([...instrument, "singing"]); } }}
                     />
                     <span>Singing</span>
-                  </label>
+                  </label></ReactBootStrap.Col>
 
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -512,8 +532,9 @@ function MusicianRegister() {
                       onChange={() => { if (instrument.includes("saxophone")) { instrument.splice(instrument.indexOf("saxophone"), 1) } else { setInstrument([...instrument, "saxophone"]); } }}
                     />
                     <span>Saxophone</span>
-                  </label>
+                  </label></ReactBootStrap.Col>
 
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -524,7 +545,13 @@ function MusicianRegister() {
                     />
                     <span>Bassoon</span>
                   </label>
+                    
+                  </ReactBootStrap.Col>
+                </ReactBootStrap.Row>
+                  
 
+                <ReactBootStrap.Row>
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -534,8 +561,9 @@ function MusicianRegister() {
                       }
                     />
                     <span>Flute</span>
-                  </label>
+                  </label></ReactBootStrap.Col>
 
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -545,8 +573,9 @@ function MusicianRegister() {
                       }
                     />
                     <span>Horn</span>
-                  </label>
+                  </label></ReactBootStrap.Col>
 
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -558,6 +587,13 @@ function MusicianRegister() {
                     <span>Guitar</span>
                   </label>
 
+                    
+                  </ReactBootStrap.Col>
+                </ReactBootStrap.Row>
+                  
+                <ReactBootStrap.Row>
+                  <ReactBootStrap.Col>
+
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -567,8 +603,9 @@ function MusicianRegister() {
                       }
                     />
                     <span>Accordion</span>
-                  </label>
+                  </label> </ReactBootStrap.Col>
 
+ <ReactBootStrap.Col>
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -578,8 +615,9 @@ function MusicianRegister() {
                       }
                     />
                     <span>Clarinet</span>
-                  </label>
+                  </label> </ReactBootStrap.Col>
 
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -591,6 +629,13 @@ function MusicianRegister() {
                     <span>Cello</span>
                   </label>
 
+                    
+                  </ReactBootStrap.Col>
+                </ReactBootStrap.Row>
+
+                <ReactBootStrap.Row>
+                  <ReactBootStrap.Col>
+
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -599,8 +644,9 @@ function MusicianRegister() {
                         () => { if (instrument.includes("percussion")) { instrument.splice(instrument.indexOf("percussion"), 1) } else { setInstrument([...instrument, "percussion"]); } }}
                     />
                     <span>Percussion</span>
-                  </label>
+                  </label> </ReactBootStrap.Col>
 
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -609,8 +655,9 @@ function MusicianRegister() {
                         () => { if (instrument.includes("alphorn")) { instrument.splice(instrument.indexOf("alphorn"), 1) } else { setInstrument([...instrument, "alphorn"]); } }}
                     />
                     <span>Alphorn</span>
-                  </label>
+                  </label> </ReactBootStrap.Col>
 
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input
                       className='music_styles'
@@ -621,9 +668,10 @@ function MusicianRegister() {
                     />
                     <span>Viola</span>
                   </label>
-
-                </div>
-
+                    
+                  </ReactBootStrap.Col>
+                </ReactBootStrap.Row>
+                
 
                 <label style={{ marginTop: '10px' }}>
                   <input
@@ -635,6 +683,8 @@ function MusicianRegister() {
                   />
                 </label>
 
+                </ReactBootStrap.Container>
+
                 <ReactBootStrap.Form.Group style={{ marginBottom: "1px" }}>
                   <ReactBootStrap.Form.Label>
                     <i>Music Styles</i>
@@ -643,49 +693,60 @@ function MusicianRegister() {
 
                 {/* ########## (MUSIC STYLES) ########## */}
 
-
+                  <ReactBootStrap.Container>
                 <ReactBootStrap.Form.Group >
                   <ReactBootStrap.Form.Label>
                     Classical Styles
                       </ReactBootStrap.Form.Label>
                 </ReactBootStrap.Form.Group>
-
-                <div >
+               
+                <ReactBootStrap.Row>
+                  <ReactBootStrap.Col>
+                
                   <label className='register'>
                     <input type="checkbox" className='music_styles'
                       onChange={() => { if (style.includes("baroque")) { style.splice(style.indexOf("baroque"), 1) } else { setStyle([...style, "baroque"]); } }}
                     />
                     <span>Baroque</span>
-                  </label>
+                  </label></ReactBootStrap.Col>
 
-
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input type="checkbox" className='music_styles'
                       onChange={() => { if (style.includes("classic")) { style.splice(style.indexOf("classic"), 1) } else { setStyle([...style, "classic"]); } }}
                     />
                     <span>Classic</span>
-                  </label>
+                  </label></ReactBootStrap.Col>
 
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input type="checkbox" className='music_styles'
                       onChange={() => { if (style.includes("contemporary")) { style.splice(style.indexOf("contemporary"), 1) } else { setStyle([...style, "contemporary"]); } }}
                     />
                     <span>Contemp</span>
-                  </label>
+                  </label>                    
+                  </ReactBootStrap.Col>
+                </ReactBootStrap.Row>
+
+                <ReactBootStrap.Row>
+                  <ReactBootStrap.Col>
 
                   <label className='register'>
                     <input type="checkbox" className='music_styles'
                       onChange={() => { if (style.includes("lied")) { style.splice(style.indexOf("lied"), 1) } else { setStyle([...style, "lied"]); } }}
                     />
                     <span>Lied</span>
-                  </label>
+                  </label> </ReactBootStrap.Col>
 
+                  <ReactBootStrap.Col>
                   <label className='register'>
                     <input type="checkbox" className='music_styles'
                       onChange={() => { if (style.includes("romantic")) { style.splice(style.indexOf("romantic"), 1) } else { setStyle([...style, "romantic"]); } }}
                     />
                     <span>Romantic</span>
-                  </label>
+                  </label> </ReactBootStrap.Col>
+                  
+                  <ReactBootStrap.Col>
 
                   <label className='register'>
                     <input type="checkbox" className='music_styles'
@@ -693,8 +754,10 @@ function MusicianRegister() {
                     />
                     <span>Sacred</span>
                   </label>
-                </div>
-
+                    
+                  </ReactBootStrap.Col>
+                </ReactBootStrap.Row>
+                </ReactBootStrap.Container>
 
                 <ReactBootStrap.Container>
                   <ReactBootStrap.Form.Group >
@@ -1149,7 +1212,7 @@ function MusicianRegister() {
           </ReactBootStrap.Row>
 
         </ReactBootStrap.Form>
-      </div>
+      </div>  
     </ReactBootStrap.Container>
   );
 }
