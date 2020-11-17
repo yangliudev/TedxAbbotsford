@@ -19,6 +19,7 @@ import pic10 from "./ordering-assets/duomusiciens.png"
 
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col'
+import MediaQuery from 'react-responsive';
 
 
 function Ordering() {
@@ -254,7 +255,7 @@ function Ordering() {
 
   return (
 
-    <ReactBootStrap.Container className="top-space">
+    <ReactBootStrap.Container className="top-space-ordering">
       <ReactBootStrap.Container className="bg-display" id="order1">
 
         <ReactBootStrap.Row className="justify-content-md-center">
@@ -457,12 +458,15 @@ function Ordering() {
           <ReactBootStrap.Col><h3>7. All right! When do you want the concert?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
+        <ReactBootStrap.Row className="justify-content-md-center">
+                <h6><i>&#x1F6C8; The order must be placed at least 72 hours in advance to be considered.</i></h6>
+                <h6><i>&#x1F6C8; Enter the time between 08:00 and 21:00 maximum</i></h6>
+        </ReactBootStrap.Row>
+
         <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
           <Form.Row className="justify-content-md-center">
-            <Form.Group controlId="formGridDate">
+            <Form.Group controlId="formGridDate" className="justify-content-md-center">
               {/* <Form.Label>Date and Time of Service</Form.Label> */}
-              <h6><i>&#x1F6C8; The order must be placed at least 72 hours in advance to be considered.</i></h6>
-              <h6><i>&#x1F6C8; Enter the time between 08:00 and 21:00 maximum</i></h6>
               <Form.Control 
               required
               type="datetime-local" 
@@ -498,36 +502,76 @@ function Ordering() {
         </ReactBootStrap.Row>
 
         <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
-          <Form.Group controlId="formGridAddress1">
-            <Form.Label>Address Line</Form.Label>
-            <Form.Control required minLength="4" placeholder="1234 Main St" onChange={(e) => { setAddress(e.target.value); }} />
-          </Form.Group>
+          <MediaQuery orientation = {"landscape"}>
+            <Form.Group controlId="formGridAddress1">
+              <Form.Label>Address Line</Form.Label>
+              <Form.Control required minLength="4" placeholder="1234 Main St" onChange={(e) => { setAddress(e.target.value); }} />
+            </Form.Group>
+          </MediaQuery>
+          
+          <MediaQuery orientation = {"Portrait"}>
+            <Form.Group controlId="formGridAddress1" class="justify-content-md-center">
+              <Form.Label class="justify-content-md-center">Address Line</Form.Label>
+              <Form.Control required minLength="4" placeholder="1234 Main St" onChange={(e) => { setAddress(e.target.value); }} />
+            </Form.Group>
+          </MediaQuery>
 
           {/* <Form.Group controlId="formGridAddress2">
             <Form.Label>Address 2</Form.Label>
             <Form.Control placeholder="Apartment, studio, or floor" onChange={(e) => { setAddress2(e.target.value); }} />
           </Form.Group> */}
-
+          <MediaQuery orientation= {"Landscape"}>
           <Form.Row>
-            <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>City</Form.Label>
-              <Form.Control required minLength="3" placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
-            </Form.Group>
+            
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>City</Form.Label>
+                <Form.Control required minLength="3" placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
+                
+                
+              </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridState">
-              <Form.Label>State</Form.Label>
-              <Form.Control required as="select" minLength="3" defaultValue="Choose..." onChange={(e) => { setState(e.target.value); }}>
-                <option value="">Choose from below</option>
-                <option value="British Columbia">British Columbia</option>
-                <option value="Alberta">Alberta</option>
-              </Form.Control>
-            </Form.Group>
+              <Form.Group as={Col} controlId="formGridState">
+                <Form.Label>State</Form.Label>
+                <Form.Control required as="select" minLength="3" defaultValue="Choose..." onChange={(e) => { setState(e.target.value); }}>
+                  <option value="">Choose from below</option>
+                  <option value="British Columbia">British Columbia</option>
+                  <option value="Alberta">Alberta</option>
+                </Form.Control>
+              </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridZip">
-              <Form.Label>Zip</Form.Label>
-              <Form.Control required minLength="6" placeholder="V3W9N3" onChange={(e) => { setZip(e.target.value); }} />
-            </Form.Group>
-          </Form.Row>
+              <Form.Group as={Col} controlId="formGridZip">
+                <Form.Label>Zip</Form.Label>
+                <Form.Control required minLength="6" placeholder="V3W9N3" onChange={(e) => { setZip(e.target.value); }} />
+              </Form.Group>
+            </Form.Row>
+            </MediaQuery>
+            
+            <MediaQuery orientation={"portrait"}>
+            <Form.Row class="justify-content-md-center">
+              <Form.Group controlId="formGridCity">
+                <div>
+                  <Form.Label>City</Form.Label>
+                  <Form.Control required placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
+                </div>
+              </Form.Group>
+
+                <Form.Group controlId="formGridState">
+                  <Form.Label>State</Form.Label>
+                  <Form.Control required as="select" defaultValue="Choose..." onChange={(e) => { setState(e.target.value); }}>
+                    <option value="">Choose from below</option>
+                    <option value="British Columbia">British Columbia</option>
+                    <option value="Alberta">Alberta</option>
+                  </Form.Control>
+                </Form.Group>
+
+                <Form.Group controlId="formGridZip">
+                  <Form.Label>Zip</Form.Label>
+                  <Form.Control required placeholder="V3W9N3" onChange={(e) => { setZip(e.target.value); }} />
+                </Form.Group>
+            </Form.Row>
+            </MediaQuery>
+
+          
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back8}><a>Back</a></ReactBootStrap.Button>
@@ -552,7 +596,7 @@ function Ordering() {
 
         <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
           <div className="justify-content-md-center">
-            <div className="w-50 d-inline-block">
+            <div>
 
               <Form.Group controlId="formGridHost">
                 <Form.Label>Offered by</Form.Label>
@@ -611,7 +655,7 @@ function Ordering() {
 
 
       <ReactBootStrap.Container className="bg-display" id="orderConfirm">
-        <div style={{ marginLeft: "30px" }}>
+        <div>
           <ReactBootStrap.Row className="justify-content-md-center">
             <ReactBootStrap.Col md="auto"><h3>Perfect, we have everything. Here is a summary of your order before entering payment details.</h3></ReactBootStrap.Col>
           </ReactBootStrap.Row>
