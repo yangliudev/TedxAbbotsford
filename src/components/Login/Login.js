@@ -50,6 +50,7 @@ function Login() {
 
   return (
 
+   
 
 
     <div className='display-login' >
@@ -100,6 +101,32 @@ function Login() {
                 </ReactBootStrap.Button></ReactBootStrap.Row>
       </ReactBootStrap.Container>
     </div>
+
+        // <div>
+        // <h2>Register</h2>
+        // <label>Username </label>
+        // <input type="text" onChange={(e) => {setUsernameReg(e.target.value)}}/><br />
+        // <label>Password </label>
+        // <input type="text" onChange={(e) => {setPasswordReg(e.target.value)}}/><br />
+        // <input type="button" value="Register" onClick={register}/> 
+
+
+        //   <div className="font-weight-light">
+        //                   <p>Not a member? Sign Up</p>
+        //                   <p>Forgot Password?</p>
+        //                 </div> 
+
+
+        //             <h2>Login</h2>
+        //             <label>Username </label>
+        //             <input type="text" onChange={(e) => {setUsername(e.target.value)}}/><br />
+        //             <label>Password </label>
+        //             <input type="text" onChange={(e) => {setPassword(e.target.value)}}/><br />
+        //             <input type="button" value="Login" onClick={login}/>
+        //             <h3>{loginStatus}</h3> 
+        //         </div>
+
+
 
   );
 }

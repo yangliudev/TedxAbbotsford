@@ -19,6 +19,8 @@ import pic10 from "./ordering-assets/duomusiciens.png"
 
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col'
+import MediaQuery from 'react-responsive';
+import { Pause } from '@material-ui/icons';
 
 
 function Ordering() {
@@ -35,14 +37,9 @@ function Ordering() {
   }
 
   function forward2() {
-    if (validated === false){
-      console.log("names not valid");
-      return;
-    }
     var x = document.getElementById("order2");
     x.style.display = "none";
     document.getElementById("order3").style.display = "block";
-    setValidated(false);
   }
 
   function back3() {
@@ -52,13 +49,9 @@ function Ordering() {
   }
 
   function forward3() {
-    if (validated === false){
-      console.log("ocasion not valid");
-      return;
-    }
-    var x = document.getElementById("order3")
-    x.style.display = "none";
-    document.getElementById("order4").style.display = "block"
+      var x = document.getElementById("order3")
+      x.style.display = "none";
+      document.getElementById("order4").style.display = "block";
   }
 
   function back4() {
@@ -151,6 +144,18 @@ function Ordering() {
     document.getElementById("order10").style.display = "block"
   }
 
+  function dateAndTime() {
+    var d = new Date();
+    d.setDate(d.getDate() + 3);
+    var month = d.getMonth() + 1;
+    var hour = d.getHours();
+    hour = ("0" + hour).slice(-2);
+    var minutes = d.getMinutes();
+    minutes = ("0" + minutes).slice(-2)
+    var dateFormatted = d.getFullYear() + "-" + month + "-" + d.getDate() + "T" + hour + ":" + minutes;
+    return dateFormatted
+  }
+
   // function validName(name) {
   //   if (name == ""){
   //     console.log("empty name");
@@ -235,14 +240,81 @@ function Ordering() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+      console.log("names not valid");
     }
+    else {
+      event.preventDefault();
+      event.stopPropagation();
+      console.log("true");
+      forward2();
+    }
+  }
 
-    setValidated(true);
+    const handleSubmit2 = (event) => {
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("occasion not valid");
+      }
+      else {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("true");
+        forward3();
+    }
+  }
+
+    const handleSubmit7 = (event) => {
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("date or time is not valid");
+      }
+      else {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("true");
+        forward7();
+    }
+  }
+
+    const handleSubmit8 = (event) => {
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("address, city, state or postal code is not valid");
+      }
+      else {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("true");
+        forward8();
+    }
+  }
+
+    const handleSubmit9 = (event) => {
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("personal information is not valid");
+      }
+      else {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("true");
+        forward9();
+    }
+    
   };
+
 
   return (
 
-    <ReactBootStrap.Container className="top-space">
+    <ReactBootStrap.Container className="top-space-ordering">
       <ReactBootStrap.Container className="bg-display" id="order1">
 
         <ReactBootStrap.Row className="justify-content-md-center">
@@ -293,7 +365,7 @@ function Ordering() {
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back2}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward2}>Next</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
         </Form>
@@ -311,16 +383,17 @@ function Ordering() {
           <ReactBootStrap.Col><h4>&#x1F6C8; Tell us more about the occasion. For example: "René's 50th birthday", "An aperitif with friends", "A sunny Sunday"...</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
+        <Form noValidate validated={validated} onSubmit={handleSubmit2}>
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginLeft: '20px', marginRight: '20px' }}>
-            <Form noValidate validated={validated}  onSubmit={handleSubmit}>
+            
               <Form.Group>
             <div class="md-form">
               <input type="text" required minLength="3" id="form1" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
             </div>
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
-            </Form>
+            
             
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -329,10 +402,11 @@ function Ordering() {
           <ReactBootStrap.Col style={{ marginTop: '20px' }}>
             <div class="buttonAlign">
               <ReactBootStrap.Button variant="danger" className='button' onClick={back3}><a>Back</a></ReactBootStrap.Button>
-              <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward3}><a>Next</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button type="submit" variant="success" className='button'><a>Next</a></ReactBootStrap.Button>
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
+        </Form>
       </ReactBootStrap.Container>
 
 
@@ -413,7 +487,7 @@ function Ordering() {
 
         <ReactBootStrap.Row className="justify-content-md-center">
           <div className="bg-display-button">
-            <a onClick={(e) => { setSuprise("yes"); forward6(); }}>
+            <a onClick={(e) => { setSuprise("yes"); forward6();}}>
               <ReactBootStrap.Col><p class="surprise">Yes</p></ReactBootStrap.Col>
             </a>
           </div>
@@ -421,7 +495,7 @@ function Ordering() {
 
         <ReactBootStrap.Row className="justify-content-md-center">
           <div style={{ marginTop: '10px' }} className="bg-display-button">
-            <a onClick={(e) => { setSuprise("no"); forward6(); }}>
+            <a onClick={(e) => { setSuprise("no"); forward6();}}>
               <ReactBootStrap.Col><p class="surprise">No</p></ReactBootStrap.Col>
             </a>
           </div>
@@ -445,18 +519,23 @@ function Ordering() {
           <ReactBootStrap.Col><h3>7. All right! When do you want the concert?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+        <ReactBootStrap.Row className="justify-content-md-center">
+                <h6><i>&#x1F6C8; The order must be placed at least 72 hours in advance to be considered.</i></h6>
+                <h6><i>&#x1F6C8; Enter the time between 08:00 and 21:00 maximum</i></h6>
+        </ReactBootStrap.Row>
+
+        <Form noValidate validated={validated}  onSubmit={handleSubmit7} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
           <Form.Row className="justify-content-md-center">
-            <Form.Group controlId="formGridDate">
+            <Form.Group controlId="formGridDate" className="justify-content-md-center">
               {/* <Form.Label>Date and Time of Service</Form.Label> */}
-              <h6><i>&#x1F6C8; The order must be placed at least 72 hours in advance to be considered.</i></h6>
-              <h6><i>&#x1F6C8; Enter the time between 08:00 and 21:00 maximum</i></h6>
               <Form.Control 
               required
               type="datetime-local" 
+              min={dateAndTime()}
               onChange={(e) => {let date=e.target.value.substring(0,10); let time=e.target.value.substring(11,16) ; setDateService(date); setTimeService(time); }} />
             </Form.Group>
           </Form.Row>
+          <p id = "a"></p>
 
           {/* <Form.Row className="justify-content-md-center">
             <Form.Group controlId="formGridTime">
@@ -468,7 +547,7 @@ function Ordering() {
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back7}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward7}>Next</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
         </Form>
@@ -483,41 +562,81 @@ function Ordering() {
           <ReactBootStrap.Col><h3>8. Perfect! Now where will these festivities take place?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
-          <Form.Group controlId="formGridAddress1">
-            <Form.Label>Address Line</Form.Label>
-            <Form.Control required minLength="4" placeholder="1234 Main St" onChange={(e) => { setAddress(e.target.value); }} />
-          </Form.Group>
+        <Form noValidate validated={validated}  onSubmit={handleSubmit8} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+          <MediaQuery orientation = {"landscape"}>
+            <Form.Group controlId="formGridAddress1">
+              <Form.Label>Address Line</Form.Label>
+              <Form.Control required minLength="4" placeholder="1234 Main St" onChange={(e) => { setAddress(e.target.value); }} />
+            </Form.Group>
+          </MediaQuery>
+          
+          <MediaQuery orientation = {"Portrait"}>
+            <Form.Group controlId="formGridAddress1" class="justify-content-md-center">
+              <Form.Label class="justify-content-md-center">Address Line</Form.Label>
+              <Form.Control required minLength="4" placeholder="1234 Main St" onChange={(e) => { setAddress(e.target.value); }} />
+            </Form.Group>
+          </MediaQuery>
 
           {/* <Form.Group controlId="formGridAddress2">
             <Form.Label>Address 2</Form.Label>
             <Form.Control placeholder="Apartment, studio, or floor" onChange={(e) => { setAddress2(e.target.value); }} />
           </Form.Group> */}
-
+          <MediaQuery orientation= {"Landscape"}>
           <Form.Row>
-            <Form.Group as={Col} controlId="formGridCity">
-              <Form.Label>City</Form.Label>
-              <Form.Control required minLength="3" placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
-            </Form.Group>
+            
+              <Form.Group as={Col} controlId="formGridCity">
+                <Form.Label>City</Form.Label>
+                <Form.Control required minLength="3" placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
+                
+                
+              </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridState">
-              <Form.Label>State</Form.Label>
-              <Form.Control required as="select" defaultValue="Choose..." onChange={(e) => { setState("British Columbia"); }}>
-                <option>Choose from below</option>
-                <option>British Columbia</option>
-                <option>Alberta</option>
-              </Form.Control>
-            </Form.Group>
+              <Form.Group as={Col} controlId="formGridState">
+                <Form.Label>State</Form.Label>
+                <Form.Control required as="select" minLength="3" defaultValue="Choose..." onChange={(e) => { setState(e.target.value); }}>
+                  <option value="">Choose from below</option>
+                  <option value="British Columbia">British Columbia</option>
+                  <option value="Alberta">Alberta</option>
+                </Form.Control>
+              </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridZip">
-              <Form.Label>Zip</Form.Label>
-              <Form.Control required minLength="6" placeholder="V3W9N3" onChange={(e) => { setZip(e.target.value); }} />
-            </Form.Group>
-          </Form.Row>
+              <Form.Group as={Col} controlId="formGridZip">
+                <Form.Label>Zip</Form.Label>
+                <Form.Control required minLength="6" placeholder="V3W9N3" onChange={(e) => { setZip(e.target.value); }} />
+              </Form.Group>
+            </Form.Row>
+            </MediaQuery>
+            
+            <MediaQuery orientation={"portrait"}>
+            <Form.Row class="justify-content-md-center">
+              <Form.Group controlId="formGridCity">
+                <div>
+                  <Form.Label>City</Form.Label>
+                  <Form.Control required placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
+                </div>
+              </Form.Group>
+
+                <Form.Group controlId="formGridState">
+                  <Form.Label>State</Form.Label>
+                  <Form.Control required as="select" defaultValue="Choose..." onChange={(e) => { setState(e.target.value); }}>
+                    <option value="">Choose from below</option>
+                    <option value="British Columbia">British Columbia</option>
+                    <option value="Alberta">Alberta</option>
+                  </Form.Control>
+                </Form.Group>
+
+                <Form.Group controlId="formGridZip">
+                  <Form.Label>Zip</Form.Label>
+                  <Form.Control required placeholder="V3W9N3" onChange={(e) => { setZip(e.target.value); }} />
+                </Form.Group>
+            </Form.Row>
+            </MediaQuery>
+
+          
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back8}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward8}>Next</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
         </Form>
@@ -536,9 +655,9 @@ function Ordering() {
           <ReactBootStrap.Col><h4>&#x1F6C8; All this information remains confidential and is necessary for security reasons and in case we need to contact you..</h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+        <Form noValidate validated={validated}  onSubmit={handleSubmit9} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
           <div className="justify-content-md-center">
-            <div className="w-50 d-inline-block">
+            <div>
 
               <Form.Group controlId="formGridHost">
                 <Form.Label>Offered by</Form.Label>
@@ -561,7 +680,7 @@ function Ordering() {
 
           <div class="buttonAlign">
             <ReactBootStrap.Button variant="danger" className='button' onClick={back9}><a>Back</a></ReactBootStrap.Button>
-            <ReactBootStrap.Button type="submit" variant="success" className='button' onClick={forward9}>Next</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
         </Form>
 
@@ -597,7 +716,7 @@ function Ordering() {
 
 
       <ReactBootStrap.Container className="bg-display" id="orderConfirm">
-        <div style={{ marginLeft: "30px" }}>
+        <div>
           <ReactBootStrap.Row className="justify-content-md-center">
             <ReactBootStrap.Col md="auto"><h3>Perfect, we have everything. Here is a summary of your order before entering payment details.</h3></ReactBootStrap.Col>
           </ReactBootStrap.Row>
@@ -703,7 +822,7 @@ function Ordering() {
           <ReactBootStrap.Row className="justify-content-md-center">
             <div class="buttonAlign">
               <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}><a>Back</a></ReactBootStrap.Button>
-              <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="success" className='button' onClick={submitOrder}>Go back to Home</ReactBootStrap.Button></a>
+              <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="success" className='button' style={{width: '185px'}} onClick={submitOrder}>Go back to Home</ReactBootStrap.Button></a>
             </div>
           </ReactBootStrap.Row>
 

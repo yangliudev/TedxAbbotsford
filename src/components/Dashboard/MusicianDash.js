@@ -82,7 +82,14 @@ function MusicianDashboard() {
     };
 
 
-
+    function show() {
+        var cnt = true;
+        if (cnt === true){
+        var textArea = document.getElementById("box");
+        textArea.style.display = "initial"; 
+        cnt = false 
+    }
+      }
 
     function active() {
         var x = document.getElementById("profile")
@@ -192,35 +199,35 @@ function MusicianDashboard() {
                         </ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="setting">
+                    <ReactBootStrap.Row className="justify-content-md-center">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">First Name: </p>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.firstName} onChange={(e) => { firstName = e.target.value }} /></ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="setting">
+                    <ReactBootStrap.Row className="justify-content-md-center">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Last Name: </p>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.lastName} onChange={(e) => { lastName = e.target.value }} /></ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="setting">
+                    <ReactBootStrap.Row className="justify-content-md-center">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Phone: </p>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.phone} onChange={(e) => { phone = e.target.value }} /></ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="setting">
+                    <ReactBootStrap.Row className="justify-content-md-center">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Email: </p>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.email} onChange={(e) => { email = e.target.value }} /></ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="setting">
+                    <ReactBootStrap.Row className="justify-content-md-center">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Address: </p>
                         </ReactBootStrap.Col>
@@ -235,21 +242,21 @@ function MusicianDashboard() {
                         </ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="setting">
+                    <ReactBootStrap.Row className="justify-content-md-center">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Training: </p>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.training} onChange={(e) => { training = e.target.value }} /></ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="setting">
+                    <ReactBootStrap.Row className="justify-content-md-center">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Style: </p>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.style} /></ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="setting">
+                    <ReactBootStrap.Row className="justify-content-md-center">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Solo/Duo: </p>
                         </ReactBootStrap.Col>
@@ -269,11 +276,14 @@ function MusicianDashboard() {
                 <ReactBootStrap.Container id="requestsPage">
                     {orders.map((value, index) => {
                         let addressURL = "https://www.google.com/maps/dir/?api=1&{}origin=Space+Needle+Seattle+WA&destination=" + value.address + "+" + value.address_2;
-                        return <div style={{ backgroundColor: "grey", marginBottom: "10px", borderRadius: "10px", paddingBottom: "10px" }}><div style={{ marginLeft: "10px" }}>
+                        return <div className="orders" ><div  className="justify-content-md-center">
                             <h5>Order For: {value.firstName} {value.lastName}</h5>
                             <h6>Address: {value.address}, {value.city}, {value.zip} <a href={addressURL}><input type="button" value="Google Maps" /></a></h6>
                             <h6>Date: {value.date_service} Time: {value.time_service}</h6>
-                            <input type="button" value="Accept" style={{ backgroundColor: "green" }} /><input type="button" value="Decline" style={{ backgroundColor: "red" }} />
+                            <input type="button" value="Accept" className='accept'/><input type="button" value="Decline" className='decline'  onClick={show}/>
+                            <div>
+                            <textarea rows='2' placeholder="Any reason for the decline?" className='declinebox' id="box"/>
+                            </div>
                         </div>
                         </div>
                     })}

@@ -101,6 +101,45 @@ h2 {
     font-size: 13px;
 }
 
-.setting {
-    margin-left: 2px;
+
+@media only screen and (orientation:portrait){
+.orders{
+    background-color: grey;
+    margin-bottom: 20px;
+    margin-top: 60px;
+        border-radius: 10px;
+     padding: 10px;
+     /* width: 75%; */
+}}
+
+
+
+@media only screen and (orientation:landscape){
+    .orders{
+        background-color: grey;
+        margin-bottom: 20px;
+        margin-top: 60px;
+        margin-left: 25%;
+        border-radius: 10px;
+         padding-bottom: 10px;
+         width: 50%;
+    }}
+
+
+.accept{
+    background-color: rgb(129,169,47);
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.decline{
+    background-color: rgb(214, 11, 82);
+    border-radius: 5px;
+}
+
+.declinebox{
+    border-radius: 5px;
+    margin-left: 7px;
+    margin-top: 7px;
+    display: none;
 }

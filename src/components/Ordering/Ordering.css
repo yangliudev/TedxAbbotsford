@@ -13,7 +13,7 @@
   src: local('MyFont3'), url(../../assets/fonts/NeutraTextLight.otf) format('woff');
 }
 
-.top-space {
+.top-space-ordering {
     margin-top: 80px;
 }
 
@@ -23,11 +23,12 @@
     -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
-    padding-bottom: 50px;
     border-radius: 20px;
     width: 80%;
+    padding-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
+    
   }
 
 .bg-display-test {
@@ -89,33 +90,34 @@
     margin-top: -50px;
 }
 
-  .pic {
-      display: block;
-      width: auto;
-      max-height: 120px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 15px;
-      text-decoration: none;
-  }
-  .pic2 {
+.pic {
     display: block;
     width: auto;
-    max-height: 160px;
-    margin-top: 15px;
+    max-height: 120px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 15px;
     text-decoration: none;
 }
+.pic2 {
+  display: block;
+  width: auto;
+  max-height: 160px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+}
 
-  h3 {
-      margin-bottom: 40px;
-      color: white;
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      margin-left: 20px;
-      margin-top: 10px;
-      font-family: MyFont2;
-  }
+h3 {
+    margin-bottom: 40px;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: MyFont2;
+}
 
   .borders {
     border-style: dashed;
@@ -236,6 +238,21 @@
     .bg-display-test {
       width: 70%;
       margin-bottom: 2em;
+    }
+
+    .bg-display {
+      width: 100%;
+      border-radius: 0%;
+    }
+
+    .top-space-ordering {
+      margin-top: 40px;
+      padding: 0;
+      width: 100%;
+    }
+
+    .justify-content-md-center {
+      width: 100%;
     }
 
     #form1 {
