@@ -293,15 +293,18 @@ function MusicianDashboard() {
                             <h6 className='title'>Date:</h6><h7 className='content'>{value.date_service}</h7> 
                             <h6 className='title'>Time: </h6><h7 className='content'> {value.time_service}</h7>
                             <div>
-                            <input type="button" value="Accept" className='accept'/><input type="button" value="Decline" className='decline'  onClick={()=>show(t,r)} />   
-                           
-                            <a href={addressURL}><input type="button" value="Google Maps" className='mapsButton' /></a>
+                            {/* <input type="button" value="Accept" className='accept'/><input type="button" value="Decline" className='decline'  onClick={()=>show(t,r)} />    */}
+                           <ReactBootStrap.Button variant = 'primary' size='md' className='accept'>Accept</ReactBootStrap.Button><ReactBootStrap.Button variant = 'danger'size="md" className='decline' onClick={()=>show(t,r)} >Decline</ReactBootStrap.Button>
+                           <ReactBootStrap.Button variant = 'success' size='md' className='mapsButton'>Maps</ReactBootStrap.Button>
+                            {/* <a href={addressURL}><input type="button" value="Google Maps" className='mapsButton' /></a> */}
                            </div>
                             <div >
                             <textarea rows='2' placeholder="Any reason for the decline?" id={t} className="commbox"/>
                             </div>
                             <div>
-                            <input type="button" value="submit" className='button' id={r} onClick={()=>hide(box)} />
+                            {/* <input type="button" value="submit" className='button' id={r} onClick={()=>hide(box)} /> */}
+                            <ReactBootStrap.Button variant = 'danger' size='md' className='button' id={r} onClick={()=>hide(box)} >Submit</ReactBootStrap.Button>
+
                             </div>
                             
                         </div>
