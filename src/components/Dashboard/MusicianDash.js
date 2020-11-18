@@ -3,6 +3,7 @@ import Axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
 import "./MusicianDashboard.css";
 import Scheduler from "./MusicianCalander";
+import { Box } from "@material-ui/core";
 // import MusicianRequests from "./MusicianRequests";
 
 function MusicianDashboard() {
@@ -82,9 +83,13 @@ function MusicianDashboard() {
     };
 
 
-    function show() {
-        var textArea = document.getElementById("box");
-        textArea.style.display = "initial"; 
+    function show(p) {
+        // var textArea = document.getElementsByClassName('orders')[p].id;
+        // textArea.style.display = "none"; 
+        // console.log(textArea);
+        var button = document.getElementById(p);
+        button.style.display = "none"; 
+        
     }
       
 
@@ -273,14 +278,22 @@ function MusicianDashboard() {
                 <ReactBootStrap.Container id="requestsPage">
                     {orders.map((value, index) => {
                         let addressURL = "https://www.google.com/maps/dir/?api=1&{}origin=Space+Needle+Seattle+WA&destination=" + value.address + "+" + value.address_2;
-                        return <div className="orders" ><div  className="justify-content-md-center">
+                        let box = index;
+                        return <div className="orders" id= {box}><div  className="justify-content-md-center">
                             <h5 id ='maps'>Order For: {value.firstName} {value.lastName}</h5>
-                            <h6>Address: {value.address}, {value.city}, {value.zip} <a href={addressURL}><input type="button" value="Google Maps" className='accept' /></a></h6>
+                            <h6>Address: {value.address}, {value.city}, {value.zip} </h6>
                             <h6>Date: {value.date_service} Time: {value.time_service}</h6>
-                            <input type="button" value="Accept" className='accept'/><input type="button" value="Decline" className='decline'  onClick={show}/>
-                            <div>
-                            <textarea rows='2' placeholder="Any reason for the decline?" className='declinebox' id="box"/>
-                            </div>
+                            <input type="button" value="Accept" className='accept'/><input type="button" value="Decline" className='decline'  onClick={()=>show(index)} />   
+                           
+                            <a href={addressURL}><input type="button" value="Google Maps" className='mapsButton' /></a>
+
+                            {/* <div >
+                            <textarea rows='2' placeholder="Any reason for the decline?" id='box' />
+                            </div> */}
+                            {/* <div>
+                            <input type="button" value="submit" id='button'/>
+                            </div> */}
+                            
                         </div>
                         </div>
                     })}
