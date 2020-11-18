@@ -7,15 +7,29 @@
     margin-top: 40px;
 }
 
+
+@media only screen and (orientation:portrait){
 .dashboardNav {
     background-color: #2a3c43cc;
     padding-bottom: 30px;
     border-radius: 20px;
-    width: 90%;
-    margin-left: auto;
+    width: 100%;
+    /* margin-left: auto;
     margin-right: auto;
-    display: table;
-}
+    display: table; */
+}}
+
+
+@media only screen and (orientation:landscape){
+    .dashboardNav {
+        background-color: #2a3c43cc;
+        padding-bottom: 30px;
+        border-radius: 20px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: table;
+    }}
 
 .justify-content-md-center {
     margin-left: auto;
@@ -141,5 +155,9 @@ h2 {
     border-radius: 5px;
     margin-left: 7px;
     margin-top: 7px;
-    display: none;
+    /* display: none; */
+}
+
+#maps{
+    color: white;
 }

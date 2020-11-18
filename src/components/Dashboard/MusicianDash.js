@@ -274,8 +274,8 @@ function MusicianDashboard() {
                     {orders.map((value, index) => {
                         let addressURL = "https://www.google.com/maps/dir/?api=1&{}origin=Space+Needle+Seattle+WA&destination=" + value.address + "+" + value.address_2;
                         return <div className="orders" ><div  className="justify-content-md-center">
-                            <h5>Order For: {value.firstName} {value.lastName}</h5>
-                            <h6>Address: {value.address}, {value.city}, {value.zip} <a href={addressURL}><input type="button" value="Google Maps" /></a></h6>
+                            <h5 id ='maps'>Order For: {value.firstName} {value.lastName}</h5>
+                            <h6>Address: {value.address}, {value.city}, {value.zip} <a href={addressURL}><input type="button" value="Google Maps" className='accept' /></a></h6>
                             <h6>Date: {value.date_service} Time: {value.time_service}</h6>
                             <input type="button" value="Accept" className='accept'/><input type="button" value="Decline" className='decline'  onClick={show}/>
                             <div>
