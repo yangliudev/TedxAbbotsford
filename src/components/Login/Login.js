@@ -55,29 +55,29 @@ function Login() {
     <div className='display-login' >
 
       <ReactBootStrap.Container>
-        <ReactBootStrap.Row>
+        <ReactBootStrap.Row className="justify-content-md-center">
 
-          <ReactBootStrap.Form.Group >
-            <ReactBootStrap.Form.Label>
-              <h3>Login</h3>
-            </ReactBootStrap.Form.Label>
-          </ReactBootStrap.Form.Group>
+              <strong><i id='logs'>Login</i></strong>
+       
         </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row>
+        <ReactBootStrap.Row className="justify-content-md-center">
+
           <label
             htmlFor="defaultFormEmailEx"
             className="grey-text font-weight-light"
           >
             Your email
               </label>
+
+              
           <input
             type="email"
             id="defaultFormEmailEx"
             className="form-control"
             onChange={(e) => { setUsername(e.target.value) }}
           /></ReactBootStrap.Row>
-        <ReactBootStrap.Row>
+        <ReactBootStrap.Row className="justify-content-md-center">
           <label
             htmlFor="defaultFormPasswordEx"
             className="grey-text font-weight-light"
@@ -90,7 +90,7 @@ function Login() {
             className="form-control"
             onChange={(e) => { setPassword(e.target.value) }}
           /></ReactBootStrap.Row>
-        <ReactBootStrap.Row>
+        <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Button
             variant="danger"
             size="lg"
