@@ -83,13 +83,19 @@ function MusicianDashboard() {
     };
 
 
-    function show(p) {
-        // var textArea = document.getElementsByClassName('orders')[p].id;
-        // textArea.style.display = "none"; 
-        // console.log(textArea);
-        var button = document.getElementById(p);
-        button.style.display = "none"; 
+    function show(t,r) {
+       
+        var textArea = document.getElementById(t);
+        textArea.style.display = "initial"; 
+        var but = document.getElementById(r);
+        but.style.display = "initial"; 
         
+    }
+
+    function hide(p) {
+       
+        var button = document.getElementById(p);
+        button.style.display = "none";        
     }
       
 
@@ -279,20 +285,24 @@ function MusicianDashboard() {
                     {orders.map((value, index) => {
                         let addressURL = "https://www.google.com/maps/dir/?api=1&{}origin=Space+Needle+Seattle+WA&destination=" + value.address + "+" + value.address_2;
                         let box = index;
+                        let t = index + 'x';
+                        let r = index + 'y';
                         return <div className="orders" id= {box}><div  className="justify-content-md-center">
-                            <h5 id ='maps'>Order For: {value.firstName} {value.lastName}</h5>
-                            <h6>Address: {value.address}, {value.city}, {value.zip} </h6>
-                            <h6>Date: {value.date_service} Time: {value.time_service}</h6>
-                            <input type="button" value="Accept" className='accept'/><input type="button" value="Decline" className='decline'  onClick={()=>show(index)} />   
+                            <h5 id ='maps'><strong>{value.firstName} {value.lastName}</strong></h5>
+                            <h6 className='title'>Address: </h6><h7 className='content'>{value.address}, {value.city}, {value.zip}</h7> 
+                            <h6 className='title'>Date:</h6><h7 className='content'>{value.date_service}</h7> 
+                            <h6 className='title'>Time: </h6><h7 className='content'> {value.time_service}</h7>
+                            <div>
+                            <input type="button" value="Accept" className='accept'/><input type="button" value="Decline" className='decline'  onClick={()=>show(t,r)} />   
                            
                             <a href={addressURL}><input type="button" value="Google Maps" className='mapsButton' /></a>
-
-                            {/* <div >
-                            <textarea rows='2' placeholder="Any reason for the decline?" id='box' />
-                            </div> */}
-                            {/* <div>
-                            <input type="button" value="submit" id='button'/>
-                            </div> */}
+                           </div>
+                            <div >
+                            <textarea rows='2' placeholder="Any reason for the decline?" id={t} className="commbox"/>
+                            </div>
+                            <div>
+                            <input type="button" value="submit" className='button' id={r} onClick={()=>hide(box)} />
+                            </div>
                             
                         </div>
                         </div>
