@@ -76,8 +76,7 @@ function MusicianRegister() {
     if (state.schedule.length == 0) {
       alert("nothing has been selected")
     } else {
-      alert("Click on Submit Form button to complete you're registration!")
-      document.getElementById("regedit").style.display = "initial";
+         document.getElementById("regedit").style.display = "initial";
     }
   }
 

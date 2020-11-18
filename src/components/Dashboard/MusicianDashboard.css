@@ -40,6 +40,13 @@
     color: #D60B52 !important;
 }
 
+.justify-button{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 h2 {
     margin-bottom: 20px;
     color: white;
@@ -50,11 +57,10 @@ h2 {
 
 .dashboardContainer {
     margin-top: 20px;
-    display: table;
+    display: flex;
     text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    padding-bottom: 60px;
+    align-items: center;
+    justify-content: center;
 }
 
 .profileHeader {
