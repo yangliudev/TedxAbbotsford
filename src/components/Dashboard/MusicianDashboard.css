@@ -172,6 +172,8 @@ h2 {
 
 #maps{
     color: white;
+    font-family: MyFont2;
+    font-size: 30px;
 }
 
 .button{
@@ -189,6 +191,8 @@ h2 {
     font-size: 20px;
     margin-top: 5px;
     margin-bottom:1px ;
+    font-family: MyFont2;
+
     
 }
 
