@@ -83,13 +83,10 @@ function MusicianDashboard() {
 
 
     function show() {
-        var cnt = true;
-        if (cnt === true){
         var textArea = document.getElementById("box");
         textArea.style.display = "initial"; 
-        cnt = false 
     }
-      }
+      
 
     function active() {
         var x = document.getElementById("profile")
