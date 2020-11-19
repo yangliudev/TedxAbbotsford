@@ -295,7 +295,7 @@ function MusicianDashboard() {
                             <div>
                             {/* <input type="button" value="Accept" className='accept'/><input type="button" value="Decline" className='decline'  onClick={()=>show(t,r)} />    */}
                            <ReactBootStrap.Button variant = 'primary' size='md' className='accept'>Accept</ReactBootStrap.Button><ReactBootStrap.Button variant = 'danger'size="md" className='decline' onClick={()=>show(t,r)} >Decline</ReactBootStrap.Button>
-                           <ReactBootStrap.Button variant = 'success' size='md' className='mapsButton'>Maps</ReactBootStrap.Button>
+                           <ReactBootStrap.Button variant = 'success' size='md' href={addressURL} className='mapsButton'>Maps</ReactBootStrap.Button>
                             {/* <a href={addressURL}><input type="button" value="Google Maps" className='mapsButton' /></a> */}
                            </div>
                             <div >
