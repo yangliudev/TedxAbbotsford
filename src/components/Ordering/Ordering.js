@@ -234,9 +234,6 @@ function Ordering() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-      console.log("names not valid");
-      document.getElementById("fNameLabelOK").style.display = "none";
-      document.getElementById("lNameLabelOK").style.display = "none";
       if (firstName == "" || firstName == "_  _  _  _  _  _"){
         document.getElementById("fNameLabelReq").style.display = "block";
         document.getElementById("fNameLabelLen").style.display = "block";
@@ -265,8 +262,6 @@ function Ordering() {
       }
     }
     else {
-      document.getElementById("fNameLabelOK").style.display = "block";
-      document.getElementById("lNameLabelOK").style.display = "block";
       event.preventDefault();
       event.stopPropagation();
       console.log("true");
