@@ -183,6 +183,30 @@ h3 {
   #order2 {
     display: none;
   }
+  #fNameLabelOK {
+    display: none;
+    color: green;
+  }
+  #fNameLabelReq {
+    display: none;
+    color: Red;
+  }
+  #fNameLabelLen {
+    display: none;
+    color: Red;
+  }
+  #lNameLabelOK {
+    display: none;
+    color: green;
+  }
+  #lNameLabelReq {
+    display: none;
+    color: Red;
+  }
+  #lNameLabelLen {
+    display: none;
+    color: Red;
+  }
   #order3 {
     display: none;
   }

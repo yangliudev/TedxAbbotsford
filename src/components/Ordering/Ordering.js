@@ -34,8 +34,9 @@ function Ordering() {
   function forward1() {
     var x = document.getElementById("order1")
     x.style.display = "none";
-    document.getElementById("order2").style.display = "block"
-    document.getElementById("orderConfirm").style.display = "none"
+    document.getElementById("order2").style.display = "block";
+    document.getElementById("orderConfirm").style.display = "none";
+    document.getElementById("fNameField").focus();
   }
 
   function back2() {
@@ -49,7 +50,8 @@ function Ordering() {
     var x = document.getElementById("order2");
     x.style.display = "none";
     document.getElementById("order3").style.display = "block";
-    document.getElementById("orderConfirm").style.display = "none"
+    document.getElementById("orderConfirm").style.display = "none";
+    document.getElementById("form1").focus();
   }
 
   function back3() {
@@ -257,7 +259,32 @@ function Ordering() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-      console.log("names not valid");
+      if (firstName == "" || firstName == "_  _  _  _  _  _"){
+        document.getElementById("fNameLabelReq").style.display = "block";
+        document.getElementById("fNameLabelLen").style.display = "block";
+      }
+      else if (firstName.length < 3 && firstName !== ""){
+        document.getElementById("fNameLabelReq").style.display = "none";
+        document.getElementById("fNameLabelLen").style.display = "block";
+      }
+      else if (firstName.length >= 3 & firstName !== "_  _  _  _  _  _"){
+        document.getElementById("fNameLabelOK").style.display = "block";
+        document.getElementById("fNameLabelReq").style.display = "none";
+        document.getElementById("fNameLabelLen").style.display = "none";
+      }
+      if (lastName == "" || lastName == "_  _  _  _  _  _"){
+        document.getElementById("lNameLabelReq").style.display = "block";
+        document.getElementById("lNameLabelLen").style.display = "block";
+      }
+      else if (lastName.length < 3 && lastName !== ""){
+        document.getElementById("lNameLabelReq").style.display = "none";
+        document.getElementById("lNameLabelLen").style.display = "block";
+      }
+      else if (lastName.length >= 3){
+        document.getElementById("lNameLabelOK").style.display = "block";
+        document.getElementById("lNameLabelReq").style.display = "none";
+        document.getElementById("lNameLabelLen").style.display = "none";
+      }
     }
     else {
       event.preventDefault();
@@ -370,13 +397,17 @@ function Ordering() {
 
           <Form.Row className="justify-content-md-center">
             <Form.Group as={Col} xs={6} controlId="formGridFirstName">
-              <Form.Control className="form-control" required minLength="3" type="text" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }}  />
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              <Form.Control className="form-control" required minLength="3" type="text" id="fNameField" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }}  />
+              <Form.Label id="fNameLabelOK">Looks Good!</Form.Label>
+              <Form.Label id="fNameLabelReq">First Name is required!</Form.Label>
+              <Form.Label id="fNameLabelLen">Minimum length of 3 is required!</Form.Label>
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridLastName">
               <Form.Control className="form-control" required minLength="3" type="text" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
-              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+              <Form.Label id="lNameLabelOK">Looks Good!</Form.Label>
+              <Form.Label id="lNameLabelReq">Last Name is required!</Form.Label>
+              <Form.Label id="lNameLabelLen">Minimum length of 3 is required!</Form.Label>
             </Form.Group>
           </Form.Row>
 
