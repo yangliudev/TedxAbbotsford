@@ -235,34 +235,34 @@ function Ordering() {
       event.preventDefault();
       event.stopPropagation();
       console.log("names not valid");
-      if (firstName == ""){
+      document.getElementById("fNameLabelOK").style.display = "none";
+      document.getElementById("lNameLabelOK").style.display = "none";
+      if (firstName == "" || firstName == "_  _  _  _  _  _"){
         document.getElementById("fNameLabelReq").style.display = "block";
         document.getElementById("fNameLabelLen").style.display = "block";
       }
-      if (firstName.length < 3 && firstName !== ""){
+      else if (firstName.length < 3 && firstName !== ""){
         document.getElementById("fNameLabelReq").style.display = "none";
         document.getElementById("fNameLabelLen").style.display = "block";
       }
-      if (firstName.length >= 3){
+      else if (firstName.length >= 3 & firstName !== "_  _  _  _  _  _"){
         document.getElementById("fNameLabelOK").style.display = "block";
         document.getElementById("fNameLabelReq").style.display = "none";
         document.getElementById("fNameLabelLen").style.display = "none";
       }
-      if (lastName == ""){
+      if (lastName == "" || lastName == "_  _  _  _  _  _"){
         document.getElementById("lNameLabelReq").style.display = "block";
         document.getElementById("lNameLabelLen").style.display = "block";
       }
-      if (lastName.length < 3 && lastName !== ""){
+      else if (lastName.length < 3 && lastName !== ""){
         document.getElementById("lNameLabelReq").style.display = "none";
         document.getElementById("lNameLabelLen").style.display = "block";
       }
-      if (lastName.length >= 3){
+      else if (lastName.length >= 3){
         document.getElementById("lNameLabelOK").style.display = "block";
         document.getElementById("lNameLabelReq").style.display = "none";
         document.getElementById("lNameLabelLen").style.display = "none";
       }
-      
-
     }
     else {
       document.getElementById("fNameLabelOK").style.display = "block";
