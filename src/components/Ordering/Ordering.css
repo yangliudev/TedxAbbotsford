@@ -185,12 +185,11 @@ h3 {
   }
   #fNameLabelOK {
     display: none;
-    color: green;
+    color: rgb(131, 255, 131);;
   }
   #fNameLabelReq {
     display: none;
     color: rgb(255, 103, 103);
-    size: 10%;
   }
   #fNameLabelLen {
     display: none;
@@ -207,6 +206,21 @@ h3 {
   #lNameLabelLen {
     display: none;
     color:  rgb(255, 103, 103);
+  }
+  #occasionOK {
+    display: none;
+    color: rgb(131, 255, 131);
+    text-align : center;
+  }
+  #occasionReq {
+    display: none;
+    color:  rgb(255, 103, 103);
+    text-align : center;
+  }
+  #occasionLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+    text-align : center;
   }
   #order3 {
     display: none;

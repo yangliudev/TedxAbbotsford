@@ -102,8 +102,9 @@ function Ordering() {
   function forward6() {
     var x = document.getElementById("order6")
     x.style.display = "none";
-    document.getElementById("order7").style.display = "block"
-    document.getElementById("orderConfirm").style.display = "none"
+    document.getElementById("order7").style.display = "block";
+    document.getElementById("orderConfirm").style.display = "none";
+    document.getElementById("date-time-field").focus();
   }
 
   function back7() {
@@ -175,17 +176,9 @@ function Ordering() {
     return dateFormatted
   }
 
-  // function validName(name) {
-  //   if (name == ""){
-  //     console.log("empty name");
-  //   }
-  // }
-
-
   const [musicianName, setMusicianName] = useState("");
   const [musicianType, setMusicianType] = useState("");
   const [musicanList, setMusicanList] = useState([]);
-
 
   const [gift, setGift] = useState("_  _  _  _  _  _");
   const [giftText, setGiftText] = useState("_  _  _  _  _  _");
@@ -300,6 +293,19 @@ function Ordering() {
         event.preventDefault();
         event.stopPropagation();
         console.log("occasion not valid");
+        if (occasion == "" || occasion == "_  _  _  _  _  _"){
+          document.getElementById("occasionReq").style.display = "block";
+          document.getElementById("occasionLen").style.display = "block";
+        }
+        else if (occasion.length < 3 && occasion !== ""){
+          document.getElementById("occasionReq").style.display = "none";
+          document.getElementById("occasionLen").style.display = "block";
+        }
+        else if (occasion.length >= 3){
+          document.getElementById("lNameLabelOK").style.display = "block";
+          document.getElementById("occasionReq").style.display = "none";
+          document.getElementById("occasionLen").style.display = "none";
+        }
       }
       else {
         event.preventDefault();
@@ -398,16 +404,16 @@ function Ordering() {
           <Form.Row className="justify-content-md-center">
             <Form.Group as={Col} xs={6} controlId="formGridFirstName">
               <Form.Control className="form-control" required minLength="3" type="text" id="fNameField" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }}  />
-              <Form.Label id="fNameLabelOK">Looks Good!</Form.Label>
-              <Form.Label id="fNameLabelReq">First Name is required!</Form.Label>
-              <Form.Label id="fNameLabelLen">Minimum length of 3 is required!</Form.Label>
+              <span id="fNameLabelOK">Looks Good!</span>
+              <span id="fNameLabelReq">First Name is required!</span>
+              <span id="fNameLabelLen">Minimum length of 3 is required!</span>
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridLastName">
               <Form.Control className="form-control" required minLength="3" type="text" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
-              <Form.Label id="lNameLabelOK">Looks Good!</Form.Label>
-              <Form.Label id="lNameLabelReq">Last Name is required!</Form.Label>
-              <Form.Label id="lNameLabelLen">Minimum length of 3 is required!</Form.Label>
+              <span id="lNameLabelOK">Looks Good!</span>
+              <span id="lNameLabelReq">Last Name is required!</span>
+              <span id="lNameLabelLen">Minimum length of 3 is required!</span>
             </Form.Group>
           </Form.Row>
 
@@ -438,6 +444,9 @@ function Ordering() {
               <Form.Group>
             <div class="md-form">
               <input type="text" required minLength="3" id="form1" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
+              <span id="occasionOK">Looks Good!</span>
+              <span id="occasionReq">Last Name is required!</span>
+              <span id="occasionLen">Minimum length of 3 is required!</span>
             </div>
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
@@ -578,6 +587,7 @@ function Ordering() {
               {/* <Form.Label>Date and Time of Service</Form.Label> */}
               <Form.Control 
               required
+              id = "date-time-field"
               type="datetime-local" 
               min={dateAndTime()}
               onChange={(e) => {let date=e.target.value.substring(0,10); let time=e.target.value.substring(11,16) ; setDateService(date); setTimeService(time); }} />
