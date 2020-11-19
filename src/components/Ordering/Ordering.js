@@ -27,7 +27,8 @@ function Ordering() {
   function forward1() {
     var x = document.getElementById("order1")
     x.style.display = "none";
-    document.getElementById("order2").style.display = "block"
+    document.getElementById("order2").style.display = "block";
+    document.getElementById("fNameField").focus();
   }
 
   function back2() {
@@ -40,6 +41,7 @@ function Ordering() {
     var x = document.getElementById("order2");
     x.style.display = "none";
     document.getElementById("order3").style.display = "block";
+    document.getElementById("form1").focus();
   }
 
   function back3() {
@@ -156,17 +158,9 @@ function Ordering() {
     return dateFormatted
   }
 
-  // function validName(name) {
-  //   if (name == ""){
-  //     console.log("empty name");
-  //   }
-  // }
-
-
   const [musicianName, setMusicianName] = useState("");
   const [musicianType, setMusicianType] = useState("");
   const [musicanList, setMusicanList] = useState([]);
-
 
   const [gift, setGift] = useState("_  _  _  _  _  _");
   const [giftText, setGiftText] = useState("_  _  _  _  _  _");
@@ -379,11 +373,11 @@ function Ordering() {
           <ReactBootStrap.Col><h4>&#x1F6C8; Tell us more about who will be at the centre of this moment, or their name if they live in an institution. For example: "Grandma Léa", "Pré-Fleuri institution" ... </h4></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <Form noValidate validated={validated}  onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+        <Form noValidate validated={validated} id="nameForm" onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
 
           <Form.Row className="justify-content-md-center">
             <Form.Group as={Col} xs={6} controlId="formGridFirstName">
-              <Form.Control className="form-control" required minLength="3" type="text" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }}  />
+              <Form.Control className="form-control" required minLength="3" type="text" id="fNameField" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }}  />
               <Form.Label id="fNameLabelOK">Looks Good!</Form.Label>
               <Form.Label id="fNameLabelReq">First Name is required!</Form.Label>
               <Form.Label id="fNameLabelLen">Minimum length of 3 is required!</Form.Label>
