@@ -300,6 +300,24 @@ app.put("/musician/update", (req, res) => {
   });
 });
 
+app.put("/orderStatus/update", (req, res) => {
+  const id = req.body.orderID;
+  const status = req.body.status;
+
+  // const group = req.body.musicianGroup;
+  const sqlUpdate = "UPDATE ordering_table SET status = ? WHERE id = ?";
+  db.query(sqlUpdate, [
+    status,
+    id
+  ], (err, result) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log("Succesfully Updated")
+    }
+  });
+});
+
 
 app.get("/match/musicians/:orderID", (req, res) => {
   const id = req.params.orderID;

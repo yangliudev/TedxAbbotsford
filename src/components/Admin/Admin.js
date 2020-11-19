@@ -27,6 +27,9 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import HomeIcon from '@material-ui/icons/Home';
 // import { withStyles } from "@material-ui/core/styles";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
 function Test() {
 
@@ -64,7 +67,8 @@ function Test() {
         },
         MUIDataTableBodyCell: {
           root: {
-            backgroundColor: "white",
+            backgroundColor: "transparent !imporant",
+            color: "inherit",
             width: "auto"
           }
         },
@@ -110,7 +114,9 @@ function Test() {
         executed = true;
         for (let index = 0; index < orderList.length; index++) {
           arr.push(Object.values(orderList[index]));
+          // arr[index].splice(0, 0, "Pending");
         }
+        // console.log(arr);
       }
     };
   })();
@@ -177,12 +183,14 @@ const displayMusicians = () => {
   setMatchedMusicians(dataMusician);
   document.getElementById("orders").style.display = "none";
   document.getElementById("edit").style.display = "none";
+  document.getElementById("matched").style.display = "none";
   document.getElementById("musiciansTable").style.display = "block";
 }
 
 const displayOrders = () => {
   // setMatchedMusicians(dataMusician);
   document.getElementById("musiciansTable").style.display = "none";
+  document.getElementById("matched").style.display = "none";
   document.getElementById("edit").style.display = "none";
   document.getElementById("orders").style.display = "block";
 }
@@ -192,7 +200,51 @@ const displayOrders = () => {
   // const [transitionTime, setTransitionTime] = useState(300);
   // const [selectableRows, setSelectableRows] = useState("none");
 
+  const statusValue = ["Confirmed", "Pending", "Declined"];
+  // const [change, setChange] = useState([])
+  const updateStatus = (value, index) => {
+    // console.log(value, arr[index])
+    Axios.put("http://localhost:5000/orderStatus/update", {
+        orderID: arr[index][1],
+        status: value,
+    }).then(() => {
+      alert("sucessful insert");
+    });
+    window.location.reload();
+  }
+
   const columnsOrder = [
+    {
+      name: "Status",
+      options: {
+        filter: true,
+        customBodyRender: (value, tableMeta, updateValue) => {
+          if (tableMeta.rowIndex === 0) {
+            // console.log(tableMeta)
+            };
+          return (
+            // <Cities
+            //   value={value}
+            //   index={tableMeta.columnIndex}
+            //   change={event => updateValue(event)}
+            // />
+            <FormControl>
+              <Select
+                value={value}
+                onChange={event => {updateStatus(event.target.value, tableMeta.currentTableData[tableMeta.rowIndex].index)}}
+                style={{ fontSize: "inherit" }}
+              >
+                {statusValue.map((status, index) => (
+                  <MenuItem key={index} value={status}>
+                    {status}
+                  </MenuItem>
+                ))}
+              </Select>
+          </FormControl>
+          );
+        }
+      }
+    },
     "ID",
     "Gift",
     "Occasion",
@@ -223,7 +275,7 @@ const displayOrders = () => {
     filterType: "dropdown",
     responsive: "standard",
     // tableBodyHeight: "400px",
-    resizableColumns: true,
+    // resizableColumns: true,
     draggableColumns: {
       enabled: true,
       transitionTime: 300,
@@ -244,8 +296,16 @@ const displayOrders = () => {
      <Tooltip title={"Musicians"}><IconButton onClick={displayMusicians}><NavigateNextIcon /></IconButton></Tooltip>
     
   ),
+  setRowProps: (row, dataIndex, rowIndex) => {
+    console.log(dataIndex, rowIndex, row);
+    if (arr[dataIndex][0] === "Confirmed") {return {style: {backgroundColor: "#ccebd4"}}}; 
+    if (arr[dataIndex][0] === "Declined") {return {style: {backgroundColor: "#edabab"}}};
+    if (arr[dataIndex][0] === "Pending") {return {style: {backgroundColor: "white"}}}}
   };
 
+
+
+  // ####### MUSICIAN TABLE OPTIONS ####### //
   const optionsMusician = {
     filter: true,
     filterType: 'dropdown',
@@ -300,8 +360,33 @@ const displayOrders = () => {
 
   return (
 
+    <ReactBootStrap.Container className="dashboardNav" style={{marginTop:"30px"}}>
+
+                    {/* <ReactBootStrap.Row className="justify-content-md-center">
+                        <ReactBootStrap.Col>
+                            <h2>Musician Dashboard</h2>
+                        </ReactBootStrap.Col>
+                    </ReactBootStrap.Row> */}
+
+                    <ReactBootStrap.Row className="justify-content-md-center" style={{marginTop:"20px"}}>
+                        <ReactBootStrap.Col>
+                            <ReactBootStrap.Navbar collapseOnSelect expand="lg" className="color-nav" variant="dark">
+                                <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                                <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
+                                    <ReactBootStrap.Nav className='nav-size justify-content-md-center'>
+                                        <p className="navText" id="ordersDataTable" onClick={displayOrders}>ORDERS</p>
+                                        <p className="navText" id="musiciansDataTable" onClick={displayMusicians}>MUSICIANS</p>
+                                        {/*
+                                        <p className="navText" id="stats" onClick={(e) => { active4(); showStats() }}>STATISTICS</p>
+                                        <p className="navText" id="income" onClick={(e) => { active5(); showIncome() }}>INCOME</p>
+                                        */}
+                                    </ReactBootStrap.Nav>
+                                </ReactBootStrap.Navbar.Collapse>
+                            </ReactBootStrap.Navbar>
+                        </ReactBootStrap.Col>
+                    </ReactBootStrap.Row>
     
-    <div style={{ marginTop: "30px" }}>
+                    <div style={{ marginTop: "30px" }}>
 
       <div id="orders"> 
       <MuiThemeProvider theme={getMuiTheme()}>
@@ -346,7 +431,8 @@ const displayOrders = () => {
 
 
     </div>
-    
+    </ReactBootStrap.Container>
+
   );
 }
 
