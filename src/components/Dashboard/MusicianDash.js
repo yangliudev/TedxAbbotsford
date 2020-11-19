@@ -316,10 +316,15 @@ function MusicianDashboard() {
 
                 <ReactBootStrap.Container className="dashboardContainer" id="schedulePage">
                     <ReactBootStrap.Row className="justify-content-md-center">
-                        <ReactBootStrap.Col>
+                            <div>
                             <h2>Schedule</h2>
+                            </div>
+                           
+                    </ReactBootStrap.Row>
+                    <ReactBootStrap.Row className="justify-content-md-center">
+                            <div>
                             <Scheduler />
-                        </ReactBootStrap.Col>
+                            </div>
                     </ReactBootStrap.Row>
                 </ReactBootStrap.Container>
 

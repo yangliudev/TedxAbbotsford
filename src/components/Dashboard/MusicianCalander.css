@@ -72,3 +72,30 @@ label :hover + span {
 .iso.div :hover{
     cursor: pointer;
 }
+
+/* @media only screen and (orientation:portrait) { */
+
+.calander{
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    }
+/* } */
+
+/* 
+@media only screen and (orientation:landscape) {
+        .calander{
+            margin-top: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            margin-left: auto;
+            margin-right: auto;
+            width: 700px;
+            }
+        } */

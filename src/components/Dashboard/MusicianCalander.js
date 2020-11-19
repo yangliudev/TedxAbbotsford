@@ -45,15 +45,16 @@ class MusicianCalender extends Component {
 
     return (
 
-        <div className='topspace' >
+        <div className='calander' >
         <ScheduleSelector
         selection={this.state.schedule}
         numDays={7}
         minTime={9}
-        maxTime={22}
-        hourlyChunks={1}
-        startDate={new Date('Sunday Nov 01 2020 17:57:06')}
-        dateFormat="dddd"
+        maxTime={21}
+        hourlyChunks={2}
+        timeFormat='h:mma'
+        startDate={new Date('Monday Nov 02 2020 17:57:06')}
+        dateFormat="ddd"
         onChange={this.handleChange}
       />
 
