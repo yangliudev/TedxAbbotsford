@@ -78,6 +78,7 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  width: 100%;
 }
 
 .buttonAlign {
@@ -132,6 +133,7 @@ h3 {
       text-decoration: none;
       font-family: MyFont3;
       color: white;
+      display: inline-block;
   }
 
   a {
@@ -234,6 +236,60 @@ h3 {
     margin-right: auto;
   }
 
+  .tooltip {
+    position: relative;
+    background-color: transparent;
+    border: transparent;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: inline-block;
+    opacity: 1;
+    visibility: visible;
+    max-width: 100%;
+    cursor: pointer;
+  }
+
+  .tooltip .notHidden {
+    visibility: visible;
+  }
+  
+  .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    left: 100%;
+    top: 0;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .tooltipCol {
+    display: inline-block;
+  }
+
   @media only screen and (orientation: portrait) {
     .bg-display-test {
       width: 70%;
@@ -248,10 +304,6 @@ h3 {
     .top-space-ordering {
       margin-top: 40px;
       padding: 0;
-      width: 100%;
-    }
-
-    .justify-content-md-center {
       width: 100%;
     }
 

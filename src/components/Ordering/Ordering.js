@@ -24,22 +24,32 @@ import { Pause } from '@material-ui/icons';
 
 
 function Ordering() {
+
+  function back1() {
+    var x = document.getElementById("order1");
+    x.style.display = "block";
+    document.getElementById("orderConfirm").style.display = "none"
+  }
+
   function forward1() {
     var x = document.getElementById("order1")
     x.style.display = "none";
     document.getElementById("order2").style.display = "block"
+    document.getElementById("orderConfirm").style.display = "none"
   }
 
   function back2() {
     var x = document.getElementById("order2")
     x.style.display = "none";
     document.getElementById("order1").style.display = "block"
+    document.getElementById("orderConfirm").style.display = "none"
   }
 
   function forward2() {
     var x = document.getElementById("order2");
     x.style.display = "none";
     document.getElementById("order3").style.display = "block";
+    document.getElementById("orderConfirm").style.display = "none"
   }
 
   function back3() {
@@ -52,6 +62,7 @@ function Ordering() {
       var x = document.getElementById("order3")
       x.style.display = "none";
       document.getElementById("order4").style.display = "block";
+      document.getElementById("orderConfirm").style.display = "none"
   }
 
   function back4() {
@@ -64,6 +75,7 @@ function Ordering() {
     var x = document.getElementById("order4")
     x.style.display = "none";
     document.getElementById("order5").style.display = "block"
+    document.getElementById("orderConfirm").style.display = "none"
   }
 
   function back5() {
@@ -76,6 +88,7 @@ function Ordering() {
     var x = document.getElementById("order5")
     x.style.display = "none";
     document.getElementById("order6").style.display = "block"
+    document.getElementById("orderConfirm").style.display = "none"
   }
 
   function back6() {
@@ -88,6 +101,7 @@ function Ordering() {
     var x = document.getElementById("order6")
     x.style.display = "none";
     document.getElementById("order7").style.display = "block"
+    document.getElementById("orderConfirm").style.display = "none"
   }
 
   function back7() {
@@ -100,6 +114,7 @@ function Ordering() {
     var x = document.getElementById("order7")
     x.style.display = "none";
     document.getElementById("order8").style.display = "block"
+    document.getElementById("orderConfirm").style.display = "none"
   }
 
   function back8() {
@@ -112,6 +127,7 @@ function Ordering() {
     var x = document.getElementById("order8")
     x.style.display = "none";
     document.getElementById("order9").style.display = "block"
+    document.getElementById("orderConfirm").style.display = "none"
   }
 
   function back9() {
@@ -124,6 +140,7 @@ function Ordering() {
     var x = document.getElementById("order9")
     x.style.display = "none";
     document.getElementById("order10").style.display = "block"
+    document.getElementById("orderConfirm").style.display = "none"
   }
 
   function back10() {
@@ -726,16 +743,34 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p>{firstName} {lastName}</p></ReactBootStrap.Col>
+            <div class="tooltip" onClick={forward1}>
+            <ReactBootStrap.Col md="auto">
+              <p>{firstName} {lastName}</p>
+            </ReactBootStrap.Col>
+            <span class="tooltiptext">Click here to change this detail</span>
+            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p>({giftText})</p></ReactBootStrap.Col>
+            <div class="tooltip" onClick={back1}>
+            <ReactBootStrap.Col md="auto">
+              <p>({giftText})</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">Occasion:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{occasion}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={forward2}>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p className="intro">Occasion:</p>
+              
+            </ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p>{occasion}</p> 
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -743,33 +778,75 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">Suprise concert:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto" ><p>{suprise}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={forward5}>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p className="intro">Suprise concert:</p>
+            </ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p>{suprise}</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">Style of music:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{type}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={forward3}>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p className="intro">Style of music:</p>
+            </ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p>{type}</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">Number of Musicians:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{numberMusicians}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={forward4}>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p className="intro">Number of Musicians:</p>
+            </ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p>{numberMusicians}</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">Date of Service:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{dateService}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={forward6}>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p className="intro" >Date of Service:</p>
+            </ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p>{dateService}</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">Time of Service:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{timeService}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={forward6}>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p className="intro">Time of Service:</p>
+            </ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p>{timeService}</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">Address:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{address}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={forward7}>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p className="intro">Address:</p>
+            </ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p>{address}</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           {/* <ReactBootStrap.Row className="justify-content-md-center">
@@ -778,18 +855,39 @@ function Ordering() {
           </ReactBootStrap.Row> */}
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">City:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{city}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={forward7}>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p className="intro">City:</p>
+            </ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p>{city}</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">State:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{state}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={forward7}>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p className="intro">State:</p>
+            </ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p>{state}</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">Zip:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{zip}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={forward7}>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p className="intro">Zip:</p>
+            </ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p>{zip}</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -797,17 +895,36 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p>{offered}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={forward8}>
+            <ReactBootStrap.Col md="auto">
+              <p>{offered}</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">Phone Number:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{number}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={forward8}>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p className="intro">Phone Number:</p>
+            </ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p>{number}</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">Email:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{email}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={forward8}>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p className="intro">Email:</p>
+            </ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <p>{email}</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -815,7 +932,12 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p>{comments}</p></ReactBootStrap.Col>
+          <div class="tooltip" onClick={backFinal}>
+            <ReactBootStrap.Col md="auto">
+              <p>{comments}</p>
+              <span class="tooltiptext">Click here to change this detail</span>
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
 
