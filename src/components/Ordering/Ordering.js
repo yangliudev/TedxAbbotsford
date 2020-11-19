@@ -16,11 +16,11 @@ import pic8 from "./ordering-assets/tresorblanc.png"
 import pic9 from "./ordering-assets/musiciennesolo.png"
 import pic10 from "./ordering-assets/duomusiciens.png"
 
+//import emailService from "./Email.js";
 
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col'
 
-import emailjs from "emailjs-com";
 
 function Ordering() {
   function forward1() {
@@ -143,7 +143,6 @@ function Ordering() {
     document.getElementById("order10").style.display = "block"
   }
 
-
   const [musicianName, setMusicianName] = useState("");
   const [musicianType, setMusicianType] = useState("");
   const [musicanList, setMusicanList] = useState([]);
@@ -192,19 +191,12 @@ function Ordering() {
       orderZip: zip,
       orderComments: comments
     }).then(() => {
-      alert("sucessful insert");
-    })
-
-    //e.preventDefault();
-    emailjs.sendForm('gmail', 'tedx_email_temp', this, 'user_76DbToLEI7qddXqRzVzqp')
-        .then((result) => {
-            console.log(result.text);
-        }, (error) => {
-            console.log(error.text);
-        });
-
+      console.log("sucessful insert");
+      //sendEmail(firstName, email);
+    }).catch((error) => {
+      console.log(error);
+    });
   };
-
 
   return (
 
@@ -656,7 +648,7 @@ function Ordering() {
         <ReactBootStrap.Row className="justify-content-md-center"> 
         <div class="buttonAlign">
         <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}><a>Back</a></ReactBootStrap.Button>
-        <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="danger" className='button' onClick={submitOrder}>Submit</ReactBootStrap.Button></a>
+        <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="danger" className='button' action="send" onClick={submitOrder}>Submit</ReactBootStrap.Button></a>
         </div>
         </ReactBootStrap.Row>
 
