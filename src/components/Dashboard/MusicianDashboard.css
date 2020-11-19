@@ -106,13 +106,14 @@ h2 {
     background-color:#8d898986;
     color:#EEEEEE;
     height:3px;
-    /* width:% */
+    width:70%
 }
 
 .lineText {
     color: rgb(146, 143, 143);
     text-align: left;
     font-size: 13px;
+margin-left: 15%
 }
 
 
