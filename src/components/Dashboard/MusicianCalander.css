@@ -73,7 +73,7 @@ label :hover + span {
     cursor: pointer;
 }
 
-/* @media only screen and (orientation:portrait) { */
+@media only screen and (orientation:portrait) {
 
 .calander{
     margin-top: 20px;
@@ -81,12 +81,12 @@ label :hover + span {
     padding: 20px;
     border-radius: 15px;
     cursor: pointer;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 1px;
+    margin-right: 1px;
     }
-/* } */
+}
 
-/* 
+
 @media only screen and (orientation:landscape) {
         .calander{
             margin-top: 30px;
@@ -98,4 +98,4 @@ label :hover + span {
             margin-right: auto;
             width: 700px;
             }
-        } */
+        }

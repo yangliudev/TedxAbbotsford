@@ -1210,7 +1210,7 @@ function MusicianRegister() {
 {/* #####This section is for the calender on the musician registration page####### */}
 
 
-          <div className='calander' >
+          <div className='calender' >
 
             <ScheduleSelector
               selection={state.schedule}

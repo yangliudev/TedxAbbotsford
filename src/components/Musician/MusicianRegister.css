@@ -97,28 +97,42 @@ input[type=radio].education {
         margin-right: auto;
       }}
 
-.calander{
+/* .calander{
 margin-top: 30px;
 background-color: white;
 padding: 20px;
 border-radius: 15px;
 cursor: pointer;
-margin-left: 5px;
+margin-left: 50%;
 margin-right: 5px;
-}
+} */
 
-@media only screen and (min-width: 1000px) {
-.calander{
+@media only screen and (orientation:landscape) {
+.calender{
     margin-top: 30px;
     background-color: white;
     padding: 20px;
     border-radius: 15px;
     cursor: pointer;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 10%;
     width: 700px;
     }
 }
+
+
+@media only screen and (orientation:portrait) {
+    .calender{
+        margin-top: 30px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 15px;
+        cursor: pointer;
+        margin-left: 5px;
+        margin-right: 5px;
+        }
+    }
+
+
 
 #commentBox{
     display: none;
