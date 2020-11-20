@@ -130,6 +130,12 @@ function MusicianDashboard() {
     }).then(() => {
         alert("sucessful insert");
     });
+    Axios.put("http://localhost:5000/orderStatus/update", {
+        orderID: id,
+        status: "Declined",
+    }).then(() => {
+        alert("sucessful insert");
+        });
     window.location.reload();
     }
 
