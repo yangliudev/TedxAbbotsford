@@ -234,7 +234,16 @@ h3 {
   #order6 {
     display: none;
   }
-
+  #date-timeOK {
+    display: none;
+    color: rgb(131, 255, 131);
+    text-align : center;
+  }
+  #date-timeReq {
+    display: none;
+    color:  rgb(255, 103, 103);
+    text-align : center;
+  }
   #order7 {
     display: none;
   }
@@ -242,7 +251,50 @@ h3 {
   #order8 {
     display: none;
   }
-
+  #addressLineOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #addressLineReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #addressLineLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+  #cityOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #cityReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #cityLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+  #stateOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #stateReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #zipOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #zipReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #zipLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
   #order9 {
     display: none;
   }

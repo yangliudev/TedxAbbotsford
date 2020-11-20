@@ -116,8 +116,9 @@ function Ordering() {
   function forward7() {
     var x = document.getElementById("order7")
     x.style.display = "none";
-    document.getElementById("order8").style.display = "block"
-    document.getElementById("orderConfirm").style.display = "none"
+    document.getElementById("order8").style.display = "block";
+    document.getElementById("orderConfirm").style.display = "none";
+    document.getElementById("address-line-field").focus();
   }
 
   function back8() {
@@ -292,7 +293,7 @@ function Ordering() {
       if (form.checkValidity() === false) {
         event.preventDefault();
         event.stopPropagation();
-        console.log("occasion not valid");
+        // console.log("occasion not valid");
         if (occasion == "" || occasion == "_  _  _  _  _  _"){
           document.getElementById("occasionReq").style.display = "block";
           document.getElementById("occasionLen").style.display = "block";
@@ -320,9 +321,14 @@ function Ordering() {
       if (form.checkValidity() === false) {
         event.preventDefault();
         event.stopPropagation();
-        console.log("date or time is not valid");
+        // console.log("date or time is not valid");
+        if (dateService == "" || dateService == "_  _  _  _  _  _"){
+          document.getElementById("date-timeReq").style.display = "block";
+        }
       }
       else {
+        document.getElementById("date-timeOK").style.display = "block";
+        document.getElementById("date-timeReq").style.display = "none";
         event.preventDefault();
         event.stopPropagation();
         console.log("true");
@@ -336,8 +342,69 @@ function Ordering() {
         event.preventDefault();
         event.stopPropagation();
         console.log("address, city, state or postal code is not valid");
+        if (address=="" || address=="_  _  _  _  _  _"){
+          document.getElementById("addressLineReq").style.display = "block";
+          document.getElementById("addressLineOK").style.display = "none";
+        }
+        if (address.length <4 && address.length >= 1) {
+          document.getElementById("addressLineLen").style.display = "block";
+          document.getElementById("addressLineReq").style.display = "none";
+          document.getElementById("addressLineOK").style.display = "none";
+        }
+        if (address.length >=4 && address != "_  _  _  _  _  _"){
+          document.getElementById("addressLineLen").style.display = "none";
+          document.getElementById("addressLineReq").style.display = "none";
+          document.getElementById("addressLineOK").style.display = "block";
+        }
+        if (city=="" || city=="_  _  _  _  _  _"){
+          document.getElementById("cityReq").style.display = "block";
+          document.getElementById("cityOK").style.display = "none";
+        }
+        if (city.length <3 && city.length >= 1) {
+          document.getElementById("cityLen").style.display = "block";
+          document.getElementById("cityReq").style.display = "none";
+          document.getElementById("cityOK").style.display = "none";
+        }
+        if (city.length >=3 && city != "_  _  _  _  _  _"){
+          document.getElementById("cityLen").style.display = "none";
+          document.getElementById("cityReq").style.display = "none";
+          document.getElementById("cityOK").style.display = "block";
+        }
+        if (state=="" || state=="_  _  _  _  _  _"){
+          document.getElementById("stateReq").style.display = "block";
+          document.getElementById("stateOK").style.display = "none";
+        }
+        if (state !=="" && state !== "_  _  _  _  _  _"){
+          document.getElementById("stateReq").style.display = "none";
+          document.getElementById("stateOK").style.display = "block";
+        }
+        if (zip=="" || zip=="_  _  _  _  _  _"){
+          document.getElementById("zipReq").style.display = "block";
+          document.getElementById("zipOK").style.display = "none";
+        }
+        if (zip.length <6 && zip.length >= 1) {
+          document.getElementById("zipLen").style.display = "block";
+          document.getElementById("zipReq").style.display = "none";
+          document.getElementById("zipOK").style.display = "none";
+        }
+        if (zip.length >=6 && zip != "_  _  _  _  _  _"){
+          document.getElementById("zipLen").style.display = "none";
+          document.getElementById("zipReq").style.display = "none";
+          document.getElementById("zipOK").style.display = "block";
+        }
       }
       else {
+        document.getElementById("zipLen").style.display = "none";
+          document.getElementById("zipReq").style.display = "none";
+          document.getElementById("zipOK").style.display = "block";
+          document.getElementById("stateReq").style.display = "none";
+          document.getElementById("stateOK").style.display = "block";
+          document.getElementById("cityLen").style.display = "none";
+          document.getElementById("cityReq").style.display = "none";
+          document.getElementById("cityOK").style.display = "block";
+          document.getElementById("addressLineLen").style.display = "none";
+          document.getElementById("addressLineReq").style.display = "none";
+          document.getElementById("addressLineOK").style.display = "block";
         event.preventDefault();
         event.stopPropagation();
         console.log("true");
@@ -445,7 +512,7 @@ function Ordering() {
             <div class="md-form">
               <input type="text" required minLength="3" id="form1" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
               <span id="occasionOK">Looks Good!</span>
-              <span id="occasionReq">Last Name is required!</span>
+              <span id="occasionReq">Occasion is required!</span>
               <span id="occasionLen">Minimum length of 3 is required!</span>
             </div>
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -591,6 +658,8 @@ function Ordering() {
               type="datetime-local" 
               min={dateAndTime()}
               onChange={(e) => {let date=e.target.value.substring(0,10); let time=e.target.value.substring(11,16) ; setDateService(date); setTimeService(time); }} />
+              <span id="date-timeOK">Looks Good!</span>
+              <span id="date-timeReq">Date and Time is required!</span>
             </Form.Group>
           </Form.Row>
           <p id = "a"></p>
@@ -624,14 +693,20 @@ function Ordering() {
           <MediaQuery orientation = {"landscape"}>
             <Form.Group controlId="formGridAddress1">
               <Form.Label>Address Line</Form.Label>
-              <Form.Control required minLength="4" placeholder="1234 Main St" onChange={(e) => { setAddress(e.target.value); }} />
+              <Form.Control required minLength="4" placeholder="1234 Main St" id="address-line-field" onChange={(e) => { setAddress(e.target.value); }} />
+              <span id="addressLineOK">Looks Good!</span>
+              <span id="addressLineReq">Address line is required!</span>
+              <span id="addressLineLen">Minimum length of 4 is required!</span>
             </Form.Group>
           </MediaQuery>
           
           <MediaQuery orientation = {"Portrait"}>
             <Form.Group controlId="formGridAddress1" class="justify-content-md-center">
               <Form.Label class="justify-content-md-center">Address Line</Form.Label>
-              <Form.Control required minLength="4" placeholder="1234 Main St" onChange={(e) => { setAddress(e.target.value); }} />
+              <Form.Control required minLength="4" placeholder="1234 Main St" id="address-line-field" onChange={(e) => { setAddress(e.target.value); }} />
+              <span id="addressLineOK">Looks Good!</span>
+              <span id="addressLineReq">Address line is required!</span>
+              <span id="addressLineLen">Minimum length of 4 is required!</span>
             </Form.Group>
           </MediaQuery>
 
@@ -645,8 +720,9 @@ function Ordering() {
               <Form.Group as={Col} controlId="formGridCity">
                 <Form.Label>City</Form.Label>
                 <Form.Control required minLength="3" placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
-                
-                
+                <span id="cityOK">Looks Good!</span>
+                <span id="cityReq">City is required!</span>
+                <span id="cityLen">Minimum length of 3 is required!</span>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
@@ -656,21 +732,30 @@ function Ordering() {
                   <option value="British Columbia">British Columbia</option>
                   <option value="Alberta">Alberta</option>
                 </Form.Control>
+                <span id="stateOK">Looks Good!</span>
+                <span id="stateReq">State is required!</span>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridZip">
                 <Form.Label>Zip</Form.Label>
                 <Form.Control required minLength="6" placeholder="V3W9N3" onChange={(e) => { setZip(e.target.value); }} />
+                <span id="zipOK">Looks Good!</span>
+                <span id="zipReq">ZIP is required!</span>
+                <span id="zipLen">Enter zip like V3W9N3!</span>
               </Form.Group>
             </Form.Row>
             </MediaQuery>
             
+
             <MediaQuery orientation={"portrait"}>
             <Form.Row class="justify-content-md-center">
               <Form.Group controlId="formGridCity">
                 <div>
                   <Form.Label>City</Form.Label>
                   <Form.Control required placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
+                  <span id="cityOK">Looks Good!</span>
+                  <span id="cityReq">City is required!</span>
+                  <span id="cityLen">Minimum length of 3 is required!</span>
                 </div>
               </Form.Group>
 
@@ -680,12 +765,18 @@ function Ordering() {
                     <option value="">Choose from below</option>
                     <option value="British Columbia">British Columbia</option>
                     <option value="Alberta">Alberta</option>
+                    <span id="stateOK">Looks Good!</span>
+                    <span id="stateReq">State is required!</span>
                   </Form.Control>
+                  
                 </Form.Group>
 
                 <Form.Group controlId="formGridZip">
                   <Form.Label>Zip</Form.Label>
                   <Form.Control required placeholder="V3W9N3" onChange={(e) => { setZip(e.target.value); }} />
+                  <span id="zipOK">Looks Good!</span>
+                  <span id="zipReq">ZIP is required!</span>
+                  <span id="zipLen">Enter zip like V3W9N3!</span>
                 </Form.Group>
             </Form.Row>
             </MediaQuery>
