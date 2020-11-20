@@ -26,7 +26,7 @@ import instagramLogo from "./../../assets/logos/instagramLogo.png"
 import gardenLogo from"./../../assets/logos/01_Logo-principal.png"
 import "./Home.css"
 
-import Feed from "react-instagram-authless-feed"
+// import Feed from "react-instagram-authless-feed"
 import { Landscape, Portrait } from '@material-ui/icons';
 
 class Home extends Component {
@@ -35,23 +35,63 @@ class Home extends Component {
         return (
             <ReactBootStrap.Container className="top-space">
                 <ReactBootStrap.Row >
-                <ReactBootStrap.Col  md={{ span:2}}>
+              
+                <ReactBootStrap.Col  md={{ span:4}}>
+                <ReactBootStrap.Row >
+                <ReactBootStrap.Col>
+                    <div class="fade-in3">
                         <div class="towerDescription">
                         <p class="towerDescriptionText">A trumpeter for 30 years of Leonardo. <br></br>Monday 6.30 p.m. - Lausanne</p><br></br>
-                        </div></ReactBootStrap.Col>
-                <ReactBootStrap.Col  md={{ span:3}}>
-                        <div class="towerDiv">
+                        </div></div>  </ReactBootStrap.Col>
+                        </ReactBootStrap.Row >
+                      
+                       <div class="fade-in4">
+                        <p class="towerDescriptionText">A saxophonist for Nadine and Yves, <br></br>Jazzy atmosphere!<br></br> Saturday 11:00 am - Grimentz</p>
+                        </div>
+                      
+                        </ReactBootStrap.Col>
+
+
+                <ReactBootStrap.Col  md={{ span:2}}>
+                        <div class="fade-in">
                             <img src={tower} className="tower"></img>                         
                         </div>
                         </ReactBootStrap.Col>
-                        <ReactBootStrap.Col>
+                        <ReactBootStrap.Col >
                         <ReactBootStrap.Row>
                         <ReactBootStrap.Col>
+                        <div class="fade-in2">
                         <div class="Description">
                         <p class="towerDescriptionText">An accordionist under Aunt Jacqueline's balcony.<br></br> Wednesday 3:30 p.m. - Yverdon</p>
-                        </div></ReactBootStrap.Col>
+                        </div></div></ReactBootStrap.Col>
                         </ReactBootStrap.Row>
                         <ReactBootStrap.Row>
+                        <ReactBootStrap.Col >
+                        
+                        <div class ="textBG">
+                                <div class="textAlign">
+                                    <p class="towerText"><span class="firstTowerText">OFFER A MUSICIAN AT HOME <br/>TO THE PEOPLE YOU LOVE,<br/></span> <span class="secondTowerText">IN LESS THAN 3 MINUTES!</span></p>
+                                </div>
+                            
+                                <div class="buttonAlign">
+                                <a href={process.env.PUBLIC_URL + '/#/order'}>
+                                    <input type="button" value="Order Now" class="orderButton"></input>
+                                </a> 
+                                </div>
+                        </div></ReactBootStrap.Col>
+
+                        </ReactBootStrap.Row>
+
+                        </ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+
+{/* 
+                        <ReactBootStrap.Row>
+                             <ReactBootStrap.Col className='b'  xs={6} md={4}>
+                        <div class="towerDescription">
+                        <p class="towerDescriptionText">A saxophonist for Nadine and Yves, <br></br>Jazzy atmosphere! Saturday 11:00 am - Grimentz</p><br></br>
+                        </div></ReactBootStrap.Col> 
+    
                         <ReactBootStrap.Col >
                         <div class ="textBG">
                                 <div class="textAlign">
@@ -63,33 +103,8 @@ class Home extends Component {
                                     <input type="button" value="Order Now" class="orderButton"></input>
                                 </a> 
                                 </div>
-                        </div></ReactBootStrap.Col>
-
-                        </ReactBootStrap.Row>
-
-                        </ReactBootStrap.Col>
-                        </ReactBootStrap.Row>
-
-
-                        <ReactBootStrap.Row>
-                            <ReactBootStrap.Col className='b'  xs={6} md={4}>
-                        <div class="towerDescription">
-                        <p class="towerDescriptionText">A saxophonist for Nadine and Yves, <br></br>Jazzy atmosphere! Saturday 11:00 am - Grimentz</p><br></br>
-                        </div></ReactBootStrap.Col>
-    
-                        {/* <ReactBootStrap.Col >
-                        <div class ="textBG">
-                                <div class="textAlign">
-                                    <p class="towerText"><span class="firstTowerText">OFFER A MUSICIAN AT HOME <br/>TO THE PEOPLE YOU LOVE,<br/></span> <span class="secondTowerText">IN LESS THAN 3 MINUTES!</span></p>
-                                </div>
-                            
-                                <div class="buttonAlign">
-                                <a href={process.env.PUBLIC_URL + '/#/order'}>
-                                    <input type="button" value="Order Now" class="orderButton"></input>
-                                </a> 
-                                </div>
-                        </div></ReactBootStrap.Col> */}
-                </ReactBootStrap.Row>
+                        </div></ReactBootStrap.Col> 
+                </ReactBootStrap.Row> */}
               
                 
                 
@@ -296,7 +311,7 @@ class Home extends Component {
                 <div className="cards3">
                 <br></br>
 
-                    <Feed userName="dans_l_jardin" className="Feed" classNameLoading="Loading"/>
+                    {/* <Feed userName="dans_l_jardin" className="Feed" classNameLoading="Loading"/> */}
                 </div>
                 </ReactBootStrap.Row>
 

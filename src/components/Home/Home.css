@@ -77,15 +77,26 @@
 
 .tower {
     height: 400px;
-    margin-left: 25%;
+    float:left;
 }
 
 .towerDescription {
     float:left;
     padding-left:5%;
+    margin-left: 10%;
     text-align: center;
-    padding-top: 5%;
+    padding-top: 15%;
 }
+
+.towerDescription2 {
+    float:left;
+    padding-left:20%;
+    /* margin-left: 2%; */
+    text-align: center;
+    padding-top: 50%;
+
+}
+
 
 
 .towerDiv {
@@ -156,12 +167,288 @@
     border-radius: 6px;
     width: 50%;
 }
-
-
-
-
-
 }
+/* 
+########Fade start############### */
+.fade-in {
+    animation: 2s ease 0s normal forwards 1 fadeIn;
+    -webkit-animation: 2s ease 0s normal forwards 1 fadeIn;
+    -moz-animation: 2s ease 0s normal forwards 1 fadeIn;
+    -o-animation: 2s ease 0s normal forwards 1 fadeIn;
+    -ms-animation: 2s ease 0s normal forwards 1 fadeIn;
+    float: left;
+    padding-top: 1%;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity:0;
+    }10% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }10% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }10% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }10% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }10% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+  }
+}
+/* 
+  ##################Fade End################### */
+
+
+/* 
+########Fade start############### */
+.fade-in2 {
+    
+    animation: 4s ease 0s normal forwards 1 fadeIn2;
+    -webkit-animation: 4s ease 0s normal forwards 1 fadeIn2;
+    -moz-animation: 4s ease 0s normal forwards 1 fadeIn2;
+    -o-animation:4s ease 0s normal forwards 1 fadeIn2;
+    -ms-animation: 4s ease 0s normal forwards 1 fadeIn2;
+
+  }
+  @keyframes fadeIn2 {
+    0% {
+      opacity:0;
+    }
+    75% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn2 {
+    0% {
+      opacity:0;
+    } 75% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn2 {
+    0% {
+      opacity:0;
+    } 75% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn2 {
+    0% {
+      opacity:0;
+    } 75% {
+        opacity:0;
+      }
+    100% { 
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn2 {
+    0% {  
+      opacity:0;
+    } 75% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+  }
+}
+/* 
+  ##################Fade End################### */
+
+
+/* 
+########Fade start############### */
+.fade-in3 {
+    animation: 6s ease 0s normal forwards 1 fadeIn;
+    -webkit-animation: 6s ease 0s normal forwards 1 fadeIn;
+    -moz-animation: 6s ease 0s normal forwards 1 fadeIn;
+    -o-animation:6s ease 0s normal forwards 1 fadeIn;
+    -ms-animation: 6s ease 0s normal forwards 1 fadeIn;
+
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    75% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    } 75% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    } 75% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    } 75% {
+        opacity:0;
+      }
+    100% { 
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {  
+      opacity:0;
+    } 75% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+  }
+}
+/* 
+  ##################Fade End################### */
+
+/* 
+########Fade start############### */
+.fade-in4 {
+    animation: 8s ease 0s normal forwards 1 fadeIn;
+    -webkit-animation: 8s ease 0s normal forwards 1 fadeIn;
+    -moz-animation: 8s ease 0s normal forwards 1 fadeIn;
+    -o-animation:8s ease 0s normal forwards 1 fadeIn;
+    -ms-animation: 8s ease 0s normal forwards 1 fadeIn;
+    float:left;
+    padding-left:20%;
+    /* margin-left: 2%; */
+    text-align: center;
+    padding-top: 50%;
+
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    75% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    } 75% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    } 75% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    } 75% {
+        opacity:0;
+      }
+    100% { 
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {  
+      opacity:0;
+    } 75% {
+        opacity:0;
+      }
+    100% {
+      opacity:1;
+  }
+}
+/* 
+  ##################Fade End################### */
+
+
 
 @media only screen and (orientation:portrait){
     .textBG {
@@ -446,6 +733,10 @@ a+a {
     .orderButton {
         padding: 3%;
     }
+
+
+ 
+
     @media only screen and (orientation:landscape){
     .towerText {
             float: none;
@@ -463,6 +754,8 @@ a+a {
             margin-top: 25%;
             margin-left: 1px;
         }
+     
+
 
 @media only screen and (orientation:portrait){
     .towerText {
