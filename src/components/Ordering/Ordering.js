@@ -130,8 +130,9 @@ function Ordering() {
   function forward8() {
     var x = document.getElementById("order8")
     x.style.display = "none";
-    document.getElementById("order9").style.display = "block"
-    document.getElementById("orderConfirm").style.display = "none"
+    document.getElementById("order9").style.display = "block";
+    document.getElementById("orderConfirm").style.display = "none";
+    document.getElementById("offered-field").focus();
   }
 
   function back9() {
@@ -425,8 +426,72 @@ function Ordering() {
       event.preventDefault();
       event.stopPropagation();
       console.log("personal information is not valid");
+      if (offered == "" || offered == "_  _  _  _  _  _") {
+        document.getElementById("offeredByReq").style.display = "block";
+        document.getElementById("offeredByOK").style.display = "none";
+      }
+      if (offered.length < 3 && offered.length >= 1) {
+        document.getElementById("offeredByLen").style.display = "block";
+        document.getElementById("offeredByReq").style.display = "none";
+        document.getElementById("offeredByOK").style.display = "none";
+      }
+      if (offered.length >= 3 && offered != "_  _  _  _  _  _") {
+        document.getElementById("offeredByLen").style.display = "none";
+        document.getElementById("offeredByReq").style.display = "none";
+        document.getElementById("offeredByOK").style.display = "block";
+      }
+      if (number == "" || number == "_  _  _  _  _  _") {
+        document.getElementById("phoneNumberReq").style.display = "block";
+        document.getElementById("phoneNumberOK").style.display = "none";
+        document.getElementById("phoneNumberNums").style.display = "none";
+      }
+      if (number.length < 10 && number.length >=1) {
+        document.getElementById("phoneNumberLen").style.display = "block";
+        document.getElementById("phoneNumberReq").style.display = "none";
+        document.getElementById("phoneNumberOK").style.display = "none";
+      }
+      if (number.length >= 10 && number != "_  _  _  _  _  _") {
+        document.getElementById("phoneNumberLen").style.display = "none";
+        document.getElementById("phoneNumberReq").style.display = "none";
+        document.getElementById("phoneNumberNums").style.display = "none";
+        document.getElementById("phoneNumberOK").style.display = "block";
+      }
+      if (number.match("[a-zA-Z]+") || number.length > 10){
+        document.getElementById("phoneNumberLen").style.display = "none";
+        document.getElementById("phoneNumberReq").style.display = "none";
+        document.getElementById("phoneNumberOK").style.display = "none";
+        document.getElementById("phoneNumberNums").style.display = "block";
+      }
+      if (email == "" || email == "_  _  _  _  _  _") {
+        document.getElementById("emailReq").style.display = "block";
+        document.getElementById("emailOK").style.display = "none";
+      }
+      if (email.length < 3 && email.length >= 1) {
+        document.getElementById("emailLen").style.display = "block";
+        document.getElementById("emailReq").style.display = "none";
+        document.getElementById("emailOK").style.display = "none";
+      }
+      if (email.length >= 3 && email != "_  _  _  _  _  _" ) {
+        document.getElementById("emailLen").style.display = "none";
+        document.getElementById("emailReq").style.display = "none";
+        document.getElementById("emailOK").style.display = "block";
+      }
+      
     }
     else {
+      document.getElementById("offeredByLen").style.display = "none";
+      document.getElementById("offeredByReq").style.display = "none";
+      document.getElementById("offeredByOK").style.display = "block";
+      document.getElementById("phoneNumberLen").style.display = "none";
+      document.getElementById("phoneNumberReq").style.display = "none";
+      document.getElementById("phoneNumberOK").style.display = "block";
+      document.getElementById("phoneNumberLen").style.display = "none";
+      document.getElementById("phoneNumberReq").style.display = "none";
+      document.getElementById("phoneNumberNums").style.display = "none";
+      document.getElementById("phoneNumberOK").style.display = "block";
+      document.getElementById("emailLen").style.display = "none";
+        document.getElementById("emailReq").style.display = "none";
+        document.getElementById("emailOK").style.display = "block";
       event.preventDefault();
       event.stopPropagation();
       console.log("true");
@@ -817,18 +882,28 @@ function Ordering() {
 
               <Form.Group controlId="formGridHost">
                 <Form.Label>Offered by</Form.Label>
-                <Form.Control required minLength="3" type="text" placeholder="Your name here" onChange={(e) => { setOffered(e.target.value); }} />
+                <Form.Control required minLength="3" type="text" placeholder="Your name here" id="offered-field" onChange={(e) => { setOffered(e.target.value); }} />
+                <span id="offeredByOK">Looks Good!</span>
+                <span id="offeredByReq">Offered by is required!</span>
+                <span id="offeredByLen">Minimum length of 3 is required!</span>
               </Form.Group>
 
               <Form.Group controlId="formGridPhone">
                 <Form.Label>Contact Number</Form.Label>
-                <h6><i>&#x1F6C8; Please enter a canadian number</i> </h6>
-                <Form.Control required minLength="10" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="012-345-6789" onChange={(e) => { setNumber(e.target.value); }} />
+                <h6><i>&#x1F6C8; Please enter a canadian number without +1</i> </h6>
+                <Form.Control required minLength="10" type="tel" pattern="^\d{10}$" placeholder="778238xxxx" onChange={(e) => { setNumber(e.target.value); }} />
+                <span id="phoneNumberOK">Looks Good!</span>
+                <span id="phoneNumberReq">Phone number is required!</span>
+                <span id="phoneNumberLen">Required pattern is 10 digits</span>
+                <span id="phoneNumberNums">Enter digits from 0-9 only!</span>
               </Form.Group>
 
               <Form.Group controlId="formGridEmail">
                 <Form.Label>Email Address</Form.Label>
                 <Form.Control required minLength="4" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" type="email" placeholder="yourname@gmail.com" onChange={(e) => { setEmail(e.target.value); }} />
+                <span id="emailOK">Looks Good!</span>
+                <span id="emailReq">Email is required!</span>
+                <span id="emailLen">Valid pattern is abc@email.co</span>
               </Form.Group>
 
             </div>
