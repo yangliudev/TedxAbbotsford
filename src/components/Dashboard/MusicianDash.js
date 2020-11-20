@@ -348,10 +348,10 @@ function MusicianDashboard() {
                         let r = index + 'y';
                         return <div className="orders" id= {box}><div  className="justify-content-md-center">
                             <h5 id ='maps'><strong>{value.firstName} {value.lastName}</strong></h5>
-                            <h6 className='title'>Address: </h6><h7 className='content'>{value.address}, {value.city}, {value.zip}</h7> 
-                            <h6 className='title'>Date:</h6><h7 className='content'>{value.date_service} {value.time_service}</h7> 
+                            <h6 className='title'>Address: </h6><h6 className='content'>{value.address}, {value.city}, {value.zip}</h6> 
+                            <h6 className='title'>Date:</h6><h6 className='content'>{value.date_service} {value.time_service}</h6> 
                             {/* <h6 className='title'>Time: </h6><h7 className='content'> {value.time_service}</h7> */}
-                            <div>
+                            <div>S
                             {/* <input type="button" value="Accept" className='accept'/><input type="button" value="Decline" className='decline'  onClick={()=>show(t,r)} />    */}
                            <ReactBootStrap.Button variant = 'primary' size='md' className='accept' onClick={() => {updateStatus(value.id, value.email)}}>Accept</ReactBootStrap.Button>
                            <ReactBootStrap.Button variant = 'danger'size="md" className='decline' onClick={()=>show(t,r)} >Decline</ReactBootStrap.Button>

@@ -13,7 +13,7 @@
   src: local('MyFont3'), url(../../assets/fonts/NeutraTextLight.otf) format('woff');
 }
 
-.top-space {
+.top-space-ordering {
     margin-top: 80px;
 }
 
@@ -23,11 +23,12 @@
     -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
-    padding-bottom: 50px;
     border-radius: 20px;
     width: 80%;
+    padding-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
+    
   }
 
 .bg-display-test {
@@ -77,6 +78,7 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  width: 100%;
 }
 
 .buttonAlign {
@@ -89,33 +91,34 @@
     margin-top: -50px;
 }
 
-  .pic {
-      display: block;
-      width: auto;
-      max-height: 120px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 15px;
-      text-decoration: none;
-  }
-  .pic2 {
+.pic {
     display: block;
     width: auto;
-    max-height: 160px;
-    margin-top: 15px;
+    max-height: 120px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 15px;
     text-decoration: none;
 }
+.pic2 {
+  display: block;
+  width: auto;
+  max-height: 160px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+}
 
-  h3 {
-      margin-bottom: 40px;
-      color: white;
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-      margin-left: 20px;
-      margin-top: 10px;
-      font-family: MyFont2;
-  }
+h3 {
+    margin-bottom: 40px;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: MyFont2;
+}
 
   .borders {
     border-style: dashed;
@@ -130,6 +133,7 @@
       text-decoration: none;
       font-family: MyFont3;
       color: white;
+      display: inline-block;
   }
 
   a {
@@ -179,6 +183,45 @@
   #order2 {
     display: none;
   }
+  #fNameLabelOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #fNameLabelReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #fNameLabelLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+  #lNameLabelOK {
+    display: none;
+    color: rgb(131, 255, 131);
+  }
+  #lNameLabelReq {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+  #lNameLabelLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+  #occasionOK {
+    display: none;
+    color: rgb(131, 255, 131);
+    text-align : center;
+  }
+  #occasionReq {
+    display: none;
+    color:  rgb(255, 103, 103);
+    text-align : center;
+  }
+  #occasionLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+    text-align : center;
+  }
   #order3 {
     display: none;
   }
@@ -191,7 +234,16 @@
   #order6 {
     display: none;
   }
-
+  #date-timeOK {
+    display: none;
+    color: rgb(131, 255, 131);
+    text-align : center;
+  }
+  #date-timeReq {
+    display: none;
+    color:  rgb(255, 103, 103);
+    text-align : center;
+  }
   #order7 {
     display: none;
   }
@@ -199,11 +251,93 @@
   #order8 {
     display: none;
   }
-
+  #addressLineOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #addressLineReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #addressLineLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+  #cityOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #cityReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #cityLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+  #stateOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #stateReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #zipOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #zipReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #zipLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
   #order9 {
     display: none;
   }
-
+  #offeredByOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #offeredByReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #offeredByLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+  #phoneNumberOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #phoneNumberReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #phoneNumberLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+  #phoneNumberNums{
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #emailOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #emailReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #emailLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
   #order10 {
     display: none;
   }
@@ -232,14 +366,107 @@
     margin-right: auto;
   }
 
+  .orderLine {
+    border:0px outset;
+    background-color:#8d898986;
+    color:#EEEEEE;
+    height:3px;
+    /* width:% */
+}
+
+.orderLineText {
+    color: rgb(146, 143, 143);
+    font-size: 25px;
+    text-align: center;
+}
+
+  .tooltip {
+    position: relative;
+    background-color: transparent;
+    border: transparent;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: inline-block;
+    opacity: 1;
+    visibility: visible;
+    max-width: 100%;
+    cursor: pointer;
+  }
+
+  .tooltip .notHidden {
+    visibility: visible;
+  }
+  
+  .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    left: 100%;
+    top: 0;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .tooltipCol {
+    display: inline-block;
+    text-align: left;
+  }
+
   @media only screen and (orientation: portrait) {
     .bg-display-test {
       width: 70%;
       margin-bottom: 2em;
     }
 
+    .bg-display {
+      width: 100%;
+      border-radius: 0%;
+    }
+
+    .top-space-ordering {
+      margin-top: 40px;
+      padding: 0;
+      width: 100%;
+    }
+
     #form1 {
       width: 100%;
+    }
+
+    .tooltiptext {
+      display: none;
+    }
+
+    .tooltip {
+      width: 100%;
+    }
+
+    .tooltipCol {
+      display: inline-block;
+      text-align: center;
     }
 
   }
