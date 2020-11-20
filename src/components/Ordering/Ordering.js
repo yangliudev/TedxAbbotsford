@@ -256,9 +256,11 @@ function Ordering() {
       if (firstName == "" || firstName == "_  _  _  _  _  _") {
         document.getElementById("fNameLabelReq").style.display = "block";
         document.getElementById("fNameLabelLen").style.display = "block";
+        document.getElementById("fNameLabelOK").style.display = "none";
       }
-      else if (firstName.length < 3 && firstName !== "") {
+      else if (firstName.length < 3) {
         document.getElementById("fNameLabelReq").style.display = "none";
+        document.getElementById("fNameLabelOK").style.display = "none";
         document.getElementById("fNameLabelLen").style.display = "block";
       }
       else if (firstName.length >= 3 & firstName !== "_  _  _  _  _  _") {
@@ -269,9 +271,11 @@ function Ordering() {
       if (lastName == "" || lastName == "_  _  _  _  _  _") {
         document.getElementById("lNameLabelReq").style.display = "block";
         document.getElementById("lNameLabelLen").style.display = "block";
+        document.getElementById("lNameLabelOK").style.display = "none";
       }
-      else if (lastName.length < 3 && lastName !== "") {
+      else if (lastName.length < 3 ) {
         document.getElementById("lNameLabelReq").style.display = "none";
+        document.getElementById("lNameLabelOK").style.display = "none";
         document.getElementById("lNameLabelLen").style.display = "block";
       }
       else if (lastName.length >= 3) {
@@ -281,6 +285,12 @@ function Ordering() {
       }
     }
     else {
+      document.getElementById("lNameLabelOK").style.display = "block";
+      document.getElementById("lNameLabelReq").style.display = "none";
+      document.getElementById("lNameLabelLen").style.display = "none";
+      document.getElementById("fNameLabelOK").style.display = "block";
+      document.getElementById("fNameLabelReq").style.display = "none";
+      document.getElementById("fNameLabelLen").style.display = "none";
       event.preventDefault();
       event.stopPropagation();
       console.log("true");
@@ -293,22 +303,21 @@ function Ordering() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-      // console.log("occasion not valid");
       if (occasion == "" || occasion == "_  _  _  _  _  _") {
         document.getElementById("occasionReq").style.display = "block";
         document.getElementById("occasionLen").style.display = "block";
+        document.getElementById("occasionOK").style.display = "none";
       }
       else if (occasion.length < 3 && occasion !== "") {
         document.getElementById("occasionReq").style.display = "none";
         document.getElementById("occasionLen").style.display = "block";
-      }
-      else if (occasion.length >= 3) {
-        document.getElementById("lNameLabelOK").style.display = "block";
-        document.getElementById("occasionReq").style.display = "none";
-        document.getElementById("occasionLen").style.display = "none";
+        document.getElementById("occasionOK").style.display = "none";
       }
     }
     else {
+      document.getElementById("occasionOK").style.display = "block";
+      document.getElementById("occasionReq").style.display = "none";
+      document.getElementById("occasionLen").style.display = "none";
       event.preventDefault();
       event.stopPropagation();
       console.log("true");
@@ -321,7 +330,6 @@ function Ordering() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-      // console.log("date or time is not valid");
       if (dateService == "" || dateService == "_  _  _  _  _  _") {
         document.getElementById("date-timeReq").style.display = "block";
       }
