@@ -34,18 +34,29 @@ class Home extends Component {
     render() {
         return (
             <ReactBootStrap.Container className="top-space">
-                <ReactBootStrap.Row>
-                    <div class="firstsection">
+                <ReactBootStrap.Row  xs={3} md={3} lg={4}>
+                <ReactBootStrap.Col   xs={6} md={4}>
+                        <div class="towerDescription">
+                        <p class="towerDescriptionText">A trumpeter for 30 years of Leonardo. <br></br>Monday 6.30 p.m. - Lausanne</p><br></br>
+                        </div></ReactBootStrap.Col>
+                <ReactBootStrap.Col xs={6} md={4}>
                         <div class="towerDiv">
                             <img src={tower} className="tower"></img>                         
                         </div>
-
+                        </ReactBootStrap.Col>
+                        
+                        <ReactBootStrap.Col>
+                        <div class="Description">
+                        <p class="towerDescriptionText">An accordionist under Aunt Jacqueline's balcony.<br></br> Wednesday 3:30 p.m. - Yverdon</p>
+                        </div></ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+                        <ReactBootStrap.Row>
+                            <ReactBootStrap.Col className='b'  xs={6} md={4}>
                         <div class="towerDescription">
                         <p class="towerDescriptionText">A saxophonist for Nadine and Yves, <br></br>Jazzy atmosphere! Saturday 11:00 am - Grimentz</p><br></br>
-                        <p class="towerDescriptionText">A trumpeter for 30 years of Leonardo. <br></br>Monday 6.30 p.m. - Lausanne</p><br></br>
-                        <p class="towerDescriptionText">An accordionist under Aunt Jacqueline's balcony.<br></br> Wednesday 3:30 p.m. - Yverdon</p>
-                        </div>
+                        </div></ReactBootStrap.Col>
 
+                        <ReactBootStrap.Col >
                         <div class ="textBG">
                                 <div class="textAlign">
                                     <p class="towerText"><span class="firstTowerText">OFFER A MUSICIAN AT HOME <br/>TO THE PEOPLE YOU LOVE,<br/></span> <span class="secondTowerText">IN LESS THAN 3 MINUTES!</span></p>
@@ -54,10 +65,9 @@ class Home extends Component {
                                 <div class="buttonAlign">
                                 <a href={process.env.PUBLIC_URL + '/#/order'}>
                                     <input type="button" value="Order Now" class="orderButton"></input>
-                                </a>
+                                </a> 
                                 </div>
-                        </div>
-                    </div>
+                        </div></ReactBootStrap.Col>
                 </ReactBootStrap.Row>
               
                 
