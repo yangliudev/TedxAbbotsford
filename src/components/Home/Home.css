@@ -1,3 +1,4 @@
+  
 .top-space {
     margin-top: 3%;
     max-width: 100%;
@@ -71,18 +72,26 @@
 
 
 .firstsection {
-    width: 100%;
+    width: 10%;
+    margin-left:7%;
 }
 
 .tower {
     height: 400px;
-    margin-left: 100%;
-    margin-right: auto;
+    margin-left: 25%;
 }
+
+.towerDescription {
+    float:left;
+    padding-left:5%;
+    text-align: center;
+    padding-top: 5%;
+}
+
 
 .towerDiv {
     float: left;
-    margin-bottom: 5%;
+    padding-top: 1%;
 }
 
 @font-face {
@@ -98,16 +107,7 @@
     margin-right: auto;
 }
 
-.orderButton {
-    background-color: #D60B52;
-    border-style: none;
-    color: white;
-    margin-top: 3%;
-    font-size: 175%;
-    padding: 7%;
-    border-radius: 6px;
-    width: 50%;
-}
+
 
 .LearnMoreButton {
     background-color: white;
@@ -134,15 +134,67 @@
     color: rgb(186, 218, 85);
 }
 
+@media only screen and (orientation:landscape){
 .textBG {
     background-color: #2a3c434f;
     padding: 3%;
-    width: 38%;
+    width: 70%;
     height: auto;
-    border-radius: 10px;
-    margin-right: 10%;
+    border-radius: 15px;
+    /* margin-right: 10%; */
+        margin-left: 10%;
+        margin-top: 5%;
     text-align: center;
-    float: right;
+    /* float: right; */
+}
+.orderButton {
+    background-color: #D60B52;
+    border-style: none;
+    color: white;
+    margin-top: 3%;
+    font-size: 175%;
+    padding: 7%;
+    border-radius: 6px;
+    width: 50%;
+}
+
+
+
+
+
+}
+
+@media only screen and (orientation:portrait){
+    .textBG {
+        background-color: #2a3c434f;
+        padding: 3%;
+        border-radius: 50px;
+        text-align: center;
+        float: right;
+        margin-bottom: 50px;
+        width:2%;
+        margin-right: 4%;
+        margin-top: 7%;
+
+
+    }
+    .orderButton {
+        background-color: #D60B52;
+        border-style: none;
+        color: white;
+        margin-top: 1%;
+        font-size: 100%;
+        padding: 8%;
+        border-radius: 6px;
+        width: 33%;
+    }
+
+    .b{
+        display: none;
+    }
+
+
+
 }
 
 .firstCard {
@@ -367,6 +419,10 @@ a+a {
         float: none;
     }
 
+    .towerDescription {
+        display: none;
+    }
+
     .tower {
         height: 300px;
         display: block;
@@ -391,14 +447,34 @@ a+a {
     .orderButton {
         padding: 3%;
     }
-
+    @media only screen and (orientation:landscape){
     .towerText {
-        float: none;
-        font-family: CamperSans2;
-        font-size: 350%;
-        line-height: 90%;
-    }
+            float: none;
+            font-family: CamperSans2;
+            font-size: 350%;
+            line-height: 90%;
+            }
+        
+        }
+        .Description {
+            /* float:left; */
+            padding-left:5%;
+            text-align: center;
+            padding-top: 5%;
+            margin-top: 25%;
+            margin-left: 1px;
+        }
 
+@media only screen and (orientation:portrait){
+    .towerText {
+            float: none;
+            font-family: CamperSans2;
+            font-size: 280%;
+            line-height: 90%;
+            }
+        
+        }
+  
     .cardHeader {
         font-size: 45px;
         line-height: 80%;

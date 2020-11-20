@@ -351,7 +351,7 @@ function MusicianDashboard() {
                             <h6 className='title'>Address: </h6><h6 className='content'>{value.address}, {value.city}, {value.zip}</h6> 
                             <h6 className='title'>Date:</h6><h6 className='content'>{value.date_service} {value.time_service}</h6> 
                             {/* <h6 className='title'>Time: </h6><h7 className='content'> {value.time_service}</h7> */}
-                            <div>S
+                            <div>
                             {/* <input type="button" value="Accept" className='accept'/><input type="button" value="Decline" className='decline'  onClick={()=>show(t,r)} />    */}
                            <ReactBootStrap.Button variant = 'primary' size='md' className='accept' onClick={() => {updateStatus(value.id, value.email)}}>Accept</ReactBootStrap.Button>
                            <ReactBootStrap.Button variant = 'danger'size="md" className='decline' onClick={()=>show(t,r)} >Decline</ReactBootStrap.Button>
@@ -363,7 +363,7 @@ function MusicianDashboard() {
                             </div>
                             <div>
                             {/* <input type="button" value="submit" className='button' id={r} onClick={()=>hide(box)} /> */}
-                            <ReactBootStrap.Button variant = 'danger' size='md' className='button' id={r} onClick={()=>{declineMusicianOrder(value.id)}} >Submit</ReactBootStrap.Button>
+                            <ReactBootStrap.Button variant = 'danger' size='md' className='buttonSubmit' id={r} onClick={()=>{declineMusicianOrder(value.id)}} >Submit</ReactBootStrap.Button>
 
                             </div>
                             

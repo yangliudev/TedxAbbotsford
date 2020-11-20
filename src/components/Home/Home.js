@@ -34,12 +34,25 @@ class Home extends Component {
     render() {
         return (
             <ReactBootStrap.Container className="top-space">
-                <ReactBootStrap.Row>
-                    <div class="firstsection">
+                <ReactBootStrap.Row >
+                <ReactBootStrap.Col  md={{ span:2}}>
+                        <div class="towerDescription">
+                        <p class="towerDescriptionText">A trumpeter for 30 years of Leonardo. <br></br>Monday 6.30 p.m. - Lausanne</p><br></br>
+                        </div></ReactBootStrap.Col>
+                <ReactBootStrap.Col  md={{ span:3}}>
                         <div class="towerDiv">
-                            <img src={tower} className="tower"></img>
+                            <img src={tower} className="tower"></img>                         
                         </div>
-
+                        </ReactBootStrap.Col>
+                        <ReactBootStrap.Col>
+                        <ReactBootStrap.Row>
+                        <ReactBootStrap.Col>
+                        <div class="Description">
+                        <p class="towerDescriptionText">An accordionist under Aunt Jacqueline's balcony.<br></br> Wednesday 3:30 p.m. - Yverdon</p>
+                        </div></ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+                        <ReactBootStrap.Row>
+                        <ReactBootStrap.Col >
                         <div class ="textBG">
                                 <div class="textAlign">
                                     <p class="towerText"><span class="firstTowerText">OFFER A MUSICIAN AT HOME <br/>TO THE PEOPLE YOU LOVE,<br/></span> <span class="secondTowerText">IN LESS THAN 3 MINUTES!</span></p>
@@ -48,10 +61,34 @@ class Home extends Component {
                                 <div class="buttonAlign">
                                 <a href={process.env.PUBLIC_URL + '/#/order'}>
                                     <input type="button" value="Order Now" class="orderButton"></input>
-                                </a>
+                                </a> 
                                 </div>
-                        </div>
-                    </div>
+                        </div></ReactBootStrap.Col>
+
+                        </ReactBootStrap.Row>
+
+                        </ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+
+
+                        <ReactBootStrap.Row>
+                            <ReactBootStrap.Col className='b'  xs={6} md={4}>
+                        <div class="towerDescription">
+                        <p class="towerDescriptionText">A saxophonist for Nadine and Yves, <br></br>Jazzy atmosphere! Saturday 11:00 am - Grimentz</p><br></br>
+                        </div></ReactBootStrap.Col>
+    
+                        {/* <ReactBootStrap.Col >
+                        <div class ="textBG">
+                                <div class="textAlign">
+                                    <p class="towerText"><span class="firstTowerText">OFFER A MUSICIAN AT HOME <br/>TO THE PEOPLE YOU LOVE,<br/></span> <span class="secondTowerText">IN LESS THAN 3 MINUTES!</span></p>
+                                </div>
+                            
+                                <div class="buttonAlign">
+                                <a href={process.env.PUBLIC_URL + '/#/order'}>
+                                    <input type="button" value="Order Now" class="orderButton"></input>
+                                </a> 
+                                </div>
+                        </div></ReactBootStrap.Col> */}
                 </ReactBootStrap.Row>
               
                 
@@ -74,7 +111,7 @@ class Home extends Component {
                             <h1 class="textAlign2">1</h1>
                             <h1 class="cardHeader">Inquire the occasion celebrated</h1>
                         
-                            <img class="card-img-top" src={firstPicture} style={{width:"55%"}}></img> 
+                            <img class="card-img-top" src={firstPicture} style={{width:"75%"}}></img> 
                             <p class="card-text3"><br/>"Grandma Léa's birthday!"</p>
                             <p class="card-text3">"A little aperitif with friends"</p>
                             <p class="card-text3">"Violin for a romantic evening!"</p>
@@ -84,7 +121,7 @@ class Home extends Component {
 
                             <h1 class="textAlign2">2</h1>
                             <h1 class="cardHeader">Decide music<br></br><br></br></h1>
-                            <img class="card-img-top" style={{width:"55%"}} src={secondPicture}></img>
+                            <img class="card-img-top" style={{width:"75%"}} src={secondPicture}></img>
                             <p class="card-text3"><br/>You decide the style of music! In addition to this, you need to know more about it. We take care of finding the musicians available in your region on the date and time indicated.</p>
                     
                         </ReactBootStrap.Col>
@@ -92,7 +129,7 @@ class Home extends Component {
 
                             <h1 class="textAlign2">3</h1>
                             <h1 class="cardHeader">Pay online<br></br><br></br></h1>
-                            <img class="card-img-top" src={thirdPicture} style={{width:"55%"}}></img>
+                            <img class="card-img-top" src={thirdPicture} style={{width:"75%"}}></img>
                             <p class="card-text3"><br/>After giving us all the necessary information , enjoy a fast and secure payment.</p>
                             
                         </ReactBootStrap.Col>
@@ -100,7 +137,7 @@ class Home extends Component {
 
                             <h1 class="textAlign2">4</h1>
                             <h1 class="cardHeader">Listen and savor<br></br><br></br></h1>
-                            <img class="card-img-top" src={fourthPicture} style={{width:"55%"}}></img>
+                            <img class="card-img-top" src={fourthPicture} style={{width:"75%"}}></img>
                             <p class="card-text3"><br/>On the day-D and at the time indicated, one or two musicians will appear in front of the beneficiary's door on time and will play for 20 minutes. </p>
                             <p class="card-text2">Let the music!</p>
                     
@@ -218,7 +255,7 @@ class Home extends Component {
                 <h1 class="textAlign2">SOME MEMORIES OF UNFORGETTABLE MOMENTS</h1>
                     
                
-                <ReactBootStrap.Carousel className="buttonAlign2" autoPlay={true} animation={false} slideshowSpeed={100}>
+                <ReactBootStrap.Carousel className="buttonAlign2" slide={false} autoplay={true} interval={3000}>
                     <ReactBootStrap.Carousel.Item className="buttonAlign2">
                         <img className="carouselImage" src={firstPhoto}/>
                     </ReactBootStrap.Carousel.Item>

@@ -341,7 +341,7 @@ const backEditing = () => {
   ];
 
   const columnsMusician = ["ID", "First Name", "Last Name", "Address", "Postal Code", "City", "Province", {name: "Phone", options: {setCellProps: value => {return {style: {width: "90px"}
-    }}}}, "IBAN", "Email", "Training", {name: "Instrument", options: {display: false}}, {name: "Style", options: {display: false}}, "# of Musicians", "Site", "Media"];
+    }}}}, "IBAN", "Email", "Training", {name: "Instrument", options: {display: false}}, {name: "Style", options: {display: false}}, "# of Musicians", "Site", "Media", "Mon", "Tues"];
 
 
   const options = {
@@ -434,7 +434,7 @@ const backEditing = () => {
 
   return (
 
-    <ReactBootStrap.Container className="dashboardNav" style={{marginTop:"30px"}}>
+    <ReactBootStrap.Container className="dashboardNavAdmin" style={{marginTop:"30px"}}>
 
                     {/* <ReactBootStrap.Row className="justify-content-md-center">
                         <ReactBootStrap.Col>
