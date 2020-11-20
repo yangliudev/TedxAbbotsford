@@ -69,7 +69,7 @@ function Test() {
           root: {
             backgroundColor: "transparent !imporant",
             color: "inherit",
-            width: "auto"
+            width: "inherit"
           }
         },
       },
@@ -137,20 +137,56 @@ function Test() {
 var rowEdit = [];
 var rowSelectMusician = 0;
 
-var editFirstName = rowEdit.firstName;
-var editLastName = rowEdit.lastName;
-var editDate = rowEdit.date_service;
-var editTime = rowEdit.time_service;
-var editEmail = rowEdit.email;
-var editAddress = rowEdit.address;
+var editFirstName = "";
+var editLastName = "";
+var editNumber = "";
+var editEmail = "";
+var editAddress = "";
+var editDate = "";
+var editTime = "";
+
+
 
 const saveRowEdit = () => {
-  console.log(editFirstName)
+  if (editFirstName === "") editFirstName = editRow.firstName;
+  if (editLastName === "") editLastName = editRow.lastName;
+  if (editEmail === "") editEmail = editRow.email;
+  if (editNumber === "") editNumber = editRow.number;
+  if (editAddress === "") editAddress = editRow.address;
+  if (editTime === "") editTime = editRow.time_service;
+  if (editDate === "") editDate = editRow.date_service;
+
+  // console.log(editFirstName)
+  
+  Axios.put("http://localhost:5000/order/update", {
+        orderID: editRow.id,
+        orderFirstName: editFirstName,
+        orderLastName: editLastName,
+        orderNumber: editNumber,
+        orderEmail: editEmail,
+        orderAddress: editAddress,
+        orderDate: editDate,
+        orderTime: editTime
+    }).then(() => {
+      alert("sucessful insert");
+    });
+    window.location.reload();
 }
 
-const testing = () => {
+
+
+const editIconPressed = () => {
   document.getElementById("edit").style.display = "block";
-  console.log(editRow);
+  setEditRow(rowEdit); 
+  hideWhileEditing();
+  // setEditFirstName(rowEdit.firstName);
+  // editLastName = rowEdit.lastName;
+  // editNumber = rowEdit.number;
+  // editEmail = rowEdit.email;
+  // editAddress = rowEdit.address;
+  // editDate = rowEdit.date_service;
+  // editTime = rowEdit.time_service;
+  // console.log(editFirstName)
 }
 
 const [editRow, setEditRow] = useState([]);
@@ -195,6 +231,14 @@ const displayOrders = () => {
   document.getElementById("orders").style.display = "block";
 }
 
+const hideWhileEditing = () => {
+  document.getElementById("orders").style.display = "none";
+}
+const backEditing = () => {
+  document.getElementById("orders").style.display = "block";
+  document.getElementById("edit").style.display = "none";
+}
+
   // const [tableBodyHeight, setTableBodyHeight] = useState("400px");
   // const [tableBodyMaxHeight, setTableBodyMaxHeight] = useState("");
   // const [transitionTime, setTransitionTime] = useState(300);
@@ -219,9 +263,9 @@ const displayOrders = () => {
       options: {
         filter: true,
         customBodyRender: (value, tableMeta, updateValue) => {
-          if (tableMeta.rowIndex === 0) {
-            // console.log(tableMeta)
-            };
+          // if (tableMeta.rowIndex === 0) {
+          //   // console.log(tableMeta)
+          //   };
           return (
             // <Cities
             //   value={value}
@@ -229,6 +273,7 @@ const displayOrders = () => {
             //   change={event => updateValue(event)}
             // />
             <FormControl>
+              {/* <input type="text" value="test"></input> */}
               <Select
                 value={value}
                 onChange={event => {updateStatus(event.target.value, tableMeta.currentTableData[tableMeta.rowIndex].index)}}
@@ -253,10 +298,28 @@ const displayOrders = () => {
     "Suprise",
     "First Name",
     "Last Name",
-    "Date Service",
+    {name: "Date Service", options: {setCellProps: value => {
+      return {
+        style: {
+          width: "80px"
+        }
+      }}}},
+    // "Date Service",
     "Time Service",
-    "Offered",
-    "Number",
+    {name: "Offered", options: {setCellProps: value => {
+      return {
+        style: {
+          width: "60px"
+        }
+      }}}},
+    // "Offered",
+    {name: "Number", options: {setCellProps: value => {
+      return {
+        style: {
+          width: "90px"
+        }
+      }}}},
+    // "Number",
     "Email",
     "Address",
     "Location",
@@ -264,10 +327,16 @@ const displayOrders = () => {
     "State",
     "Zip",
     {name: "Comments", options: {display: false}},
-    {name: "Tips", options: {display: false}}
+    {name: "Tips", options: {display: false, setCellProps: value => {
+      return {
+        style: {
+          width: "500px"
+        }
+      }}}}
   ];
 
-  const columnsMusician = ["ID", "First Name", "Last Name", "Address", "Postal Code", "City", "Province", "Phone", "IBAN", "Email", "Training", {name: "Instrument", options: {display: false}}, {name: "Style", options: {display: false}}, "# of Musicians", "Site", "Media"];
+  const columnsMusician = ["ID", "First Name", "Last Name", "Address", "Postal Code", "City", "Province", {name: "Phone", options: {setCellProps: value => {return {style: {width: "90px"}
+    }}}}, "IBAN", "Email", "Training", {name: "Instrument", options: {display: false}}, {name: "Style", options: {display: false}}, "# of Musicians", "Site", "Media"];
 
 
   const options = {
@@ -286,7 +355,7 @@ const displayOrders = () => {
       <div className={"custom-toolbar-select"}>
         <Tooltip title={"Match"}><IconButton onClick={() => {getMusicians(rowEdit.id); setOrderID(rowEdit.id); document.getElementById("orders").style.display = "none"; document.getElementById("matched").style.display = "block"; document.getElementById("edit").style.display = "none";
 }}><MusicNoteIcon /></IconButton></Tooltip>
-        <Tooltip title={"Edit"}><IconButton onClick={() => {testing(); setEditRow(rowEdit)}}><EditIcon /></IconButton></Tooltip>
+        <Tooltip title={"Edit"}><IconButton onClick={editIconPressed}><EditIcon /></IconButton></Tooltip>
         <Tooltip title={"Delete"}><IconButton><DeleteIcon/></IconButton></Tooltip>
       </div>
     ),
@@ -297,7 +366,7 @@ const displayOrders = () => {
     
   ),
   setRowProps: (row, dataIndex, rowIndex) => {
-    console.log(dataIndex, rowIndex, row);
+    // console.log(dataIndex, rowIndex, row);
     if (arr[dataIndex][0] === "Confirmed") {return {style: {backgroundColor: "#ccebd4"}}}; 
     if (arr[dataIndex][0] === "Declined") {return {style: {backgroundColor: "#edabab"}}};
     if (arr[dataIndex][0] === "Pending") {return {style: {backgroundColor: "white"}}}}
@@ -385,8 +454,115 @@ const displayOrders = () => {
                             </ReactBootStrap.Navbar>
                         </ReactBootStrap.Col>
                     </ReactBootStrap.Row>
+                    
     
                     <div style={{ marginTop: "30px" }}>
+                    <div id="edit">
+                      {/* <label>TEst</label>
+        <input placeholder={editRow.firstName} type="text" onChange={(e) => {editFirstName = e.target.value}}/>
+        <input placeholder={editRow.lastName} type="text" onChange={(e) => {editLastName = e.target.value}}/>
+        <input placeholder={editRow.time_service} type="text" onChange={(e) => {editTime = e.target.value}}/>
+        <input placeholder={editRow.date_service} type="text" onChange={(e) => {editDate = e.target.value}}/>
+        <input placeholder={editRow.email} type="text" onChange={(e) => {editEmail = e.target.value}}/>
+        <input placeholder={editRow.address} type="text" onChange={(e) => {editAddress = e.target.value}}/>
+        <input value="save" type="button" onClick={saveRowEdit}/> var editFirstName = rowEdit.firstName;
+var editLastName = rowEdit.lastName;
+var editNumber = rowEdit.number;
+var editEmail = rowEdit.email;
+var editAddress = rowEdit.address;
+var editDate = rowEdit.date_service;
+var editTime = rowEdit.time_service;*/}
+        <ReactBootStrap.Row className="setting">
+                            <ReactBootStrap.Col md="auto">
+                                <p className="profileHeader">First Name: </p>
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col md="auto"><input type="text" placeholder={editRow.firstName} onChange={(e) => {editFirstName = e.target.value}}/></ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+
+                        <ReactBootStrap.Row className="setting">
+                            <ReactBootStrap.Col md="auto">
+                                <p className="profileHeader">Last Name: </p>
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col md="auto"><input type="text" placeholder={editRow.lastName} onChange={(e) => {editLastName = e.target.value}}/></ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+
+                        <ReactBootStrap.Row className="setting">
+                            <ReactBootStrap.Col md="auto">
+                                <p className="profileHeader">Phone: </p>
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col md="auto"><input type="text" placeholder={editRow.number} onChange={(e) => {editNumber = e.target.value}}/></ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+
+                        <ReactBootStrap.Row className="setting">
+                            <ReactBootStrap.Col md="auto">
+                                <p className="profileHeader">Email: </p>
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col md="auto"><input type="text" placeholder={editRow.email} onChange={(e) => {editEmail = e.target.value}}/></ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+
+                        <ReactBootStrap.Row className="setting">
+                            <ReactBootStrap.Col md="auto">
+                                <p className="profileHeader">Address: </p>
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col md="auto"><input type="text" placeholder={editRow.address} onChange={(e) => {editAddress= e.target.value}}/></ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+
+                        <ReactBootStrap.Row className="setting">
+                            <ReactBootStrap.Col md="auto">
+                                <p className="profileHeader">Date: </p>
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col md="auto"><input type="text" placeholder={editRow.date_service} onChange={(e) => {editDate = e.target.value}}/></ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+
+                        <ReactBootStrap.Row className="setting">
+                            <ReactBootStrap.Col md="auto">
+                                <p className="profileHeader">Time: </p>
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col md="auto"><input type="text" placeholder={editRow.time_service} onChange={(e) => {editTime = e.target.value}}/></ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+                        
+
+
+
+                        <ReactBootStrap.Row>
+                        <ReactBootStrap.Button variant = 'danger' size='md' onClick={backEditing} style={{marginLeft: "15px"}}>Back</ReactBootStrap.Button>
+                        <ReactBootStrap.Button variant = 'success' size='md' className='accept' onClick={saveRowEdit}>Save</ReactBootStrap.Button>
+
+                        </ReactBootStrap.Row>
+
+                        {/* <ReactBootStrap.Row className="justify-content-md-center" style={{marginTop: "10px"}}>
+                            <ReactBootStrap.Col>
+                                <h6 className="lineText">MUSICAL PREFERENCES</h6>
+                                <hr className="line"/>
+                            </ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+
+                        <ReactBootStrap.Row className="setting">
+                            <ReactBootStrap.Col md="auto">
+                                <p className="profileHeader">Training: </p>
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.training} onChange={(e) => {training = e.target.value}}/></ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+
+                        <ReactBootStrap.Row className="setting">
+                            <ReactBootStrap.Col md="auto">
+                                <p className="profileHeader">Style: </p>
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.style} /></ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+
+                        <ReactBootStrap.Row className="setting">
+                            <ReactBootStrap.Col md="auto">
+                                <p className="profileHeader">Solo/Duo: </p>
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.number_musicians} /></ReactBootStrap.Col>
+                        </ReactBootStrap.Row>
+
+                        <ReactBootStrap.Row style={{marginTop:"20px"}}>
+                            {/* <input type="button" onClick={updateMusician} value="Save Changes"/> */}
+                            {/* <ReactBootStrap.Button onClick={updateMusician}>Save Changes</ReactBootStrap.Button> */}
+                            {/* </ReactBootStrap.Row> */}
+      </div>
 
       <div id="orders"> 
       <MuiThemeProvider theme={getMuiTheme()}>
@@ -400,15 +576,7 @@ const displayOrders = () => {
       </div>
       {/* <input type="button" onClick={()=> {console.log(musicianID); console.log(orderID)}}/> */}
 
-      <div id="edit">
-        <input placeholder={editRow.firstName} type="text" onChange={(e) => {editFirstName = e.target.value}}/>
-        <input placeholder={editRow.lastName} type="text" onChange={(e) => {editLastName = e.target.value}}/>
-        <input placeholder={editRow.time_service} type="text" onChange={(e) => {editTime = e.target.value}}/>
-        <input placeholder={editRow.date_service} type="text" onChange={(e) => {editDate = e.target.value}}/>
-        <input placeholder={editRow.email} type="text" onChange={(e) => {editEmail = e.target.value}}/>
-        <input placeholder={editRow.address} type="text" onChange={(e) => {editAddress = e.target.value}}/>
-        <input value="save" type="button" onClick={saveRowEdit}/>
-      </div>
+      
 
 
       

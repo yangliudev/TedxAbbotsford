@@ -300,6 +300,36 @@ app.put("/musician/update", (req, res) => {
   });
 });
 
+
+app.put("/order/update", (req, res) => {
+  const id = req.body.orderID;
+  const firstName = req.body.orderFirstName;
+  const lastName = req.body.orderLastName;
+  const phone = req.body.orderNumber;
+  const email = req.body.orderEmail;
+  const address = req.body.orderAddress;
+  const date = req.body.orderDate;
+  const time = req.body.orderTime;
+  // const group = req.body.musicianGroup;
+  const sqlUpdate = "UPDATE ordering_table SET firstName = ?, lastName = ?, number = ?, email = ?, address = ?, date_service = ?, time_service = ? WHERE id = ?";
+  db.query(sqlUpdate, [
+    firstName,
+    lastName,
+    phone,
+    email,
+    address,
+    date,
+    time,
+    id
+  ], (err, result) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log("Succesfully Updated")
+    }
+  });
+});
+
 app.put("/orderStatus/update", (req, res) => {
   const id = req.body.orderID;
   const status = req.body.status;
