@@ -770,7 +770,10 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="confirmHeader">Beneficiary</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col>
+              <h6 className="orderLineText">Beneficiary</h6>
+              <hr className="orderLine"/>
+            </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -805,7 +808,10 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="confirmHeader">Information about the concert</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col>
+              <h6 className="orderLineText">Information about the concert</h6>
+              <hr className="orderLine"/>
+            </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -922,7 +928,10 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="confirmHeader">Thanks to the generosity of:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col>
+              <h6 className="orderLineText">Thanks to the generosity of:</h6>
+              <hr className="orderLine"/>
+            </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -959,7 +968,10 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="confirmHeader">Comment (optional)</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col>
+              <h6 className="orderLineText">Comment (optional)</h6>
+              <hr className="orderLine"/>
+            </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">

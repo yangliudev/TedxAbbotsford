@@ -260,6 +260,20 @@ h3 {
     margin-right: auto;
   }
 
+  .orderLine {
+    border:0px outset;
+    background-color:#8d898986;
+    color:#EEEEEE;
+    height:3px;
+    /* width:% */
+}
+
+.orderLineText {
+    color: rgb(146, 143, 143);
+    font-size: 25px;
+    text-align: center;
+}
+
   .tooltip {
     position: relative;
     background-color: transparent;
@@ -312,6 +326,7 @@ h3 {
 
   .tooltipCol {
     display: inline-block;
+    text-align: left;
   }
 
   @media only screen and (orientation: portrait) {
@@ -333,6 +348,10 @@ h3 {
 
     #form1 {
       width: 100%;
+    }
+
+    .tooltiptext {
+      display: none;
     }
 
   }
