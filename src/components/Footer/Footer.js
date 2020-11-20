@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+// import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import "mdbreact/dist/css/mdb.css";
 
 class Footer extends Component {
@@ -21,28 +21,28 @@ class Footer extends Component {
 
     <ul class="list-unstyled list-inline text-center">
       <li class="list-inline-item">
-        <a class="btn-floating btn-fb mx-1">
+        <a class="btn-floating btn-fb mx-1" href="https://www.facebook.com/dansljardin/" target="_blank" rel="noopener noreferrer">
           <i class="fab fa-facebook-f"> </i>
         </a>
       </li>
       <li class="list-inline-item">
-        <a class="btn-floating btn-tw mx-1">
+        <a class="btn-floating btn-tw mx-1" href="https://twitter.com/hashtag/DanslJardin?src=hashtag_click" target="_blank" rel="noopener noreferrer">
           <i class="fab fa-twitter"> </i>
         </a>
       </li>
-      <li class="list-inline-item">
-        <a class="btn-floating btn-gplus mx-1">
+      {/* <li class="list-inline-item">
+        <a class="btn-floating btn-gplus mx-1" href="#">
           <i class="fab fa-google-plus-g"> </i>
         </a>
       </li>
       <li class="list-inline-item">
-        <a class="btn-floating btn-li mx-1">
+        <a class="btn-floating btn-li mx-1" href="#">
           <i class="fab fa-linkedin-in"> </i>
         </a>
-      </li>
+      </li> */}
       <li class="list-inline-item">
-        <a class="btn-floating btn-dribbble mx-1">
-          <i class="fab fa-dribbble"> </i>
+        <a class="btn-floating btn-dribbble mx-1" href="https://www.instagram.com/dans_l_jardin/" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-instagram"> </i>
         </a>
       </li>
     </ul>

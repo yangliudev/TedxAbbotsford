@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as ReactBootStrap from "react-bootstrap";
-import main_logo from './logo-image/01_Logo-principal.png';
+// import main_logo from './logo-image/01_Logo-principal.png';
 import main_logo2 from "./logo-image/01_logo-horizontal - Copy.png";
 import "./Navbar.css"
 
@@ -38,7 +38,7 @@ class Navbar extends Component {
 
         return (
         <ReactBootStrap.Navbar collapseOnSelect expand="lg" className="color-nav" variant="dark">
-  <ReactBootStrap.Navbar.Brand href={process.env.PUBLIC_URL + '/#/'}><img src={main_logo2} width="400px" class="img-fluid" onClick={active}/></ReactBootStrap.Navbar.Brand>
+  <ReactBootStrap.Navbar.Brand href={process.env.PUBLIC_URL + '/#/'}><img src={main_logo2} alt="logo" width="400px" class="img-fluid" onClick={active}/></ReactBootStrap.Navbar.Brand>
   <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" className="navDropDown" />
   <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
     <ReactBootStrap.Nav className="mr-auto">

@@ -1,9 +1,9 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
 import "./MusicianDashboard.css";
 import Scheduler from "./MusicianCalander";
-import { Box } from "@material-ui/core";
+// import { Box } from "@material-ui/core";
 // import MusicianRequests from "./MusicianRequests";
 
 function MusicianDashboard() {
@@ -53,7 +53,7 @@ function MusicianDashboard() {
 
     useEffect(() => {
         Axios.get("http://localhost:5000/login").then((response) => {
-            if (response.data.loggedIn == true) {
+            if (response.data.loggedIn === true) {
                 setUser(response.data.user[0].username);
             }
         });
@@ -68,7 +68,7 @@ function MusicianDashboard() {
 
             // console.log(response.data[0]);
         });
-    }, []);
+    });
 
     //   useEffect(() => {
     //       if (musicianDetails)
@@ -283,7 +283,7 @@ function MusicianDashboard() {
 
                 <ReactBootStrap.Container id="requestsPage">
                     {orders.map((value, index) => {
-                        let addressURL = "https://www.google.com/maps/dir/?api=1&{}origin=Space+Needle+Seattle+WA&destination=" + value.address + "+" + value.address_2;
+                        // let addressURL = "https://www.google.com/maps/dir/?api=1&{}origin=Space+Needle+Seattle+WA&destination=" + value.address + "+" + value.address_2;
                         let box = index;
                         let t = index + 'x';
                         let r = index + 'y';

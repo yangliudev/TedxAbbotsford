@@ -15,7 +15,7 @@ import video from "./../../assets/video/homepage-video.mp4"
 import firstPhoto from "./../../assets/photos/firstPhoto.jpg"
 import secondPhoto from "./../../assets/photos/secondPhoto.jpg"
 import thirdPhoto from "./../../assets/photos/thirdPhoto.jpg"
-import fourthPhoto from "./../../assets/photos/fourthPhoto.jpg"
+// import fourthPhoto from "./../../assets/photos/fourthPhoto.jpg"
 import fifthPhoto from "./../../assets/photos/fifthPhoto.jpg"
 import sixthPhoto from "./../../assets/photos/sixthPhoto.jpg"
 import seventhPhoto from "./../../assets/photos/seventhPhoto.jpg"
@@ -23,11 +23,11 @@ import eighthPhoto from "./../../assets/photos/eighthPhoto.jpg"
 
 import facebookLogo from "./../../assets/logos/facebookLogo.png"
 import instagramLogo from "./../../assets/logos/instagramLogo.png"
-import gardenLogo from"./../../assets/logos/01_Logo-principal.png"
+// import gardenLogo from"./../../assets/logos/01_Logo-principal.png"
 import "./Home.css"
 
 import Feed from "react-instagram-authless-feed"
-import { Landscape, Portrait } from '@material-ui/icons';
+// import { Landscape, Portrait } from '@material-ui/icons';
 
 class Home extends Component {
 
@@ -37,7 +37,8 @@ class Home extends Component {
                 <ReactBootStrap.Row>
                     <div class="firstsection">
                         <div class="towerDiv">
-                            <img src={tower} className="tower"></img>
+                            <img src={tower} alt="tower-
+                            " className="tower"></img>
                         </div>
 
                         <div class ="textBG">
@@ -74,7 +75,7 @@ class Home extends Component {
                             <h1 class="textAlign2">1</h1>
                             <h1 class="cardHeader">Inquire the occasion celebrated</h1>
                         
-                            <img class="card-img-top" src={firstPicture} style={{width:"55%"}}></img> 
+                            <img class="card-img-top" alt="card" src={firstPicture} style={{width:"55%"}}></img> 
                             <p class="card-text3"><br/>"Grandma Léa's birthday!"</p>
                             <p class="card-text3">"A little aperitif with friends"</p>
                             <p class="card-text3">"Violin for a romantic evening!"</p>
@@ -84,7 +85,7 @@ class Home extends Component {
 
                             <h1 class="textAlign2">2</h1>
                             <h1 class="cardHeader">Decide music<br></br><br></br></h1>
-                            <img class="card-img-top" style={{width:"55%"}} src={secondPicture}></img>
+                            <img class="card-img-top" alt="second" style={{width:"55%"}} src={secondPicture}></img>
                             <p class="card-text3"><br/>You decide the style of music! In addition to this, you need to know more about it. We take care of finding the musicians available in your region on the date and time indicated.</p>
                     
                         </ReactBootStrap.Col>
@@ -92,7 +93,7 @@ class Home extends Component {
 
                             <h1 class="textAlign2">3</h1>
                             <h1 class="cardHeader">Pay online<br></br><br></br></h1>
-                            <img class="card-img-top" src={thirdPicture} style={{width:"55%"}}></img>
+                            <img class="card-img-top" alt="third" src={thirdPicture} style={{width:"55%"}}></img>
                             <p class="card-text3"><br/>After giving us all the necessary information , enjoy a fast and secure payment.</p>
                             
                         </ReactBootStrap.Col>

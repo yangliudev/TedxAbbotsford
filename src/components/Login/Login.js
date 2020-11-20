@@ -1,11 +1,14 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import * as ReactBootStrap from "react-bootstrap";
 import './Login.css'
 
 function Login() {
-  const [usernameReg, setUsernameReg] = useState("");
-  const [passwordReg, setPasswordReg] = useState("");
+  // const [usernameReg, setUsernameReg] = useState("");
+  // const [passwordReg, setPasswordReg] = useState("");
+
+  const [usernameReg] = useState("");
+  const [passwordReg] = useState("");
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -42,7 +45,7 @@ function Login() {
 
   useEffect(() => {
     Axios.get("http://localhost:5000/login").then((response) => {
-      if (response.data.loggedIn == true) {
+      if (response.data.loggedIn === true) {
         setLoginStatus(response.data.user[0].username);
       }
     })
