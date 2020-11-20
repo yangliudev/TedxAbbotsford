@@ -8,6 +8,9 @@ const session = require("express-session");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
+const path = require("path");
+const nodemailer = require("nodemailer");
+
 const port = 5000;
 
 const db = mysql.createPool({
@@ -41,6 +44,63 @@ app.use(
     },
   })
 );
+
+
+function sendEmail(type, firstName, lastName, email) {
+  let output = ``;
+  if (type === 1) {
+  output = `
+    <p>We are pleased to offer you our service!</p>
+    <h4>${firstName} ${lastName}</h4>
+    <p>Please let us know if you would like to update any details</p>
+  `;
+  }
+  if (type === 2) {
+    output = `
+    <h4>You Have Received a New Order Request!</h4>
+    <p>Log into your dashboard to find out more</p>
+    `
+  }
+  if (type === 3) {
+    output = `
+    <h4>Your Order Has Been Accepted!</h4>
+    <p>Keep your schedule clear, a delightful experience awaits you</p>
+    `
+  }
+
+  // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // true for 465, false for other ports
+    service:'gmail',
+    auth: {
+      user: "tedxabbotsford@gmail.com", // generated ethereal user
+      pass: "C^f8$oB70bOEjg8yr&!WzIVXNScnmcQ^WiSU!ryasUgCqjPxOC", // generated ethereal password
+    },
+    tls: {
+      rejectUnauthorized: false,
+    },
+  });
+
+  // setup email data with unicode symbols
+  let mailOptions = {
+    from: '"Dans L`Jardin" <tedxabbotsford@gmail.com>', // sender address
+    to: email, // list of receivers
+    subject: "Thank You For Ordering!", // Subject line
+    text: "Hello world", // plain text body
+    html: output, // html body
+  };
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    // console.log("Message sent: %s", info.messageId);
+    // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  });
+}
 
 app.post("/register", (req, res) => {
   const username = req.body.username;
@@ -131,7 +191,7 @@ app.post("/order/insert", (req, res) => {
   const orderZip = req.body.orderZip;
   const orderComments = req.body.orderComments;
   const sqlInsert =
-    "INSERT INTO ordering_table (gift, occasion, type, number_musicians, suprise, firstName, lastName, date_service, time_service, offered, number, email, address, address_2, city, state, zip, comments) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    "INSERT INTO ordering_table (status, gift, occasion, type, number_musicians, suprise, firstName, lastName, date_service, time_service, offered, number, email, address, address_2, city, state, zip, comments) VALUES ('Pending', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
   db.query(
     sqlInsert,
     [
@@ -158,7 +218,9 @@ app.post("/order/insert", (req, res) => {
       if (err) {
         console.log(err)
       } else {
-        console.log("Created New Order")
+        console.log("Created New Order");
+        sendEmail(1, orderFirstName, orderLastName, orderEmail);
+        console.log("Sent Email to:", orderFirstName, orderLastName);
       }
     }
   );
@@ -226,6 +288,7 @@ app.post("/musician/insert", (req, res) => {
 app.post("/musicianOrder/insert", (req, res) => {
   const orderID = req.body.setOrderID;
   const musicianID = req.body.setMusicianID;
+  const musicianEmail = req.body.musicianEmail;
 
   const sqlInsert =
     "INSERT INTO musician_orders (orderID, musicianID) VALUES (?, ?)";
@@ -234,6 +297,8 @@ app.post("/musicianOrder/insert", (req, res) => {
       console.log(err)
     } else {
       console.log("-> Succesfully Added Order")
+      sendEmail(2, "", "", musicianEmail);
+      console.log("Sent Email to:", musicianEmail);
     }
   });
 });
@@ -266,7 +331,7 @@ app.get("/match/orders/:musicianID", (req, res) => {
   
   // const musicianID = req.body.setMusicianID;
 
-  const sqlGet = "SELECT ot.id, ot.gift, ot.occasion, ot.type, ot.number_musicians, ot.suprise, ot.firstName, ot.lastName, ot.date_service, ot.time_service, ot.offered, ot.number, ot.email, ot.address, ot.address_2, ot.city, ot.state, ot.zip, ot.comments FROM ordering_table as ot INNER JOIN musician_orders ON ot.id = musician_orders.orderID WHERE musician_orders.musicianID = ?";
+  const sqlGet = "SELECT ot.*, musician_orders.status as musicianStatus FROM ordering_table as ot INNER JOIN musician_orders ON ot.id = musician_orders.orderID WHERE musician_orders.musicianID = ?;";
   db.query(sqlGet, id, (err, result) => {
     res.send(result);
   });
@@ -348,6 +413,31 @@ app.put("/orderStatus/update", (req, res) => {
   });
 });
 
+app.put("/musicianOrders/update", (req, res) => {
+  const id = req.body.orderID;
+  const musicianID = req.body.musicianID;
+  const status = req.body.status;
+  const comment = req.body.comment;
+  const orderEmail = req.body.orderEmail;
+
+  // const group = req.body.musicianGroup;
+  const sqlUpdate = "UPDATE musician_orders SET status = ?, comment = ? WHERE orderID = ? AND musicianID = ?";
+  db.query(sqlUpdate, [
+    status,
+    comment,
+    id,
+    musicianID
+  ], (err, result) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log("Succesfully Updated")
+      if (orderEmail !== "") {
+        sendEmail(3, "", "", orderEmail);
+      }
+    }
+  });
+});
 
 app.get("/match/musicians/:orderID", (req, res) => {
   const id = req.params.orderID;

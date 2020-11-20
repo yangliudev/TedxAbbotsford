@@ -7,15 +7,29 @@
     margin-top: 40px;
 }
 
+
+@media only screen and (orientation:portrait){
 .dashboardNav {
     background-color: #2a3c43cc;
     padding-bottom: 30px;
     border-radius: 20px;
-    width: 90%;
-    margin-left: auto;
+    width: 100%;
+    /* margin-left: auto;
     margin-right: auto;
-    display: table;
-}
+    display: table; */
+}}
+
+
+@media only screen and (orientation:landscape){
+    .dashboardNav {
+        background-color: #2a3c43cc;
+        padding-bottom: 30px;
+        border-radius: 20px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: table;
+    }}
 
 .justify-content-md-center {
     margin-left: auto;
@@ -40,6 +54,13 @@
     color: #D60B52 !important;
 }
 
+.justify-button{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 h2 {
     margin-bottom: 20px;
     color: white;
@@ -50,11 +71,10 @@ h2 {
 
 .dashboardContainer {
     margin-top: 20px;
-    display: table;
+    display: flex;
     text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    padding-bottom: 60px;
+    align-items: center;
+    justify-content: center;
 }
 
 .profileHeader {
@@ -86,15 +106,99 @@ h2 {
     background-color:#8d898986;
     color:#EEEEEE;
     height:3px;
-    /* width:% */
+    width:70%
 }
 
 .lineText {
     color: rgb(146, 143, 143);
     text-align: left;
     font-size: 13px;
+margin-left: 15%
 }
 
-.setting {
-    margin-left: 2px;
+
+@media only screen and (orientation:portrait){
+.orders{
+    background-color: grey;
+    margin-bottom: 20px;
+    margin-top: 60px;
+        border-radius: 10px;
+     padding: 10px;
+     /* width: 75%; */
+}}
+
+
+
+@media only screen and (orientation:landscape){
+    .orders{
+        background-color: grey;
+        margin-bottom: 20px;
+        margin-top: 60px;
+        margin-left: 28%;
+        border-radius: 10px;
+         padding-bottom: 10px;
+         width: 40%;
+    }}
+
+
+.accept{
+    background-color: rgb(129,169,47);
+    margin-right: 10px;
+    border-radius: 15px;
+    width: 100px;
+    height: 40px;
+}
+
+.decline{
+    background-color: rgb(214, 11, 82);
+    border-radius: 15px;
+    margin-right: 10px;
+    width: 100px;
+    height: 40px;
+}
+
+.mapsButton{
+    background-color: rgb(129,169,47);
+    margin-top: 10px;
+    border-radius: 15px;
+    width: 100px;
+    height: 40px;
+}
+
+.commbox{
+   display: none;
+   border-radius: 5px;
+   margin: 5px;
+}
+
+#maps{
+    color: white;
+    font-family: MyFont2;
+    font-size: 30px;
+}
+
+.button{
+    background-color: rgb(214, 11, 82);
+    border-radius: 15px;
+    display: none;
+    margin-left: 7px;
+    margin-bottom: 7px;
+    width: 100px;
+    height: 40px;
+}
+
+.title{
+    color:ivory;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom:1px ;
+    font-family: MyFont2;
+
+    
+}
+
+.content{
+    color: lemonchiffon;
+    font-size: 15px;
+    font-family: MyFont2;
 }

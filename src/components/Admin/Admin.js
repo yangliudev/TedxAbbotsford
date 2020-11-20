@@ -36,11 +36,13 @@ function Test() {
   const [musicianID, setMusicianID] = useState(0);
   const [orderID, setOrderID] = useState(0);
 
-  const submitMusicianOrder = (musID) => {
-    // console.log(musID, orderID);
+  const submitMusicianOrder = (mus) => {
+    let musMail = mus[9];
+    // console.log(mus[0], mus[9]);
     Axios.post("http://localhost:5000/musicianOrder/insert", {
-      setMusicianID: musID,
-      setOrderID: orderID
+      setMusicianID: mus[0],
+      setOrderID: orderID,
+      musicianEmail: musMail
     }).then(() => {
       console.log("sucessful insert");
     })
@@ -135,7 +137,7 @@ function Test() {
 
 
 var rowEdit = [];
-var rowSelectMusician = 0;
+var rowSelectMusician = [];
 
 var editFirstName = "";
 var editLastName = "";
@@ -202,7 +204,10 @@ const rowSelect = (row) => {
 }
 
 const setMusician = (row) => {
-  rowSelectMusician = matchedMusicians[row[0].dataIndex][0];
+  rowSelectMusician = matchedMusicians[row[0].dataIndex];
+  // rowSelectMusician = matchedMusicians[row[0].dataIndex];
+
+  // console.log(matchedMusicians[row[0].dataIndex])
   // setMusicianID(matchedMusicians[row[0].dataIndex][0]);
 }
 
