@@ -37,7 +37,13 @@ class Home extends Component {
                 <ReactBootStrap.Row>
                     <div class="firstsection">
                         <div class="towerDiv">
-                            <img src={tower} className="tower"></img>
+                            <img src={tower} className="tower"></img>                         
+                        </div>
+
+                        <div class="towerDescription">
+                        <p class="towerDescriptionText">A saxophonist for Nadine and Yves, <br></br>Jazzy atmosphere! Saturday 11:00 am - Grimentz</p><br></br>
+                        <p class="towerDescriptionText">A trumpeter for 30 years of Leonardo. <br></br>Monday 6.30 p.m. - Lausanne</p><br></br>
+                        <p class="towerDescriptionText">An accordionist under Aunt Jacqueline's balcony.<br></br> Wednesday 3:30 p.m. - Yverdon</p>
                         </div>
 
                         <div class ="textBG">
@@ -218,7 +224,7 @@ class Home extends Component {
                 <h1 class="textAlign2">SOME MEMORIES OF UNFORGETTABLE MOMENTS</h1>
                     
                
-                <ReactBootStrap.Carousel className="buttonAlign2" autoPlay={true} animation={false} slideshowSpeed={100}>
+                <ReactBootStrap.Carousel className="buttonAlign2" slide={false} autoplay={true} interval={3000}>
                     <ReactBootStrap.Carousel.Item className="buttonAlign2">
                         <img className="carouselImage" src={firstPhoto}/>
                     </ReactBootStrap.Carousel.Item>

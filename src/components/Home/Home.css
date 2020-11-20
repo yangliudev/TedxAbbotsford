@@ -76,13 +76,22 @@
 
 .tower {
     height: 400px;
-    margin-left: 100%;
+    margin-left: 125%;
     margin-right: auto;
 }
 
+.towerDescription {
+    float: left;
+    padding-left: 300px;
+    text-align: center;
+    padding-top: 5%;
+}
+
+
 .towerDiv {
     float: left;
-    margin-bottom: 5%;
+    padding-bottom: 5%;
+    padding-top: 1%;
 }
 
 @font-face {
@@ -365,6 +374,10 @@ a+a {
 @media only screen and (orientation: portrait) {
     .towerDiv {
         float: none;
+    }
+
+    .towerDescription {
+        display: none;
     }
 
     .tower {
