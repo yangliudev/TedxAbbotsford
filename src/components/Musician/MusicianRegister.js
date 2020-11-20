@@ -6,6 +6,9 @@ import "./MusicianRegister.css";
 import "mdbreact/dist/css/mdb.css";
 import { Satellite } from "@material-ui/icons";
 
+// ######## This function is used to 
+// set the date variables that will be used to send the calander details into the database.#####  
+
 function MusicianRegister() {
 
   const [state, setSchedule] = useState({});
@@ -16,11 +19,20 @@ function MusicianRegister() {
   const [fri, setFri] = useState("");
   const [sat, setSat] = useState("");
   const [sun, setSun] = useState("");
+  const [date_time, setDate_time] = useState("");
+
+
+// ######## This function is used for the calander that 
+  // the musician uses to submit the availability.
+  // it is part of the node package we used for the calander and handles the selections#####  
 
   const handleChange = newSchedule => {
     setSchedule({ schedule: newSchedule });
 
   }
+  // ######## This function is used for the calander that 
+  // the musician uses to submit the availability. 
+  // it is what we use to post the data into the database#####  
 
   const seperate = () => {
 
@@ -31,6 +43,7 @@ function MusicianRegister() {
     let frix = [];
     let satx = [];
     let sunx = [];
+    let dateObj = [];
 
 
 
@@ -65,13 +78,21 @@ function MusicianRegister() {
         sunx.push(sunHour);
       }
     }
-    setMon(JSON.stringify(monx));
+
+    let availability = {monday:monx, tuesday:tuex, wednesday:wedx,
+                  thursday:thux, friday:frix, saturday:satx, sunday:sunx};
+    
+    dateObj.push(availability);
+    console.log(dateObj);
+
+    setMon(JSON.stringify(monx)); 
     setTue(JSON.stringify(tuex));
     setWed(JSON.stringify(wedx));
     setThu(JSON.stringify(thux));
     setFri(JSON.stringify(frix));
     setSat(JSON.stringify(satx));
     setSun(JSON.stringify(sunx));
+    setDate_time(JSON.stringify(dateObj));
 
     if (state.schedule.length == 0) {
       alert("nothing has been selected")
@@ -81,6 +102,8 @@ function MusicianRegister() {
   }
 
 
+// ######## This function shows the text area when 
+// the user clicks 'other' in musical training section#####  
 
   function ShowTextArea() {
     var textArea = document.getElementById("commentBox");
@@ -89,6 +112,10 @@ function MusicianRegister() {
     textBox.style.display = "none";
 
   }
+
+  // ######## This function hides the text area when 
+// the user clicks 'other' in musical training section
+//  and shows the textbox when user clicks 'bachelor','master', or 'in school'#####  
 
   function HideTextArea() {
     var textArea = document.getElementById("commentBox");
@@ -102,6 +129,8 @@ function MusicianRegister() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // ### Here we are setting the variables that the user will change to push into the database###
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -126,6 +155,9 @@ function MusicianRegister() {
   const [site, setSite] = useState("");
   const [media, setMedia] = useState("");
 
+
+  // ######## This function sends all the variables when the user clicks
+  //  the submit button, into the server.js file #####  
 
   const submitMusician = () => {
     const instrumentList = JSON.stringify(instrument);
@@ -156,7 +188,8 @@ function MusicianRegister() {
       thursday: thu,
       friday: fri,
       saturday: sat,
-      sunday: sun
+      sunday: sun,
+      date_time:date_time
     }).then(() => {
       alert("sucessful insert");
     });
@@ -1173,6 +1206,8 @@ function MusicianRegister() {
 
           {/* ##################AVAILABLITY############################ */}
 
+
+{/* #####This section is for the calender on the musician registration page####### */}
 
 
           <div className='calander' >
