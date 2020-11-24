@@ -448,11 +448,12 @@ function Ordering() {
       if (email === "" || email === "_  _  _  _  _  _") {
         document.getElementById("emailReq").style.display = "block";
         document.getElementById("emailOK").style.display = "none";
+        document.getElementById("emailLen").style.display = "none";
       }
-      if (email !== "" && email !== "_  _  _  _  _  _") {
-        document.getElementById("emailReq").style.display = "none";
-        document.getElementById("emailOK").style.display = "block";
-      }
+      // if (email !== "" && email !== "_  _  _  _  _  _") {
+      //   document.getElementById("emailReq").style.display = "none";
+      //   document.getElementById("emailOK").style.display = "block";
+      // }
       // if (email.length < 3 && email.length >= 1) {
       //   document.getElementById("emailLen").style.display = "block";
       //   document.getElementById("emailReq").style.display = "none";
@@ -463,6 +464,16 @@ function Ordering() {
       //   document.getElementById("emailReq").style.display = "none";
       //   document.getElementById("emailOK").style.display = "block";
       // }
+      if (email.length >= 5 && !email.includes("@") && !email.includes(".") && email !== "_  _  _  _  _  _" && email !== "") {
+        document.getElementById("emailLen").style.display = "block";
+        document.getElementById("emailReq").style.display = "none";
+        document.getElementById("emailOK").style.display = "none";
+      }
+      if (email.includes("@") && email.includes(".")) {
+        document.getElementById("emailLen").style.display = "none";
+        document.getElementById("emailReq").style.display = "none";
+        document.getElementById("emailOK").style.display = "block";
+      }
       
     }
     else {
@@ -904,7 +915,7 @@ function Ordering() {
                 <Form.Control required type="email" placeholder="yourname@gmail.com" onChange={(e) => { setEmail(e.target.value); }} />
                 <span id="emailOK">Looks Good!</span>
                 <span id="emailReq">Email is required!</span>
-                {/* <span id="emailLen">Valid pattern is abc@email.co</span> */}
+                <span id="emailLen">Valid pattern is abc@email.com</span>
               </Form.Group>
 
             </div>
