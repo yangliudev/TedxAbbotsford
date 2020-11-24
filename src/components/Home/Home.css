@@ -236,7 +236,7 @@
 }
 
 .buttonAlign2 {
-    max-height: 400px;
+    max-height: 500px;
     max-width: 1000px;
     margin: auto;
 }
@@ -409,9 +409,16 @@ a+a {
 }
 
 .carouselImage {
-    min-width: 60%;
-    width: 300px;
+    /* min-width: 60%; */
+    width: 100%;
+    height: auto;
     margin: auto;
+    position: relative;
+    bottom: 100px;
+}
+.carouselImageContainer {
+    width: 200px;
+    height: 500px;
 }
 
 @media only screen and (orientation: portrait) {

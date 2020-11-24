@@ -1,6 +1,6 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-import OrderDataService from "../../services/OrderService";
+// import OrderDataService from "../../services/OrderService";
 import axios from "axios";
 
 const OrdersList = () => {
@@ -8,7 +8,7 @@ const OrdersList = () => {
 
   useEffect(() => {
     retrieveOrder();
-  }, []);
+  });
 
   const retrieveOrder = () => {
     //OrderDataService.getAll()
@@ -25,7 +25,7 @@ const OrdersList = () => {
   };
 
   let address = "";
-  if (orders != undefined && orders.length > 0) {
+  if (orders !== undefined && orders.length > 0) {
     address = orders[orders.length - 1].address;
   }
 

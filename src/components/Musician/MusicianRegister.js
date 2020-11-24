@@ -1,10 +1,10 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as ReactBootStrap from "react-bootstrap";
 import ScheduleSelector from 'react-schedule-selector';
 import Axios from "axios";
 import "./MusicianRegister.css";
 import "mdbreact/dist/css/mdb.css";
-import { Satellite } from "@material-ui/icons";
+// import { Satellite } from "@material-ui/icons";
 
 // ######## This function is used to 
 // set the date variables that will be used to send the calander details into the database.#####  
@@ -48,32 +48,32 @@ function MusicianRegister() {
 
 
     for (let index = 0; index < state.schedule.length; index++) {
-      if (state.schedule[index].getDate() == 2) {
+      if (state.schedule[index].getDate() === 2) {
         let monHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
         monx.push(monHour);
 
-      } if (state.schedule[index].getDate() == 3) {
+      } if (state.schedule[index].getDate() === 3) {
         let tueHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
         tuex.push(tueHour);
 
-      } if (state.schedule[index].getDate() == 4) {
+      } if (state.schedule[index].getDate() === 4) {
         let wedHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
         wedx.push(wedHour);
 
 
-      } if (state.schedule[index].getDate() == 5) {
+      } if (state.schedule[index].getDate() === 5) {
         let thuHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
         thux.push(thuHour);
 
-      } if (state.schedule[index].getDate() == 6) {
+      } if (state.schedule[index].getDate() === 6) {
         let friHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
         frix.push(friHour);
 
-      } if (state.schedule[index].getDate() == 7) {
+      } if (state.schedule[index].getDate() === 7) {
         let satHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
         satx.push(satHour);
 
-      } if (state.schedule[index].getDate() == 8) {
+      } if (state.schedule[index].getDate() === 8) {
         let sunHour = state.schedule[index].getHours() + ":" + state.schedule[index].getMinutes()
         sunx.push(sunHour);
       }
@@ -93,8 +93,8 @@ function MusicianRegister() {
     setSat(JSON.stringify(satx));
     setSun(JSON.stringify(sunx));
     setDate_time(JSON.stringify(dateObj));
-
-    if (state.schedule.length == 0) {
+    console.log(date_time);
+    if (state.schedule.length === 0) {
       alert("nothing has been selected")
     } else {
          document.getElementById("regedit").style.display = "initial";
@@ -147,7 +147,8 @@ function MusicianRegister() {
   const [confirmpassword, setConfirmPassword] = useState("");
 
   const [training, setTraining] = useState("");
-  const [othertraining, setOtherTraining] = useState("");
+  // const [othertraining, setOtherTraining] = useState("");
+  const [othertraining] = useState("");
 
   const [instrument, setInstrument] = useState([]);
   const [style, setStyle] = useState("");

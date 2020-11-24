@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
 import "./MusicianDashboard.css";
@@ -8,7 +8,8 @@ import Scheduler from "./MusicianCalander";
 function MusicianDashboard() {
 
 
-    const [user, setUser] = useState("Harish@email.com");
+    const [user] = useState("Harish@email.com");
+    // const [user, setUser] = useState("Harish@email.com");
     const [orders, setOrders] = useState([]);
 
     const [musicianDetails, setMusicianDetails] = useState({});
@@ -67,7 +68,7 @@ function MusicianDashboard() {
 
         // console.log(response.data[0]);
     });
-  }, []);
+  }, [user]);
 
 //   useEffect(() => {
 //       if (musicianDetails)

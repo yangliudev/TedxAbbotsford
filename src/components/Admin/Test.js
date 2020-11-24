@@ -1,8 +1,8 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import MUIDataTable from "mui-datatables";
 import "./Admin.css"
-import { createMuiTheme, MuiThemeProvider, withStyles } from '@material-ui/core/styles';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
  
 function Test() {
@@ -49,11 +49,17 @@ function Test() {
       };
   })();
 
-  const [responsive, setResponsive] = useState("vertical");
-  const [tableBodyHeight, setTableBodyHeight] = useState("400px");
-  const [tableBodyMaxHeight, setTableBodyMaxHeight] = useState("");
-  const [transitionTime, setTransitionTime] = useState(300);
-  const [selectableRows, setSelectableRows] = useState('none');
+  // const [responsive, setResponsive] = useState("vertical");
+  // const [tableBodyHeight, setTableBodyHeight] = useState("400px");
+  // const [tableBodyMaxHeight, setTableBodyMaxHeight] = useState("");
+  // const [transitionTime, setTransitionTime] = useState(300);
+  // const [selectableRows, setSelectableRows] = useState('none');
+
+  const [responsive] = useState("vertical");
+  const [tableBodyHeight] = useState("400px");
+  const [tableBodyMaxHeight] = useState("");
+  const [transitionTime] = useState(300);
+  const [selectableRows] = useState('none');
 
 
   const columns = ["ID", "Gift", "Occasion", "Music Type", "# of Musicians", "Suprise", "First Name", "Last Name", "Date Service", "Time Service", "Offered", "Number", "Email", "Address", "Location", "City", "State", "Zip", "Comments", "Tips"];

@@ -1,10 +1,11 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component } from "react";
+// import React, { Component, useState, useEffect } from "react";
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
 
 import "./Map.css";
-import axios from "axios";
+// import axios from "axios";
 
-import OrderDataService from "../../services/OrderService";
+// import OrderDataService from "../../services/OrderService";
 
 import OrdersList from "./OrdersList";
 
@@ -14,9 +15,9 @@ const mapStyles = {
 };
 
 export class MapContainer extends Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   state = {
     showingInfoWindow: false, // Hides or shows the InfoWindow

@@ -120,6 +120,14 @@ h3 {
     font-family: MyFont2;
 }
 
+#trans-button-style {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
   .borders {
     border-style: dashed;
   }

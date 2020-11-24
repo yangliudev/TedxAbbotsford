@@ -1,9 +1,9 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
 import "./MusicianDashboard.css";
 import Scheduler from "./MusicianCalander";
-import { Box } from "@material-ui/core";
+// import { Box } from "@material-ui/core";
 // import MusicianRequests from "./MusicianRequests";
 
 function MusicianDashboard() {
@@ -57,7 +57,7 @@ function MusicianDashboard() {
 
     useEffect(() => {
         Axios.get("http://localhost:5000/login").then((response) => {
-            if (response.data.loggedIn == true) {
+            if (response.data.loggedIn === true) {
                 setUser(response.data.user[0].username);
             }
         });
@@ -72,7 +72,7 @@ function MusicianDashboard() {
 
             // console.log(response.data[0]);
         });
-    }, []);
+    }, [user]);
 
     //   useEffect(() => {
     //       if (musicianDetails)
@@ -149,12 +149,11 @@ function MusicianDashboard() {
         
     }
 
-    function hide(p) {
+    // function hide(p) {
        
-        var button = document.getElementById(p);
-        button.style.display = "none";        
-    }
-      
+    //     var button = document.getElementById(p);
+    //     button.style.display = "none";        
+    // }
 
     function active() {
         var x = document.getElementById("profile")

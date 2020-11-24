@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import * as ReactBootStrap from "react-bootstrap";
 import Axios from 'axios';
 
@@ -20,7 +20,7 @@ import pic10 from "./ordering-assets/duomusiciens.png"
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col'
 import MediaQuery from 'react-responsive';
-import { Pause } from '@material-ui/icons';
+// import { Pause } from '@material-ui/icons';
 
 
 function Ordering() {
@@ -104,7 +104,7 @@ function Ordering() {
     x.style.display = "none";
     document.getElementById("order7").style.display = "block";
     document.getElementById("orderConfirm").style.display = "none";
-    document.getElementById("date-time-field").focus();
+    // document.getElementById("date-time-field").focus();
   }
 
   function back7() {
@@ -178,9 +178,9 @@ function Ordering() {
     return dateFormatted
   }
 
-  const [musicianName, setMusicianName] = useState("");
-  const [musicianType, setMusicianType] = useState("");
-  const [musicanList, setMusicanList] = useState([]);
+  // const [musicianName, setMusicianName] = useState("");
+  // const [musicianType, setMusicianType] = useState("");
+  // const [musicanList, setMusicanList] = useState([]);
 
   const [gift, setGift] = useState("_  _  _  _  _  _");
   const [giftText, setGiftText] = useState("_  _  _  _  _  _");
@@ -197,7 +197,7 @@ function Ordering() {
   const [number, setNumber] = useState("_  _  _  _  _  _");
   const [email, setEmail] = useState("_  _  _  _  _  _");
   const [address, setAddress] = useState("_  _  _  _  _  _");
-  const [address2, setAddress2] = useState("_  _  _  _  _  _");
+  // const [address2, setAddress2] = useState("_  _  _  _  _  _");
   const [city, setCity] = useState("_  _  _  _  _  _");
   const [state, setState] = useState("_  _  _  _  _  _");
   const [zip, setZip] = useState("_  _  _  _  _  _");
@@ -218,7 +218,7 @@ function Ordering() {
       orderNumber: number,
       orderEmail: email,
       orderAddress: address,
-      orderAddress2: address2,
+      // orderAddress2: address2,
       orderCity: city,
       orderState: state,
       orderZip: zip,
@@ -230,39 +230,39 @@ function Ordering() {
 
 
   // Validatoin contents below \/ \/
-  const [validated, setValidated] = useState(false);
+  const [validated] = useState(false);
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-      if (firstName == "" || firstName == "_  _  _  _  _  _") {
+      if (firstName === "" || firstName === "_  _  _  _  _  _") {
         document.getElementById("fNameLabelReq").style.display = "block";
         document.getElementById("fNameLabelLen").style.display = "block";
         document.getElementById("fNameLabelOK").style.display = "none";
       }
-      else if (firstName.length < 3) {
+      else if (firstName.length < 2) {
         document.getElementById("fNameLabelReq").style.display = "none";
         document.getElementById("fNameLabelOK").style.display = "none";
         document.getElementById("fNameLabelLen").style.display = "block";
       }
-      else if (firstName.length >= 3 & firstName !== "_  _  _  _  _  _") {
+      else if (firstName.length >= 2 & firstName !== "_  _  _  _  _  _") {
         document.getElementById("fNameLabelOK").style.display = "block";
         document.getElementById("fNameLabelReq").style.display = "none";
         document.getElementById("fNameLabelLen").style.display = "none";
       }
-      if (lastName == "" || lastName == "_  _  _  _  _  _") {
+      if (lastName === "" || lastName === "_  _  _  _  _  _") {
         document.getElementById("lNameLabelReq").style.display = "block";
         document.getElementById("lNameLabelLen").style.display = "block";
         document.getElementById("lNameLabelOK").style.display = "none";
       }
-      else if (lastName.length < 3 ) {
+      else if (lastName.length < 2 ) {
         document.getElementById("lNameLabelReq").style.display = "none";
         document.getElementById("lNameLabelOK").style.display = "none";
         document.getElementById("lNameLabelLen").style.display = "block";
       }
-      else if (lastName.length >= 3) {
+      else if (lastName.length >= 2) {
         document.getElementById("lNameLabelOK").style.display = "block";
         document.getElementById("lNameLabelReq").style.display = "none";
         document.getElementById("lNameLabelLen").style.display = "none";
@@ -287,7 +287,7 @@ function Ordering() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-      if (occasion == "" || occasion == "_  _  _  _  _  _") {
+      if (occasion === "" || occasion === "_  _  _  _  _  _") {
         document.getElementById("occasionReq").style.display = "block";
         document.getElementById("occasionLen").style.display = "block";
         document.getElementById("occasionOK").style.display = "none";
@@ -314,7 +314,7 @@ function Ordering() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-      if (dateService == "" || dateService == "_  _  _  _  _  _") {
+      if (dateService === "" || dateService === "_  _  _  _  _  _") {
         document.getElementById("date-timeReq").style.display = "block";
       }
     }
@@ -333,7 +333,7 @@ function Ordering() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-      if (address == "" || address == "_  _  _  _  _  _") {
+      if (address === "" || address === "_  _  _  _  _  _") {
         document.getElementById("addressLineReq").style.display = "block";
         document.getElementById("addressLineOK").style.display = "none";
       }
@@ -342,12 +342,12 @@ function Ordering() {
         document.getElementById("addressLineReq").style.display = "none";
         document.getElementById("addressLineOK").style.display = "none";
       }
-      if (address.length >= 4 && address != "_  _  _  _  _  _") {
+      if (address.length >= 4 && address !== "_  _  _  _  _  _") {
         document.getElementById("addressLineLen").style.display = "none";
         document.getElementById("addressLineReq").style.display = "none";
         document.getElementById("addressLineOK").style.display = "block";
       }
-      if (city == "" || city == "_  _  _  _  _  _") {
+      if (city === "" || city === "_  _  _  _  _  _") {
         document.getElementById("cityReq").style.display = "block";
         document.getElementById("cityOK").style.display = "none";
       }
@@ -356,12 +356,12 @@ function Ordering() {
         document.getElementById("cityReq").style.display = "none";
         document.getElementById("cityOK").style.display = "none";
       }
-      if (city.length >= 3 && city != "_  _  _  _  _  _") {
+      if (city.length >= 3 && city !== "_  _  _  _  _  _") {
         document.getElementById("cityLen").style.display = "none";
         document.getElementById("cityReq").style.display = "none";
         document.getElementById("cityOK").style.display = "block";
       }
-      if (state == "" || state == "_  _  _  _  _  _") {
+      if (state === "" || state === "_  _  _  _  _  _") {
         document.getElementById("stateReq").style.display = "block";
         document.getElementById("stateOK").style.display = "none";
       }
@@ -369,7 +369,7 @@ function Ordering() {
         document.getElementById("stateReq").style.display = "none";
         document.getElementById("stateOK").style.display = "block";
       }
-      if (zip == "" || zip == "_  _  _  _  _  _") {
+      if (zip === "" || zip === "_  _  _  _  _  _") {
         document.getElementById("zipReq").style.display = "block";
         document.getElementById("zipOK").style.display = "none";
       }
@@ -378,7 +378,7 @@ function Ordering() {
         document.getElementById("zipReq").style.display = "none";
         document.getElementById("zipOK").style.display = "none";
       }
-      if (zip.length >= 6 && zip != "_  _  _  _  _  _") {
+      if (zip.length >= 6 && zip !== "_  _  _  _  _  _") {
         document.getElementById("zipLen").style.display = "none";
         document.getElementById("zipReq").style.display = "none";
         document.getElementById("zipOK").style.display = "block";
@@ -409,7 +409,7 @@ function Ordering() {
       event.preventDefault();
       event.stopPropagation();
       console.log("personal information is not valid");
-      if (offered == "" || offered == "_  _  _  _  _  _") {
+      if (offered === "" || offered === "_  _  _  _  _  _") {
         document.getElementById("offeredByReq").style.display = "block";
         document.getElementById("offeredByOK").style.display = "none";
       }
@@ -418,12 +418,12 @@ function Ordering() {
         document.getElementById("offeredByReq").style.display = "none";
         document.getElementById("offeredByOK").style.display = "none";
       }
-      if (offered.length >= 3 && offered != "_  _  _  _  _  _") {
+      if (offered.length >= 3 && offered !== "_  _  _  _  _  _") {
         document.getElementById("offeredByLen").style.display = "none";
         document.getElementById("offeredByReq").style.display = "none";
         document.getElementById("offeredByOK").style.display = "block";
       }
-      if (number == "" || number == "_  _  _  _  _  _") {
+      if (number === "" || number === "_  _  _  _  _  _") {
         document.getElementById("phoneNumberReq").style.display = "block";
         document.getElementById("phoneNumberOK").style.display = "none";
         document.getElementById("phoneNumberNums").style.display = "none";
@@ -433,7 +433,7 @@ function Ordering() {
         document.getElementById("phoneNumberReq").style.display = "none";
         document.getElementById("phoneNumberOK").style.display = "none";
       }
-      if (number.length >= 10 && number != "_  _  _  _  _  _") {
+      if (number.length >= 10 && number !== "_  _  _  _  _  _") {
         document.getElementById("phoneNumberLen").style.display = "none";
         document.getElementById("phoneNumberReq").style.display = "none";
         document.getElementById("phoneNumberNums").style.display = "none";
@@ -445,20 +445,24 @@ function Ordering() {
         document.getElementById("phoneNumberOK").style.display = "none";
         document.getElementById("phoneNumberNums").style.display = "block";
       }
-      if (email == "" || email == "_  _  _  _  _  _") {
+      if (email === "" || email === "_  _  _  _  _  _") {
         document.getElementById("emailReq").style.display = "block";
         document.getElementById("emailOK").style.display = "none";
       }
-      if (email.length < 3 && email.length >= 1) {
-        document.getElementById("emailLen").style.display = "block";
-        document.getElementById("emailReq").style.display = "none";
-        document.getElementById("emailOK").style.display = "none";
-      }
-      if (email.length >= 3 && email != "_  _  _  _  _  _" ) {
-        document.getElementById("emailLen").style.display = "none";
+      if (email !== "" && email !== "_  _  _  _  _  _") {
         document.getElementById("emailReq").style.display = "none";
         document.getElementById("emailOK").style.display = "block";
       }
+      // if (email.length < 3 && email.length >= 1) {
+      //   document.getElementById("emailLen").style.display = "block";
+      //   document.getElementById("emailReq").style.display = "none";
+      //   document.getElementById("emailOK").style.display = "none";
+      // }
+      // if (email.length >= 3 && email !== "_  _  _  _  _  _" ) {
+      //   document.getElementById("emailLen").style.display = "none";
+      //   document.getElementById("emailReq").style.display = "none";
+      //   document.getElementById("emailOK").style.display = "block";
+      // }
       
     }
     else {
@@ -472,7 +476,7 @@ function Ordering() {
       document.getElementById("phoneNumberReq").style.display = "none";
       document.getElementById("phoneNumberNums").style.display = "none";
       document.getElementById("phoneNumberOK").style.display = "block";
-      document.getElementById("emailLen").style.display = "none";
+      // document.getElementById("emailLen").style.display = "none";
         document.getElementById("emailReq").style.display = "none";
         document.getElementById("emailOK").style.display = "block";
       event.preventDefault();
@@ -495,15 +499,19 @@ function Ordering() {
 
         <ReactBootStrap.Row>
           <div className="bg-display-test">
-            <ReactBootStrap.Col>
-              <a onClick={(e) => { setGift("one person"); setGiftText("One person in Particular"); forward1(); }}><img src={pic1} className="pic" /><p>One person <br /> in particular</p></a>
+            <ReactBootStrap.Col onClick={(e) => { setGift("one person"); setGiftText("One person in Particular"); forward1(); }}>
+              <button id="trans-button-style"><img src={pic1} className="pic" alt=""/><p>One person <br /> in particular</p></button>
             </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setGift("small committee"); setGiftText("A small committee"); forward1(); }}><img src={pic2} className="pic" /><p>A small <br />  committee</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setGift("small committee"); setGiftText("A small committee"); forward1(); }}>
+              <button id="trans-button-style"><img src={pic2} className="pic" alt=""/><p>A small <br />  committee</p></button>
+            </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setGift("institution"); setGiftText("An institution"); forward1(); }}><img src={pic3} className="pic" /><p>An <br />  institution</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setGift("institution"); setGiftText("An institution"); forward1(); }}>
+              <button id="trans-button-style"><img src={pic3} className="pic" alt=""/><p>An <br />  institution</p></button>
+            </ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
 
@@ -525,22 +533,22 @@ function Ordering() {
 
           <Form.Row className="justify-content-md-center">
             <Form.Group as={Col} xs={6} controlId="formGridFirstName">
-              <Form.Control className="form-control" required minLength="3" type="text" id="fNameField" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }} />
+              <Form.Control className="form-control" required minLength="2" type="text" id="fNameField" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }} />
               <span id="fNameLabelOK">Looks Good!</span>
               <span id="fNameLabelReq">First Name is required!</span>
-              <span id="fNameLabelLen"></span>
+              <span id="fNameLabelLen">Minimum length of 2 is required!</span>
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridLastName">
-              <Form.Control className="form-control" required minLength="3" type="text" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
+              <Form.Control className="form-control" required minLength="2" type="text" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
               <span id="lNameLabelOK">Looks Good!</span>
               <span id="lNameLabelReq">Last Name is required!</span>
-              <span id="lNameLabelLen"></span>
+              <span id="lNameLabelLen">Minimum length of 2 is required!</span>
             </Form.Group>
           </Form.Row>
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back2}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back2}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
@@ -568,7 +576,7 @@ function Ordering() {
                   <input type="text" required minLength="3" id="form1" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
                   <span id="occasionOK">Looks Good!</span>
                   <span id="occasionReq">Occasion is required!</span>
-                  <span id="occasionLen"></span>
+                  <span id="occasionLen">Minimum length of 3 is required!</span>
                 </div>
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
@@ -580,8 +588,8 @@ function Ordering() {
           <ReactBootStrap.Row>
             <ReactBootStrap.Col style={{ marginTop: '20px' }}>
               <div class="buttonAlign">
-                <ReactBootStrap.Button variant="danger" className='button' onClick={back3}><a>Back</a></ReactBootStrap.Button>
-                <ReactBootStrap.Button type="submit" variant="success" className='button'><a>Next</a></ReactBootStrap.Button>
+                <ReactBootStrap.Button variant="danger" className='button' onClick={back3}>Back</ReactBootStrap.Button>
+                <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
               </div>
             </ReactBootStrap.Col>
           </ReactBootStrap.Row>
@@ -602,23 +610,31 @@ function Ordering() {
 
         <ReactBootStrap.Row>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("classic"); setTypeText("Classical music"); forward4(); }}><img src={pic5} className="pic" /><p>Classical</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setType("classic"); setTypeText("Classical music"); forward4(); }}>
+              <button id="trans-button-style"><img src={pic5} className="pic" alt=""/><p>Classical</p></button>
+            </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("popular"); setTypeText("Popular music"); forward4(); }}><img src={pic6} className="pic" /><p style={{ fontSize: '19px' }}>Popular Music</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setType("popular"); setTypeText("Popular music"); forward4(); }}>
+              <button id="trans-button-style" ><img src={pic6} className="pic" alt=""/><p style={{ fontSize: '19px' }}>Popular Music</p></button>
+            </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("jazzy/pop"); setTypeText("Jazzy-Pop music"); forward4(); }}><img src={pic7} className="pic" /><p>Jazzy - Pop</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setType("jazzy/pop"); setTypeText("Jazzy-Pop music"); forward4(); }}>
+              <button id="trans-button-style" ><img src={pic7} className="pic" alt=""/><p>Jazzy - Pop</p></button>
+            </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("suprise"); setTypeText("A surprise"); forward4(); }}><img src={pic8} className="pic" /><p>Suprise!</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setType("suprise"); setTypeText("A surprise"); forward4(); }}>
+              <button id="trans-button-style" ><img src={pic8} className="pic" alt=""/><p>Suprise!</p></button>
+            </ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginTop: '20px' }}>
             <div class="buttonAlign">
-              <ReactBootStrap.Button variant="danger" className='button' onClick={back4}><a>Back</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button variant="danger" className='button' onClick={back4}>Back</ReactBootStrap.Button>
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -639,24 +655,26 @@ function Ordering() {
 
         <ReactBootStrap.Row sm={1} md={3}>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setNumberMusicians("solo"); forward5(); }}><img src={pic9} className="pic2" /><p>Soloist</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setNumberMusicians("solo"); forward5(); }}>
+              <button id="trans-button-style"><img src={pic9} className="pic2" alt=""/><p>Soloist</p></button>
+            </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setNumberMusicians("duo"); forward5(); }}><img src={pic10} className="pic2" /><p>Duo</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setNumberMusicians("duo"); forward5(); }}>
+              <button id="trans-button-style"><img src={pic10} className="pic2" alt=""/><p>Duo</p></button>
+            </ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginTop: '20px' }}>
             <div class="buttonAlign">
-              <ReactBootStrap.Button variant="danger" className='button' onClick={back5}><a>Back</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button variant="danger" className='button' onClick={back5}>Back</ReactBootStrap.Button>
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
       </ReactBootStrap.Container>
-
-
 
       <ReactBootStrap.Container className="bg-display" id="order6">
 
@@ -665,25 +683,25 @@ function Ordering() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center">
-          <div className="bg-display-button">
-            <a onClick={(e) => { setSuprise("yes"); forward6(); }}>
+          <div className="bg-display-button" onClick={(e) => { setSuprise("yes"); forward6(); }}>
+            <button id="trans-button-style" >
               <ReactBootStrap.Col><p class="surprise">Yes</p></ReactBootStrap.Col>
-            </a>
+            </button>
           </div>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center">
-          <div style={{ marginTop: '10px' }} className="bg-display-button">
-            <a onClick={(e) => { setSuprise("no"); forward6(); }}>
+          <div style={{ marginTop: '10px' }} className="bg-display-button" onClick={(e) => { setSuprise("no"); forward6(); }}>
+            <button id="trans-button-style" >
               <ReactBootStrap.Col><p class="surprise">No</p></ReactBootStrap.Col>
-            </a>
+            </button>
           </div>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginTop: '20px' }}>
             <div class="buttonAlign">
-              <ReactBootStrap.Button variant="danger" className='button' onClick={back6}><a>Back</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button variant="danger" className='button' onClick={back6}>Back</ReactBootStrap.Button>
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -728,7 +746,7 @@ function Ordering() {
           </Form.Row> */}
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back7}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back7}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
@@ -777,7 +795,7 @@ function Ordering() {
                 <Form.Control required minLength="3" placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
                 <span id="cityOK">Looks Good!</span>
                 <span id="cityReq">City is required!</span>
-                <span id="cityLen"></span>
+                <span id="cityLen">Minimum length of 3 is required!</span>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
@@ -810,7 +828,7 @@ function Ordering() {
                   <Form.Control required placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
                   <span id="cityOK">Looks Good!</span>
                   <span id="cityReq">City is required!</span>
-                  <span id="cityLen"></span>
+                  <span id="cityLen">Minimum length of 3 is required!</span>
                 </div>
               </Form.Group>
 
@@ -839,7 +857,7 @@ function Ordering() {
 
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back8}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back8}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
@@ -868,7 +886,7 @@ function Ordering() {
                 <Form.Control required minLength="3" type="text" placeholder="Your name here" id="offered-field" onChange={(e) => { setOffered(e.target.value); }} />
                 <span id="offeredByOK">Looks Good!</span>
                 <span id="offeredByReq">Offered by is required!</span>
-                <span id="offeredByLen"></span>
+                <span id="offeredByLen">Minimum length of 3 is required!</span>
               </Form.Group>
 
               <Form.Group controlId="formGridPhone">
@@ -883,17 +901,17 @@ function Ordering() {
 
               <Form.Group controlId="formGridEmail">
                 <Form.Label>Email Address</Form.Label>
-                <Form.Control required minLength="4" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" type="email" placeholder="yourname@gmail.com" onChange={(e) => { setEmail(e.target.value); }} />
+                <Form.Control required type="email" placeholder="yourname@gmail.com" onChange={(e) => { setEmail(e.target.value); }} />
                 <span id="emailOK">Looks Good!</span>
                 <span id="emailReq">Email is required!</span>
-                <span id="emailLen">Valid pattern is abc@email.co</span>
+                {/* <span id="emailLen">Valid pattern is abc@email.co</span> */}
               </Form.Group>
 
             </div>
           </div>
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back9}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back9}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
         </Form>
@@ -919,7 +937,7 @@ function Ordering() {
           </Form.Group>
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back10}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back10}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button variant="success" className='button' onClick={forward10}>Submit</ReactBootStrap.Button>
           </div>
 
@@ -1152,7 +1170,7 @@ function Ordering() {
 
           <ReactBootStrap.Row className="justify-content-md-center">
             <div class="buttonAlign">
-              <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}><a>Back</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}>Back</ReactBootStrap.Button>
               <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="success" className='button' style={{ width: '185px' }} onClick={submitOrder}>Go back to Home</ReactBootStrap.Button></a>
             </div>
           </ReactBootStrap.Row>
