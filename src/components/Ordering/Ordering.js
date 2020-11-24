@@ -943,34 +943,25 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward1}>
               <ReactBootStrap.Col md="auto">
                 <p>{firstName} {lastName}</p>
               </ReactBootStrap.Col>
-              <span class="tooltiptext">Click here to change this detail</span>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={back1}>
               <ReactBootStrap.Col md="auto">
                 <p>({giftText})</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward2}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Occasion:</p>
 
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{occasion}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -981,75 +972,57 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward5}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Suprise concert:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{suprise}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward3}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Style of music:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{type}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward4}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Number of Musicians:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{numberMusicians}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward6}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro" >Date of Service:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{dateService}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward6}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Time of Service:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{timeService}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward7}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Address:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{address}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           {/* <ReactBootStrap.Row className="justify-content-md-center">
@@ -1058,39 +1031,30 @@ function Ordering() {
           </ReactBootStrap.Row> */}
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward7}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">City:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{city}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward7}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">State:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{state}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward7}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Zip:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{zip}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -1101,36 +1065,27 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward8}>
               <ReactBootStrap.Col md="auto">
                 <p>{offered}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward8}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Phone Number:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{number}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward8}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Email:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{email}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -1141,12 +1096,9 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={backFinal}>
               <ReactBootStrap.Col md="auto">
                 <p>{comments}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
 
