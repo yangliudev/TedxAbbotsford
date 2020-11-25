@@ -74,7 +74,16 @@ function Test() {
             width: "inherit"
           }
         },
-      },
+        // MuiTableRow: {
+        //   hover: {
+        //     '&$root': {
+        //       '&:hover': {
+        //         background: 'red'
+        //       }
+        //     }
+        //   }
+        // },
+      }
     });
 
   useEffect(() => {
@@ -346,7 +355,7 @@ const backEditing = () => {
 
   const options = {
     filter: true,
-    filterType: "dropdown",
+    filterType: "checkbox",
     responsive: "standard",
     // tableBodyHeight: "400px",
     // resizableColumns: true,
@@ -433,8 +442,9 @@ const backEditing = () => {
 
 
   return (
+    <div id="adminContainer">
 
-    <ReactBootStrap.Container className="dashboardNavAdmin" style={{marginTop:"30px"}}>
+    {/* <ReactBootStrap.Container className="dashboardNavAdmin" style={{marginTop:"30px"}}> */}
 
                     {/* <ReactBootStrap.Row className="justify-content-md-center">
                         <ReactBootStrap.Col>
@@ -459,8 +469,9 @@ const backEditing = () => {
                             </ReactBootStrap.Navbar>
                         </ReactBootStrap.Col>
                     </ReactBootStrap.Row>
-                    
-    
+                    {/* </ReactBootStrap.Container> */}
+
+
                     <div style={{ marginTop: "30px" }}>
                     <div id="edit">
                       {/* <label>TEst</label>
@@ -604,8 +615,7 @@ var editTime = rowEdit.time_service;*/}
 
 
     </div>
-    </ReactBootStrap.Container>
-
+    </div>
   );
 }
 
