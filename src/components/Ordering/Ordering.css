@@ -417,6 +417,19 @@ h3 {
     display: none;
     color:  rgb(255, 103, 103);
   }
+
+  #offeredByEditOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #offeredByEditReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #offeredByEditLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
   #phoneNumberOK {
     display: none;
     color: rgb(131, 255, 131);;
@@ -433,6 +446,23 @@ h3 {
     display: none;
     color: rgb(255, 103, 103);
   }
+
+  #phoneNumberEditOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #phoneNumberEditReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #phoneNumberEditLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+  #phoneNumberEditNums{
+    display: none;
+    color: rgb(255, 103, 103);
+  }
   #emailOK {
     display: none;
     color: rgb(131, 255, 131);;
@@ -442,6 +472,19 @@ h3 {
     color: rgb(255, 103, 103);
   }
   #emailLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+
+  #emailEditOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #emailEditReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #emailEditLen {
     display: none;
     color:  rgb(255, 103, 103);
   }

@@ -531,6 +531,10 @@ function Ordering() {
       }
   }
     document.getElementById("zipEdit").value = zip
+    document.getElementById("offered-fieldEdit").value = offered
+    document.getElementById("phoneEdit").value = number
+    document.getElementById("emailEdit").value = email
+    document.getElementById("commentEdit").value = comments
 }
 
   /*After edit in summary page, checkif each value is in the right format. Stop edit when they are, and do not stop if they are not. */
@@ -650,6 +654,62 @@ function Ordering() {
       document.getElementById("zipEditOK").style.display = "block";
     }
 
+    /*Offered By Check */
+    if (offered == "" || offered == "_  _  _  _  _  _") {
+      document.getElementById("offeredByEditReq").style.display = "block";
+      document.getElementById("offeredByEditOK").style.display = "none";
+    }
+    if (offered.length < 3 && offered.length >= 1) {
+      document.getElementById("offeredByEditLen").style.display = "block";
+      document.getElementById("offeredByEditReq").style.display = "none";
+      document.getElementById("offeredByEditOK").style.display = "none";
+    }
+    if (offered.length >= 3 && offered != "_  _  _  _  _  _") {
+      document.getElementById("offeredByEditLen").style.display = "none";
+      document.getElementById("offeredByEditReq").style.display = "none";
+      document.getElementById("offeredByEditOK").style.display = "block";
+    }
+
+    /*Phone Number Check */
+    if (number == "" || number == "_  _  _  _  _  _") {
+      document.getElementById("phoneNumberEditReq").style.display = "block";
+      document.getElementById("phoneNumberEditOK").style.display = "none";
+      document.getElementById("phoneNumberEditNums").style.display = "none";
+    }
+    if (number.length < 10 && number.length >=1) {
+      document.getElementById("phoneNumberEditLen").style.display = "block";
+      document.getElementById("phoneNumberEditReq").style.display = "none";
+      document.getElementById("phoneNumberEditOK").style.display = "none";
+    }
+    if (number.length >= 10 && number != "_  _  _  _  _  _") {
+      document.getElementById("phoneNumberEditLen").style.display = "none";
+      document.getElementById("phoneNumberEditReq").style.display = "none";
+      document.getElementById("phoneNumberEditNums").style.display = "none";
+      document.getElementById("phoneNumberEditOK").style.display = "block";
+    }
+    if (number.match("[a-zA-Z]+") || number.length > 10){
+      document.getElementById("phoneNumberEditLen").style.display = "none";
+      document.getElementById("phoneNumberEditReq").style.display = "none";
+      document.getElementById("phoneNumberEditOK").style.display = "none";
+      document.getElementById("phoneNumberEditNums").style.display = "block";
+    }
+
+    /*Email Check */
+    if (email == "" || email == "_  _  _  _  _  _") {
+      document.getElementById("emailEditReq").style.display = "block";
+      document.getElementById("emailEditOK").style.display = "none";
+    }
+    if (email.length < 3 && email.length >= 1) {
+      document.getElementById("emailEditLen").style.display = "block";
+      document.getElementById("emailEditReq").style.display = "none";
+      document.getElementById("emailEditOK").style.display = "none";
+    }
+    if (email.length >= 3 && email != "_  _  _  _  _  _" ) {
+      document.getElementById("emailEditLen").style.display = "none";
+      document.getElementById("emailEditReq").style.display = "none";
+      document.getElementById("emailEditOK").style.display = "block";
+    }
+
   }
 
   /*Everything Passes */
@@ -685,6 +745,19 @@ function Ordering() {
     document.getElementById("addressLineEditLen").style.display = "none";
     document.getElementById("addressLineEditReq").style.display = "none";
     document.getElementById("addressLineEditOK").style.display = "block";
+
+    document.getElementById("offeredByEditLen").style.display = "none";
+    document.getElementById("offeredByEditReq").style.display = "none";
+    document.getElementById("offeredByEditOK").style.display = "block";
+
+    document.getElementById("phoneNumberEditLen").style.display = "none";
+    document.getElementById("phoneNumberEditReq").style.display = "none";
+    document.getElementById("phoneNumberEditOK").style.display = "block";
+    document.getElementById("phoneNumberEditNums").style.display = "none";
+
+    document.getElementById("emailEditLen").style.display = "none";
+    document.getElementById("emailEditReq").style.display = "none";
+    document.getElementById("emailEditOK").style.display = "block";
 
     console.log("true");
     document.getElementById("summaryDetails").style.display="block"
@@ -1606,7 +1679,12 @@ function editType() {
 
           <ReactBootStrap.Row className="justify-content-md-center">
               <ReactBootStrap.Col md="auto">
-                <p>{offered}</p>
+              <Form.Group controlId="formGridHost">
+                <Form.Control required minLength="3" type="text" placeholder="Your name here" id="offered-fieldEdit" onChange={(e) => { setOffered(e.target.value); }} />
+                <span id="offeredByEditOK">Looks Good!</span>
+                <span id="offeredByEditReq">Offered by is required!</span>
+                <span id="offeredByEditLen"></span>
+              </Form.Group>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
@@ -1615,7 +1693,13 @@ function editType() {
                 <p className="intro">Phone Number:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <p>{number}</p>
+                <Form.Group controlId="formGridPhone">
+                  <Form.Control required minLength="10" type="tel" pattern="^\d{10}$" placeholder="778238xxxx" id="phoneEdit" onChange={(e) => { setNumber(e.target.value); }} />
+                  <span id="phoneNumberEditOK">Looks Good!</span>
+                  <span id="phoneNumberEditReq">Phone number is required!</span>
+                  <span id="phoneNumberEditLen">Required pattern is 10 digits</span>
+                  <span id="phoneNumberEditNums">Enter digits from 0-9 only!</span>
+                </Form.Group>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
@@ -1624,7 +1708,12 @@ function editType() {
                 <p className="intro">Email:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <p>{email}</p>
+                <Form.Group controlId="formGridEmail">
+                  <Form.Control required minLength="4" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" type="email" placeholder="yourname@gmail.com" id="emailEdit" onChange={(e) => { setEmail(e.target.value); }} />
+                  <span id="emailEditOK">Looks Good!</span>
+                  <span id="emailEditReq">Email is required!</span>
+                  <span id="emailEditLen">Valid pattern is abc@email.co</span>
+                </Form.Group>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
@@ -1637,7 +1726,9 @@ function editType() {
 
           <ReactBootStrap.Row className="justify-content-md-center">
               <ReactBootStrap.Col md="auto">
-                <p>{comments}</p>
+                <Form.Group controlId="formGridComment">
+                  <Form.Control as="textarea" rows={3} placeholder="Anything you'd like us to know" id="commentEdit" onChange={(e) => { setComments(e.target.value); }} />
+                </Form.Group>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
