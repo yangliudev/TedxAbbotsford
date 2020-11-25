@@ -15,6 +15,7 @@ import pic8 from "./ordering-assets/tresorblanc.png"
 
 import pic9 from "./ordering-assets/musiciennesolo.png"
 import pic10 from "./ordering-assets/duomusiciens.png"
+import editButton from "./ordering-assets/edit.png"
 
 
 import Form from 'react-bootstrap/Form';
@@ -483,6 +484,64 @@ function Ordering() {
 
   };
 
+  function startEdit() {
+    document.getElementById("summaryDetails").style.display="none"
+    document.getElementById("editFields").style.display="block"
+    document.getElementById("fNameFieldEdit").value=firstName
+    document.getElementById("lNameFieldEdit").value=lastName
+  }
+
+  const saveEdit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    if (firstName == "" || firstName == "_  _  _  _  _  _") {
+      document.getElementById("fNameLabelReq").style.display = "block";
+      document.getElementById("fNameLabelLen").style.display = "block";
+      document.getElementById("fNameLabelOK").style.display = "none";
+    }
+    else if (firstName.length < 3) {
+      document.getElementById("fNameLabelReq").style.display = "none";
+      document.getElementById("fNameLabelOK").style.display = "none";
+      document.getElementById("fNameLabelLen").style.display = "block";
+    }
+    else if (firstName.length >= 3 & firstName !== "_  _  _  _  _  _") {
+      document.getElementById("fNameLabelOK").style.display = "block";
+      document.getElementById("fNameLabelReq").style.display = "none";
+      document.getElementById("fNameLabelLen").style.display = "none";
+    }
+    if (lastName == "" || lastName == "_  _  _  _  _  _") {
+      document.getElementById("lNameLabelReq").style.display = "block";
+      document.getElementById("lNameLabelLen").style.display = "block";
+      document.getElementById("lNameLabelOK").style.display = "none";
+    }
+    else if (lastName.length < 3 ) {
+      document.getElementById("lNameLabelReq").style.display = "none";
+      document.getElementById("lNameLabelOK").style.display = "none";
+      document.getElementById("lNameLabelLen").style.display = "block";
+    }
+    else if (lastName.length >= 3) {
+      document.getElementById("lNameLabelOK").style.display = "block";
+      document.getElementById("lNameLabelReq").style.display = "none";
+      document.getElementById("lNameLabelLen").style.display = "none";
+    }
+  }
+  else {
+    document.getElementById("lNameLabelOK").style.display = "block";
+    document.getElementById("lNameLabelReq").style.display = "none";
+    document.getElementById("lNameLabelLen").style.display = "none";
+    document.getElementById("fNameLabelOK").style.display = "block";
+    document.getElementById("fNameLabelReq").style.display = "none";
+    document.getElementById("fNameLabelLen").style.display = "none";
+    event.preventDefault();
+    event.stopPropagation();
+    console.log("true");
+    document.getElementById("summaryDetails").style.display="block"
+    document.getElementById("editFields").style.display="none"
+  }
+}
+
 
   return (
 
@@ -930,9 +989,17 @@ function Ordering() {
 
 
       <ReactBootStrap.Container className="bg-display" id="orderConfirm">
-        <div>
+        <ReactBootStrap.Container id="summaryDetails">
           <ReactBootStrap.Row className="justify-content-md-center">
             <ReactBootStrap.Col md="auto"><h3>Perfect, we have everything. Here is a summary of your order before entering payment details.</h3></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><h6 className="editText">You can make changes by clicking the edit button below</h6></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className = "justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><img src={editButton} className="editButton" onClick={startEdit} /></ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -943,7 +1010,7 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-              <ReactBootStrap.Col md="auto">
+              <ReactBootStrap.Col md="auto" id="summaryDetails">
                 <p>{firstName} {lastName}</p>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
@@ -1109,7 +1176,213 @@ function Ordering() {
             </div>
           </ReactBootStrap.Row>
 
-        </div>
+        </ReactBootStrap.Container>
+
+        <ReactBootStrap.Container id="editFields">
+        <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><h3>Perfect, we have everything. Here is a summary of your order before entering payment details.</h3></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><h6 className="editText">You can make changes by clicking the edit button below</h6></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className = "justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><img src={editButton} className="editButton" onClick={startEdit} /></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col>
+              <h6 className="orderLineText">Beneficiary</h6>
+              <hr className="orderLine"/>
+            </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+          
+
+          <Form noValidate validated={validated} onSubmit={saveEdit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <Form.Row className="justify-content-md-center">
+                  <Form.Group as={Col} xs={6} controlId="formGridFirstName">
+                    <Form.Control className="form-control" required minLength="3" type="text" id="fNameFieldEdit" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }} />
+                    <span id="fNameLabelOK">Looks Good!</span>
+                    <span id="fNameLabelReq">First Name is required!</span>
+                    <span id="fNameLabelLen"></span>
+                  </Form.Group>
+
+                  <Form.Group as={Col} controlId="formGridLastName">
+                    <Form.Control className="form-control" required minLength="3" type="text" id="lNameFieldEdit" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
+                    <span id="lNameLabelOK">Looks Good!</span>
+                    <span id="lNameLabelReq">Last Name is required!</span>
+                    <span id="lNameLabelLen"></span>
+                  </Form.Group>
+                </Form.Row>
+
+
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p>({giftText})</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Occasion:</p>
+
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <p>{occasion}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col>
+              <h6 className="orderLineText">Information about the concert</h6>
+              <hr className="orderLine"/>
+            </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Suprise concert:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <p>{suprise}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Style of music:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <p>{type}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Number of Musicians:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <p>{numberMusicians}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro" >Date of Service:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <p>{dateService}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Time of Service:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <p>{timeService}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Address:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <p>{address}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          {/* <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><p className="intro">Address 2:</p></ReactBootStrap.Col>
+            <ReactBootStrap.Col md="auto"><p>{address2}</p></ReactBootStrap.Col>
+          </ReactBootStrap.Row> */}
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">City:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <p>{city}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">State:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <p>{state}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Zip:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <p>{zip}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col>
+              <h6 className="orderLineText">Thanks to the generosity of:</h6>
+              <hr className="orderLine"/>
+            </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p>{offered}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Phone Number:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <p>{number}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Email:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <p>{email}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col>
+              <h6 className="orderLineText">Comment (optional)</h6>
+              <hr className="orderLine"/>
+            </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p>{comments}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <div class="buttonAlign">
+              <ReactBootStrap.Button type="submit" variant="success" className='button'>Save Changes</ReactBootStrap.Button>
+            </div>
+          </ReactBootStrap.Row>
+        </Form>
+        </ReactBootStrap.Container>
       </ReactBootStrap.Container>
 
     </ReactBootStrap.Container>
