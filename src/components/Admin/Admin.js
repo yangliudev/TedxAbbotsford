@@ -125,6 +125,7 @@ function Test() {
         executed = true;
         for (let index = 0; index < orderList.length; index++) {
           arr.push(Object.values(orderList[index]));
+          arr[index].splice(0, 0, "");
           // arr[index].splice(0, 0, "Pending");
         }
         // console.log(arr);
@@ -188,6 +189,7 @@ const saveRowEdit = () => {
 
 const editIconPressed = () => {
   document.getElementById("edit").style.display = "block";
+  console.log(rowEdit);
   setEditRow(rowEdit); 
   hideWhileEditing();
   // setEditFirstName(rowEdit.firstName);
@@ -200,6 +202,14 @@ const editIconPressed = () => {
   // console.log(editFirstName)
 }
 
+const matchIconPressed = () => {
+  // getMusicians(rowEdit.id); 
+  // setOrderID(rowEdit.id); 
+  document.getElementById("orders").style.display = "none"; 
+  document.getElementById("matched").style.display = "block"; 
+  document.getElementById("edit").style.display = "none";
+}
+
 const [editRow, setEditRow] = useState([]);
 
 const rowSelect = (row) => {
@@ -210,6 +220,15 @@ const rowSelect = (row) => {
   } else {
     document.getElementById("edit").style.display = "none";
   }
+}
+
+const rowClick = (row) => {
+  // console.log(orderList[row.dataIndex]);
+  rowEdit = orderList[row.dataIndex];
+  setEditRow(rowEdit);
+  getMusicians(rowEdit.id); 
+  setOrderID(rowEdit.id);  
+  // document.getElementById("edit").style.display = "none";
 }
 
 const setMusician = (row) => {
@@ -272,6 +291,31 @@ const backEditing = () => {
   }
 
   const columnsOrder = [
+    {
+      name: "",
+      options: {
+        filter: true,
+        customBodyRender: (value, tableMeta, updateValue) => {
+          return (
+            <div>
+              <Tooltip title={"Match"}><IconButton onClick={matchIconPressed} style={{width: "10px", height:"10px"}}><MusicNoteIcon /></IconButton></Tooltip>
+              <Tooltip title={"Edit"}><IconButton onClick={editIconPressed} style={{width: "10px", height:"10px"}}><EditIcon /></IconButton></Tooltip>
+              <Tooltip title={"Delete"}><IconButton style={{width: "10px", height:"10px"}}><DeleteIcon /></IconButton></Tooltip>
+              {/* <IconButton><HomeIcon /></IconButton> */}
+
+
+              </div>
+          );
+        },
+        setCellProps: value => {
+          return {
+            style: {
+              width: "80px"
+            }
+          }
+        }
+      }
+    },
     {
       name: "Status",
       options: {
@@ -355,8 +399,9 @@ const backEditing = () => {
 
   const options = {
     filter: true,
-    filterType: "checkbox",
+    filterType: "dropdown",
     responsive: "standard",
+    rowHover: true,
     // tableBodyHeight: "400px",
     // resizableColumns: true,
     draggableColumns: {
@@ -373,17 +418,25 @@ const backEditing = () => {
         <Tooltip title={"Delete"}><IconButton><DeleteIcon/></IconButton></Tooltip>
       </div>
     ),
-    onRowSelectionChange: (rowsSelected) => {rowSelect(rowsSelected)
+    onRowSelectionChange: (rowsSelected) => {
+      rowSelect(rowsSelected);
+      // console.log(rowsSelected); 
     },
+    onRowClick: (rowData, rowMeta) => {
+      // rowSelect(rowsSelected);
+      rowClick(rowMeta); 
+      console.log(rowMeta);
+    },
+    // onRowClick ()
     customToolbar: () => (
      <Tooltip title={"Musicians"}><IconButton onClick={displayMusicians}><NavigateNextIcon /></IconButton></Tooltip>
     
   ),
   setRowProps: (row, dataIndex, rowIndex) => {
     // console.log(dataIndex, rowIndex, row);
-    if (arr[dataIndex][0] === "Confirmed") {return {style: {backgroundColor: "#ccebd4"}}}; 
-    if (arr[dataIndex][0] === "Declined") {return {style: {backgroundColor: "#edabab"}}};
-    if (arr[dataIndex][0] === "Pending") {return {style: {backgroundColor: "white"}}}}
+    if (arr[dataIndex][1] === "Confirmed") {return {style: {backgroundColor: "#ccebd4"}}}; 
+    if (arr[dataIndex][1] === "Declined") {return {style: {backgroundColor: "#edabab"}}};
+    if (arr[dataIndex][1] === "Pending") {return {style: {backgroundColor: "white"}}}}
   };
 
 
@@ -471,9 +524,10 @@ const backEditing = () => {
                     </ReactBootStrap.Row>
                     {/* </ReactBootStrap.Container> */}
 
-
                     <div style={{ marginTop: "30px" }}>
                     <div id="edit">
+                    <ReactBootStrap.Container className="dashboardNavAdmin" style={{marginTop:"30px"}}>
+
                       {/* <label>TEst</label>
         <input placeholder={editRow.firstName} type="text" onChange={(e) => {editFirstName = e.target.value}}/>
         <input placeholder={editRow.lastName} type="text" onChange={(e) => {editLastName = e.target.value}}/>
@@ -578,6 +632,8 @@ var editTime = rowEdit.time_service;*/}
                             {/* <input type="button" onClick={updateMusician} value="Save Changes"/> */}
                             {/* <ReactBootStrap.Button onClick={updateMusician}>Save Changes</ReactBootStrap.Button> */}
                             {/* </ReactBootStrap.Row> */}
+                            </ReactBootStrap.Container>
+
       </div>
 
       <div id="orders"> 

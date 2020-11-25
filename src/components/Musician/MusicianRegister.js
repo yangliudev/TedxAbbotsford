@@ -1245,7 +1245,9 @@ function MusicianRegister() {
           </ReactBootStrap.Row>
 
         </ReactBootStrap.Form>
-      </div>  
+        
+      </div>
+      
     </ReactBootStrap.Container>
   );
 }
