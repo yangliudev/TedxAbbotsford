@@ -195,6 +195,20 @@ h3 {
     display: none;
     color:  rgb(255, 103, 103);
   }
+
+  #fNameLabelEditOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #fNameLabelEditReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #fNameLabelEditLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+  
   #lNameLabelOK {
     display: none;
     color: rgb(131, 255, 131);
@@ -207,6 +221,20 @@ h3 {
     display: none;
     color:  rgb(255, 103, 103);
   }
+
+  #lNameLabelEditOK {
+    display: none;
+    color: rgb(131, 255, 131);
+  }
+  #lNameLabelEditReq {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+  #lNameLabelEditLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+
   #occasionOK {
     display: none;
     color: rgb(131, 255, 131);
@@ -218,6 +246,22 @@ h3 {
     text-align : center;
   }
   #occasionLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+    text-align : center;
+  }
+
+  #occasionEditOK {
+    display: none;
+    color: rgb(131, 255, 131);
+    text-align : center;
+  }
+  #occasionEditReq {
+    display: none;
+    color:  rgb(255, 103, 103);
+    text-align : center;
+  }
+  #occasionEditLen {
     display: none;
     color:  rgb(255, 103, 103);
     text-align : center;
@@ -366,6 +410,13 @@ h3 {
     margin-right: auto;
   }
 
+  #form1Edit {
+    color: black;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .orderLine {
     border:0px outset;
     background-color:#8d898986;
@@ -397,6 +448,11 @@ h3 {
 
 #editFields {
   display: none;
+}
+
+#giftEdit {
+  margin-left: auto;
+  margin-right: auto;
 }
 
   @media only screen and (orientation: portrait) {

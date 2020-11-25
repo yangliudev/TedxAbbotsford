@@ -489,7 +489,16 @@ function Ordering() {
     document.getElementById("editFields").style.display="block"
     document.getElementById("fNameFieldEdit").value=firstName
     document.getElementById("lNameFieldEdit").value=lastName
+    let giftField = document.getElementById("giftEdit")
+    for (var i = 0; i < giftField.options.length; i++) {
+      if (giftField.options[i].text== gift) {
+          giftField.options[i].selected = true;
+          break;
+      }
+    
   }
+    document.getElementById("form1Edit").value=occasion
+}
 
   const saveEdit = (event) => {
     const form = event.currentTarget;
@@ -497,48 +506,80 @@ function Ordering() {
       event.preventDefault();
       event.stopPropagation();
     if (firstName == "" || firstName == "_  _  _  _  _  _") {
-      document.getElementById("fNameLabelReq").style.display = "block";
-      document.getElementById("fNameLabelLen").style.display = "block";
-      document.getElementById("fNameLabelOK").style.display = "none";
+      document.getElementById("fNameLabelEditReq").style.display = "block";
+      document.getElementById("fNameLabelEditLen").style.display = "block";
+      document.getElementById("fNameLabelEditOK").style.display = "none";
     }
     else if (firstName.length < 3) {
-      document.getElementById("fNameLabelReq").style.display = "none";
-      document.getElementById("fNameLabelOK").style.display = "none";
-      document.getElementById("fNameLabelLen").style.display = "block";
+      document.getElementById("fNameLabelEditReq").style.display = "none";
+      document.getElementById("fNameLabelEditOK").style.display = "none";
+      document.getElementById("fNameLabelEditLen").style.display = "block";
     }
     else if (firstName.length >= 3 & firstName !== "_  _  _  _  _  _") {
-      document.getElementById("fNameLabelOK").style.display = "block";
-      document.getElementById("fNameLabelReq").style.display = "none";
-      document.getElementById("fNameLabelLen").style.display = "none";
+      document.getElementById("fNameLabelEditOK").style.display = "block";
+      document.getElementById("fNameLabelEditReq").style.display = "none";
+      document.getElementById("fNameLabelEditLen").style.display = "none";
     }
     if (lastName == "" || lastName == "_  _  _  _  _  _") {
-      document.getElementById("lNameLabelReq").style.display = "block";
-      document.getElementById("lNameLabelLen").style.display = "block";
-      document.getElementById("lNameLabelOK").style.display = "none";
+      document.getElementById("lNameLabelEditReq").style.display = "block";
+      document.getElementById("lNameLabelEditLen").style.display = "block";
+      document.getElementById("lNameLabelEditOK").style.display = "none";
     }
     else if (lastName.length < 3 ) {
-      document.getElementById("lNameLabelReq").style.display = "none";
-      document.getElementById("lNameLabelOK").style.display = "none";
-      document.getElementById("lNameLabelLen").style.display = "block";
+      document.getElementById("lNameLabelEditReq").style.display = "none";
+      document.getElementById("lNameLabelEditOK").style.display = "none";
+      document.getElementById("lNameLabelEditLen").style.display = "block";
     }
     else if (lastName.length >= 3) {
-      document.getElementById("lNameLabelOK").style.display = "block";
-      document.getElementById("lNameLabelReq").style.display = "none";
-      document.getElementById("lNameLabelLen").style.display = "none";
+      document.getElementById("lNameLabelEditOK").style.display = "block";
+      document.getElementById("lNameLabelEditReq").style.display = "none";
+      document.getElementById("lNameLabelEditLen").style.display = "none";
+    }
+
+    if (occasion == "" || occasion == "_  _  _  _  _  _") {
+      document.getElementById("occasionEditReq").style.display = "block";
+      document.getElementById("occasionEditLen").style.display = "block";
+      document.getElementById("occasionEditOK").style.display = "none";
+    }
+    else if (occasion.length < 3 && occasion !== "") {
+      document.getElementById("occasionEditReq").style.display = "none";
+      document.getElementById("occasionEditLen").style.display = "block";
+      document.getElementById("occasionEditOK").style.display = "none";
     }
   }
   else {
-    document.getElementById("lNameLabelOK").style.display = "block";
-    document.getElementById("lNameLabelReq").style.display = "none";
-    document.getElementById("lNameLabelLen").style.display = "none";
-    document.getElementById("fNameLabelOK").style.display = "block";
-    document.getElementById("fNameLabelReq").style.display = "none";
-    document.getElementById("fNameLabelLen").style.display = "none";
     event.preventDefault();
     event.stopPropagation();
+    document.getElementById("lNameLabelEditOK").style.display = "block";
+    document.getElementById("lNameLabelEditReq").style.display = "none";
+    document.getElementById("lNameLabelEditLen").style.display = "none";
+    document.getElementById("fNameLabelEditOK").style.display = "block";
+    document.getElementById("fNameLabelEditReq").style.display = "none";
+    document.getElementById("fNameLabelEditLen").style.display = "none";
+    document.getElementById("occasionEditOK").style.display = "block";
+    document.getElementById("occasionEditReq").style.display = "none";
+    document.getElementById("occasionEditLen").style.display = "none";
     console.log("true");
     document.getElementById("summaryDetails").style.display="block"
     document.getElementById("editFields").style.display="none"
+  }
+}
+
+function editGift() {
+  let currentGift = document.getElementById("giftEdit").value
+  if (currentGift == "one person") {
+    setGift("one person"); 
+    setGiftText("One person in Particular");
+  }
+
+  else if (currentGift == "small committee") {
+    setGift("small committee"); 
+    setGiftText("A Small Committee")
+  }
+
+  else if (currentGift == "institution") {
+    setGift("institution"); 
+    setGiftText("An Instution");
   }
 }
 
@@ -1203,18 +1244,18 @@ function Ordering() {
           <ReactBootStrap.Row className="justify-content-md-center">
               <ReactBootStrap.Col md="auto">
                 <Form.Row className="justify-content-md-center">
-                  <Form.Group as={Col} xs={6} controlId="formGridFirstName">
+                  <Form.Group as={Col} xs={6} controlId="formGridFirstNameEdit">
                     <Form.Control className="form-control" required minLength="3" type="text" id="fNameFieldEdit" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }} />
-                    <span id="fNameLabelOK">Looks Good!</span>
-                    <span id="fNameLabelReq">First Name is required!</span>
-                    <span id="fNameLabelLen"></span>
+                    <span id="fNameLabelEditOK">Looks Good!</span>
+                    <span id="fNameLabelEditReq">First Name is required!</span>
+                    <span id="fNameLabelEditLen"></span>
                   </Form.Group>
 
-                  <Form.Group as={Col} controlId="formGridLastName">
+                  <Form.Group as={Col} controlId="formGridLastNameEdit">
                     <Form.Control className="form-control" required minLength="3" type="text" id="lNameFieldEdit" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
-                    <span id="lNameLabelOK">Looks Good!</span>
-                    <span id="lNameLabelReq">Last Name is required!</span>
-                    <span id="lNameLabelLen"></span>
+                    <span id="lNameLabelEditOK">Looks Good!</span>
+                    <span id="lNameLabelEditReq">Last Name is required!</span>
+                    <span id="lNameLabelEditLen"></span>
                   </Form.Group>
                 </Form.Row>
 
@@ -1224,17 +1265,31 @@ function Ordering() {
 
           <ReactBootStrap.Row className="justify-content-md-center">
               <ReactBootStrap.Col md="auto">
-                <p>({giftText})</p>
+                <Form.Row className="justify-content-md-center">
+                  <Form.Group className="justify-content-md-center">
+                    <Form.Control className="form-control" required as="select" id="giftEdit" onChange={editGift}>
+                      <option>one person</option>
+                      <option>small committee</option>
+                      <option>institution</option>
+                    </Form.Control>
+                  </Form.Group>
+                </Form.Row>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Occasion:</p>
-
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <p>{occasion}</p>
+                <Form.Row className="justify-content-md-center">
+                    <Form.Group className="justify-content-md-center">
+                    <input type="text" required minLength="3" id="form1Edit" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
+                    <span id="occasionEditOK">Looks Good!</span>
+                    <span id="occasionEditReq">Occasion is required!</span>
+                    <span id="occasionEditLen"></span>
+                    </Form.Group>
+                  </Form.Row>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
