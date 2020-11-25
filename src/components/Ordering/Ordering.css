@@ -288,6 +288,17 @@ h3 {
     color:  rgb(255, 103, 103);
     text-align : center;
   }
+
+  #date-timeEditOK {
+    display: none;
+    color: rgb(131, 255, 131);
+    text-align : center;
+  }
+  #date-timeEditReq {
+    display: none;
+    color:  rgb(255, 103, 103);
+    text-align : center;
+  }
   #order7 {
     display: none;
   }
@@ -307,6 +318,20 @@ h3 {
     display: none;
     color:  rgb(255, 103, 103);
   }
+
+  #addressLineEditOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #addressLineEditReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #addressLineEditLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+
   #cityOK {
     display: none;
     color: rgb(131, 255, 131);;
@@ -319,6 +344,20 @@ h3 {
     display: none;
     color:  rgb(255, 103, 103);
   }
+
+  #cityEditOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #cityEditReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #cityEditLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+
   #stateOK {
     display: none;
     color: rgb(131, 255, 131);;
@@ -327,6 +366,16 @@ h3 {
     display: none;
     color: rgb(255, 103, 103);
   }
+
+  #stateEditOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #stateEditReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+
   #zipOK {
     display: none;
     color: rgb(131, 255, 131);;
@@ -339,6 +388,20 @@ h3 {
     display: none;
     color:  rgb(255, 103, 103);
   }
+
+  #zipEditOK {
+    display: none;
+    color: rgb(131, 255, 131);;
+  }
+  #zipEditReq {
+    display: none;
+    color: rgb(255, 103, 103);
+  }
+  #zipEditLen {
+    display: none;
+    color:  rgb(255, 103, 103);
+  }
+
   #order9 {
     display: none;
   }

@@ -317,6 +317,7 @@ function Ordering() {
       event.stopPropagation();
       if (dateService == "" || dateService == "_  _  _  _  _  _") {
         document.getElementById("date-timeReq").style.display = "block";
+        document.getElementById("date-timeEditOK").style.display = "none";
       }
     }
     else {
@@ -484,6 +485,7 @@ function Ordering() {
 
   };
 
+  /*Insert all values into editable fields in summary page */
   function startEdit() {
     document.getElementById("summaryDetails").style.display="none"
     document.getElementById("editFields").style.display="block"
@@ -495,16 +497,50 @@ function Ordering() {
           giftField.options[i].selected = true;
           break;
       }
-    
   }
     document.getElementById("form1Edit").value=occasion
+    let surpriseField = document.getElementById("surpriseEdit")
+    for (var i = 0; i < surpriseField.options.length; i++) {
+      if (surpriseField.options[i].text== suprise) {
+          surpriseField.options[i].selected = true;
+          break;
+      }
+  }
+    let typeField = document.getElementById("typeEdit")
+    for (var i = 0; i < typeField.options.length; i++) {
+      if (typeField.options[i].text== type) {
+          typeField.options[i].selected = true;
+          break;
+      }
+  }
+    let numberMusiciansField = document.getElementById("numberMusiciansEdit")
+    for (var i = 0; i < numberMusiciansField.options.length; i++) {
+      if (numberMusiciansField.options[i].text== numberMusicians) {
+          numberMusiciansField.options[i].selected = true;
+          break;
+      }
+  }
+    document.getElementById("date-time-fieldEdit").value= dateService + "T" + timeService
+    document.getElementById("address-line-fieldEdit").value = address
+    document.getElementById("cityEdit").value = city
+    let stateField = document.getElementById("stateEdit")
+    for (var i = 0; i < stateField.options.length; i++) {
+      if (stateField.options[i].text== state) {
+          stateField.options[i].selected = true;
+          break;
+      }
+  }
+    document.getElementById("zipEdit").value = zip
 }
 
+  /*After edit in summary page, checkif each value is in the right format. Stop edit when they are, and do not stop if they are not. */
   const saveEdit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+
+    /*First Name Check*/
     if (firstName == "" || firstName == "_  _  _  _  _  _") {
       document.getElementById("fNameLabelEditReq").style.display = "block";
       document.getElementById("fNameLabelEditLen").style.display = "block";
@@ -520,6 +556,8 @@ function Ordering() {
       document.getElementById("fNameLabelEditReq").style.display = "none";
       document.getElementById("fNameLabelEditLen").style.display = "none";
     }
+
+    /*Last Name Check */
     if (lastName == "" || lastName == "_  _  _  _  _  _") {
       document.getElementById("lNameLabelEditReq").style.display = "block";
       document.getElementById("lNameLabelEditLen").style.display = "block";
@@ -536,6 +574,7 @@ function Ordering() {
       document.getElementById("lNameLabelEditLen").style.display = "none";
     }
 
+    /*Occassion Check*/
     if (occasion == "" || occasion == "_  _  _  _  _  _") {
       document.getElementById("occasionEditReq").style.display = "block";
       document.getElementById("occasionEditLen").style.display = "block";
@@ -546,25 +585,114 @@ function Ordering() {
       document.getElementById("occasionEditLen").style.display = "block";
       document.getElementById("occasionEditOK").style.display = "none";
     }
+
+    /*Date and Time Check */
+    if (dateService == "" || dateService == "_  _  _  _  _  _") {
+        document.getElementById("date-timeEditReq").style.display = "block";
+        document.getElementById("date-timeEditOK").style.display = "none";
+      }
+    
+    /*Address Check */
+    if (address == "" || address == "_  _  _  _  _  _") {
+      document.getElementById("addressLineEditReq").style.display = "block";
+      document.getElementById("addressLineEditOK").style.display = "none";
+    }
+    if (address.length < 4 && address.length >= 1) {
+      document.getElementById("addressLineEditLen").style.display = "block";
+      document.getElementById("addressLineEditReq").style.display = "none";
+      document.getElementById("addressLineEditOK").style.display = "none";
+    }
+    if (address.length >= 4 && address != "_  _  _  _  _  _") {
+      document.getElementById("addressLineEditLen").style.display = "none";
+      document.getElementById("addressLineEditReq").style.display = "none";
+      document.getElementById("addressLineEditOK").style.display = "block";
+    }
+
+    /*City Check */
+    if (city == "" || city == "_  _  _  _  _  _") {
+      document.getElementById("cityEditReq").style.display = "block";
+      document.getElementById("cityEditOK").style.display = "none";
+    }
+    if (city.length < 3 && city.length >= 1) {
+      document.getElementById("cityEditLen").style.display = "block";
+      document.getElementById("cityEditReq").style.display = "none";
+      document.getElementById("cityEditOK").style.display = "none";
+    }
+    if (city.length >= 3 && city != "_  _  _  _  _  _") {
+      document.getElementById("cityEditLen").style.display = "none";
+      document.getElementById("cityEditReq").style.display = "none";
+      document.getElementById("cityEditOK").style.display = "block";
+    }
+
+    /*State Check */
+    if (state == "" || state == "_  _  _  _  _  _") {
+      document.getElementById("stateEditReq").style.display = "block";
+      document.getElementById("stateEditOK").style.display = "none";
+    }
+    if (state !== "" && state !== "_  _  _  _  _  _") {
+      document.getElementById("stateEditReq").style.display = "none";
+      document.getElementById("stateEditOK").style.display = "block";
+    }
+
+    /*Zip Check */
+    if (zip == "" || zip == "_  _  _  _  _  _") {
+      document.getElementById("zipEditReq").style.display = "block";
+      document.getElementById("zipEditOK").style.display = "none";
+    }
+    if (zip.length < 6 && zip.length >= 1) {
+      document.getElementById("zipEditLen").style.display = "block";
+      document.getElementById("zipEditReq").style.display = "none";
+      document.getElementById("zipEditOK").style.display = "none";
+    }
+    if (zip.length >= 6 && zip != "_  _  _  _  _  _") {
+      document.getElementById("zipEditLen").style.display = "none";
+      document.getElementById("zipEditReq").style.display = "none";
+      document.getElementById("zipEditOK").style.display = "block";
+    }
+
   }
+
+  /*Everything Passes */
   else {
     event.preventDefault();
     event.stopPropagation();
     document.getElementById("lNameLabelEditOK").style.display = "block";
     document.getElementById("lNameLabelEditReq").style.display = "none";
     document.getElementById("lNameLabelEditLen").style.display = "none";
+
     document.getElementById("fNameLabelEditOK").style.display = "block";
     document.getElementById("fNameLabelEditReq").style.display = "none";
     document.getElementById("fNameLabelEditLen").style.display = "none";
+
     document.getElementById("occasionEditOK").style.display = "block";
     document.getElementById("occasionEditReq").style.display = "none";
     document.getElementById("occasionEditLen").style.display = "none";
+
+    document.getElementById("date-timeEditOK").style.display = "block";
+    document.getElementById("date-timeEditReq").style.display = "none";
+
+    document.getElementById("zipEditLen").style.display = "none";
+    document.getElementById("zipEditReq").style.display = "none";
+    document.getElementById("zipEditOK").style.display = "block";
+
+    document.getElementById("stateEditReq").style.display = "none";
+    document.getElementById("stateEditOK").style.display = "block";
+
+    document.getElementById("cityEditLen").style.display = "none";
+    document.getElementById("cityEditReq").style.display = "none";
+    document.getElementById("cityEditOK").style.display = "block";
+
+    document.getElementById("addressLineEditLen").style.display = "none";
+    document.getElementById("addressLineEditReq").style.display = "none";
+    document.getElementById("addressLineEditOK").style.display = "block";
+
     console.log("true");
     document.getElementById("summaryDetails").style.display="block"
     document.getElementById("editFields").style.display="none"
   }
 }
 
+/*Edit Gift Value & Text in Summary Page*/
 function editGift() {
   let currentGift = document.getElementById("giftEdit").value
   if (currentGift == "one person") {
@@ -580,6 +708,30 @@ function editGift() {
   else if (currentGift == "institution") {
     setGift("institution"); 
     setGiftText("An Instution");
+  }
+}
+
+/*Edit Type Value & Check in Summary Page*/
+function editType() {
+  let currentType = document.getElementById("typeEdit").value
+  if (currentType == "classic") {
+    setType("classic"); 
+    setTypeText("Classical Music");
+  }
+
+  else if (currentType == "popular") {
+    setType("popular"); 
+    setTypeText("Popular Music")
+  }
+
+  else if (currentType == "jazzy/pop") {
+    setType("jazzy/pop"); 
+    setTypeText("Jazzy-Pop music");
+  }
+
+  else if (currentType == "surprise") {
+    setType("suprise"); 
+    setTypeText("A surprise");
   }
 }
 
@@ -811,8 +963,9 @@ function editGift() {
                 required
                 id="date-time-field"
                 type="datetime-local"
+                format-value="yyyy-MM-ddTHH:mm"
                 min={dateAndTime()}
-                onChange={(e) => { let date = e.target.value.substring(0, 10); let time = e.target.value.substring(11, 16); setDateService(date); setTimeService(time); }} />
+                onChange={(e) => { let date = e.target.value.substring(0, 10); let time = e.target.value.substring(11, 16); setDateService(date); setTimeService(time);}} />
               <span id="date-timeOK">Looks Good!</span>
               <span id="date-timeReq">Date and Time is required!</span>
             </Form.Group>
@@ -1093,7 +1246,7 @@ function editGift() {
                 <p className="intro">Style of music:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <p>{type}</p>
+                <p>{typeText}</p>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
@@ -1305,7 +1458,14 @@ function editGift() {
                 <p className="intro">Suprise concert:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <p>{suprise}</p>
+                <Form.Row className="justify-content-md-center">
+                    <Form.Group className="justify-content-md-center">
+                      <Form.Control className="form-control" required as="select" id="surpriseEdit" onChange={(e) => {setSuprise(e.target.value); }}>
+                        <option>yes</option>
+                        <option>no</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </Form.Row>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
@@ -1314,7 +1474,16 @@ function editGift() {
                 <p className="intro">Style of music:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <p>{type}</p>
+              <Form.Row className="justify-content-md-center">
+                    <Form.Group className="justify-content-md-center">
+                      <Form.Control className="form-control" required as="select" id="typeEdit" onChange={editType}>
+                        <option>classic</option>
+                        <option>popular</option>
+                        <option>jazzy/pop</option>
+                        <option>suprise</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </Form.Row>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
@@ -1323,25 +1492,36 @@ function editGift() {
                 <p className="intro">Number of Musicians:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <p>{numberMusicians}</p>
+                <Form.Row className="justify-content-md-center">
+                    <Form.Group className="justify-content-md-center">
+                      <Form.Control className="form-control" required as="select" id="numberMusiciansEdit" onChange={(e) => {setNumberMusicians(e.target.value); }}>
+                        <option>solo</option>
+                        <option>duo</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </Form.Row>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
               <ReactBootStrap.Col md="auto">
-                <p className="intro" >Date of Service:</p>
+                <p className="intro" >Date and Time of Service:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <p>{dateService}</p>
-              </ReactBootStrap.Col>
-          </ReactBootStrap.Row>
-
-          <ReactBootStrap.Row className="justify-content-md-center">
-              <ReactBootStrap.Col md="auto">
-                <p className="intro">Time of Service:</p>
-              </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto">
-                <p>{timeService}</p>
+                <Form.Row className="justify-content-md-center">
+                  <Form.Group controlId="formGridDateEdit" className="justify-content-md-center">
+                    {/* <Form.Label>Date and Time of Service</Form.Label> */}
+                    <Form.Control
+                      required
+                      id="date-time-fieldEdit"
+                      type="datetime-local"
+                      format-value="yyyy-MM-ddTHH:mm"
+                      min={dateAndTime()}
+                      onChange={(e) => { let date = e.target.value.substring(0, 10); let time = e.target.value.substring(11, 16); setDateService(date); setTimeService(time); }} />
+                      <span id="date-timeEditOK">Looks Good!</span>
+                      <span id="date-timeEditReq">Date and Time is required!</span>
+                  </Form.Group>
+                </Form.Row>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
@@ -1350,7 +1530,14 @@ function editGift() {
                 <p className="intro">Address:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <p>{address}</p>
+                <Form.Row>
+                  <Form.Group as={Col} controlId="formGridAddress1">
+                    <Form.Control required minLength="4" placeholder="1234 Main St" id="address-line-fieldEdit" onChange={(e) => { setAddress(e.target.value); }} />
+                    <span id="addressLineEditOK">Looks Good!</span>
+                    <span id="addressLineEditReq">Address line is required!</span>
+                    <span id="addressLineEditLen">Minimum length of 4 is required!</span>
+                  </Form.Group>
+                </Form.Row>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
@@ -1364,7 +1551,14 @@ function editGift() {
                 <p className="intro">City:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <p>{city}</p>
+                <Form.Row>
+                  <Form.Group as={Col} controlId="formGridCity">
+                    <Form.Control required minLength="3" placeholder="Burnaby" id="cityEdit" onChange={(e) => { setCity(e.target.value); }} />
+                    <span id="cityEditOK">Looks Good!</span>
+                    <span id="cityEditReq">City is required!</span>
+                    <span id="cityEditLen"></span>
+                  </Form.Group>
+                </Form.Row>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
@@ -1373,7 +1567,17 @@ function editGift() {
                 <p className="intro">State:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <p>{state}</p>
+                <Form.Row>
+                  <Form.Group as={Col} controlId="formGridState">
+                    <Form.Control required as="select" minLength="3" defaultValue="Choose..." id="stateEdit" onChange={(e) => { setState(e.target.value); }}>
+                      <option value="">Choose from below</option>
+                      <option value="British Columbia">British Columbia</option>
+                      <option value="Alberta">Alberta</option>
+                    </Form.Control>
+                    <span id="stateEditOK">Looks Good!</span>
+                    <span id="stateEditReq">State is required!</span>
+                  </Form.Group>
+                </Form.Row>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
@@ -1382,7 +1586,14 @@ function editGift() {
                 <p className="intro">Zip:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <p>{zip}</p>
+                <Form.Row>
+                  <Form.Group as={Col} controlId="formGridZip">
+                    <Form.Control required minLength="6" placeholder="V3W9N3" id="zipEdit" onChange={(e) => { setZip(e.target.value); }} />
+                    <span id="zipEditOK">Looks Good!</span>
+                    <span id="zipEditReq">ZIP is required!</span>
+                    <span id="zipEditLen">Enter zip like V3W9N3!</span>
+                  </Form.Group>
+                </Form.Row>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
