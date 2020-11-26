@@ -26,6 +26,7 @@ import { Pause } from '@material-ui/icons';
 
 function Ordering() {
 
+  /*Functions to go back or forward 1 step in the ordering process */
   function back1() {
     var x = document.getElementById("order1");
     x.style.display = "block";
@@ -167,6 +168,7 @@ function Ordering() {
     document.getElementById("order10").style.display = "block"
   }
 
+  /*Function to format the minimum date and time allowed for the ordering process */
   function dateAndTime() {
     var d = new Date();
     d.setDate(d.getDate() + 3);
@@ -179,10 +181,8 @@ function Ordering() {
     return dateFormatted
   }
 
-  const [musicianName, setMusicianName] = useState("");
-  const [musicianType, setMusicianType] = useState("");
-  const [musicanList, setMusicanList] = useState([]);
-
+  /*Constants for the details required in the ordering process, including the
+  detail variable, function to set the detail, and the default value of the detail */
   const [gift, setGift] = useState("_  _  _  _  _  _");
   const [giftText, setGiftText] = useState("_  _  _  _  _  _");
   const [occasion, setOccasion] = useState("_  _  _  _  _  _");
@@ -204,6 +204,7 @@ function Ordering() {
   const [zip, setZip] = useState("_  _  _  _  _  _");
   const [comments, setComments] = useState("_  _  _  _  _  _");
 
+  /*Function to send the order to the database through Axios */
   const submitOrder = () => {
     Axios.post("http://localhost:5000/order/insert", {
       orderGift: gift,
@@ -233,6 +234,7 @@ function Ordering() {
   // Validatoin contents below \/ \/
   const [validated, setValidated] = useState(false);
 
+  /*Validation for first and last name of the beneficiary */
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -283,6 +285,7 @@ function Ordering() {
     }
   }
 
+  /*Validation for the occasion */
   const handleSubmit2 = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -310,6 +313,7 @@ function Ordering() {
     }
   }
 
+  /*Validation for the date and time of the performance */
   const handleSubmit7 = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -330,6 +334,7 @@ function Ordering() {
     }
   }
 
+  /*Validation for the address, city, state, and zip code of the performance */
   const handleSubmit8 = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -405,6 +410,7 @@ function Ordering() {
     }
   }
 
+  /*Validation for the orderer's name, phone number, and email */
   const handleSubmit9 = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -537,7 +543,8 @@ function Ordering() {
     document.getElementById("commentEdit").value = comments
 }
 
-  /*After edit in summary page, checkif each value is in the right format. Stop edit when they are, and do not stop if they are not. */
+  /*After edit in summary page, check if each value is in the right format. 
+  Stop edit when they are, and do not stop if they are not. */
   const saveEdit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -810,7 +817,7 @@ function editType() {
 
 
   return (
-
+    /*HTML/React for the ordering process */
     <ReactBootStrap.Container className="top-space-ordering">
       <ReactBootStrap.Container className="bg-display" id="order1">
 
@@ -1244,7 +1251,9 @@ function editType() {
       </ReactBootStrap.Container>
 
 
-
+      {/*
+        Summary Page without editing
+      */}
       <ReactBootStrap.Container className="bg-display" id="orderConfirm">
         <ReactBootStrap.Container id="summaryDetails">
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -1349,11 +1358,6 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          {/* <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">Address 2:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{address2}</p></ReactBootStrap.Col>
-          </ReactBootStrap.Row> */}
-
           <ReactBootStrap.Row className="justify-content-md-center">
               <ReactBootStrap.Col md="auto">
                 <p className="intro">City:</p>
@@ -1435,6 +1439,10 @@ function editType() {
 
         </ReactBootStrap.Container>
 
+
+        {/*
+          Summary Page during editing
+        */}
         <ReactBootStrap.Container id="editFields">
         <ReactBootStrap.Row className="justify-content-md-center">
             <ReactBootStrap.Col md="auto"><h3>Perfect, we have everything. Here is a summary of your order before entering payment details.</h3></ReactBootStrap.Col>
@@ -1603,11 +1611,6 @@ function editType() {
                 </Form.Row>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
-
-          {/* <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">Address 2:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{address2}</p></ReactBootStrap.Col>
-          </ReactBootStrap.Row> */}
 
           <ReactBootStrap.Row className="justify-content-md-center">
               <ReactBootStrap.Col md="auto">
