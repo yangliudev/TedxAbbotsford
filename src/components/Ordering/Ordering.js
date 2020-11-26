@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import * as ReactBootStrap from "react-bootstrap";
 import Axios from 'axios';
 
@@ -21,24 +21,24 @@ import editButton from "./ordering-assets/edit.png"
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col'
 import MediaQuery from 'react-responsive';
-import { Pause } from '@material-ui/icons';
+// import { Pause } from '@material-ui/icons';
 
 
 function Ordering() {
 
   /*Functions to go back or forward 1 step in the ordering process */
-  function back1() {
-    var x = document.getElementById("order1");
-    x.style.display = "block";
-    document.getElementById("orderConfirm").style.display = "none"
-  }
+  // function back1() {
+  //   var x = document.getElementById("order1");
+  //   x.style.display = "block";
+  //   document.getElementById("orderConfirm").style.display = "none"
+  // }
 
   function forward1() {
     var x = document.getElementById("order1")
     x.style.display = "none";
     document.getElementById("order2").style.display = "block";
     document.getElementById("orderConfirm").style.display = "none";
-    document.getElementById("fNameField").focus();
+    document.getElementById("form1").focus();
   }
 
   function back2() {
@@ -53,7 +53,6 @@ function Ordering() {
     x.style.display = "none";
     document.getElementById("order3").style.display = "block";
     document.getElementById("orderConfirm").style.display = "none";
-    document.getElementById("form1").focus();
   }
 
   function back3() {
@@ -106,7 +105,7 @@ function Ordering() {
     x.style.display = "none";
     document.getElementById("order7").style.display = "block";
     document.getElementById("orderConfirm").style.display = "none";
-    document.getElementById("date-time-field").focus();
+    // document.getElementById("address-line-field").focus();
   }
 
   function back7() {
@@ -120,7 +119,7 @@ function Ordering() {
     x.style.display = "none";
     document.getElementById("order8").style.display = "block";
     document.getElementById("orderConfirm").style.display = "none";
-    document.getElementById("address-line-field").focus();
+    document.getElementById("offered-field").focus();
   }
 
   function back8() {
@@ -134,7 +133,7 @@ function Ordering() {
     x.style.display = "none";
     document.getElementById("order9").style.display = "block";
     document.getElementById("orderConfirm").style.display = "none";
-    document.getElementById("offered-field").focus();
+    // document.getElementById("fNameField").focus();
   }
 
   function back9() {
@@ -198,7 +197,7 @@ function Ordering() {
   const [number, setNumber] = useState("_  _  _  _  _  _");
   const [email, setEmail] = useState("_  _  _  _  _  _");
   const [address, setAddress] = useState("_  _  _  _  _  _");
-  const [address2, setAddress2] = useState("_  _  _  _  _  _");
+  // const [address2, setAddress2] = useState("_  _  _  _  _  _");
   const [city, setCity] = useState("_  _  _  _  _  _");
   const [state, setState] = useState("_  _  _  _  _  _");
   const [zip, setZip] = useState("_  _  _  _  _  _");
@@ -220,7 +219,7 @@ function Ordering() {
       orderNumber: number,
       orderEmail: email,
       orderAddress: address,
-      orderAddress2: address2,
+      // orderAddress2: address2,
       orderCity: city,
       orderState: state,
       orderZip: zip,
@@ -232,7 +231,8 @@ function Ordering() {
 
 
   // Validatoin contents below \/ \/
-  const [validated, setValidated] = useState(false);
+  const [validated] = useState(false);
+  // const [validated, setValidated] = useState(false);
 
   /*Validation for first and last name of the beneficiary */
   const handleSubmit = (event) => {
@@ -240,22 +240,22 @@ function Ordering() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-      if (firstName == "" || firstName == "_  _  _  _  _  _") {
+      if (firstName === "" || firstName === "_  _  _  _  _  _") {
         document.getElementById("fNameLabelReq").style.display = "block";
         document.getElementById("fNameLabelLen").style.display = "block";
         document.getElementById("fNameLabelOK").style.display = "none";
       }
-      else if (firstName.length < 3) {
+      else if (firstName.length < 2) {
         document.getElementById("fNameLabelReq").style.display = "none";
         document.getElementById("fNameLabelOK").style.display = "none";
         document.getElementById("fNameLabelLen").style.display = "block";
       }
-      else if (firstName.length >= 3 & firstName !== "_  _  _  _  _  _") {
+      else if (firstName.length >= 2 & firstName !== "_  _  _  _  _  _") {
         document.getElementById("fNameLabelOK").style.display = "block";
         document.getElementById("fNameLabelReq").style.display = "none";
         document.getElementById("fNameLabelLen").style.display = "none";
       }
-      if (lastName == "" || lastName == "_  _  _  _  _  _") {
+      if (lastName === "" || lastName === "_  _  _  _  _  _") {
         document.getElementById("lNameLabelReq").style.display = "block";
         document.getElementById("lNameLabelLen").style.display = "block";
         document.getElementById("lNameLabelOK").style.display = "none";
@@ -291,7 +291,7 @@ function Ordering() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-      if (occasion == "" || occasion == "_  _  _  _  _  _") {
+      if (occasion === "" || occasion === "_  _  _  _  _  _") {
         document.getElementById("occasionReq").style.display = "block";
         document.getElementById("occasionLen").style.display = "block";
         document.getElementById("occasionOK").style.display = "none";
@@ -319,7 +319,7 @@ function Ordering() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-      if (dateService == "" || dateService == "_  _  _  _  _  _") {
+      if (dateService === "" || dateService === "_  _  _  _  _  _") {
         document.getElementById("date-timeReq").style.display = "block";
         document.getElementById("date-timeEditOK").style.display = "none";
       }
@@ -340,7 +340,7 @@ function Ordering() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-      if (address == "" || address == "_  _  _  _  _  _") {
+      if (address === "" || address === "_  _  _  _  _  _") {
         document.getElementById("addressLineReq").style.display = "block";
         document.getElementById("addressLineOK").style.display = "none";
       }
@@ -349,12 +349,12 @@ function Ordering() {
         document.getElementById("addressLineReq").style.display = "none";
         document.getElementById("addressLineOK").style.display = "none";
       }
-      if (address.length >= 4 && address != "_  _  _  _  _  _") {
+      if (address.length >= 4 && address !== "_  _  _  _  _  _") {
         document.getElementById("addressLineLen").style.display = "none";
         document.getElementById("addressLineReq").style.display = "none";
         document.getElementById("addressLineOK").style.display = "block";
       }
-      if (city == "" || city == "_  _  _  _  _  _") {
+      if (city === "" || city === "_  _  _  _  _  _") {
         document.getElementById("cityReq").style.display = "block";
         document.getElementById("cityOK").style.display = "none";
       }
@@ -363,12 +363,12 @@ function Ordering() {
         document.getElementById("cityReq").style.display = "none";
         document.getElementById("cityOK").style.display = "none";
       }
-      if (city.length >= 3 && city != "_  _  _  _  _  _") {
+      if (city.length >= 3 && city !== "_  _  _  _  _  _") {
         document.getElementById("cityLen").style.display = "none";
         document.getElementById("cityReq").style.display = "none";
         document.getElementById("cityOK").style.display = "block";
       }
-      if (state == "" || state == "_  _  _  _  _  _") {
+      if (state === "" || state === "_  _  _  _  _  _") {
         document.getElementById("stateReq").style.display = "block";
         document.getElementById("stateOK").style.display = "none";
       }
@@ -376,7 +376,7 @@ function Ordering() {
         document.getElementById("stateReq").style.display = "none";
         document.getElementById("stateOK").style.display = "block";
       }
-      if (zip == "" || zip == "_  _  _  _  _  _") {
+      if (zip === "" || zip === "_  _  _  _  _  _") {
         document.getElementById("zipReq").style.display = "block";
         document.getElementById("zipOK").style.display = "none";
       }
@@ -385,7 +385,7 @@ function Ordering() {
         document.getElementById("zipReq").style.display = "none";
         document.getElementById("zipOK").style.display = "none";
       }
-      if (zip.length >= 6 && zip != "_  _  _  _  _  _") {
+      if (zip.length >= 6 && zip !== "_  _  _  _  _  _") {
         document.getElementById("zipLen").style.display = "none";
         document.getElementById("zipReq").style.display = "none";
         document.getElementById("zipOK").style.display = "block";
@@ -417,7 +417,7 @@ function Ordering() {
       event.preventDefault();
       event.stopPropagation();
       console.log("personal information is not valid");
-      if (offered == "" || offered == "_  _  _  _  _  _") {
+      if (offered === "" || offered === "_  _  _  _  _  _") {
         document.getElementById("offeredByReq").style.display = "block";
         document.getElementById("offeredByOK").style.display = "none";
       }
@@ -426,12 +426,12 @@ function Ordering() {
         document.getElementById("offeredByReq").style.display = "none";
         document.getElementById("offeredByOK").style.display = "none";
       }
-      if (offered.length >= 3 && offered != "_  _  _  _  _  _") {
+      if (offered.length >= 3 && offered !== "_  _  _  _  _  _") {
         document.getElementById("offeredByLen").style.display = "none";
         document.getElementById("offeredByReq").style.display = "none";
         document.getElementById("offeredByOK").style.display = "block";
       }
-      if (number == "" || number == "_  _  _  _  _  _") {
+      if (number === "" || number === "_  _  _  _  _  _") {
         document.getElementById("phoneNumberReq").style.display = "block";
         document.getElementById("phoneNumberOK").style.display = "none";
         document.getElementById("phoneNumberNums").style.display = "none";
@@ -441,7 +441,7 @@ function Ordering() {
         document.getElementById("phoneNumberReq").style.display = "none";
         document.getElementById("phoneNumberOK").style.display = "none";
       }
-      if (number.length >= 10 && number != "_  _  _  _  _  _") {
+      if (number.length >= 10 && number !== "_  _  _  _  _  _") {
         document.getElementById("phoneNumberLen").style.display = "none";
         document.getElementById("phoneNumberReq").style.display = "none";
         document.getElementById("phoneNumberNums").style.display = "none";
@@ -453,16 +453,17 @@ function Ordering() {
         document.getElementById("phoneNumberOK").style.display = "none";
         document.getElementById("phoneNumberNums").style.display = "block";
       }
-      if (email == "" || email == "_  _  _  _  _  _") {
+      if (email === "" || email === "_  _  _  _  _  _") {
         document.getElementById("emailReq").style.display = "block";
         document.getElementById("emailOK").style.display = "none";
+        document.getElementById("emailLen").style.display = "none";
       }
-      if (email.length < 3 && email.length >= 1) {
+      if (email.length >= 5 && !email.includes("@") && !email.includes(".") && email !== "_  _  _  _  _  _" && email !== "") {
         document.getElementById("emailLen").style.display = "block";
         document.getElementById("emailReq").style.display = "none";
         document.getElementById("emailOK").style.display = "none";
       }
-      if (email.length >= 3 && email != "_  _  _  _  _  _" ) {
+      if (email.includes("@") && email.includes(".")) {
         document.getElementById("emailLen").style.display = "none";
         document.getElementById("emailReq").style.display = "none";
         document.getElementById("emailOK").style.display = "block";
@@ -480,7 +481,7 @@ function Ordering() {
       document.getElementById("phoneNumberReq").style.display = "none";
       document.getElementById("phoneNumberNums").style.display = "none";
       document.getElementById("phoneNumberOK").style.display = "block";
-      document.getElementById("emailLen").style.display = "none";
+      // document.getElementById("emailLen").style.display = "none";
         document.getElementById("emailReq").style.display = "none";
         document.getElementById("emailOK").style.display = "block";
       event.preventDefault();
@@ -498,30 +499,30 @@ function Ordering() {
     document.getElementById("fNameFieldEdit").value=firstName
     document.getElementById("lNameFieldEdit").value=lastName
     let giftField = document.getElementById("giftEdit")
-    for (var i = 0; i < giftField.options.length; i++) {
-      if (giftField.options[i].text== gift) {
+    for (let i = 0; i < giftField.options.length; i++) {
+      if (giftField.options[i].text=== gift) {
           giftField.options[i].selected = true;
           break;
       }
   }
     document.getElementById("form1Edit").value=occasion
     let surpriseField = document.getElementById("surpriseEdit")
-    for (var i = 0; i < surpriseField.options.length; i++) {
-      if (surpriseField.options[i].text== suprise) {
+    for (let i = 0; i < surpriseField.options.length; i++) {
+      if (surpriseField.options[i].text=== suprise) {
           surpriseField.options[i].selected = true;
           break;
       }
   }
     let typeField = document.getElementById("typeEdit")
-    for (var i = 0; i < typeField.options.length; i++) {
-      if (typeField.options[i].text== type) {
+    for (let i = 0; i < typeField.options.length; i++) {
+      if (typeField.options[i].text=== type) {
           typeField.options[i].selected = true;
           break;
       }
   }
     let numberMusiciansField = document.getElementById("numberMusiciansEdit")
-    for (var i = 0; i < numberMusiciansField.options.length; i++) {
-      if (numberMusiciansField.options[i].text== numberMusicians) {
+    for (let i = 0; i < numberMusiciansField.options.length; i++) {
+      if (numberMusiciansField.options[i].text=== numberMusicians) {
           numberMusiciansField.options[i].selected = true;
           break;
       }
@@ -530,8 +531,8 @@ function Ordering() {
     document.getElementById("address-line-fieldEdit").value = address
     document.getElementById("cityEdit").value = city
     let stateField = document.getElementById("stateEdit")
-    for (var i = 0; i < stateField.options.length; i++) {
-      if (stateField.options[i].text== state) {
+    for (let i = 0; i < stateField.options.length; i++) {
+      if (stateField.options[i].text=== state) {
           stateField.options[i].selected = true;
           break;
       }
@@ -552,7 +553,7 @@ function Ordering() {
       event.stopPropagation();
 
     /*First Name Check*/
-    if (firstName == "" || firstName == "_  _  _  _  _  _") {
+    if (firstName === "" || firstName === "_  _  _  _  _  _") {
       document.getElementById("fNameLabelEditReq").style.display = "block";
       document.getElementById("fNameLabelEditLen").style.display = "block";
       document.getElementById("fNameLabelEditOK").style.display = "none";
@@ -569,7 +570,7 @@ function Ordering() {
     }
 
     /*Last Name Check */
-    if (lastName == "" || lastName == "_  _  _  _  _  _") {
+    if (lastName === "" || lastName === "_  _  _  _  _  _") {
       document.getElementById("lNameLabelEditReq").style.display = "block";
       document.getElementById("lNameLabelEditLen").style.display = "block";
       document.getElementById("lNameLabelEditOK").style.display = "none";
@@ -586,7 +587,7 @@ function Ordering() {
     }
 
     /*Occassion Check*/
-    if (occasion == "" || occasion == "_  _  _  _  _  _") {
+    if (occasion === "" || occasion === "_  _  _  _  _  _") {
       document.getElementById("occasionEditReq").style.display = "block";
       document.getElementById("occasionEditLen").style.display = "block";
       document.getElementById("occasionEditOK").style.display = "none";
@@ -598,13 +599,13 @@ function Ordering() {
     }
 
     /*Date and Time Check */
-    if (dateService == "" || dateService == "_  _  _  _  _  _") {
+    if (dateService === "" || dateService === "_  _  _  _  _  _") {
         document.getElementById("date-timeEditReq").style.display = "block";
         document.getElementById("date-timeEditOK").style.display = "none";
       }
     
     /*Address Check */
-    if (address == "" || address == "_  _  _  _  _  _") {
+    if (address === "" || address === "_  _  _  _  _  _") {
       document.getElementById("addressLineEditReq").style.display = "block";
       document.getElementById("addressLineEditOK").style.display = "none";
     }
@@ -613,14 +614,14 @@ function Ordering() {
       document.getElementById("addressLineEditReq").style.display = "none";
       document.getElementById("addressLineEditOK").style.display = "none";
     }
-    if (address.length >= 4 && address != "_  _  _  _  _  _") {
+    if (address.length >= 4 && address !== "_  _  _  _  _  _") {
       document.getElementById("addressLineEditLen").style.display = "none";
       document.getElementById("addressLineEditReq").style.display = "none";
       document.getElementById("addressLineEditOK").style.display = "block";
     }
 
     /*City Check */
-    if (city == "" || city == "_  _  _  _  _  _") {
+    if (city === "" || city === "_  _  _  _  _  _") {
       document.getElementById("cityEditReq").style.display = "block";
       document.getElementById("cityEditOK").style.display = "none";
     }
@@ -629,14 +630,14 @@ function Ordering() {
       document.getElementById("cityEditReq").style.display = "none";
       document.getElementById("cityEditOK").style.display = "none";
     }
-    if (city.length >= 3 && city != "_  _  _  _  _  _") {
+    if (city.length >= 3 && city !== "_  _  _  _  _  _") {
       document.getElementById("cityEditLen").style.display = "none";
       document.getElementById("cityEditReq").style.display = "none";
       document.getElementById("cityEditOK").style.display = "block";
     }
 
     /*State Check */
-    if (state == "" || state == "_  _  _  _  _  _") {
+    if (state === "" || state === "_  _  _  _  _  _") {
       document.getElementById("stateEditReq").style.display = "block";
       document.getElementById("stateEditOK").style.display = "none";
     }
@@ -646,7 +647,7 @@ function Ordering() {
     }
 
     /*Zip Check */
-    if (zip == "" || zip == "_  _  _  _  _  _") {
+    if (zip ===  "" || zip ===  "_  _  _  _  _  _") {
       document.getElementById("zipEditReq").style.display = "block";
       document.getElementById("zipEditOK").style.display = "none";
     }
@@ -655,14 +656,14 @@ function Ordering() {
       document.getElementById("zipEditReq").style.display = "none";
       document.getElementById("zipEditOK").style.display = "none";
     }
-    if (zip.length >= 6 && zip != "_  _  _  _  _  _") {
+    if (zip.length >= 6 && zip !== "_  _  _  _  _  _") {
       document.getElementById("zipEditLen").style.display = "none";
       document.getElementById("zipEditReq").style.display = "none";
       document.getElementById("zipEditOK").style.display = "block";
     }
 
     /*Offered By Check */
-    if (offered == "" || offered == "_  _  _  _  _  _") {
+    if (offered ===  "" || offered ===  "_  _  _  _  _  _") {
       document.getElementById("offeredByEditReq").style.display = "block";
       document.getElementById("offeredByEditOK").style.display = "none";
     }
@@ -671,14 +672,14 @@ function Ordering() {
       document.getElementById("offeredByEditReq").style.display = "none";
       document.getElementById("offeredByEditOK").style.display = "none";
     }
-    if (offered.length >= 3 && offered != "_  _  _  _  _  _") {
+    if (offered.length >= 3 && offered !== "_  _  _  _  _  _") {
       document.getElementById("offeredByEditLen").style.display = "none";
       document.getElementById("offeredByEditReq").style.display = "none";
       document.getElementById("offeredByEditOK").style.display = "block";
     }
 
     /*Phone Number Check */
-    if (number == "" || number == "_  _  _  _  _  _") {
+    if (number ===  "" || number ===  "_  _  _  _  _  _") {
       document.getElementById("phoneNumberEditReq").style.display = "block";
       document.getElementById("phoneNumberEditOK").style.display = "none";
       document.getElementById("phoneNumberEditNums").style.display = "none";
@@ -688,7 +689,7 @@ function Ordering() {
       document.getElementById("phoneNumberEditReq").style.display = "none";
       document.getElementById("phoneNumberEditOK").style.display = "none";
     }
-    if (number.length >= 10 && number != "_  _  _  _  _  _") {
+    if (number.length >= 10 && number !== "_  _  _  _  _  _") {
       document.getElementById("phoneNumberEditLen").style.display = "none";
       document.getElementById("phoneNumberEditReq").style.display = "none";
       document.getElementById("phoneNumberEditNums").style.display = "none";
@@ -702,7 +703,7 @@ function Ordering() {
     }
 
     /*Email Check */
-    if (email == "" || email == "_  _  _  _  _  _") {
+    if (email ===  "" || email ===  "_  _  _  _  _  _") {
       document.getElementById("emailEditReq").style.display = "block";
       document.getElementById("emailEditOK").style.display = "none";
     }
@@ -711,7 +712,7 @@ function Ordering() {
       document.getElementById("emailEditReq").style.display = "none";
       document.getElementById("emailEditOK").style.display = "none";
     }
-    if (email.length >= 3 && email != "_  _  _  _  _  _" ) {
+    if (email.length >= 3 && email !== "_  _  _  _  _  _" ) {
       document.getElementById("emailEditLen").style.display = "none";
       document.getElementById("emailEditReq").style.display = "none";
       document.getElementById("emailEditOK").style.display = "block";
@@ -775,17 +776,17 @@ function Ordering() {
 /*Edit Gift Value & Text in Summary Page*/
 function editGift() {
   let currentGift = document.getElementById("giftEdit").value
-  if (currentGift == "one person") {
+  if (currentGift ===  "one person") {
     setGift("one person"); 
     setGiftText("One person in Particular");
   }
 
-  else if (currentGift == "small committee") {
+  else if (currentGift ===  "small committee") {
     setGift("small committee"); 
     setGiftText("A Small Committee")
   }
 
-  else if (currentGift == "institution") {
+  else if (currentGift ===  "institution") {
     setGift("institution"); 
     setGiftText("An Instution");
   }
@@ -794,22 +795,22 @@ function editGift() {
 /*Edit Type Value & Check in Summary Page*/
 function editType() {
   let currentType = document.getElementById("typeEdit").value
-  if (currentType == "classic") {
+  if (currentType ===  "classic") {
     setType("classic"); 
     setTypeText("Classical Music");
   }
 
-  else if (currentType == "popular") {
+  else if (currentType ===  "popular") {
     setType("popular"); 
     setTypeText("Popular Music")
   }
 
-  else if (currentType == "jazzy/pop") {
+  else if (currentType ===  "jazzy/pop") {
     setType("jazzy/pop"); 
     setTypeText("Jazzy-Pop music");
   }
 
-  else if (currentType == "surprise") {
+  else if (currentType ===  "surprise") {
     setType("suprise"); 
     setTypeText("A surprise");
   }
@@ -826,16 +827,20 @@ function editType() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
-          <div className="bg-display-test">
-            <ReactBootStrap.Col>
-              <a onClick={(e) => { setGift("one person"); setGiftText("One person in Particular"); forward1(); }}><img src={pic1} className="pic" /><p>One person <br /> in particular</p></a>
+        <div className="bg-display-test">
+            <ReactBootStrap.Col onClick={(e) => { setGift("one person"); setGiftText("One person in Particular"); forward1(); }}>
+              <button id="trans-button-style"><img src={pic1} className="pic" alt=""/><p>One person <br /> in particular</p></button>
             </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setGift("small committee"); setGiftText("A small committee"); forward1(); }}><img src={pic2} className="pic" /><p>A small <br />  committee</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setGift("small committee"); setGiftText("A small committee"); forward1(); }}>
+              <button id="trans-button-style"><img src={pic2} className="pic" alt=""/><p>A small <br />  committee</p></button>
+            </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setGift("institution"); setGiftText("An institution"); forward1(); }}><img src={pic3} className="pic" /><p>An <br />  institution</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setGift("institution"); setGiftText("An institution"); forward1(); }}>
+              <button id="trans-button-style"><img src={pic3} className="pic" alt=""/><p>An <br />  institution</p></button>
+            </ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
 
@@ -871,8 +876,8 @@ function editType() {
           <ReactBootStrap.Row>
             <ReactBootStrap.Col style={{ marginTop: '20px' }}>
               <div class="buttonAlign">
-                <ReactBootStrap.Button variant="danger" className='button' onClick={back2}><a>Back</a></ReactBootStrap.Button>
-                <ReactBootStrap.Button type="submit" variant="success" className='button'><a>Next</a></ReactBootStrap.Button>
+                <ReactBootStrap.Button variant="danger" className='button' onClick={back2}>Back</ReactBootStrap.Button>
+                <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
               </div>
             </ReactBootStrap.Col>
           </ReactBootStrap.Row>
@@ -893,23 +898,31 @@ function editType() {
 
         <ReactBootStrap.Row>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("classic"); setTypeText("Classical music"); forward3(); }}><img src={pic5} className="pic" /><p>Classical</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setType("classic"); setTypeText("Classical music"); forward3(); }}>
+              <button id="trans-button-style"><img src={pic5} className="pic" alt=""/><p>Classical</p></button>
+            </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("popular"); setTypeText("Popular music"); forward3(); }}><img src={pic6} className="pic" /><p style={{ fontSize: '19px' }}>Popular Music</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setType("popular"); setTypeText("Popular music"); forward3(); }}>
+              <button id="trans-button-style" ><img src={pic6} className="pic" alt=""/><p style={{ fontSize: '19px' }}>Popular Music</p></button>
+            </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("jazzy/pop"); setTypeText("Jazzy-Pop music"); forward3(); }}><img src={pic7} className="pic" /><p>Jazzy - Pop</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setType("jazzy/pop"); setTypeText("Jazzy-Pop music"); forward3(); }}>
+              <button id="trans-button-style" ><img src={pic7} className="pic" alt=""/><p>Jazzy - Pop</p></button>
+            </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setType("suprise"); setTypeText("A surprise"); forward3(); }}><img src={pic8} className="pic" /><p>Suprise!</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setType("suprise"); setTypeText("A surprise"); forward3(); }}>
+              <button id="trans-button-style" ><img src={pic8} className="pic" alt=""/><p>Suprise!</p></button>
+            </ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginTop: '20px' }}>
             <div class="buttonAlign">
-              <ReactBootStrap.Button variant="danger" className='button' onClick={back3}><a>Back</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button variant="danger" className='button' onClick={back3}>Back</ReactBootStrap.Button>
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -929,18 +942,22 @@ function editType() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row sm={1} md={3}>
-          <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setNumberMusicians("solo"); forward4(); }}><img src={pic9} className="pic2" /><p>Soloist</p></a></ReactBootStrap.Col>
+        <div className="bg-display-test">
+            <ReactBootStrap.Col onClick={(e) => { setNumberMusicians("solo"); forward4(); }}>
+              <button id="trans-button-style"><img src={pic9} className="pic2" alt=""/><p>Soloist</p></button>
+            </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col><a onClick={(e) => { setNumberMusicians("duo"); forward4(); }}><img src={pic10} className="pic2" /><p>Duo</p></a></ReactBootStrap.Col>
+            <ReactBootStrap.Col onClick={(e) => { setNumberMusicians("duo"); forward4(); }}>
+              <button id="trans-button-style"><img src={pic10} className="pic2" alt=""/><p>Duo</p></button>
+            </ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginTop: '20px' }}>
             <div class="buttonAlign">
-              <ReactBootStrap.Button variant="danger" className='button' onClick={back4}><a>Back</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button variant="danger" className='button' onClick={back4}>Back</ReactBootStrap.Button>
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -956,25 +973,25 @@ function editType() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center">
-          <div className="bg-display-button">
-            <a onClick={(e) => { setSuprise("yes"); forward5(); }}>
+          <div className="bg-display-button" onClick={(e) => { setSuprise("yes"); forward5(); }}>
+            <button id="trans-button-style" >
               <ReactBootStrap.Col><p class="surprise">Yes</p></ReactBootStrap.Col>
-            </a>
+            </button>
           </div>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center">
-          <div style={{ marginTop: '10px' }} className="bg-display-button">
-            <a onClick={(e) => { setSuprise("no"); forward5(); }}>
+          <div style={{ marginTop: '10px' }} className="bg-display-button" onClick={(e) => { setSuprise("no"); forward5(); }}>
+            <button id="trans-button-style" >
               <ReactBootStrap.Col><p class="surprise">No</p></ReactBootStrap.Col>
-            </a>
+            </button>
           </div>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginTop: '20px' }}>
             <div class="buttonAlign">
-              <ReactBootStrap.Button variant="danger" className='button' onClick={back5}><a>Back</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button variant="danger" className='button' onClick={back5}>Back</ReactBootStrap.Button>
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -1020,7 +1037,7 @@ function editType() {
           </Form.Row> */}
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back6}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back6}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
@@ -1129,7 +1146,7 @@ function editType() {
           </MediaQuery>
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back7}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back7}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
@@ -1181,7 +1198,7 @@ function editType() {
           </div>
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back8}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back8}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
         </Form>
@@ -1217,7 +1234,7 @@ function editType() {
           </Form.Row>
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back9}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back9}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
@@ -1242,7 +1259,7 @@ function editType() {
           </Form.Group>
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back10}><a>Back</a></ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back10}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button variant="success" className='button' onClick={forward10}>Submit</ReactBootStrap.Button>
           </div>
 
@@ -1265,7 +1282,11 @@ function editType() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className = "justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><img src={editButton} className="editButton" onClick={startEdit} /></ReactBootStrap.Col>
+            <div className="bg-display-test">
+            <ReactBootStrap.Col md="auto" onClick={startEdit}>
+              <img src={editButton} alt="" className="editButton"  />
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -1432,7 +1453,7 @@ function editType() {
 
           <ReactBootStrap.Row className="justify-content-md-center">
             <div class="buttonAlign">
-              <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}><a>Back</a></ReactBootStrap.Button>
+              <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}>Back</ReactBootStrap.Button>
               <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="success" className='button' style={{ width: '185px' }} onClick={submitOrder}>Go back to Home</ReactBootStrap.Button></a>
             </div>
           </ReactBootStrap.Row>
@@ -1453,8 +1474,13 @@ function editType() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className = "justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><img src={editButton} className="editButton" onClick={startEdit} /></ReactBootStrap.Col>
+            <div className="bg-display-test">
+            <ReactBootStrap.Col md="auto">
+              <img src={editButton} alt="" className="editButton" onClick={startEdit} />
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
+          
 
           <ReactBootStrap.Row className="justify-content-md-center">
             <ReactBootStrap.Col>
