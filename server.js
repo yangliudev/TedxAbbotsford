@@ -23,7 +23,7 @@ const db = mysql.createPool({
 app.use(
   cors({
     origin: ["http://localhost:3000"],
-    methods: ["GET", "POST", "PUT"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
@@ -462,5 +462,18 @@ app.get("/match/musicians/:orderID", (req, res) => {
     res.send(result);
   });
 });
+
+app.delete('/order/delete/:orderID', (req, res) => {
+  const orderID = req.params.orderID;
+
+  const sqlDelete = "DELETE FROM ordering_table WHERE id = ?";
+
+  db.query(sqlDelete, orderID, (err, result) => {
+    if (err) console.log(err)
+    if (result) console.log("Order", orderID, "deleted");
+  });
+
+
+})
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
