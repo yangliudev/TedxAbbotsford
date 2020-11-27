@@ -926,7 +926,7 @@ function editType() {
       <ReactBootStrap.Container className="bg-display" id="order4">
 
         <ReactBootStrap.Row className="justify-content-md-center">
-  <ReactBootStrap.Col><h3>4. And what style of music would {firstName}{lastName} like to hear? </h3></ReactBootStrap.Col>
+  <ReactBootStrap.Col><h3>4. And what style of music would {firstName} {lastName} like to hear? </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
