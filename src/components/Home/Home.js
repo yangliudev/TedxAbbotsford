@@ -7,6 +7,7 @@ import firstPicture from "./../../assets/logos/02_picto-canton.png"
 import secondPicture from "./../../assets/logos/02-picto-adresse.png"
 import thirdPicture from "./../../assets/logos/02-picto-artiste.png"
 import fourthPicture from "./../../assets/logos/02-picto-paiement.png"
+import committeePicture from "./../../assets/logos/commitee.jpg"
 import fifthPicture from "./../../assets/logos/03-picto-durée.png"
 import sixthPicture from "./../../assets/logos/03-picto-don.png"
 import seventhPicture from "./../../assets/logos/cadeauici.webp"
@@ -34,7 +35,7 @@ class Home extends Component {
 
     render() {
         return (
-            <ReactBootStrap.Container className="top-space">
+            <ReactBootStrap.Container className="top-space1">
                 <ReactBootStrap.Row >
                     <ReactBootStrap.Col md={{ span: 2 }}>
                         <div class="towerDescription">
@@ -78,18 +79,7 @@ class Home extends Component {
                             <p class="towerDescriptionText">A saxophonist for Nadine and Yves, <br></br>Jazzy atmosphere! Saturday 11:00 am - Grimentz</p><br></br>
                         </div></ReactBootStrap.Col>
 
-                    {/* <ReactBootStrap.Col >
-                        <div class ="textBG">
-                                <div class="textAlign">
-                                    <p class="towerText"><span class="firstTowerText">OFFER A MUSICIAN AT HOME <br/>TO THE PEOPLE YOU LOVE,<br/></span> <span class="secondTowerText">IN LESS THAN 3 MINUTES!</span></p>
-                                </div>
-                            
-                                <div class="buttonAlign">
-                                <a href={process.env.PUBLIC_URL + '/#/order'}>
-                                    <input type="button" value="Order Now" class="orderButton"></input>
-                                </a> 
-                                </div>
-                        </div></ReactBootStrap.Col> */}
+          
                 </ReactBootStrap.Row>
 
 
@@ -109,38 +99,38 @@ class Home extends Component {
                         <ReactBootStrap.Row className="cards">
                             <ReactBootStrap.Col md={3}>
 
-                                <h1 class="textAlign2">1</h1>
-                                <h1 class="cardHeader">Inquire the occasion celebrated</h1>
+                                <h1 class="textAlign2" id = 'proxima'>1</h1>
+                                <h1 class="cardHeader" id = 'neutra'>Tell us the occasion</h1>
 
-                                <img alt="" class="card-img-top" src={firstPicture} style={{ width: "75%" }}></img>
-                                <p class="card-text3"><br />"Grandma Léa's birthday!"</p>
-                                <p class="card-text3">"A little aperitif with friends"</p>
-                                <p class="card-text3">"Violin for a romantic evening!"</p>
-
-                            </ReactBootStrap.Col>
-                            <ReactBootStrap.Col md={3}>
-
-                                <h1 class="textAlign2">2</h1>
-                                <h1 class="cardHeader">Decide music<br></br><br></br></h1>
-                                <img alt="" class="card-img-top" style={{ width: "75%" }} src={secondPicture}></img>
-                                <p class="card-text3"><br />You decide the style of music! In addition to this, you need to know more about it. We take care of finding the musicians available in your region on the date and time indicated.</p>
+                                <img alt="" class="card-img-top" src={firstPicture} style={{ width: "60%" }}></img>
+                                <p class="card-text3" id = 'neutra2'><br />"Grandma Léa's birthday!"</p>
+                                <p class="card-text3" id = 'neutra2'>"A little aperitif with friends"</p>
+                                <p class="card-text3" id = 'neutra2'>"Violin for a romantic evening!"</p>
 
                             </ReactBootStrap.Col>
                             <ReactBootStrap.Col md={3}>
 
-                                <h1 class="textAlign2">3</h1>
-                                <h1 class="cardHeader">Pay online<br></br><br></br></h1>
-                                <img alt="" class="card-img-top" src={thirdPicture} style={{ width: "75%" }}></img>
-                                <p class="card-text3"><br />After giving us all the necessary information , enjoy a fast and secure payment.</p>
+                                <h1 class="textAlign2" id = 'proxima'>2</h1>
+                                <h1 class="cardHeader" id = 'neutra'>Decide the music<br></br><br></br></h1>
+                                <img alt="" class="card-img-top" style={{ width: "60%" }} src={secondPicture}></img>
+                                <p class="card-text3" id = 'neutra2'><br />You decide the style of music! In addition to this, you need to know more about it. We take care of finding the musicians available in your region on the date and time indicated.</p>
 
                             </ReactBootStrap.Col>
                             <ReactBootStrap.Col md={3}>
 
-                                <h1 class="textAlign2">4</h1>
-                                <h1 class="cardHeader">Listen and savor<br></br><br></br></h1>
-                                <img alt="" class="card-img-top" src={fourthPicture} style={{ width: "75%" }}></img>
-                                <p class="card-text3"><br />On the day-D and at the time indicated, one or two musicians will appear in front of the beneficiary's door on time and will play for 20 minutes. </p>
-                                <p class="card-text2">Let the music begin!</p>
+                                <h1 class="textAlign2" id = 'proxima'>3</h1>
+                                <h1 class="cardHeader" id = 'neutra'>Pay online<br></br><br></br></h1>
+                                <img alt="" class="card-img-top" src={thirdPicture} style={{ width: "60%" }}></img>
+                                <p class="card-text3" id = 'neutra2'><br />After giving us all the necessary information , enjoy a fast and secure payment.</p>
+
+                            </ReactBootStrap.Col>
+                            <ReactBootStrap.Col md={3}>
+
+                                <h1 class="textAlign2" id = 'proxima'>4</h1>
+                                <h1 class="cardHeader" id = 'neutra'>Listen and savor<br></br><br></br></h1>
+                                <img alt="" class="card-img-top" src={fourthPicture} style={{ width: "60%" }}></img>
+                                <p class="card-text3"  id = 'neutra2'><br />On the date and at the time indicated, one or two musicians will appear in front of the beneficiary's door on time and will play for 20 minutes. </p>
+                                <p class="card-text2" id = 'neutra'>Let the music begin!</p>
 
                             </ReactBootStrap.Col>
                         </ReactBootStrap.Row>
@@ -157,20 +147,20 @@ class Home extends Component {
                             <ReactBootStrap.Col md={4}>
 
                                 <h1 class="textAlign2">DURATION</h1>
-                                <img alt="" class="card-img-top2" id="img2" src={fifthPicture} style={{ width: "75%" }}></img>
-                                <h1 class="cardHeader">20 minutes of music</h1>
+                                <img alt="" class="card-img-top2" id="img2" src={fifthPicture} style={{ width: "40%" , marginBottom:'20px'}}></img>
+                                <h1 class="cardHeader" id = 'neutra'>20 minutes of music</h1>
 
                             </ReactBootStrap.Col>
                             <ReactBootStrap.Col md={4}>
                                 <h1 class="textAlign2">PUBLIC</h1>
-                                <img alt="" class="card-img-top2" id="img2" src={fifthPicture} style={{ width: "75%" }}></img>
-                                <h1 class="cardHeader">in a small group with</h1>
+                                <img alt="" class="card-img-top2" id="img2" src={committeePicture} style={{ width: "40%" , marginBottom:'20px'}}></img>
+                                <h1 class="cardHeader" id = 'neutra'>In a small group with</h1>
                             </ReactBootStrap.Col>
                             <ReactBootStrap.Col md={4}>
 
                                 <h1 class="textAlign2">PRICE</h1>
-                                <img alt="" class="card-img-top2" id="img2" src={sixthPicture} style={{ width: "75%" }}></img>
-                                <h1 class="cardHeader">one or two professional musicians</h1>
+                                <img alt="" class="card-img-top2" id="img2" src={sixthPicture} style={{ width: "40%" , marginBottom:'20px'}}></img>
+                                <h1 class="cardHeader" id = 'neutra'>One or two professional musicians</h1>
 
                             </ReactBootStrap.Col>
                         </ReactBootStrap.Row>
@@ -237,9 +227,8 @@ class Home extends Component {
                 <ReactBootStrap.Row>
                     <div class="cards4">
                         <br></br>
-                        <h1 class="textAlign2">PRACTICAL</h1>
-                        <h1 class="textAlign2">INFORMATION</h1>
-                        <br></br>
+                        <h1 class="textAlign2">PRACTICAL INFORMATION</h1>
+                         <br></br>
                         <p class="card-text4">Everything you need to know about <span class="card-text7">In The Garden.</span></p>
                         <div class="buttonAlign">
                             <a href={process.env.PUBLIC_URL + '/#/info'}>

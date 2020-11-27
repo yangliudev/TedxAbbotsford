@@ -1,14 +1,16 @@
   
-.top-space {
-    margin-top: 3%;
+.top-space1 {
+    padding-top: 3%;
     max-width: 100%;
     overflow-x: hidden;
+    background-color: #2a3c43;
+    
 }
 
 .top-space2 {
-    background-color: #46555B;
     width: 100%;
     margin-top: 3%;
+    background-color: #46555B;
 }
 
 .cards {
@@ -22,7 +24,6 @@
 }
 
 .cards2 {
-    background-color: #282c34;
     display: flexbox;
     width: 100%;
     text-align: center;
@@ -31,7 +32,6 @@
 }
 
 .cards3 {
-    background-color: #282c34;
     text-align: center;
     width: 100%;
     margin-left: auto;
@@ -221,15 +221,17 @@
 
 .cardHeader {
     text-align: center;
-    font-size: 60px;
+    font-size: 30px;
     width: 100%;
     height: 100px;
     color: white;
-    font-family: CamperSans2;
+    font-family: 'Neutra text light demi';
+
 }
 
 .card-img-top {
     margin-top: -10%;
+    border-radius: 15px;
 }
 
 .buttonAlign {
@@ -530,6 +532,24 @@ a+a {
 }
 
 .towerDescriptionText {
-    color: black;
+    color: white;
     /* word-spacing: 5px; */
+}
+
+
+#proxima{
+    font-family: 'Proxima Nova';
+    font-size: 3.75em;
+}
+
+#neutra{
+    /* font-size: 1.6rem;
+    font-family: 'Neutra text light demi'; */
+    color: white;
+}
+
+#neutra2{
+    font-size: 1.3rem;
+    font-family: 'Neutra text';
+    color: white;
 }
