@@ -27,7 +27,7 @@ import instagramLogo from "./../../assets/logos/instagramLogo.png"
 import "./Home.css"
 
 //Include thid \/ later as this is required for IG Feed
-// import Feed from "react-instagram-authless-feed"
+import Feed from "react-instagram-authless-feed"
 
 // import { Landscape, Portrait } from '@material-ui/icons';
 
@@ -415,11 +415,11 @@ class Home extends Component {
                 </ReactBootStrap.Row>
 
                 <ReactBootStrap.Row>
-                    {/* <div className="cards3">
+                    <div className="cards3">
                 <br></br>
 
                     <Feed userName="dans_l_jardin" className="Feed" classNameLoading="Loading"/>
-                </div> */}
+                </div>
                 </ReactBootStrap.Row>
 
 
