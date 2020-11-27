@@ -472,6 +472,17 @@ app.delete('/order/delete/:orderID', (req, res) => {
     if (err) console.log(err)
     if (result) console.log("Order", orderID, "deleted");
   });
+})
+
+app.delete('/musician/delete/:musicianID', (req, res) => {
+  const musicianID = req.params.musicianID;
+
+  const sqlDelete = "DELETE FROM musician_table WHERE id = ?";
+
+  db.query(sqlDelete, musicianID, (err, result) => {
+    if (err) console.log(err)
+    if (result) console.log("Musician", musicianID, "deleted");
+  });
 
 
 })

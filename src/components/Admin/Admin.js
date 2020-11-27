@@ -52,6 +52,11 @@ function Test() {
     window.location.reload();
   };
 
+  const deleteMusician = (musicianID) => {
+    Axios.delete(`http://localhost:5000/musician/delete/${musicianID}`);
+    window.location.reload();
+  };
+
   const getMuiTheme = () =>
     createMuiTheme({
       overrides: {
@@ -263,6 +268,7 @@ function Test() {
       window.open(addressURL);
     }
     if (isAssign) submitMusicianOrder(rowSelectMusician);
+    if (isDeleteMusician) deleteMusician(rowSelectMusician[1]);
     // console.log(matchedMusicians[row.dataIndex]);
 
     // submitMusicianOrder(rowSelectMusician);
@@ -276,14 +282,14 @@ function Test() {
   const ToolbarAssign = () => {
     isAssign = true;
     isMaps = false;
-
-    // console.log(rowSelectMusician);
-    // setMusicianID(rowSelectMusician);
-    // submitMusicianOrder(rowSelectMusician);
     document.getElementById("orders").style.display = "block";
     document.getElementById("matched").style.display = "none";
-    // console.log(musicianID, rowSelectMusician);
   };
+
+  let isDeleteMusician = false;
+  const DeleteMusicianIcon = () => {
+    isDeleteMusician = true;
+  }
 
   const displayMusicians = () => {
     setMatchedMusicians(dataMusician);
@@ -319,7 +325,7 @@ function Test() {
   const updateStatus = (value, index) => {
     // console.log(value, arr[index])
     Axios.put("http://localhost:5000/orderStatus/update", {
-      orderID: arr[index][1],
+      orderID: arr[index][2],
       status: value,
     }).then(() => {
       alert("sucessful insert");
@@ -489,7 +495,7 @@ function Test() {
             <div>
               <Tooltip title={"Delete"}>
                 <IconButton
-                  onClick={deleteIconPressed}
+                  onClick={DeleteMusicianIcon}
                   style={{ width: "10px", height: "10px" }}
                 >
                   <DeleteIcon />
@@ -704,19 +710,22 @@ function Test() {
     responsive: "vertical",
     tableBodyHeight: "400px",
     // tableBodyMaxHeight,
-    resizableColumns: true,
+    // resizableColumns: true,
     draggableColumns: {
       enabled: true,
       transitionTime: 300,
     },
-    selectableRows: "single",
-    customToolbar: () => (
-      <Tooltip title={"Orders"}>
-        <IconButton onClick={displayOrders}>
-          <NavigateBeforeIcon />
-        </IconButton>
-      </Tooltip>
-    ),
+    selectableRows: "none",
+    onRowClick: (rowData, rowMeta) => {
+      setMusician(rowMeta);
+    },
+    // customToolbar: () => (
+    //   <Tooltip title={"Orders"}>
+    //     <IconButton onClick={displayOrders}>
+    //       <NavigateBeforeIcon />
+    //     </IconButton>
+    //   </Tooltip>
+    // ),
   };
 
   const data = arr;
