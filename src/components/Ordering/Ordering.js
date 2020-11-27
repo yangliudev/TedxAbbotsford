@@ -15,6 +15,7 @@ import pic8 from "./ordering-assets/tresorblanc.png"
 
 import pic9 from "./ordering-assets/musiciennesolo.png"
 import pic10 from "./ordering-assets/duomusiciens.png"
+import editButton from "./ordering-assets/edit.png"
 
 
 import Form from 'react-bootstrap/Form';
@@ -25,18 +26,19 @@ import MediaQuery from 'react-responsive';
 
 function Ordering() {
 
-  function back1() {
-    var x = document.getElementById("order1");
-    x.style.display = "block";
-    document.getElementById("orderConfirm").style.display = "none"
-  }
+  /*Functions to go back or forward 1 step in the ordering process */
+  // function back1() {
+  //   var x = document.getElementById("order1");
+  //   x.style.display = "block";
+  //   document.getElementById("orderConfirm").style.display = "none"
+  // }
 
   function forward1() {
     var x = document.getElementById("order1")
     x.style.display = "none";
     document.getElementById("order2").style.display = "block";
     document.getElementById("orderConfirm").style.display = "none";
-    document.getElementById("fNameField").focus();
+    document.getElementById("form1").focus();
   }
 
   function back2() {
@@ -51,7 +53,6 @@ function Ordering() {
     x.style.display = "none";
     document.getElementById("order3").style.display = "block";
     document.getElementById("orderConfirm").style.display = "none";
-    document.getElementById("form1").focus();
   }
 
   function back3() {
@@ -104,7 +105,7 @@ function Ordering() {
     x.style.display = "none";
     document.getElementById("order7").style.display = "block";
     document.getElementById("orderConfirm").style.display = "none";
-    // document.getElementById("date-time-field").focus();
+    // document.getElementById("address-line-field").focus();
   }
 
   function back7() {
@@ -118,7 +119,7 @@ function Ordering() {
     x.style.display = "none";
     document.getElementById("order8").style.display = "block";
     document.getElementById("orderConfirm").style.display = "none";
-    document.getElementById("address-line-field").focus();
+    document.getElementById("offered-field").focus();
   }
 
   function back8() {
@@ -132,7 +133,7 @@ function Ordering() {
     x.style.display = "none";
     document.getElementById("order9").style.display = "block";
     document.getElementById("orderConfirm").style.display = "none";
-    document.getElementById("offered-field").focus();
+    // document.getElementById("fNameField").focus();
   }
 
   function back9() {
@@ -166,6 +167,7 @@ function Ordering() {
     document.getElementById("order10").style.display = "block"
   }
 
+  /*Function to format the minimum date and time allowed for the ordering process */
   function dateAndTime() {
     var d = new Date();
     d.setDate(d.getDate() + 3);
@@ -178,10 +180,8 @@ function Ordering() {
     return dateFormatted
   }
 
-  // const [musicianName, setMusicianName] = useState("");
-  // const [musicianType, setMusicianType] = useState("");
-  // const [musicanList, setMusicanList] = useState([]);
-
+  /*Constants for the details required in the ordering process, including the
+  detail variable, function to set the detail, and the default value of the detail */
   const [gift, setGift] = useState("_  _  _  _  _  _");
   const [giftText, setGiftText] = useState("_  _  _  _  _  _");
   const [occasion, setOccasion] = useState("_  _  _  _  _  _");
@@ -203,6 +203,7 @@ function Ordering() {
   const [zip, setZip] = useState("_  _  _  _  _  _");
   const [comments, setComments] = useState("_  _  _  _  _  _");
 
+  /*Function to send the order to the database through Axios */
   const submitOrder = () => {
     Axios.post("http://localhost:5000/order/insert", {
       orderGift: gift,
@@ -231,7 +232,9 @@ function Ordering() {
 
   // Validatoin contents below \/ \/
   const [validated] = useState(false);
+  // const [validated, setValidated] = useState(false);
 
+  /*Validation for first and last name of the beneficiary */
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -257,12 +260,12 @@ function Ordering() {
         document.getElementById("lNameLabelLen").style.display = "block";
         document.getElementById("lNameLabelOK").style.display = "none";
       }
-      else if (lastName.length < 2 ) {
+      else if (lastName.length < 3 ) {
         document.getElementById("lNameLabelReq").style.display = "none";
         document.getElementById("lNameLabelOK").style.display = "none";
         document.getElementById("lNameLabelLen").style.display = "block";
       }
-      else if (lastName.length >= 2) {
+      else if (lastName.length >= 3) {
         document.getElementById("lNameLabelOK").style.display = "block";
         document.getElementById("lNameLabelReq").style.display = "none";
         document.getElementById("lNameLabelLen").style.display = "none";
@@ -278,10 +281,11 @@ function Ordering() {
       event.preventDefault();
       event.stopPropagation();
       console.log("true");
-      forward2();
+      forward9();
     }
   }
 
+  /*Validation for the occasion */
   const handleSubmit2 = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -305,10 +309,11 @@ function Ordering() {
       event.preventDefault();
       event.stopPropagation();
       console.log("true");
-      forward3();
+      forward2();
     }
   }
 
+  /*Validation for the date and time of the performance */
   const handleSubmit7 = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -316,6 +321,7 @@ function Ordering() {
       event.stopPropagation();
       if (dateService === "" || dateService === "_  _  _  _  _  _") {
         document.getElementById("date-timeReq").style.display = "block";
+        document.getElementById("date-timeEditOK").style.display = "none";
       }
     }
     else {
@@ -324,10 +330,11 @@ function Ordering() {
       event.preventDefault();
       event.stopPropagation();
       console.log("true");
-      forward7();
+      forward6();
     }
   }
 
+  /*Validation for the address, city, state, and zip code of the performance */
   const handleSubmit8 = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -399,10 +406,11 @@ function Ordering() {
       event.preventDefault();
       event.stopPropagation();
       console.log("true");
-      forward8();
+      forward7();
     }
   }
 
+  /*Validation for the orderer's name, phone number, and email */
   const handleSubmit9 = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -450,20 +458,6 @@ function Ordering() {
         document.getElementById("emailOK").style.display = "none";
         document.getElementById("emailLen").style.display = "none";
       }
-      // if (email !== "" && email !== "_  _  _  _  _  _") {
-      //   document.getElementById("emailReq").style.display = "none";
-      //   document.getElementById("emailOK").style.display = "block";
-      // }
-      // if (email.length < 3 && email.length >= 1) {
-      //   document.getElementById("emailLen").style.display = "block";
-      //   document.getElementById("emailReq").style.display = "none";
-      //   document.getElementById("emailOK").style.display = "none";
-      // }
-      // if (email.length >= 3 && email !== "_  _  _  _  _  _" ) {
-      //   document.getElementById("emailLen").style.display = "none";
-      //   document.getElementById("emailReq").style.display = "none";
-      //   document.getElementById("emailOK").style.display = "block";
-      // }
       if (email.length >= 5 && !email.includes("@") && !email.includes(".") && email !== "_  _  _  _  _  _" && email !== "") {
         document.getElementById("emailLen").style.display = "block";
         document.getElementById("emailReq").style.display = "none";
@@ -493,14 +487,338 @@ function Ordering() {
       event.preventDefault();
       event.stopPropagation();
       console.log("true");
-      forward9();
+      forward8();
     }
 
   };
 
+  /*Insert all values into editable fields in summary page */
+  function startEdit() {
+    document.getElementById("summaryDetails").style.display="none"
+    document.getElementById("editFields").style.display="block"
+    document.getElementById("fNameFieldEdit").value=firstName
+    document.getElementById("lNameFieldEdit").value=lastName
+    let giftField = document.getElementById("giftEdit")
+    for (let i = 0; i < giftField.options.length; i++) {
+      if (giftField.options[i].text=== gift) {
+          giftField.options[i].selected = true;
+          break;
+      }
+  }
+    document.getElementById("form1Edit").value=occasion
+    let surpriseField = document.getElementById("surpriseEdit")
+    for (let i = 0; i < surpriseField.options.length; i++) {
+      if (surpriseField.options[i].text=== suprise) {
+          surpriseField.options[i].selected = true;
+          break;
+      }
+  }
+    let typeField = document.getElementById("typeEdit")
+    for (let i = 0; i < typeField.options.length; i++) {
+      if (typeField.options[i].text=== type) {
+          typeField.options[i].selected = true;
+          break;
+      }
+  }
+    let numberMusiciansField = document.getElementById("numberMusiciansEdit")
+    for (let i = 0; i < numberMusiciansField.options.length; i++) {
+      if (numberMusiciansField.options[i].text=== numberMusicians) {
+          numberMusiciansField.options[i].selected = true;
+          break;
+      }
+  }
+    document.getElementById("date-time-fieldEdit").value= dateService + "T" + timeService
+    document.getElementById("address-line-fieldEdit").value = address
+    document.getElementById("cityEdit").value = city
+    let stateField = document.getElementById("stateEdit")
+    for (let i = 0; i < stateField.options.length; i++) {
+      if (stateField.options[i].text=== state) {
+          stateField.options[i].selected = true;
+          break;
+      }
+  }
+    document.getElementById("zipEdit").value = zip
+    document.getElementById("offered-fieldEdit").value = offered
+    document.getElementById("phoneEdit").value = number
+    document.getElementById("emailEdit").value = email
+    document.getElementById("commentEdit").value = comments
+}
+
+  /*After edit in summary page, check if each value is in the right format. 
+  Stop edit when they are, and do not stop if they are not. */
+  const saveEdit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+
+    /*First Name Check*/
+    if (firstName === "" || firstName === "_  _  _  _  _  _") {
+      document.getElementById("fNameLabelEditReq").style.display = "block";
+      document.getElementById("fNameLabelEditLen").style.display = "block";
+      document.getElementById("fNameLabelEditOK").style.display = "none";
+    }
+    else if (firstName.length < 3) {
+      document.getElementById("fNameLabelEditReq").style.display = "none";
+      document.getElementById("fNameLabelEditOK").style.display = "none";
+      document.getElementById("fNameLabelEditLen").style.display = "block";
+    }
+    else if (firstName.length >= 3 & firstName !== "_  _  _  _  _  _") {
+      document.getElementById("fNameLabelEditOK").style.display = "block";
+      document.getElementById("fNameLabelEditReq").style.display = "none";
+      document.getElementById("fNameLabelEditLen").style.display = "none";
+    }
+
+    /*Last Name Check */
+    if (lastName === "" || lastName === "_  _  _  _  _  _") {
+      document.getElementById("lNameLabelEditReq").style.display = "block";
+      document.getElementById("lNameLabelEditLen").style.display = "block";
+      document.getElementById("lNameLabelEditOK").style.display = "none";
+    }
+    else if (lastName.length < 3 ) {
+      document.getElementById("lNameLabelEditReq").style.display = "none";
+      document.getElementById("lNameLabelEditOK").style.display = "none";
+      document.getElementById("lNameLabelEditLen").style.display = "block";
+    }
+    else if (lastName.length >= 3) {
+      document.getElementById("lNameLabelEditOK").style.display = "block";
+      document.getElementById("lNameLabelEditReq").style.display = "none";
+      document.getElementById("lNameLabelEditLen").style.display = "none";
+    }
+
+    /*Occassion Check*/
+    if (occasion === "" || occasion === "_  _  _  _  _  _") {
+      document.getElementById("occasionEditReq").style.display = "block";
+      document.getElementById("occasionEditLen").style.display = "block";
+      document.getElementById("occasionEditOK").style.display = "none";
+    }
+    else if (occasion.length < 3 && occasion !== "") {
+      document.getElementById("occasionEditReq").style.display = "none";
+      document.getElementById("occasionEditLen").style.display = "block";
+      document.getElementById("occasionEditOK").style.display = "none";
+    }
+
+    /*Date and Time Check */
+    if (dateService === "" || dateService === "_  _  _  _  _  _") {
+        document.getElementById("date-timeEditReq").style.display = "block";
+        document.getElementById("date-timeEditOK").style.display = "none";
+      }
+    
+    /*Address Check */
+    if (address === "" || address === "_  _  _  _  _  _") {
+      document.getElementById("addressLineEditReq").style.display = "block";
+      document.getElementById("addressLineEditOK").style.display = "none";
+    }
+    if (address.length < 4 && address.length >= 1) {
+      document.getElementById("addressLineEditLen").style.display = "block";
+      document.getElementById("addressLineEditReq").style.display = "none";
+      document.getElementById("addressLineEditOK").style.display = "none";
+    }
+    if (address.length >= 4 && address !== "_  _  _  _  _  _") {
+      document.getElementById("addressLineEditLen").style.display = "none";
+      document.getElementById("addressLineEditReq").style.display = "none";
+      document.getElementById("addressLineEditOK").style.display = "block";
+    }
+
+    /*City Check */
+    if (city === "" || city === "_  _  _  _  _  _") {
+      document.getElementById("cityEditReq").style.display = "block";
+      document.getElementById("cityEditOK").style.display = "none";
+    }
+    if (city.length < 3 && city.length >= 1) {
+      document.getElementById("cityEditLen").style.display = "block";
+      document.getElementById("cityEditReq").style.display = "none";
+      document.getElementById("cityEditOK").style.display = "none";
+    }
+    if (city.length >= 3 && city !== "_  _  _  _  _  _") {
+      document.getElementById("cityEditLen").style.display = "none";
+      document.getElementById("cityEditReq").style.display = "none";
+      document.getElementById("cityEditOK").style.display = "block";
+    }
+
+    /*State Check */
+    if (state === "" || state === "_  _  _  _  _  _") {
+      document.getElementById("stateEditReq").style.display = "block";
+      document.getElementById("stateEditOK").style.display = "none";
+    }
+    if (state !== "" && state !== "_  _  _  _  _  _") {
+      document.getElementById("stateEditReq").style.display = "none";
+      document.getElementById("stateEditOK").style.display = "block";
+    }
+
+    /*Zip Check */
+    if (zip ===  "" || zip ===  "_  _  _  _  _  _") {
+      document.getElementById("zipEditReq").style.display = "block";
+      document.getElementById("zipEditOK").style.display = "none";
+    }
+    if (zip.length < 6 && zip.length >= 1) {
+      document.getElementById("zipEditLen").style.display = "block";
+      document.getElementById("zipEditReq").style.display = "none";
+      document.getElementById("zipEditOK").style.display = "none";
+    }
+    if (zip.length >= 6 && zip !== "_  _  _  _  _  _") {
+      document.getElementById("zipEditLen").style.display = "none";
+      document.getElementById("zipEditReq").style.display = "none";
+      document.getElementById("zipEditOK").style.display = "block";
+    }
+
+    /*Offered By Check */
+    if (offered ===  "" || offered ===  "_  _  _  _  _  _") {
+      document.getElementById("offeredByEditReq").style.display = "block";
+      document.getElementById("offeredByEditOK").style.display = "none";
+    }
+    if (offered.length < 3 && offered.length >= 1) {
+      document.getElementById("offeredByEditLen").style.display = "block";
+      document.getElementById("offeredByEditReq").style.display = "none";
+      document.getElementById("offeredByEditOK").style.display = "none";
+    }
+    if (offered.length >= 3 && offered !== "_  _  _  _  _  _") {
+      document.getElementById("offeredByEditLen").style.display = "none";
+      document.getElementById("offeredByEditReq").style.display = "none";
+      document.getElementById("offeredByEditOK").style.display = "block";
+    }
+
+    /*Phone Number Check */
+    if (number ===  "" || number ===  "_  _  _  _  _  _") {
+      document.getElementById("phoneNumberEditReq").style.display = "block";
+      document.getElementById("phoneNumberEditOK").style.display = "none";
+      document.getElementById("phoneNumberEditNums").style.display = "none";
+    }
+    if (number.length < 10 && number.length >=1) {
+      document.getElementById("phoneNumberEditLen").style.display = "block";
+      document.getElementById("phoneNumberEditReq").style.display = "none";
+      document.getElementById("phoneNumberEditOK").style.display = "none";
+    }
+    if (number.length >= 10 && number !== "_  _  _  _  _  _") {
+      document.getElementById("phoneNumberEditLen").style.display = "none";
+      document.getElementById("phoneNumberEditReq").style.display = "none";
+      document.getElementById("phoneNumberEditNums").style.display = "none";
+      document.getElementById("phoneNumberEditOK").style.display = "block";
+    }
+    if (number.match("[a-zA-Z]+") || number.length > 10){
+      document.getElementById("phoneNumberEditLen").style.display = "none";
+      document.getElementById("phoneNumberEditReq").style.display = "none";
+      document.getElementById("phoneNumberEditOK").style.display = "none";
+      document.getElementById("phoneNumberEditNums").style.display = "block";
+    }
+
+    /*Email Check */
+    if (email ===  "" || email ===  "_  _  _  _  _  _") {
+      document.getElementById("emailEditReq").style.display = "block";
+      document.getElementById("emailEditOK").style.display = "none";
+    }
+    if (email.length < 3 && email.length >= 1) {
+      document.getElementById("emailEditLen").style.display = "block";
+      document.getElementById("emailEditReq").style.display = "none";
+      document.getElementById("emailEditOK").style.display = "none";
+    }
+    if (email.length >= 3 && email !== "_  _  _  _  _  _" ) {
+      document.getElementById("emailEditLen").style.display = "none";
+      document.getElementById("emailEditReq").style.display = "none";
+      document.getElementById("emailEditOK").style.display = "block";
+    }
+
+  }
+
+  /*Everything Passes */
+  else {
+    event.preventDefault();
+    event.stopPropagation();
+    document.getElementById("lNameLabelEditOK").style.display = "block";
+    document.getElementById("lNameLabelEditReq").style.display = "none";
+    document.getElementById("lNameLabelEditLen").style.display = "none";
+
+    document.getElementById("fNameLabelEditOK").style.display = "block";
+    document.getElementById("fNameLabelEditReq").style.display = "none";
+    document.getElementById("fNameLabelEditLen").style.display = "none";
+
+    document.getElementById("occasionEditOK").style.display = "block";
+    document.getElementById("occasionEditReq").style.display = "none";
+    document.getElementById("occasionEditLen").style.display = "none";
+
+    document.getElementById("date-timeEditOK").style.display = "block";
+    document.getElementById("date-timeEditReq").style.display = "none";
+
+    document.getElementById("zipEditLen").style.display = "none";
+    document.getElementById("zipEditReq").style.display = "none";
+    document.getElementById("zipEditOK").style.display = "block";
+
+    document.getElementById("stateEditReq").style.display = "none";
+    document.getElementById("stateEditOK").style.display = "block";
+
+    document.getElementById("cityEditLen").style.display = "none";
+    document.getElementById("cityEditReq").style.display = "none";
+    document.getElementById("cityEditOK").style.display = "block";
+
+    document.getElementById("addressLineEditLen").style.display = "none";
+    document.getElementById("addressLineEditReq").style.display = "none";
+    document.getElementById("addressLineEditOK").style.display = "block";
+
+    document.getElementById("offeredByEditLen").style.display = "none";
+    document.getElementById("offeredByEditReq").style.display = "none";
+    document.getElementById("offeredByEditOK").style.display = "block";
+
+    document.getElementById("phoneNumberEditLen").style.display = "none";
+    document.getElementById("phoneNumberEditReq").style.display = "none";
+    document.getElementById("phoneNumberEditOK").style.display = "block";
+    document.getElementById("phoneNumberEditNums").style.display = "none";
+
+    document.getElementById("emailEditLen").style.display = "none";
+    document.getElementById("emailEditReq").style.display = "none";
+    document.getElementById("emailEditOK").style.display = "block";
+
+    console.log("true");
+    document.getElementById("summaryDetails").style.display="block"
+    document.getElementById("editFields").style.display="none"
+  }
+}
+
+/*Edit Gift Value & Text in Summary Page*/
+function editGift() {
+  let currentGift = document.getElementById("giftEdit").value
+  if (currentGift ===  "one person") {
+    setGift("one person"); 
+    setGiftText("One person in Particular");
+  }
+
+  else if (currentGift ===  "small committee") {
+    setGift("small committee"); 
+    setGiftText("A Small Committee")
+  }
+
+  else if (currentGift ===  "institution") {
+    setGift("institution"); 
+    setGiftText("An Instution");
+  }
+}
+
+/*Edit Type Value & Check in Summary Page*/
+function editType() {
+  let currentType = document.getElementById("typeEdit").value
+  if (currentType ===  "classic") {
+    setType("classic"); 
+    setTypeText("Classical Music");
+  }
+
+  else if (currentType ===  "popular") {
+    setType("popular"); 
+    setTypeText("Popular Music")
+  }
+
+  else if (currentType ===  "jazzy/pop") {
+    setType("jazzy/pop"); 
+    setTypeText("Jazzy-Pop music");
+  }
+
+  else if (currentType ===  "surprise") {
+    setType("suprise"); 
+    setTypeText("A surprise");
+  }
+}
+
 
   return (
-
+    /*HTML/React for the ordering process */
     <ReactBootStrap.Container className="top-space-ordering">
       <ReactBootStrap.Container className="bg-display" id="order1">
 
@@ -509,7 +827,7 @@ function Ordering() {
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row>
-          <div className="bg-display-test">
+        <div className="bg-display-test">
             <ReactBootStrap.Col onClick={(e) => { setGift("one person"); setGiftText("One person in Particular"); forward1(); }}>
               <button id="trans-button-style"><img src={pic1} className="pic" alt=""/><p>One person <br /> in particular</p></button>
             </ReactBootStrap.Col>
@@ -528,50 +846,9 @@ function Ordering() {
 
       </ReactBootStrap.Container>
 
-
-
       <ReactBootStrap.Container className="bg-display" id="order2">
-
         <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col><h3>2. {giftText}, very good. Who will be the main beneficiary of the concert? </h3></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
-
-        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
-          <ReactBootStrap.Col><h4>&#x1F6C8; Tell us more about who will be at the centre of this moment, or their name if they live in an institution. For example: "Grandma Léa", "Pré-Fleuri institution" ... </h4></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
-
-        <Form noValidate validated={validated} onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
-
-          <Form.Row className="justify-content-md-center">
-            <Form.Group as={Col} xs={6} controlId="formGridFirstName">
-              <Form.Control className="form-control" required minLength="2" type="text" id="fNameField" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }} />
-              <span id="fNameLabelOK">Looks Good!</span>
-              <span id="fNameLabelReq">First Name is required!</span>
-              <span id="fNameLabelLen">Minimum length of 2 is required!</span>
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridLastName">
-              <Form.Control className="form-control" required minLength="2" type="text" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
-              <span id="lNameLabelOK">Looks Good!</span>
-              <span id="lNameLabelReq">Last Name is required!</span>
-              <span id="lNameLabelLen">Minimum length of 2 is required!</span>
-            </Form.Group>
-          </Form.Row>
-
-          <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back2}>Back</ReactBootStrap.Button>
-            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
-          </div>
-
-        </Form>
-
-      </ReactBootStrap.Container>
-
-
-
-      <ReactBootStrap.Container className="bg-display" id="order3">
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col><h3>3. {firstName} {lastName}, got it! Now, what are we celebrating</h3></ReactBootStrap.Col>
+          <ReactBootStrap.Col><h3>2. Got it! Now, what are we celebrating</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
@@ -587,7 +864,7 @@ function Ordering() {
                   <input type="text" required minLength="3" id="form1" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
                   <span id="occasionOK">Looks Good!</span>
                   <span id="occasionReq">Occasion is required!</span>
-                  <span id="occasionLen">Minimum length of 3 is required!</span>
+                  <span id="occasionLen"></span>
                 </div>
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
@@ -599,7 +876,7 @@ function Ordering() {
           <ReactBootStrap.Row>
             <ReactBootStrap.Col style={{ marginTop: '20px' }}>
               <div class="buttonAlign">
-                <ReactBootStrap.Button variant="danger" className='button' onClick={back3}>Back</ReactBootStrap.Button>
+                <ReactBootStrap.Button variant="danger" className='button' onClick={back2}>Back</ReactBootStrap.Button>
                 <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
               </div>
             </ReactBootStrap.Col>
@@ -609,10 +886,10 @@ function Ordering() {
 
 
 
-      <ReactBootStrap.Container className="bg-display" id="order4">
+      <ReactBootStrap.Container className="bg-display" id="order3">
 
         <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col><h3>4. And what style of music would {firstName} like to hear? </h3></ReactBootStrap.Col>
+          <ReactBootStrap.Col><h3>3. And what style of music would they like to hear? </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
@@ -621,23 +898,58 @@ function Ordering() {
 
         <ReactBootStrap.Row>
           <div className="bg-display-test">
-            <ReactBootStrap.Col onClick={(e) => { setType("classic"); setTypeText("Classical music"); forward4(); }}>
+            <ReactBootStrap.Col onClick={(e) => { setType("classic"); setTypeText("Classical music"); forward3(); }}>
               <button id="trans-button-style"><img src={pic5} className="pic" alt=""/><p>Classical</p></button>
             </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col onClick={(e) => { setType("popular"); setTypeText("Popular music"); forward4(); }}>
+            <ReactBootStrap.Col onClick={(e) => { setType("popular"); setTypeText("Popular music"); forward3(); }}>
               <button id="trans-button-style" ><img src={pic6} className="pic" alt=""/><p style={{ fontSize: '19px' }}>Popular Music</p></button>
             </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col onClick={(e) => { setType("jazzy/pop"); setTypeText("Jazzy-Pop music"); forward4(); }}>
+            <ReactBootStrap.Col onClick={(e) => { setType("jazzy/pop"); setTypeText("Jazzy-Pop music"); forward3(); }}>
               <button id="trans-button-style" ><img src={pic7} className="pic" alt=""/><p>Jazzy - Pop</p></button>
             </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
-            <ReactBootStrap.Col onClick={(e) => { setType("suprise"); setTypeText("A surprise"); forward4(); }}>
+            <ReactBootStrap.Col onClick={(e) => { setType("suprise"); setTypeText("A surprise"); forward3(); }}>
               <button id="trans-button-style" ><img src={pic8} className="pic" alt=""/><p>Suprise!</p></button>
+            </ReactBootStrap.Col>
+          </div>
+        </ReactBootStrap.Row>
+
+        <ReactBootStrap.Row>
+          <ReactBootStrap.Col style={{ marginTop: '20px' }}>
+            <div class="buttonAlign">
+              <ReactBootStrap.Button variant="danger" className='button' onClick={back3}>Back</ReactBootStrap.Button>
+            </div>
+          </ReactBootStrap.Col>
+        </ReactBootStrap.Row>
+
+      </ReactBootStrap.Container>
+
+
+
+      <ReactBootStrap.Container className="bg-display" id="order4">
+
+        <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Col><h3>4. {typeText}, very good choice! How many musicians would you like for this musical rendez-vous?</h3></ReactBootStrap.Col>
+        </ReactBootStrap.Row>
+
+        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
+          <ReactBootStrap.Col><h4>&#x1F6C8; A soloist or a duo for 20 minutes</h4></ReactBootStrap.Col>
+        </ReactBootStrap.Row>
+
+        <ReactBootStrap.Row sm={1} md={3}>
+        <div className="bg-display-test">
+            <ReactBootStrap.Col onClick={(e) => { setNumberMusicians("solo"); forward4(); }}>
+              <button id="trans-button-style"><img src={pic9} className="pic2" alt=""/><p>Soloist</p></button>
+            </ReactBootStrap.Col>
+          </div>
+          <div className="bg-display-test">
+            <ReactBootStrap.Col onClick={(e) => { setNumberMusicians("duo"); forward4(); }}>
+              <button id="trans-button-style"><img src={pic10} className="pic2" alt=""/><p>Duo</p></button>
             </ReactBootStrap.Col>
           </div>
         </ReactBootStrap.Row>
@@ -657,23 +969,22 @@ function Ordering() {
       <ReactBootStrap.Container className="bg-display" id="order5">
 
         <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col><h3>5. {typeText}, very good choice! How many musicians would you like for this musical rendez-vous?</h3></ReactBootStrap.Col>
+          <ReactBootStrap.Col><h3>5. Good. Is this a suprise?</h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
-        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
-          <ReactBootStrap.Col><h4>&#x1F6C8; A soloist or a duo for 20 minutes</h4></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
-
-        <ReactBootStrap.Row sm={1} md={3}>
-          <div className="bg-display-test">
-            <ReactBootStrap.Col onClick={(e) => { setNumberMusicians("solo"); forward5(); }}>
-              <button id="trans-button-style"><img src={pic9} className="pic2" alt=""/><p>Soloist</p></button>
-            </ReactBootStrap.Col>
+        <ReactBootStrap.Row className="justify-content-md-center">
+          <div className="bg-display-button" onClick={(e) => { setSuprise("yes"); forward5(); }}>
+            <button id="trans-button-style" >
+              <ReactBootStrap.Col><p class="surprise">Yes</p></ReactBootStrap.Col>
+            </button>
           </div>
-          <div className="bg-display-test">
-            <ReactBootStrap.Col onClick={(e) => { setNumberMusicians("duo"); forward5(); }}>
-              <button id="trans-button-style"><img src={pic10} className="pic2" alt=""/><p>Duo</p></button>
-            </ReactBootStrap.Col>
+        </ReactBootStrap.Row>
+
+        <ReactBootStrap.Row className="justify-content-md-center">
+          <div style={{ marginTop: '10px' }} className="bg-display-button" onClick={(e) => { setSuprise("no"); forward5(); }}>
+            <button id="trans-button-style" >
+              <ReactBootStrap.Col><p class="surprise">No</p></ReactBootStrap.Col>
+            </button>
           </div>
         </ReactBootStrap.Row>
 
@@ -687,44 +998,12 @@ function Ordering() {
 
       </ReactBootStrap.Container>
 
+
+
       <ReactBootStrap.Container className="bg-display" id="order6">
 
         <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col><h3>6. Good. Is this a suprise?</h3></ReactBootStrap.Col>
-        </ReactBootStrap.Row>
-
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <div className="bg-display-button" onClick={(e) => { setSuprise("yes"); forward6(); }}>
-            <button id="trans-button-style" >
-              <ReactBootStrap.Col><p class="surprise">Yes</p></ReactBootStrap.Col>
-            </button>
-          </div>
-        </ReactBootStrap.Row>
-
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <div style={{ marginTop: '10px' }} className="bg-display-button" onClick={(e) => { setSuprise("no"); forward6(); }}>
-            <button id="trans-button-style" >
-              <ReactBootStrap.Col><p class="surprise">No</p></ReactBootStrap.Col>
-            </button>
-          </div>
-        </ReactBootStrap.Row>
-
-        <ReactBootStrap.Row>
-          <ReactBootStrap.Col style={{ marginTop: '20px' }}>
-            <div class="buttonAlign">
-              <ReactBootStrap.Button variant="danger" className='button' onClick={back6}>Back</ReactBootStrap.Button>
-            </div>
-          </ReactBootStrap.Col>
-        </ReactBootStrap.Row>
-
-      </ReactBootStrap.Container>
-
-
-
-      <ReactBootStrap.Container className="bg-display" id="order7">
-
-        <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col><h3>7. All right! When do you want the concert?  </h3></ReactBootStrap.Col>
+          <ReactBootStrap.Col><h3>6. All right! When do you want the concert?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center">
@@ -740,8 +1019,9 @@ function Ordering() {
                 required
                 id="date-time-field"
                 type="datetime-local"
+                format-value="yyyy-MM-ddTHH:mm"
                 min={dateAndTime()}
-                onChange={(e) => { let date = e.target.value.substring(0, 10); let time = e.target.value.substring(11, 16); setDateService(date); setTimeService(time); }} />
+                onChange={(e) => { let date = e.target.value.substring(0, 10); let time = e.target.value.substring(11, 16); setDateService(date); setTimeService(time);}} />
               <span id="date-timeOK">Looks Good!</span>
               <span id="date-timeReq">Date and Time is required!</span>
             </Form.Group>
@@ -757,7 +1037,7 @@ function Ordering() {
           </Form.Row> */}
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back7}>Back</ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back6}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
@@ -767,10 +1047,10 @@ function Ordering() {
 
 
 
-      <ReactBootStrap.Container className="bg-display" id="order8">
+      <ReactBootStrap.Container className="bg-display" id="order7">
 
         <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col><h3>8. Perfect! Now where will these festivities take place?  </h3></ReactBootStrap.Col>
+          <ReactBootStrap.Col><h3>7. Perfect! Now where will these festivities take place?  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <Form noValidate validated={validated} onSubmit={handleSubmit8} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
@@ -806,7 +1086,7 @@ function Ordering() {
                 <Form.Control required minLength="3" placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
                 <span id="cityOK">Looks Good!</span>
                 <span id="cityReq">City is required!</span>
-                <span id="cityLen">Minimum length of 3 is required!</span>
+                <span id="cityLen"></span>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
@@ -839,7 +1119,7 @@ function Ordering() {
                   <Form.Control required placeholder="Burnaby" onChange={(e) => { setCity(e.target.value); }} />
                   <span id="cityOK">Looks Good!</span>
                   <span id="cityReq">City is required!</span>
-                  <span id="cityLen">Minimum length of 3 is required!</span>
+                  <span id="cityLen"></span>
                 </div>
               </Form.Group>
 
@@ -865,10 +1145,8 @@ function Ordering() {
             </Form.Row>
           </MediaQuery>
 
-
-
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back8}>Back</ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back7}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
 
@@ -876,12 +1154,10 @@ function Ordering() {
 
       </ReactBootStrap.Container>
 
-
-
-      <ReactBootStrap.Container className="bg-display" id="order9">
+      <ReactBootStrap.Container className="bg-display" id="order8">
 
         <ReactBootStrap.Row className="justify-content-md-center">
-          <ReactBootStrap.Col><h3>9. Everything is good for the concert. We need some information about you to be able to confirm the order.  </h3></ReactBootStrap.Col>
+          <ReactBootStrap.Col><h3>8. Everything is good for the concert. We need some information about you to be able to confirm the order.  </h3></ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
         <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
@@ -897,7 +1173,7 @@ function Ordering() {
                 <Form.Control required minLength="3" type="text" placeholder="Your name here" id="offered-field" onChange={(e) => { setOffered(e.target.value); }} />
                 <span id="offeredByOK">Looks Good!</span>
                 <span id="offeredByReq">Offered by is required!</span>
-                <span id="offeredByLen">Minimum length of 3 is required!</span>
+                <span id="offeredByLen"></span>
               </Form.Group>
 
               <Form.Group controlId="formGridPhone">
@@ -912,24 +1188,59 @@ function Ordering() {
 
               <Form.Group controlId="formGridEmail">
                 <Form.Label>Email Address</Form.Label>
-                <Form.Control required type="email" placeholder="yourname@gmail.com" onChange={(e) => { setEmail(e.target.value); }} />
+                <Form.Control required minLength="4" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" type="email" placeholder="yourname@gmail.com" onChange={(e) => { setEmail(e.target.value); }} />
                 <span id="emailOK">Looks Good!</span>
                 <span id="emailReq">Email is required!</span>
-                <span id="emailLen">Valid pattern is abc@email.com</span>
+                <span id="emailLen">Valid pattern is abc@email.co</span>
               </Form.Group>
 
             </div>
           </div>
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back9}>Back</ReactBootStrap.Button>
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back8}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
           </div>
         </Form>
 
       </ReactBootStrap.Container>
 
+      <ReactBootStrap.Container className="bg-display" id="order9">
 
+        <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Col><h3>9. Finally, who will be the main beneficiary of the concert? </h3></ReactBootStrap.Col>
+        </ReactBootStrap.Row>
+
+        <ReactBootStrap.Row className="justify-content-md-center" style={{ marginBottom: '30px', marginTop: "-30px" }}>
+          <ReactBootStrap.Col><h4>&#x1F6C8; Tell us more about who will be at the centre of this moment, or their name if they live in an institution. For example: "Grandma Léa", "Pré-Fleuri institution" ... </h4></ReactBootStrap.Col>
+        </ReactBootStrap.Row>
+
+        <Form noValidate validated={validated} onSubmit={handleSubmit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+
+          <Form.Row className="justify-content-md-center">
+            <Form.Group as={Col} xs={6} controlId="formGridFirstName">
+              <Form.Control className="form-control" required minLength="3" type="text" id="fNameField" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }} />
+              <span id="fNameLabelOK">Looks Good!</span>
+              <span id="fNameLabelReq">First Name is required!</span>
+              <span id="fNameLabelLen"></span>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridLastName">
+              <Form.Control className="form-control" required minLength="3" type="text" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
+              <span id="lNameLabelOK">Looks Good!</span>
+              <span id="lNameLabelReq">Last Name is required!</span>
+              <span id="lNameLabelLen"></span>
+            </Form.Group>
+          </Form.Row>
+
+          <div class="buttonAlign">
+            <ReactBootStrap.Button variant="danger" className='button' onClick={back9}>Back</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
+          </div>
+
+        </Form>
+
+      </ReactBootStrap.Container>
 
       <ReactBootStrap.Container className="bg-display" id="order10">
 
@@ -957,11 +1268,25 @@ function Ordering() {
       </ReactBootStrap.Container>
 
 
-
+      {/*
+        Summary Page without editing
+      */}
       <ReactBootStrap.Container className="bg-display" id="orderConfirm">
-        <div>
+        <ReactBootStrap.Container id="summaryDetails">
           <ReactBootStrap.Row className="justify-content-md-center">
             <ReactBootStrap.Col md="auto"><h3>Perfect, we have everything. Here is a summary of your order before entering payment details.</h3></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><h6 className="editText">You can make changes by clicking the edit button below</h6></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className = "justify-content-md-center">
+            <div className="bg-display-test">
+            <ReactBootStrap.Col md="auto" onClick={startEdit}>
+              <img src={editButton} alt="" className="editButton"  />
+            </ReactBootStrap.Col>
+          </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -972,34 +1297,25 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward1}>
-              <ReactBootStrap.Col md="auto">
+              <ReactBootStrap.Col md="auto" id="summaryDetails">
                 <p>{firstName} {lastName}</p>
               </ReactBootStrap.Col>
-              <span class="tooltiptext">Click here to change this detail</span>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={back1}>
               <ReactBootStrap.Col md="auto">
                 <p>({giftText})</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward2}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Occasion:</p>
 
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{occasion}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -1010,116 +1326,84 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward5}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Suprise concert:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{suprise}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward3}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Style of music:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
-                <p>{type}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
+              <ReactBootStrap.Col md="auto">
+                <p>{typeText}</p>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward4}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Number of Musicians:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{numberMusicians}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward6}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro" >Date of Service:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{dateService}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward6}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Time of Service:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{timeService}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward7}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Address:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{address}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
-          {/* <ReactBootStrap.Row className="justify-content-md-center">
-            <ReactBootStrap.Col md="auto"><p className="intro">Address 2:</p></ReactBootStrap.Col>
-            <ReactBootStrap.Col md="auto"><p>{address2}</p></ReactBootStrap.Col>
-          </ReactBootStrap.Row> */}
-
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward7}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">City:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{city}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward7}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">State:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{state}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward7}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Zip:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{zip}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -1130,36 +1414,27 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward8}>
               <ReactBootStrap.Col md="auto">
                 <p>{offered}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward8}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Phone Number:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{number}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={forward8}>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p className="intro">Email:</p>
               </ReactBootStrap.Col>
-              <ReactBootStrap.Col md="auto" className="tooltipCol">
+              <ReactBootStrap.Col md="auto">
                 <p>{email}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
@@ -1170,12 +1445,9 @@ function Ordering() {
           </ReactBootStrap.Row>
 
           <ReactBootStrap.Row className="justify-content-md-center">
-            <div class="tooltip" onClick={backFinal}>
               <ReactBootStrap.Col md="auto">
                 <p>{comments}</p>
-                <span class="tooltiptext">Click here to change this detail</span>
               </ReactBootStrap.Col>
-            </div>
           </ReactBootStrap.Row>
 
 
@@ -1186,7 +1458,307 @@ function Ordering() {
             </div>
           </ReactBootStrap.Row>
 
-        </div>
+        </ReactBootStrap.Container>
+
+
+        {/*
+          Summary Page during editing
+        */}
+        <ReactBootStrap.Container id="editFields">
+        <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><h3>Perfect, we have everything. Here is a summary of your order before entering payment details.</h3></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col md="auto"><h6 className="editText">You can make changes by clicking the edit button below</h6></ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className = "justify-content-md-center">
+            <div className="bg-display-test">
+            <ReactBootStrap.Col md="auto">
+              <img src={editButton} alt="" className="editButton" onClick={startEdit} />
+            </ReactBootStrap.Col>
+          </div>
+          </ReactBootStrap.Row>
+          
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col>
+              <h6 className="orderLineText">Beneficiary</h6>
+              <hr className="orderLine"/>
+            </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+          
+
+          <Form noValidate validated={validated} onSubmit={saveEdit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <Form.Row className="justify-content-md-center">
+                  <Form.Group as={Col} xs={6} controlId="formGridFirstNameEdit">
+                    <Form.Control className="form-control" required minLength="3" type="text" id="fNameFieldEdit" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }} />
+                    <span id="fNameLabelEditOK">Looks Good!</span>
+                    <span id="fNameLabelEditReq">First Name is required!</span>
+                    <span id="fNameLabelEditLen"></span>
+                  </Form.Group>
+
+                  <Form.Group as={Col} controlId="formGridLastNameEdit">
+                    <Form.Control className="form-control" required minLength="3" type="text" id="lNameFieldEdit" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
+                    <span id="lNameLabelEditOK">Looks Good!</span>
+                    <span id="lNameLabelEditReq">Last Name is required!</span>
+                    <span id="lNameLabelEditLen"></span>
+                  </Form.Group>
+                </Form.Row>
+
+
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <Form.Row className="justify-content-md-center">
+                  <Form.Group className="justify-content-md-center">
+                    <Form.Control className="form-control" required as="select" id="giftEdit" onChange={editGift}>
+                      <option>one person</option>
+                      <option>small committee</option>
+                      <option>institution</option>
+                    </Form.Control>
+                  </Form.Group>
+                </Form.Row>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Occasion:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <Form.Row className="justify-content-md-center">
+                    <Form.Group className="justify-content-md-center">
+                    <input type="text" required minLength="3" id="form1Edit" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
+                    <span id="occasionEditOK">Looks Good!</span>
+                    <span id="occasionEditReq">Occasion is required!</span>
+                    <span id="occasionEditLen"></span>
+                    </Form.Group>
+                  </Form.Row>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col>
+              <h6 className="orderLineText">Information about the concert</h6>
+              <hr className="orderLine"/>
+            </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Suprise concert:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <Form.Row className="justify-content-md-center">
+                    <Form.Group className="justify-content-md-center">
+                      <Form.Control className="form-control" required as="select" id="surpriseEdit" onChange={(e) => {setSuprise(e.target.value); }}>
+                        <option>yes</option>
+                        <option>no</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </Form.Row>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Style of music:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+              <Form.Row className="justify-content-md-center">
+                    <Form.Group className="justify-content-md-center">
+                      <Form.Control className="form-control" required as="select" id="typeEdit" onChange={editType}>
+                        <option>classic</option>
+                        <option>popular</option>
+                        <option>jazzy/pop</option>
+                        <option>suprise</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </Form.Row>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Number of Musicians:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <Form.Row className="justify-content-md-center">
+                    <Form.Group className="justify-content-md-center">
+                      <Form.Control className="form-control" required as="select" id="numberMusiciansEdit" onChange={(e) => {setNumberMusicians(e.target.value); }}>
+                        <option>solo</option>
+                        <option>duo</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </Form.Row>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro" >Date and Time of Service:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <Form.Row className="justify-content-md-center">
+                  <Form.Group controlId="formGridDateEdit" className="justify-content-md-center">
+                    {/* <Form.Label>Date and Time of Service</Form.Label> */}
+                    <Form.Control
+                      required
+                      id="date-time-fieldEdit"
+                      type="datetime-local"
+                      format-value="yyyy-MM-ddTHH:mm"
+                      min={dateAndTime()}
+                      onChange={(e) => { let date = e.target.value.substring(0, 10); let time = e.target.value.substring(11, 16); setDateService(date); setTimeService(time); }} />
+                      <span id="date-timeEditOK">Looks Good!</span>
+                      <span id="date-timeEditReq">Date and Time is required!</span>
+                  </Form.Group>
+                </Form.Row>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Address:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <Form.Row>
+                  <Form.Group as={Col} controlId="formGridAddress1">
+                    <Form.Control required minLength="4" placeholder="1234 Main St" id="address-line-fieldEdit" onChange={(e) => { setAddress(e.target.value); }} />
+                    <span id="addressLineEditOK">Looks Good!</span>
+                    <span id="addressLineEditReq">Address line is required!</span>
+                    <span id="addressLineEditLen">Minimum length of 4 is required!</span>
+                  </Form.Group>
+                </Form.Row>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">City:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <Form.Row>
+                  <Form.Group as={Col} controlId="formGridCity">
+                    <Form.Control required minLength="3" placeholder="Burnaby" id="cityEdit" onChange={(e) => { setCity(e.target.value); }} />
+                    <span id="cityEditOK">Looks Good!</span>
+                    <span id="cityEditReq">City is required!</span>
+                    <span id="cityEditLen"></span>
+                  </Form.Group>
+                </Form.Row>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">State:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <Form.Row>
+                  <Form.Group as={Col} controlId="formGridState">
+                    <Form.Control required as="select" minLength="3" defaultValue="Choose..." id="stateEdit" onChange={(e) => { setState(e.target.value); }}>
+                      <option value="">Choose from below</option>
+                      <option value="British Columbia">British Columbia</option>
+                      <option value="Alberta">Alberta</option>
+                    </Form.Control>
+                    <span id="stateEditOK">Looks Good!</span>
+                    <span id="stateEditReq">State is required!</span>
+                  </Form.Group>
+                </Form.Row>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Zip:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <Form.Row>
+                  <Form.Group as={Col} controlId="formGridZip">
+                    <Form.Control required minLength="6" placeholder="V3W9N3" id="zipEdit" onChange={(e) => { setZip(e.target.value); }} />
+                    <span id="zipEditOK">Looks Good!</span>
+                    <span id="zipEditReq">ZIP is required!</span>
+                    <span id="zipEditLen">Enter zip like V3W9N3!</span>
+                  </Form.Group>
+                </Form.Row>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col>
+              <h6 className="orderLineText">Thanks to the generosity of:</h6>
+              <hr className="orderLine"/>
+            </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+              <Form.Group controlId="formGridHost">
+                <Form.Control required minLength="3" type="text" placeholder="Your name here" id="offered-fieldEdit" onChange={(e) => { setOffered(e.target.value); }} />
+                <span id="offeredByEditOK">Looks Good!</span>
+                <span id="offeredByEditReq">Offered by is required!</span>
+                <span id="offeredByEditLen"></span>
+              </Form.Group>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Phone Number:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <Form.Group controlId="formGridPhone">
+                  <Form.Control required minLength="10" type="tel" pattern="^\d{10}$" placeholder="778238xxxx" id="phoneEdit" onChange={(e) => { setNumber(e.target.value); }} />
+                  <span id="phoneNumberEditOK">Looks Good!</span>
+                  <span id="phoneNumberEditReq">Phone number is required!</span>
+                  <span id="phoneNumberEditLen">Required pattern is 10 digits</span>
+                  <span id="phoneNumberEditNums">Enter digits from 0-9 only!</span>
+                </Form.Group>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <p className="intro">Email:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <Form.Group controlId="formGridEmail">
+                  <Form.Control required minLength="4" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" type="email" placeholder="yourname@gmail.com" id="emailEdit" onChange={(e) => { setEmail(e.target.value); }} />
+                  <span id="emailEditOK">Looks Good!</span>
+                  <span id="emailEditReq">Email is required!</span>
+                  <span id="emailEditLen">Valid pattern is abc@email.co</span>
+                </Form.Group>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <ReactBootStrap.Col>
+              <h6 className="orderLineText">Comment (optional)</h6>
+              <hr className="orderLine"/>
+            </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+              <ReactBootStrap.Col md="auto">
+                <Form.Group controlId="formGridComment">
+                  <Form.Control as="textarea" rows={3} placeholder="Anything you'd like us to know" id="commentEdit" onChange={(e) => { setComments(e.target.value); }} />
+                </Form.Group>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+
+          <ReactBootStrap.Row className="justify-content-md-center">
+            <div class="buttonAlign">
+              <ReactBootStrap.Button type="submit" variant="success" className='button'>Save Changes</ReactBootStrap.Button>
+            </div>
+          </ReactBootStrap.Row>
+        </Form>
+        </ReactBootStrap.Container>
       </ReactBootStrap.Container>
 
     </ReactBootStrap.Container>
