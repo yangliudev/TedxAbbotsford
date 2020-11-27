@@ -133,6 +133,15 @@ app.get("/login", (req, res) => {
   }
 });
 
+app.get("/logout", (req, res) => {
+  if (req.session.user) {
+    req.session.user = "";
+    res.send({loggedIn: false, user: ""})
+  } else {
+    res.send({loggedIn: false});
+  }
+});
+
 app.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;

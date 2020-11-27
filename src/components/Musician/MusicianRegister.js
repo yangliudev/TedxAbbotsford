@@ -200,7 +200,7 @@ function MusicianRegister() {
       <div className='display-reg'>
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col>
-            <h1 class="info">Register as a Musician!</h1>
+            <h1 class="info">Musician Register</h1>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
 
@@ -226,7 +226,7 @@ function MusicianRegister() {
                 <ReactBootStrap.Form.Group controlId="formGridlname">
                   <ReactBootStrap.Form.Control
                     type="text"
-                    placeholder="last Name"
+                    placeholder="Last Name"
                     onChange={(e) => {
                       setLastName(e.target.value);
                     }}
@@ -709,7 +709,7 @@ function MusicianRegister() {
                   <input
                     type="text"
                     id="otherInstruments"
-                    placeholder="Other Isntruments.."
+                    placeholder="Other Instruments.."
 
 
                   />
@@ -1164,6 +1164,7 @@ function MusicianRegister() {
                   <ReactBootStrap.Form.Label>
                     <i>Media</i>
                   </ReactBootStrap.Form.Label>
+                  <h4>Please send us links where we will have the possibility to hear you playing, in order to have an idea of your style</h4>
 
                   {/* ########## (MEDIA) ########## */}
 
@@ -1234,7 +1235,7 @@ function MusicianRegister() {
                     </ReactBootStrap.Button>
 
             <ReactBootStrap.Button
-              variant="danger"
+              variant="success"
               size="md"
               id="regedit"
               href="/#/"

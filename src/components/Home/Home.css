@@ -123,6 +123,7 @@
 
 .firstTowerText {
     color: white;
+    letter-spacing: 2px;
 }
 
 .secondTowerText {
@@ -214,7 +215,8 @@
     margin-right: auto;
     color: white;
     font-family: CamperSans2;
-    font-size: 70px;
+    font-size: 90px;
+    letter-spacing: 2px;
 }
 
 .cardHeader {
@@ -272,7 +274,7 @@ a+a {
 .card-text3 {
     text-align: center;
     font-size: 20px;
-    color: #cccccc;
+    color: #ececec;
 }
 
 .card-text4 {
@@ -496,7 +498,7 @@ a+a {
     }
 
     .textAlign2 {
-        font-size: 60px;
+        font-size: 70px;
         line-height: 80%;
     }
     
@@ -525,4 +527,9 @@ a+a {
         min-width: 100%;
     }
 
+}
+
+.towerDescriptionText {
+    color: black;
+    /* word-spacing: 5px; */
 }

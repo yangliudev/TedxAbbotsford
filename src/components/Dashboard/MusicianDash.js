@@ -5,6 +5,7 @@ import "./MusicianDashboard.css";
 import Scheduler from "./MusicianCalander";
 // import { Box } from "@material-ui/core";
 // import MusicianRequests from "./MusicianRequests";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 function MusicianDashboard() {
 
@@ -62,6 +63,13 @@ function MusicianDashboard() {
             }
         });
     }, []);
+
+    const logout = () => {
+        Axios.get("http://localhost:5000/logout").then((response) => {
+                setUser("");
+                console.log(user)
+        });
+    };
 
     useEffect(() => {
         Axios.get("http://localhost:5000/match/musician", {
@@ -250,6 +258,10 @@ function MusicianDashboard() {
                                     <p className="navText" id="profile" onClick={(e) => { active(); showProfile() }}>PROFILE</p>
                                     <p className="navText" id="schedule" onClick={(e) => { active3(); showSchedule() }}>SCHEDULE</p>
                                     <p className="navText" id="stats" onClick={(e) => { active4(); showStats() }}>ORDERS</p>
+                                    <a href="/#/"><p className="navText" onClick={logout}><ExitToAppIcon />LOGOUT</p></a>
+                                    {/* <div style={{marginLeft:"auto"}}><input type="button" value="log out" onClick={logout} /></div> */}
+                                    {/* <a href="/#/"><input type="button" value="log out" onClick={logout}/></a> */}
+
 
                                         {/* <p className="navText" id="income" onClick={(e) => { active5(); showIncome() }}>INCOME</p> */}
                                        

@@ -38,7 +38,7 @@ class Home extends Component {
                 <ReactBootStrap.Row >
                     <ReactBootStrap.Col md={{ span: 2 }}>
                         <div class="towerDescription">
-                            <p class="towerDescriptionText">A trumpeter for 30 years of Leonardo. <br></br>Monday 6.30 p.m. - Lausanne</p><br></br>
+                            <p class="towerDescriptionText">A trumpeter for 30 years named Leonardo. <br></br>Monday 6.30 p.m. - Lausanne</p><br></br>
                         </div></ReactBootStrap.Col>
                     <ReactBootStrap.Col md={{ span: 3 }}>
                         <div class="towerDiv">
@@ -99,10 +99,10 @@ class Home extends Component {
                         <br></br>
                         <div class="textAlign">
                             <MediaQuery orientation={"Landscape"}>
-                                <h1 class="textAlign2">IN OUR<span class="secondTowerText"> GARDEN</span> , HOW DOES IT WORK?</h1>
+                                <h1 class="textAlign2">DANS L'<span class="secondTowerText">JARDIN</span> , HOW DOES IT WORK?</h1>
                             </MediaQuery>
                             <MediaQuery orientation={"portrait"}>
-                                <h1 class="textAlign2">IN OUR<span class="secondTowerText"> GARDEN</span> , <br></br> HOW DOES IT WORK?</h1>
+                                <h1 class="textAlign2">DANS L'<span class="secondTowerText"> JARDIN</span> , <br></br> HOW DOES IT WORK?</h1>
                             </MediaQuery>
                         </div>
 
@@ -140,7 +140,7 @@ class Home extends Component {
                                 <h1 class="cardHeader">Listen and savor<br></br><br></br></h1>
                                 <img alt="" class="card-img-top" src={fourthPicture} style={{ width: "75%" }}></img>
                                 <p class="card-text3"><br />On the day-D and at the time indicated, one or two musicians will appear in front of the beneficiary's door on time and will play for 20 minutes. </p>
-                                <p class="card-text2">Let the music!</p>
+                                <p class="card-text2">Let the music begin!</p>
 
                             </ReactBootStrap.Col>
                         </ReactBootStrap.Row>

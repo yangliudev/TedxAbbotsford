@@ -35,7 +35,7 @@ function Login() {
         setLoginStatus("Logged In", loginStatus);
         // console.log(setLoginStatus)
         // TODO: FIX REDIRECT MAKE PROTECTED ROUTE /ADMIN
-        window.location.href = "http://localhost:3000/#/main";
+        window.location.href = process.env.PUBLIC_URL + "/#/main";
       }
     });
   };

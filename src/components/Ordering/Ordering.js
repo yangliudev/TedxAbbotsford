@@ -1454,7 +1454,7 @@ function editType() {
           <ReactBootStrap.Row className="justify-content-md-center">
             <div class="buttonAlign">
               <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}>Back</ReactBootStrap.Button>
-              <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="success" className='button' style={{ width: '185px' }} onClick={submitOrder}>Go back to Home</ReactBootStrap.Button></a>
+              <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="success" className='button' style={{ width: '185px' }} onClick={submitOrder}>Submit Order</ReactBootStrap.Button></a>
             </div>
           </ReactBootStrap.Row>
 
