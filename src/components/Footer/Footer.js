@@ -42,7 +42,7 @@ class Footer extends Component {
 
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
     <a href="https://www.dansljardin.ch/" target="_blank" rel="noopener noreferrer"> Dansljardin.ch</a>
-    <a href="/#/login" style={{marginLeft: "20px"}}>Admin Login</a>
+    <a href="/#/login" style={{marginLeft: "20px"}}>Login</a>
   </div>
 
 </footer>

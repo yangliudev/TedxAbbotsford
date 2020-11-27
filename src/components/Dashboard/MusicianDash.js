@@ -118,7 +118,7 @@ function MusicianDashboard() {
             orderID: id,
             musicianID: musicianDetails.id,
             status: "Confirmed",
-            comment: "Accepted",
+            comment: commentBox,
             orderEmail: email
         }).then(() => {
             alert("sucessful insert");
@@ -149,12 +149,10 @@ function MusicianDashboard() {
 
 
     function show(t,r) {
-       
         var textArea = document.getElementById(t);
         textArea.style.display = "initial"; 
         var but = document.getElementById(r);
         but.style.display = "initial"; 
-        
     }
 
     // function hide(p) {
@@ -363,6 +361,9 @@ function MusicianDashboard() {
                         let box = index;
                         let t = index + 'x';
                         let r = index + 'y';
+
+                        let acceptComment = "comment"+index;
+                        let acceptButton = "accept"+index;
                         return <div className="orders" id= {box}><div  className="justify-content-md-center">
                             <h5 id ='maps'><strong>{value.firstName} {value.lastName}</strong></h5>
                             <h6 className='title'>Address: </h6><h6 className='content'>{value.address}, {value.city}, {value.zip}</h6> 
@@ -370,17 +371,22 @@ function MusicianDashboard() {
                             {/* <h6 className='title'>Time: </h6><h7 className='content'> {value.time_service}</h7> */}
                             <div>
                             {/* <input type="button" value="Accept" className='accept'/><input type="button" value="Decline" className='decline'  onClick={()=>show(t,r)} />    */}
-                           <ReactBootStrap.Button variant = 'primary' size='md' className='accept' onClick={() => {updateStatus(value.id, value.email)}}>Accept</ReactBootStrap.Button>
-                           <ReactBootStrap.Button variant = 'danger'size="md" className='decline' onClick={()=>show(t,r)} >Decline</ReactBootStrap.Button>
-                           <ReactBootStrap.Button variant = 'success' size='md' href={addressURL} className='mapsButton'>Maps</ReactBootStrap.Button>
+                           {/* <ReactBootStrap.Button variant = 'success' size='md' className='accept' onClick={() => {updateStatus(value.id, value.email)}}>Accept</ReactBootStrap.Button> */}
+                           <ReactBootStrap.Button variant = 'success' size='md' className='accept' onClick={() => {show(acceptComment, acceptButton); t = acceptComment; r = acceptButton}}>Accept</ReactBootStrap.Button>
+                           <ReactBootStrap.Button variant = 'danger' size="md" className='decline' onClick={()=> {show(t,r); acceptComment = t; acceptButton = r}} >Decline</ReactBootStrap.Button>
+                           <ReactBootStrap.Button variant = 'primary' size='md' href={addressURL} className='mapsButton'>Maps</ReactBootStrap.Button>
                             {/* <a href={addressURL}><input type="button" value="Google Maps" className='mapsButton' /></a> */}
                            </div>
                             <div >
                             <textarea rows='2' placeholder="Reason for Decline..." id={t} className="commbox" onChange={(e) => {commentBox = e.target.value}}/>
                             </div>
+                            <div >
+                            <textarea rows='2' placeholder="Comments..." id={acceptComment} className="commbox" onChange={(e) => {commentBox = e.target.value}}/>
+                            </div>
                             <div>
                             {/* <input type="button" value="submit" className='button' id={r} onClick={()=>hide(box)} /> */}
-                            <ReactBootStrap.Button variant = 'danger' size='md' className='buttonSubmit' id={r} onClick={()=>{declineMusicianOrder(value.id)}} >Submit</ReactBootStrap.Button>
+                            <ReactBootStrap.Button variant = 'success' size='md' className='buttonSubmit' id={r} onClick={()=>{declineMusicianOrder(value.id)}} >Submit</ReactBootStrap.Button>
+                            <ReactBootStrap.Button variant = 'success' size='md' className='buttonSubmit' id={acceptButton} onClick={()=>{updateStatus(value.id, value.email)}} >Submit</ReactBootStrap.Button>
 
                             </div>
                             

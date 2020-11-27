@@ -219,13 +219,18 @@
     letter-spacing: 2px;
 }
 
+@font-face {
+    font-family: NeutraLight;
+    src: url(./../../assets/fonts/NeutraTextDemi.otf);
+}
+
 .cardHeader {
     text-align: center;
     font-size: 30px;
     width: 100%;
     height: 100px;
     color: white;
-    font-family: 'Neutra text light demi';
+    font-family: NeutraLight;
 
 }
 
@@ -536,9 +541,13 @@ a+a {
     /* word-spacing: 5px; */
 }
 
+/* @font-face {
+    font-family: ProximaNova;
+    src: url(./../../assets/fonts/);
+} */
 
 #proxima{
-    font-family: 'Proxima Nova';
+    font-family: NeutraLight;
     font-size: 3.75em;
 }
 
@@ -550,6 +559,6 @@ a+a {
 
 #neutra2{
     font-size: 1.3rem;
-    font-family: 'Neutra text';
+    font-family: NeutraLight;
     color: white;
 }
