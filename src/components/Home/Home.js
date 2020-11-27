@@ -25,7 +25,9 @@ import instagramLogo from "./../../assets/logos/instagramLogo.png"
 // import gardenLogo from"./../../assets/logos/01_Logo-principal.png"
 import "./Home.css"
 
-import Feed from "react-instagram-authless-feed"
+//Include thid \/ later as this is required for IG Feed
+// import Feed from "react-instagram-authless-feed"
+
 // import { Landscape, Portrait } from '@material-ui/icons';
 
 class Home extends Component {

@@ -1,29 +1,25 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import MUIDataTable, { ExpandButton } from "mui-datatables";
+import MUIDataTable from "mui-datatables";
 import "./Admin.css";
-import {
-  createMuiTheme,
-  MuiThemeProvider,
-  withStyles,
-} from "@material-ui/core/styles";
-import TableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
-import CustomToolbarSelect from "./CustomToolbarSelect";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+// import TableRow from "@material-ui/core/TableRow";
+// import TableCell from "@material-ui/core/TableCell";
+// import CustomToolbarSelect from "./CustomToolbarSelect";
 
-import OrderEdit from "./OrderEdit";
+// import OrderEdit from "./OrderEdit";
 import * as ReactBootStrap from "react-bootstrap";
 
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import DeleteIcon from "@material-ui/icons/Delete";
-import FilterIcon from "@material-ui/icons/FilterList";
+// import FilterIcon from "@material-ui/icons/FilterList";
 import EditIcon from "@material-ui/icons/Edit";
 import MusicNoteIcon from "@material-ui/icons/MusicNote";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
+// import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+// import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import HomeIcon from "@material-ui/icons/Home";
 import MapIcon from "@material-ui/icons/Map";
 // import { withStyles } from "@material-ui/core/styles";
@@ -32,7 +28,7 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 
 function Test() {
-  const [musicianID, setMusicianID] = useState(0);
+  // const [musicianID, setMusicianID] = useState(0);
   const [orderID, setOrderID] = useState(0);
 
   const submitMusicianOrder = (mus) => {
@@ -223,15 +219,15 @@ function Test() {
 
   const [editRow, setEditRow] = useState([]);
 
-  const rowSelect = (row) => {
-    // console.log(row);
-    if (row.length === 1) {
-      rowEdit = orderList[row[0].dataIndex];
-      document.getElementById("edit").style.display = "none";
-    } else {
-      document.getElementById("edit").style.display = "none";
-    }
-  };
+  // const rowSelect = (row) => {
+  //   // console.log(row);
+  //   if (row.length === 1) {
+  //     rowEdit = orderList[row[0].dataIndex];
+  //     document.getElementById("edit").style.display = "none";
+  //   } else {
+  //     document.getElementById("edit").style.display = "none";
+  //   }
+  // };
 
   const rowClick = (row) => {
     // console.log(orderList[row.dataIndex]);
