@@ -13,7 +13,7 @@
   src: local('MyFont3'), url(../../assets/fonts/NeutraTextLight.otf) format('woff');
 }
 
-.top-space-ordering {
+.container-ordering {
     margin-top: 80px;
 }
 

@@ -141,7 +141,7 @@ class Home extends Component {
 
                                 <h1 class="textAlign2" id = 'proxima'>2</h1>
                                 <h1 class="cardHeader" id = 'neutra'>Decide the music<br></br><br></br></h1>
-                                <img alt="" class="card-img-top" style={{ width: "60%" }} src={secondPicture}></img>
+                                <img alt="" class="card-img-top" style={{ width: "60%" }} src={thirdPicture}></img>
                                 <p class="card-text3" id = 'neutra2'><br />You decide the style of music! In addition to this, you need to know more about it. We take care of finding the musicians available in your region on the date and time indicated.</p>
 
                             </ReactBootStrap.Col>
@@ -149,7 +149,7 @@ class Home extends Component {
 
                                 <h1 class="textAlign2" id = 'proxima'>3</h1>
                                 <h1 class="cardHeader" id = 'neutra'>Pay online<br></br><br></br></h1>
-                                <img alt="" class="card-img-top" src={thirdPicture} style={{ width: "60%" }}></img>
+                                <img alt="" class="card-img-top" src={fourthPicture} style={{ width: "60%" }}></img>
                                 <p class="card-text3" id = 'neutra2'><br />After giving us all the necessary information , enjoy a fast and secure payment.</p>
 
                             </ReactBootStrap.Col>
@@ -157,7 +157,7 @@ class Home extends Component {
 
                                 <h1 class="textAlign2" id = 'proxima'>4</h1>
                                 <h1 class="cardHeader" id = 'neutra'>Listen and savor<br></br><br></br></h1>
-                                <img alt="" class="card-img-top" src={fourthPicture} style={{ width: "60%" }}></img>
+                                <img alt="" class="card-img-top" src={secondPicture} style={{ width: "60%" }}></img>
                                 <p class="card-text3"  id = 'neutra2'><br />On the date and at the time indicated, one or two musicians will appear in front of the beneficiary's door on time and will play for 20 minutes. </p>
                                 <p class="card-text2" id = 'neutra'>Let the music begin!</p>
 
@@ -263,6 +263,7 @@ class Home extends Component {
                 <ReactBootStrap.Row>
                     <div class="cards4">
                         <br></br>
+                        <div style={{marginTop:'20px', marginBottom:'20px'}}>
                         <h1 class="textAlign2">PRACTICAL INFORMATION</h1>
                          <br></br>
                         <p class="card-text4">Everything you need to know about <span class="card-text7">In The Garden.</span></p>
@@ -272,6 +273,7 @@ class Home extends Component {
                             </a>
                         </div>
                         <br></br>
+                    </div>
                     </div>
                 </ReactBootStrap.Row>
 
@@ -284,7 +286,7 @@ class Home extends Component {
 
                         
                         <ReactBootStrap.Carousel className="buttonAlign2">
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '500px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -293,7 +295,7 @@ class Home extends Component {
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '500px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -302,7 +304,7 @@ class Home extends Component {
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '500px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -311,7 +313,7 @@ class Home extends Component {
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '500px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -320,7 +322,7 @@ class Home extends Component {
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '500px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -329,7 +331,7 @@ class Home extends Component {
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '500px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -338,7 +340,7 @@ class Home extends Component {
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '500px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -353,7 +355,7 @@ class Home extends Component {
                         <MediaQuery orientation={"portrait"}>
 
                         <ReactBootStrap.Carousel className="buttonAlign2" style={{height: "400px"}}>
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '400px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -364,7 +366,7 @@ class Home extends Component {
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '400px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -375,7 +377,7 @@ class Home extends Component {
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '400px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -386,7 +388,7 @@ class Home extends Component {
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '400px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -397,7 +399,7 @@ class Home extends Component {
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '400px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -407,7 +409,7 @@ class Home extends Component {
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '400px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -418,7 +420,7 @@ class Home extends Component {
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
-                            <ReactBootStrap.Carousel.Item interval={2000}>
+                            <ReactBootStrap.Carousel.Item interval={1000}>
                                 <div className="carouseImageContainer" style={{ height: '500px' }}>
                                     <img
                                         className="carouselImage d-block w-100"
@@ -439,7 +441,7 @@ class Home extends Component {
                     <div className="cards3">
                         <br></br>
                         <br></br>
-                        <h1 class="textAlign2">ALSO FOLLOW US ON SOCIAL NETWORKS</h1>
+                        <h1 class="textAlign2">FOLLOW US ON SOCIAL MEDIA</h1>
                         <a href="https://www.facebook.com/dansljardin" target="_blank" rel="noopener noreferrer">
                             <img alt="" src={facebookLogo} className="logo" />
                         </a>

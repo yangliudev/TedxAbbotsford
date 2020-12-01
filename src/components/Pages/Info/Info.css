@@ -64,9 +64,9 @@ button.button3:hover {
 
 
 p.size {
-    font-size: 40px;
-    font-family: CamperSans2;
-    line-height: 0.8;
+    font-size: 25px;
+    font-family: TextBook;
+    line-height: 1;
 }
 
 p.title {
@@ -80,33 +80,38 @@ h1.info {
 }
 
 .infobox1 {
-    background-color: rgb(93, 188, 210);
+    background-color: #56bcb8;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 20px;
     max-height: 350px;
     color:'white';
     text-align:'center'; 
     margin-bottom: 50px;
+    margin-right: 50px;
 }
 
 .infobox2 {
     background-color: #D60B52;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 20px;
     max-height: 350px;
     color:'white';
     text-align:'center'; 
     margin-bottom: 50px;
+    margin-right: 50px;
+
 }
 
 .infobox3 {
     background-color: rgb(186, 218, 85);
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 20px;
     max-height: 350px;
     color:'white';
     text-align:'center'; 
     margin-bottom: 50px;
+    margin-right: 50px;
+
 }
 
 
