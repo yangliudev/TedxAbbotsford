@@ -203,9 +203,10 @@ class Home extends Component {
                 <ReactBootStrap.Row>
                     <div class="cards4">
                         <br></br>
+                        <div style={{marginTop:'30px', marginBottom:'30px'}}>
                         <h1 class="textAlign2">SO, DO YOU WANT TO TRY A UNIQUE EXPERIENCE?</h1>
                         <br></br>
-                        <p class="card-text4">Whether for your loved ones or for yourself, <br></br>treat yourself with a privileged moment of home music by clicking on this gift.</p>
+                        <p class="card-text4" style={{fontSize:'25px'}}>Whether for your loved ones or for yourself, <br></br>treat yourself with a privileged moment of home music by clicking on this gift.</p>
                         <br></br>
                         <ReactBootStrap.Row>
                             <div class="center">
@@ -217,11 +218,14 @@ class Home extends Component {
                             </div>
                         </ReactBootStrap.Row>
                     </div>
+                    </div>
                 </ReactBootStrap.Row>
 
                 <ReactBootStrap.Row>
                     <div className="cards3">
                         <br></br>
+                        <div style={{marginTop:'30px', marginBottom:'50px'}}>
+
                         <h1 class="textAlign2">IN THE GARDEN, IN REAL LIFE, IT GIVES THAT!</h1>
                         <div className="player-wrapper">
                             <MediaQuery orientation={"Landscape"}>
@@ -252,6 +256,7 @@ class Home extends Component {
                         <div class="textAlign">
                             <p class="card-text5"><span class="card-text6">" </span>The promise of a unique and emotional moment.<span class="card-text6"> "</span></p>
                         </div>
+                    </div>
                     </div>
                 </ReactBootStrap.Row>
 

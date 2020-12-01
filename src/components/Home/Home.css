@@ -422,6 +422,7 @@ a+a {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    font-family: TextBook;
 }
 
 .card-text5 {
@@ -468,6 +469,7 @@ a+a {
 
 .presentImg {
     width: 100%;
+    /* height: 100px; */
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -476,8 +478,8 @@ a+a {
 .presentBackground {
     background-color: white;
     padding: 20%;
-    width: 100%;
-    border-radius: 100px;
+    width: 200px;
+    border-radius: 200px;
 }
 
 .center {
