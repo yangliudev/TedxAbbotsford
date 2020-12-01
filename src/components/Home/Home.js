@@ -7,7 +7,8 @@ import firstPicture from "./../../assets/logos/02_picto-canton.png"
 import secondPicture from "./../../assets/logos/02-picto-adresse.png"
 import thirdPicture from "./../../assets/logos/02-picto-artiste.png"
 import fourthPicture from "./../../assets/logos/02-picto-paiement.png"
-import committeePicture from "./../../assets/logos/commitee.jpg"
+import committeePicture from "./../../assets/logos/commitee.png"
+import pricePic from "./../../assets/logos/money.png"
 import fifthPicture from "./../../assets/logos/03-picto-durée.png"
 import sixthPicture from "./../../assets/logos/03-picto-don.png"
 import seventhPicture from "./../../assets/logos/cadeauici.webp"
@@ -36,7 +37,35 @@ class Home extends Component {
     render() {
         return (
             <ReactBootStrap.Container className="top-space1">
-                <ReactBootStrap.Row >
+
+
+                <ReactBootStrap.Row>
+                        {/* <div id="main-box"> */}
+
+                        {/* <div style={{marginLeft:'auto'}}>
+                        <p id="towerText1">A saxophonist for Nadine and Yves, Jazzy atmosphere! </p>
+                        <div style={{marginTop:'-20px'}}><p id="towerText1-2">Saturday 11:00 am - Grimentz</p></div>
+                        </div> */}
+
+                        <div className='tower_home_pos'>
+                        <img alt="" src={tower} className="tower-new"  />
+                        </div>
+
+                        {/* <div style={{width:'350px', height:"100px"}}>
+                        <p id="towerText1">A saxophonist for Nadine and Yves, Jazzy atmosphere! </p>
+                        <div style={{marginTop:'-20px'}}><p id="towerText1-2">Saturday 11:00 am - Grimentz</p></div>
+                        </div> */}
+
+
+                        <div class="home_box_pos">
+                                <p className="mainTowerText">OFFER A MUSICIAN AT HOME TO THE PEOPLE YOU LOVE.</p><p className="mainTowerText" style={{color:'red'}}>IN LESS THAN 3 MINUTES!</p>
+                            <a href={process.env.PUBLIC_URL + '/#/order'}><input type="button" value="Order now" className="home_Button" /></a>
+                        </div>
+                        {/* </div> */}
+
+
+                </ReactBootStrap.Row>
+                {/* <ReactBootStrap.Row >
                     <ReactBootStrap.Col md={{ span: 2 }}>
                         <div class="towerDescription">
                             <p class="towerDescriptionText">A trumpeter for 30 years named Leonardo. <br></br>Monday 6.30 p.m. - Lausanne</p><br></br>
@@ -70,17 +99,17 @@ class Home extends Component {
                         </ReactBootStrap.Row>
 
                     </ReactBootStrap.Col>
-                </ReactBootStrap.Row>
+                </ReactBootStrap.Row> */}
 
 
-                <ReactBootStrap.Row>
+                {/* <ReactBootStrap.Row>
                     <ReactBootStrap.Col className='b' xs={6} md={4}>
                         <div class="towerDescription">
                             <p class="towerDescriptionText">A saxophonist for Nadine and Yves, <br></br>Jazzy atmosphere! Saturday 11:00 am - Grimentz</p><br></br>
                         </div></ReactBootStrap.Col>
 
           
-                </ReactBootStrap.Row>
+                </ReactBootStrap.Row> */}
 
 
 
@@ -143,23 +172,25 @@ class Home extends Component {
                         <br></br>
                         <h1 class="textAlign2">THE GAME'S RULES</h1>
 
-                        <ReactBootStrap.Row className="cards2">
+                        <ReactBootStrap.Row className="cards2" style={{marginTop:"2%"}}>
                             <ReactBootStrap.Col md={4}>
 
-                                <h1 class="textAlign2">DURATION</h1>
+                                <h1 class="textAlign3">DURATION</h1>
                                 <img alt="" class="card-img-top2" id="img2" src={fifthPicture} style={{ width: "40%" , marginBottom:'20px'}}></img>
-                                <h1 class="cardHeader" id = 'neutra'>20 minutes of music</h1>
+                                <h1 class="cardHeader" id = "gamerule">20 minutes of music</h1>
 
                             </ReactBootStrap.Col>
-                            <ReactBootStrap.Col md={4}>
-                                <h1 class="textAlign2">PUBLIC</h1>
-                                <img alt="" class="card-img-top2" id="img2" src={committeePicture} style={{ width: "40%" , marginBottom:'20px'}}></img>
+
+                            <ReactBootStrap.Col md={4} style={{marginBottom:'-50px'}}>
+                                <h1 class="textAlign3">PUBLIC</h1>
+                                <img alt="" class="card-img-top2" id="img2" src={committeePicture} style={{ width: "45%" , marginBottom:'20px'}}></img>
                                 <h1 class="cardHeader" id = 'neutra'>In a small group with</h1>
                             </ReactBootStrap.Col>
+
                             <ReactBootStrap.Col md={4}>
 
-                                <h1 class="textAlign2">PRICE</h1>
-                                <img alt="" class="card-img-top2" id="img2" src={sixthPicture} style={{ width: "40%" , marginBottom:'20px'}}></img>
+                                <h1 class="textAlign3">PRICE</h1>
+                                <img alt="" class="card-img-top2" id="img2" src={pricePic} style={{ width: "45%" , marginBottom:'25px'}}></img>
                                 <h1 class="cardHeader" id = 'neutra'>One or two professional musicians</h1>
 
                             </ReactBootStrap.Col>
@@ -418,7 +449,7 @@ class Home extends Component {
                     <div className="cards3">
                 <br></br>
 
-                    <Feed userName="dans_l_jardin" className="Feed" classNameLoading="Loading"/>
+                    {/* <Feed userName="dans_l_jardin" className="Feed" classNameLoading="Loading"/> */}
                 </div>
                 </ReactBootStrap.Row>
 

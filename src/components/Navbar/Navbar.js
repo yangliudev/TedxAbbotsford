@@ -14,21 +14,27 @@ class Navbar extends Component {
         x.style.color = "red";
         document.getElementById("faq").style.color = "white";
         document.getElementById("info").style.color = "white";
+        document.getElementById("about").style.color = "white";
+
     }
       function active2(){
         var x = document.getElementById("faq")
         x.style.color = "red";
         document.getElementById("home").style.color = "white";
         document.getElementById("info").style.color = "white";
+        document.getElementById("about").style.color = "white";
+
     }
       function active3(){
         var x = document.getElementById("info")
         x.style.color = "red";
         document.getElementById("home").style.color = "white";
         document.getElementById("faq").style.color = "white";
+        document.getElementById("about").style.color = "white";
+
     }
     function active4(){
-      var x = document.getElementById("info")
+      var x = document.getElementById("about")
       x.style.color = "red";
       document.getElementById("home").style.color = "white";
       document.getElementById("faq").style.color = "white";
@@ -37,13 +43,17 @@ class Navbar extends Component {
   
 
         return (
-        <ReactBootStrap.Navbar collapseOnSelect expand="lg" className="color-nav" variant="dark">
-  <ReactBootStrap.Navbar.Brand href={process.env.PUBLIC_URL + '/#/'}><img src={main_logo2} width="400px" alt="main-logo" class="img-fluid"/></ReactBootStrap.Navbar.Brand>
-  <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" className="navDropDown" />
+        <ReactBootStrap.Navbar collapseOnSelect expand="lg" className="color-nav" variant="dark" style={{boxShadow: "none"}}>
+            <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" className="navDropDown" />
+            
+            <div id="logo-href">
+<a href={process.env.PUBLIC_URL + '/#/'} onClick={active}><img src={main_logo2} id="logo-nav" alt="main-logo" /></a>
+</div>
   <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
-    <ReactBootStrap.Nav className="mr-auto">
 
-    </ReactBootStrap.Nav>
+  <ReactBootStrap.Nav className="mr-auto">
+
+</ReactBootStrap.Nav>
     <ReactBootStrap.Nav className='nav-size'> 
       
     {/* <ReactBootStrap.Nav.Link href="/" className="nav-text">HOME</ReactBootStrap.Nav.Link>
@@ -53,10 +63,11 @@ class Navbar extends Component {
       <a href={process.env.PUBLIC_URL + '/#/'} className="nav-font" id="home" onClick={active}>HOME</a>
       <a href={process.env.PUBLIC_URL + '/#/faq'} className="nav-font" id="faq" onClick={active2}>FAQ</a>
       <a href={process.env.PUBLIC_URL + '/#/info'} className="nav-font" id="info" onClick={active3}>INFO</a>
-      <a href={process.env.PUBLIC_URL + '/#/about'} className="nav-font" id="info" onClick={active4}>ABOUT</a>
+      <a href={process.env.PUBLIC_URL + '/#/about'} className="nav-font" id="about" onClick={active4}>ABOUT</a>
 
     </ReactBootStrap.Nav>
   </ReactBootStrap.Navbar.Collapse>
+
 </ReactBootStrap.Navbar>
         )
 

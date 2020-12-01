@@ -1,9 +1,130 @@
-  
+.tower-new {
+    width: 250px;
+}
+
+.tower_home_pos {
+    margin-left: auto;
+}
+
+#main-box {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mainTowerText {
+    font-family: CamperSans2;
+    font-size: 70px;
+    line-height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 2px;
+}
+
+.home_box_pos {
+    width:450px;
+     margin-right:auto; 
+     padding-left:40px;
+     margin-top:auto;
+     margin-bottom:auto;
+}
+
+#towerText1 {
+    font-size: 18px;
+    font-family: TextBook;
+    /* font-style: ; */
+    /* font-weight: 200; */
+}
+
+#towerText1-2 {
+    font-size: 15px;
+    font-family: TextItalic;
+    font-weight: lighter;
+    padding-top: -50px;
+}
+
+.home_Button {
+	background-color:#D60B52;
+	border-radius:11px;
+	border:1px solid #b10743;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: TextBold;
+	font-size:26px;
+	padding:14px 126px;
+	text-decoration:none;
+}
+.home_Button:hover {
+    background-color:#ffffff;
+    color: #D60B52;
+}
+.home_Button:active {
+	position:relative;
+	top:1px;
+}
+
+
+@font-face {
+    font-family: TextItalic;
+    src: url(./../../assets/fonts/NeutraTextBookItalic.otf);
+}
+@font-face {
+    font-family: TextBold;
+    src: url(./../../assets/fonts/NeutraTextBold.otf);
+}
+@font-face {
+    font-family: TextBook;
+    src: url(./../../assets/fonts/NeutraTextBook.otf);
+}
+
+@media only screen and (orientation:portrait){
+    .tower-new {
+        width: 150px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .tower_home_pos {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+    }
+    .mainTowerText {
+        font-family: CamperSans2;
+        font-size: 50px;
+        line-height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        letter-spacing: 2px;
+    }
+    .home_Button {
+        background-color:#D60B52;
+        border-radius:11px;
+        border:1px solid #b10743;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family: TextBold;
+        font-size:20px;
+        padding:11px 66px;
+        text-decoration:none;
+        margin-bottom: 40px;
+    }
+    .home_box_pos {
+        width:350px;
+         margin-right:auto;
+         margin-left:auto; 
+         /* padding-left:40px; */
+         margin-top:40px;
+         margin-bottom:auto;
+    }
+}
+
 .top-space1 {
     padding-top: 3%;
     max-width: 100%;
     overflow-x: hidden;
     background-color: #2a3c43;
+    box-shadow: none;
     
 }
 
@@ -21,6 +142,7 @@
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 3%;
+    margin-top: 3%;
 }
 
 .cards2 {
@@ -77,7 +199,7 @@
 }
 
 .tower {
-    height: 400px;
+    height: 500px;
     margin-left: 25%;
 }
 
@@ -176,6 +298,7 @@
         width:2%;
         margin-right: 4%;
         margin-top: 7%;
+        
 
 
     }
@@ -219,6 +342,16 @@
     letter-spacing: 2px;
 }
 
+.textAlign3 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-family: CamperSans2;
+    font-size: 70px;
+    letter-spacing: 2px;
+}
+
 @font-face {
     font-family: NeutraLight;
     src: url(./../../assets/fonts/NeutraTextDemi.otf);
@@ -231,7 +364,6 @@
     height: 100px;
     color: white;
     font-family: NeutraLight;
-
 }
 
 .card-img-top {
@@ -431,6 +563,24 @@ a+a {
 }
 
 @media only screen and (orientation: portrait) {
+    .textAlign3 {
+        text-align: center;
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+        font-family: CamperSans2;
+        font-size: 60px;
+        letter-spacing: 2px;
+    }
+    .cardHeader {
+        text-align: center;
+        font-size: 30px;
+        width: 100%;
+        height: 100px;
+        color: white;
+        font-family: NeutraLight;
+    }
     .towerDiv {
         float: none;
     }
@@ -470,8 +620,11 @@ a+a {
             font-size: 350%;
             line-height: 90%;
             }
+
+            
         
         }
+
         .Description {
             /* float:left; */
             padding-left:5%;
@@ -488,13 +641,12 @@ a+a {
             font-size: 280%;
             line-height: 90%;
             }
-        
         }
   
-    .cardHeader {
+    /* .cardHeader {
         font-size: 45px;
         line-height: 80%;
-    }
+    } */
 
     .card-text3 {
         font-size: 20px;
