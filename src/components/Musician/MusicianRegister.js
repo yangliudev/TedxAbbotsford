@@ -11,6 +11,7 @@ import "mdbreact/dist/css/mdb.css";
 
 function MusicianRegister() {
 
+
   const [state, setSchedule] = useState({});
   const [mon, setMon] = useState("");
   const [tue, setTue] = useState("");
@@ -192,6 +193,12 @@ function MusicianRegister() {
       sunday: sun
     }).then(() => {
       alert("sucessful insert");
+    });
+    Axios.post("http://localhost:5000/register", {
+      username: email,
+      password: password
+    }).then((response) => {
+      console.log(response);
     });
   };
 
