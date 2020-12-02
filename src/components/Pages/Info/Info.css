@@ -15,10 +15,10 @@ div.box {
     margin: 70px;
 }
 
-button {
+/* button {
     height: 50px;
     width: 120px;
-}
+} */
 
 button.button1 {
     background-color: white;
@@ -28,6 +28,8 @@ button.button1 {
     font-size: 30px;
     border-style: solid;
     color: rgb(93, 188, 210);
+    height: 50px;
+    width: 120px;
 }
 
 button.button1:hover {
@@ -42,6 +44,8 @@ button.button2 {
     font-size: 30px;
     border-style: solid;
     color: #D60B52;
+    height: 50px;
+    width: 120px;
 }
 
 button.button2:hover {
@@ -56,6 +60,8 @@ button.button3 {
     font-size: 30px;
     border-style: solid;
     color: rgb(186, 218, 85);
+    height: 50px;
+    width: 120px;
 }
 
 button.button3:hover {
