@@ -58,7 +58,7 @@ class Home extends Component {
 
 
                         <div class="home_box_pos">
-                                <p className="mainTowerText">OFFER A MUSICIAN AT HOME TO THE PEOPLE YOU LOVE.</p><p className="mainTowerText" style={{color:'red'}}>IN LESS THAN 3 MINUTES!</p>
+                                <p className="mainTowerText">OFFER A MUSICIAN AT HOME TO THE PEOPLE YOU LOVE.</p><p className="mainTowerText" style={{color:'#D60B52'}}>IN LESS THAN 3 MINUTES!</p>
                             <a href={process.env.PUBLIC_URL + '/#/order'}><input type="button" value="Order now" className="home_Button" /></a>
                         </div>
                         {/* </div> */}

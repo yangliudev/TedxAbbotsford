@@ -875,8 +875,10 @@ function editType() {
         </Form.Row>
 
         <div class="buttonAlign">
-          <ReactBootStrap.Button variant="danger" className='button' onClick={back2}>Back</ReactBootStrap.Button>
-          <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
+          <input type="button" value="Back" className="ordering_back_button" onClick={back2} style={{marginRight:"10px"}}/>
+          <input type="button" value="Next" className="ordering_next_button" type="submit"/>
+          {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back2}>Back</ReactBootStrap.Button> */}
+          {/* <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button> */}
         </div>
 
       </Form>
@@ -913,8 +915,10 @@ function editType() {
           <ReactBootStrap.Row>
             <ReactBootStrap.Col style={{ marginTop: '20px' }}>
               <div class="buttonAlign">
-                <ReactBootStrap.Button variant="danger" className='button' onClick={back3}>Back</ReactBootStrap.Button>
-                <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
+              <input type="button" value="Back" className="ordering_back_button" onClick={back3} style={{marginRight:"10px"}}/>
+              <input type="button" value="Next" className="ordering_next_button" type="submit"/>
+                {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back3}>Back</ReactBootStrap.Button>
+                <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button> */}
               </div>
             </ReactBootStrap.Col>
           </ReactBootStrap.Row>
@@ -941,7 +945,7 @@ function editType() {
           </div>
           <div className="bg-display-test">
             <ReactBootStrap.Col onClick={(e) => { setType("popular"); setTypeText("Popular music"); forward4(); }}>
-              <button id="trans-button-style" ><img src={pic6} className="pic" alt=""/><p style={{ fontSize: '19px' }}>Popular Music</p></button>
+              <button id="trans-button-style" ><img src={pic6} className="pic" alt=""/><p style={{ fontSize: '18px' }}>Popular Music</p></button>
             </ReactBootStrap.Col>
           </div>
           <div className="bg-display-test">
@@ -959,7 +963,8 @@ function editType() {
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginTop: '20px' }}>
             <div class="buttonAlign">
-              <ReactBootStrap.Button variant="danger" className='button' onClick={back4}>Back</ReactBootStrap.Button>
+              {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back4}>Back</ReactBootStrap.Button> */}
+              <input type="button" value="Back" className="ordering_back_button" onClick={back4}/>
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -994,7 +999,8 @@ function editType() {
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginTop: '20px' }}>
             <div class="buttonAlign">
-              <ReactBootStrap.Button variant="danger" className='button' onClick={back5}>Back</ReactBootStrap.Button>
+            <input type="button" value="Back" className="ordering_back_button" onClick={back5}/>
+              {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back5}>Back</ReactBootStrap.Button> */}
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -1028,7 +1034,8 @@ function editType() {
         <ReactBootStrap.Row>
           <ReactBootStrap.Col style={{ marginTop: '20px' }}>
             <div class="buttonAlign">
-              <ReactBootStrap.Button variant="danger" className='button' onClick={back6}>Back</ReactBootStrap.Button>
+              <input type="button" value="Back" className="ordering_back_button" onClick={back6}/>
+              {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back6}>Back</ReactBootStrap.Button> */}
             </div>
           </ReactBootStrap.Col>
         </ReactBootStrap.Row>
@@ -1074,8 +1081,10 @@ function editType() {
           </Form.Row> */}
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back7}>Back</ReactBootStrap.Button>
-            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
+              <input type="button" value="Back" className="ordering_back_button" onClick={back7} style={{marginRight:"10px"}}/>
+              <input type="button" value="Next" className="ordering_next_button" type="submit"/>
+            {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back7}>Back</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button> */}
           </div>
 
         </Form>
@@ -1183,8 +1192,10 @@ function editType() {
           </MediaQuery>
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back8}>Back</ReactBootStrap.Button>
-            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
+            <input type="button" value="Back" className="ordering_back_button" onClick={back8} style={{marginRight:"10px"}}/>
+            <input type="button" value="Next" className="ordering_next_button" type="submit"/>
+            {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back8}>Back</ReactBootStrap.Button>
+            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button> */}
           </div>
 
         </Form>
@@ -1235,8 +1246,10 @@ function editType() {
           </div>
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back9}>Back</ReactBootStrap.Button>
-            <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button>
+            <input type="button" value="Back" className="ordering_back_button" onClick={back9} style={{marginRight:"10px"}}/>
+            <input type="button" value="Next" className="ordering_next_button" type="submit"/>
+            {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back9}>Back</ReactBootStrap.Button> */}
+            {/* <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button> */}
           </div>
         </Form>
 
@@ -1260,8 +1273,10 @@ function editType() {
           </Form.Group>
 
           <div class="buttonAlign">
-            <ReactBootStrap.Button variant="danger" className='button' onClick={back10}>Back</ReactBootStrap.Button>
-            <ReactBootStrap.Button variant="success" className='button' onClick={forward10}>Submit</ReactBootStrap.Button>
+            <input type="button" value="Back" className="ordering_back_button" onClick={back10} style={{marginRight:"10px"}}/>
+            <input type="button" value="Next" className="ordering_next_button" onClick={forward10}/>
+            {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back10}>Back</ReactBootStrap.Button> */}
+            {/* <ReactBootStrap.Button variant="success" className='button' onClick={forward10}>Submit</ReactBootStrap.Button> */}
           </div>
 
         </Form>
@@ -1290,26 +1305,41 @@ function editType() {
           </div>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
             <ReactBootStrap.Col>
               <h6 className="orderLineText">Beneficiary</h6>
               <hr className="orderLine"/>
             </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
+          <ReactBootStrap.Col md="auto">
+                <p className="intro">First Name:</p>
+              </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto" id="summaryDetails">
-                <p>{firstName} {lastName}</p>
+                <p>{firstName}</p>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
+          <ReactBootStrap.Col md="auto">
+                <p className="intro">Last Name:</p>
+              </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto" id="summaryDetails">
+                <p>{lastName}</p>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
+
+          <ReactBootStrap.Row>
+          <ReactBootStrap.Col md="auto">
+                <p className="intro">For:</p>
+              </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
                 <p>({giftText})</p>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Occasion:</p>
 
@@ -1319,14 +1349,14 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
             <ReactBootStrap.Col>
               <h6 className="orderLineText">Information about the concert</h6>
               <hr className="orderLine"/>
             </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Suprise concert:</p>
               </ReactBootStrap.Col>
@@ -1335,7 +1365,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Style of music:</p>
               </ReactBootStrap.Col>
@@ -1344,7 +1374,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row >
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Number of Musicians:</p>
               </ReactBootStrap.Col>
@@ -1353,7 +1383,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row >
               <ReactBootStrap.Col md="auto">
                 <p className="intro" >Date of Service:</p>
               </ReactBootStrap.Col>
@@ -1362,7 +1392,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row >
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Time of Service:</p>
               </ReactBootStrap.Col>
@@ -1371,7 +1401,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row >
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Address:</p>
               </ReactBootStrap.Col>
@@ -1380,7 +1410,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row >
               <ReactBootStrap.Col md="auto">
                 <p className="intro">City:</p>
               </ReactBootStrap.Col>
@@ -1389,7 +1419,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row >
               <ReactBootStrap.Col md="auto">
                 <p className="intro">State:</p>
               </ReactBootStrap.Col>
@@ -1398,7 +1428,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row >
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Zip:</p>
               </ReactBootStrap.Col>
@@ -1407,20 +1437,23 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row >
             <ReactBootStrap.Col>
               <h6 className="orderLineText">Thanks to the generosity of:</h6>
               <hr className="orderLine"/>
             </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
+          <ReactBootStrap.Col md="auto">
+                <p className="intro">Offered By:</p>
+              </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
                 <p>{offered}</p>
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row >
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Phone Number:</p>
               </ReactBootStrap.Col>
@@ -1429,7 +1462,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row >
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Email:</p>
               </ReactBootStrap.Col>
@@ -1438,14 +1471,14 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row >
             <ReactBootStrap.Col>
               <h6 className="orderLineText">Comment (optional)</h6>
               <hr className="orderLine"/>
             </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row >
               <ReactBootStrap.Col md="auto">
                 <p>{comments}</p>
               </ReactBootStrap.Col>
@@ -1454,8 +1487,12 @@ function editType() {
 
           <ReactBootStrap.Row className="justify-content-md-center">
             <div class="buttonAlign">
-              <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}>Back</ReactBootStrap.Button>
-              <a href={process.env.PUBLIC_URL + '/#/'}><ReactBootStrap.Button md="auto" variant="success" className='button' style={{ width: '185px' }} onClick={submitOrder}>Submit Order</ReactBootStrap.Button></a>
+            <input type="button" value="Back" className="ordering_back_button" onClick={backFinal} style={{marginRight:"10px"}}/>
+            <a href={process.env.PUBLIC_URL + '/#/'}><input type="button" value="Submit Order" className="ordering_next_button" onClick={submitOrder}/></a>
+              {/* <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}>Back</ReactBootStrap.Button> */}
+              {/* <a href={process.env.PUBLIC_URL + '/#/'}> */}
+                {/* <ReactBootStrap.Button md="auto" variant="success" className='button' style={{ width: '185px' }} onClick={submitOrder}>Submit Order</ReactBootStrap.Button> */}
+              {/* </a> */}
             </div>
           </ReactBootStrap.Row>
 
@@ -1492,16 +1529,30 @@ function editType() {
           
 
           <Form noValidate validated={validated} onSubmit={saveEdit} style={{ marginLeft: '20px', marginRight: "20px", paddingTop: '10px', marginBottom: "-20px" }}>
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
+          <ReactBootStrap.Col md="auto">
+          <p className="intro">First Name:</p>
+          </ReactBootStrap.Col>
+
               <ReactBootStrap.Col md="auto">
-                <Form.Row className="justify-content-md-center">
+                <Form.Row>
                   <Form.Group as={Col} xs={6} controlId="formGridFirstNameEdit">
                     <Form.Control className="form-control" required minLength="3" type="text" id="fNameFieldEdit" placeholder="First Name" onChange={(e) => { setFirstName(e.target.value); }} />
                     <span id="fNameLabelEditOK">Looks Good!</span>
                     <span id="fNameLabelEditReq">First Name is required!</span>
                     <span id="fNameLabelEditLen"></span>
                   </Form.Group>
+                </Form.Row>
+              </ReactBootStrap.Col>
+          </ReactBootStrap.Row>
 
+
+          <ReactBootStrap.Row>
+          <ReactBootStrap.Col md="auto">
+          <p className="intro">Last Name:</p>
+          </ReactBootStrap.Col>
+              <ReactBootStrap.Col md="auto">
+                <Form.Row>
                   <Form.Group as={Col} controlId="formGridLastNameEdit">
                     <Form.Control className="form-control" required minLength="3" type="text" id="lNameFieldEdit" placeholder="Last Name" onChange={(e) => { setLastName(e.target.value); }} />
                     <span id="lNameLabelEditOK">Looks Good!</span>
@@ -1509,15 +1560,16 @@ function editType() {
                     <span id="lNameLabelEditLen"></span>
                   </Form.Group>
                 </Form.Row>
-
-
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
+          <ReactBootStrap.Col md="auto">
+          <p className="intro">For:</p>
+          </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <Form.Row className="justify-content-md-center">
-                  <Form.Group className="justify-content-md-center">
+                <Form.Row>
+                  <Form.Group>
                     <Form.Control className="form-control" required as="select" id="giftEdit" onChange={editGift}>
                       <option>one person</option>
                       <option>small committee</option>
@@ -1528,13 +1580,13 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Occasion:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <Form.Row className="justify-content-md-center">
-                    <Form.Group className="justify-content-md-center">
+                <Form.Row>
+                    <Form.Group>
                     <input type="text" required minLength="3" id="form1Edit" class="form-control" onChange={(e) => { setOccasion(e.target.value); }} />
                     <span id="occasionEditOK">Looks Good!</span>
                     <span id="occasionEditReq">Occasion is required!</span>
@@ -1544,20 +1596,20 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
             <ReactBootStrap.Col>
               <h6 className="orderLineText">Information about the concert</h6>
               <hr className="orderLine"/>
             </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Suprise concert:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <Form.Row className="justify-content-md-center">
-                    <Form.Group className="justify-content-md-center">
+                <Form.Row >
+                    <Form.Group>
                       <Form.Control className="form-control" required as="select" id="surpriseEdit" onChange={(e) => {setSuprise(e.target.value); }}>
                         <option>yes</option>
                         <option>no</option>
@@ -1567,13 +1619,13 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Style of music:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-              <Form.Row className="justify-content-md-center">
-                    <Form.Group className="justify-content-md-center">
+              <Form.Row>
+                    <Form.Group>
                       <Form.Control className="form-control" required as="select" id="typeEdit" onChange={editType}>
                         <option>classic</option>
                         <option>popular</option>
@@ -1585,13 +1637,13 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Number of Musicians:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <Form.Row className="justify-content-md-center">
-                    <Form.Group className="justify-content-md-center">
+                <Form.Row>
+                    <Form.Group>
                       <Form.Control className="form-control" required as="select" id="numberMusiciansEdit" onChange={(e) => {setNumberMusicians(e.target.value); }}>
                         <option>solo</option>
                         <option>duo</option>
@@ -1601,13 +1653,13 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro" >Date and Time of Service:</p>
               </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
-                <Form.Row className="justify-content-md-center">
-                  <Form.Group controlId="formGridDateEdit" className="justify-content-md-center">
+                <Form.Row>
+                  <Form.Group controlId="formGridDateEdit">
                     {/* <Form.Label>Date and Time of Service</Form.Label> */}
                     <Form.Control
                       required
@@ -1623,7 +1675,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Address:</p>
               </ReactBootStrap.Col>
@@ -1639,7 +1691,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro">City:</p>
               </ReactBootStrap.Col>
@@ -1655,7 +1707,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro">State:</p>
               </ReactBootStrap.Col>
@@ -1674,7 +1726,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Zip:</p>
               </ReactBootStrap.Col>
@@ -1690,14 +1742,17 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
             <ReactBootStrap.Col>
               <h6 className="orderLineText">Thanks to the generosity of:</h6>
               <hr className="orderLine"/>
             </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
+          <ReactBootStrap.Col md="auto">
+          <p className="intro">Offered By:</p>
+          </ReactBootStrap.Col>
               <ReactBootStrap.Col md="auto">
               <Form.Group controlId="formGridHost">
                 <Form.Control required minLength="3" type="text" placeholder="Your name here" id="offered-fieldEdit" onChange={(e) => { setOffered(e.target.value); }} />
@@ -1708,7 +1763,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Phone Number:</p>
               </ReactBootStrap.Col>
@@ -1723,7 +1778,7 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <p className="intro">Email:</p>
               </ReactBootStrap.Col>
@@ -1737,14 +1792,14 @@ function editType() {
               </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
             <ReactBootStrap.Col>
               <h6 className="orderLineText">Comment (optional)</h6>
               <hr className="orderLine"/>
             </ReactBootStrap.Col>
           </ReactBootStrap.Row>
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
               <ReactBootStrap.Col md="auto">
                 <Form.Group controlId="formGridComment">
                   <Form.Control as="textarea" rows={3} placeholder="Anything you'd like us to know" id="commentEdit" onChange={(e) => { setComments(e.target.value); }} />
@@ -1753,9 +1808,10 @@ function editType() {
           </ReactBootStrap.Row>
 
 
-          <ReactBootStrap.Row className="justify-content-md-center">
+          <ReactBootStrap.Row>
             <div class="buttonAlign">
-              <ReactBootStrap.Button type="submit" variant="success" className='button' style={{width:"250px"}}>Save Changes</ReactBootStrap.Button>
+            <input type="button" value="Save Changes" className="ordering_next_button" type="submit"/>
+              {/* <ReactBootStrap.Button type="submit" variant="success" className='button' style={{width:"250px"}}>Save Changes</ReactBootStrap.Button> */}
             </div>
           </ReactBootStrap.Row>
         </Form>
