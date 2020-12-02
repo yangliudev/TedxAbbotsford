@@ -875,7 +875,7 @@ function editType() {
         </Form.Row>
 
         <div class="buttonAlign">
-          <input type="button" value="Back" className="ordering_back_button" onClick={back2} style={{marginRight:"10px"}}/>
+          <input type="button" value="Back" className="ordering_back_button" onClick={back2}/>
           <input type="button" value="Next" className="ordering_next_button" type="submit"/>
           {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back2}>Back</ReactBootStrap.Button> */}
           {/* <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button> */}
@@ -915,7 +915,7 @@ function editType() {
           <ReactBootStrap.Row>
             <ReactBootStrap.Col style={{ marginTop: '20px' }}>
               <div class="buttonAlign">
-              <input type="button" value="Back" className="ordering_back_button" onClick={back3} style={{marginRight:"10px"}}/>
+              <input type="button" value="Back" className="ordering_back_button" onClick={back3}/>
               <input type="button" value="Next" className="ordering_next_button" type="submit"/>
                 {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back3}>Back</ReactBootStrap.Button>
                 <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button> */}
@@ -1081,7 +1081,7 @@ function editType() {
           </Form.Row> */}
 
           <div class="buttonAlign">
-              <input type="button" value="Back" className="ordering_back_button" onClick={back7} style={{marginRight:"10px"}}/>
+              <input type="button" value="Back" className="ordering_back_button" onClick={back7}/>
               <input type="button" value="Next" className="ordering_next_button" type="submit"/>
             {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back7}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button> */}
@@ -1192,7 +1192,7 @@ function editType() {
           </MediaQuery>
 
           <div class="buttonAlign">
-            <input type="button" value="Back" className="ordering_back_button" onClick={back8} style={{marginRight:"10px"}}/>
+            <input type="button" value="Back" className="ordering_back_button" onClick={back8}/>
             <input type="button" value="Next" className="ordering_next_button" type="submit"/>
             {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back8}>Back</ReactBootStrap.Button>
             <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button> */}
@@ -1246,7 +1246,7 @@ function editType() {
           </div>
 
           <div class="buttonAlign">
-            <input type="button" value="Back" className="ordering_back_button" onClick={back9} style={{marginRight:"10px"}}/>
+            <input type="button" value="Back" className="ordering_back_button" onClick={back9}/>
             <input type="button" value="Next" className="ordering_next_button" type="submit"/>
             {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back9}>Back</ReactBootStrap.Button> */}
             {/* <ReactBootStrap.Button type="submit" variant="success" className='button'>Next</ReactBootStrap.Button> */}
@@ -1273,7 +1273,7 @@ function editType() {
           </Form.Group>
 
           <div class="buttonAlign">
-            <input type="button" value="Back" className="ordering_back_button" onClick={back10} style={{marginRight:"10px"}}/>
+            <input type="button" value="Back" className="ordering_back_button" onClick={back10}/>
             <input type="button" value="Next" className="ordering_next_button" onClick={forward10}/>
             {/* <ReactBootStrap.Button variant="danger" className='button' onClick={back10}>Back</ReactBootStrap.Button> */}
             {/* <ReactBootStrap.Button variant="success" className='button' onClick={forward10}>Submit</ReactBootStrap.Button> */}
@@ -1487,7 +1487,7 @@ function editType() {
 
           <ReactBootStrap.Row className="justify-content-md-center">
             <div class="buttonAlign">
-            <input type="button" value="Back" className="ordering_back_button" onClick={backFinal} style={{marginRight:"10px"}}/>
+            <input type="button" value="Back" className="ordering_back_button" onClick={backFinal}/>
             <a href={process.env.PUBLIC_URL + '/#/'}><input type="button" value="Submit Order" className="ordering_next_button" onClick={submitOrder}/></a>
               {/* <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}>Back</ReactBootStrap.Button> */}
               {/* <a href={process.env.PUBLIC_URL + '/#/'}> */}

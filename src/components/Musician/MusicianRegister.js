@@ -200,6 +200,7 @@ function MusicianRegister() {
     }).then((response) => {
       console.log(response);
     });
+    window.location.reload();
   };
 
   return (
