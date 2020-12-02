@@ -171,15 +171,16 @@ function Ordering() {
   function dateAndTime() {
     var d = new Date();
     d.setDate(d.getDate() + 3);
-    var month = d.getMonth() + 1;
-    var hour = d.getHours();
+    let day = ("0" + d.getDate()).slice(-2)
+    let month = d.getMonth() + 1;
+    let hour = d.getHours();
     hour = ("0" + hour).slice(-2);
-    var minutes = d.getMinutes();
+    let minutes = d.getMinutes();
     minutes = ("0" + minutes).slice(-2)
-    var dateFormatted = d.getFullYear() + "-" + month + "-" + d.getDate() + "T" + hour + ":" + minutes;
+    let dateFormatted = d.getFullYear() + "-" + month + "-" + day + "T" + hour + ":" + minutes;
     return dateFormatted
   }
-
+  
   /*Constants for the details required in the ordering process, including the
   detail variable, function to set the detail, and the default value of the detail */
   const [gift, setGift] = useState("_  _  _  _  _  _");
@@ -1063,7 +1064,7 @@ function editType() {
                 required
                 id="date-time-field"
                 type="datetime-local"
-                format-value="yyyy-MM-ddTHH:mm"
+                format-value="yyyy-MM-dTHH:mm"
                 min={dateAndTime()}
                 onChange={(e) => { let date = e.target.value.substring(0, 10); let time = e.target.value.substring(11, 16); setDateService(date); setTimeService(time);}}></Form.Control>
               <span id="date-timeOK">Looks Good!</span>
