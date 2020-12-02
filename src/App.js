@@ -20,9 +20,9 @@ import GreenConcerts from "./components/Pages/GreenConcerts/GreenConcerts"
 import Login from "./components/Login/Login";
 import Musician from "./components/Musician/MusicianRegister"
 // import Musician_Dash from "./components/Musician/Musician_Dash"
-import Musician_Dash from "./components/Musician_Dashboard/MusicianDashboard"
+// import Musician_Dash from "./components/Musician_Dashboard/MusicianDashboard"
 
-import Maps from "./components/Musician_Dash/Map"
+// import Maps from "./components/Musician_Dash/Map"
 
 import Main from "./components/Dashboard/Main"
 
@@ -51,12 +51,12 @@ class App extends Component {
  
           <Route exact path="/order" component={Ordering}/>
           <Route exact path="/admin" component={Admin_Dash}/>
-          <Route path="/musician/admin" component={Musician_Dash}/>
+          {/* <Route path="/musician/admin" component={Musician_Dash}/> */}
 
           <Route exact path="/login" component={Login}/>
           <Route exact path="/test" component={Test}/>
           <Route exact path="/musician" component={Musician}/>
-          <Route path="/maps" component={Maps}/>
+          {/* <Route path="/maps" component={Maps}/> */}
 
 
         </Switch>

@@ -2,13 +2,18 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
 import "./MusicianDashboard.css";
-import Scheduler from "./MusicianCalander";
+import ScheduleSelector from 'react-schedule-selector';
 // import { Box } from "@material-ui/core";
 // import MusicianRequests from "./MusicianRequests";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 function MusicianDashboard() {
 
+    const [state, setSchedule] = useState({});
+    const handleChange = newSchedule => {
+        setSchedule({ schedule: newSchedule });
+    
+      }
 
     const [user, setUser] = useState("");
     const [orders, setOrders] = useState([]);
@@ -52,6 +57,7 @@ function MusicianDashboard() {
         }).then(() => {
             alert("sucessful insert");
         });
+        window.location.reload();
     };
 
     Axios.defaults.withCredentials = true;
@@ -273,43 +279,43 @@ function MusicianDashboard() {
 
                 <ReactBootStrap.Container className="dashboardContainer" id="profilePage">
 
-                    <ReactBootStrap.Row className="justify-content-md-center">
+                    <ReactBootStrap.Row>
                         <ReactBootStrap.Col>
-                            <h2>Account Settings</h2>
-                            <h6 className="lineText">ACCOUNT PREFERENCES</h6>
+                            <h2 style={{textAlign:"center"}}>Account Settings</h2>
+                            <h6 className="lineText" style={{textAlign:"left"}}>ACCOUNT PREFERENCES</h6>
                             <hr className="line" />
                         </ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="justify-content-md-center">
+                    <ReactBootStrap.Row className="field_align">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">First Name: </p>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.firstName} onChange={(e) => { firstName = e.target.value }} /></ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="justify-content-md-center">
+                    <ReactBootStrap.Row className="field_align">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Last Name: </p>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.lastName} onChange={(e) => { lastName = e.target.value }} /></ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="justify-content-md-center">
+                    <ReactBootStrap.Row className="field_align">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Phone: </p>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.phone} onChange={(e) => { phone = e.target.value }} /></ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="justify-content-md-center">
+                    <ReactBootStrap.Row className="field_align">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Email: </p>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.email} onChange={(e) => { email = e.target.value }} /></ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="justify-content-md-center">
+                    <ReactBootStrap.Row className="field_align">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Address: </p>
                         </ReactBootStrap.Col>
@@ -317,28 +323,28 @@ function MusicianDashboard() {
 
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="justify-content-md-center" style={{ marginTop: "10px" }}>
-                        <ReactBootStrap.Col>
-                            <h6 className="lineText">MUSICAL PREFERENCES</h6>
+                    <ReactBootStrap.Row style={{ marginTop: "10px" }}>
+                        <ReactBootStrap.Col style={{textAlign:"left"}}>
+                            <h6 className="lineText" >MUSICAL PREFERENCES</h6>
                             <hr className="line" />
                         </ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="justify-content-md-center">
+                    <ReactBootStrap.Row className="field_align">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Training: </p>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.training} onChange={(e) => { training = e.target.value }} /></ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="justify-content-md-center">
+                    <ReactBootStrap.Row className="field_align">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Style: </p>
                         </ReactBootStrap.Col>
                         <ReactBootStrap.Col md="auto"><input type="text" placeholder={musicianDetails.style} /></ReactBootStrap.Col>
                     </ReactBootStrap.Row>
 
-                    <ReactBootStrap.Row className="justify-content-md-center">
+                    <ReactBootStrap.Row className="field_align">
                         <ReactBootStrap.Col md="auto">
                             <p className="profileHeader">Solo/Duo: </p>
                         </ReactBootStrap.Col>
@@ -346,8 +352,8 @@ function MusicianDashboard() {
                     </ReactBootStrap.Row>
 
                     <ReactBootStrap.Row className="justify-button">
-                        {/* <input type="button" onClick={updateMusician} value="Save Changes"/> */}
-                        <ReactBootStrap.Button variant="primary"  size="md" onClick={updateMusician}>Save Changes</ReactBootStrap.Button>
+                        <input type="button" onClick={updateMusician} value="Save Changes" className="musician_dash_button"/>
+                        {/* <ReactBootStrap.Button variant="primary"  size="md" onClick={updateMusician}>Save Changes</ReactBootStrap.Button> */}
                         </ReactBootStrap.Row>
 
 
@@ -406,7 +412,26 @@ function MusicianDashboard() {
                     </ReactBootStrap.Row>
                     <ReactBootStrap.Row className="justify-content-md-center">
                             <div>
-                            <Scheduler />
+                            {/* <Scheduler /> */}
+                            <div className='calender'>
+
+            <ScheduleSelector
+              selection={state.schedule}
+              numDays={7}
+              minTime={9}
+              maxTime={21}
+              hourlyChunks={2}
+              startDate={new Date('Monday Nov 02 2020 00:00:00')}
+              dateFormat="ddd"
+              timeFormat='h:mma'
+              hoveredColor='none'
+              onChange={handleChange}
+              hoveredColor='#4d6b0f'
+              unselectedColor='#81A92F'
+              selectedColor='#4d6b0f'
+            />
+          </div>
+          <input type="button" value="Save Schedule" className="cal_button" style={{marginTop:"30px"}} onClick={()=>{window.location.reload();}}/>
                             </div>
                     </ReactBootStrap.Row>
                 </ReactBootStrap.Container>

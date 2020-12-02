@@ -71,14 +71,15 @@ h2 {
 
 .dashboardContainer {
     margin-top: 20px;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+    /* display: flex; */
+    text-align: left;
+    /* align-items: center; */
+    /* justify-content: center; */
 }
 
 .profileHeader {
     color: rgb(223, 84, 107);
+    text-align: left;
 }
 
 #profilePage {
@@ -106,16 +107,33 @@ h2 {
     background-color:#8d898986;
     color:#EEEEEE;
     height:3px;
-    width:70%
+    width:70%;
+    text-align: left;
 }
+
+.musician_dash_button {
+    background-color: #D60B52;
+    border-radius: 15px;
+    border-color: white;
+    font-family: CamperSans2;
+    font-size: 30px;
+    width: 150px;
+    border-style: solid;
+    color: white;
+}
+
 
 .lineText {
     color: rgb(146, 143, 143);
-    text-align: left;
+    /* text-align: left; */
     font-size: 13px;
-margin-left: 15%
+    margin-left: 15%;
+    text-align: left;
 }
 
+.field_align {
+    margin-left: 15%;
+}
 
 @media only screen and (orientation:portrait){
 .orders{

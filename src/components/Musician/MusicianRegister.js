@@ -196,7 +196,7 @@ function MusicianRegister() {
   };
 
   return (
-    <ReactBootStrap.Container className="top-space">
+    <ReactBootStrap.Container className="musregtop_space">
       <div className='display-reg'>
         <ReactBootStrap.Row className="justify-content-md-center">
           <ReactBootStrap.Col>
@@ -366,7 +366,7 @@ function MusicianRegister() {
                           }
                         />
                         <span>Master</span>
-                      </label>
+                      </label><br/>
 
                       <label for="inschool" className='register'>
                         <input
@@ -1211,7 +1211,7 @@ function MusicianRegister() {
 {/* #####This section is for the calender on the musician registration page####### */}
 
 
-          <div className='calender' >
+          <div className='calender'>
 
             <ScheduleSelector
               selection={state.schedule}
@@ -1224,25 +1224,15 @@ function MusicianRegister() {
               timeFormat='h:mma'
               hoveredColor='none'
               onChange={handleChange}
+              hoveredColor='#4d6b0f'
+              unselectedColor='#81A92F'
+              selectedColor='#4d6b0f'
             />
           </div>
           <ReactBootStrap.Row className="justify-buttons">
-            <ReactBootStrap.Button
-              variant="primary"
-              size="md"
-              onClick={seperate}>
-              Save Calander
-                    </ReactBootStrap.Button>
+            <input type="button" value="Save Schedule" className="cal_button" onClick={seperate} />
+            <a href="/#/"><input style={{marginLeft:"20px"}} type="button" value="Submit Form" className="sub_button" onClick={submitMusician} id="regedit"/></a>
 
-            <ReactBootStrap.Button
-              variant="success"
-              size="md"
-              id="regedit"
-              href="/#/"
-              onClick={submitMusician}
-            >
-              Submit Form
-                </ReactBootStrap.Button>
 
           </ReactBootStrap.Row>
 

@@ -26,9 +26,9 @@ class Faq extends Component {
                        </ReactBootStrap.Row>
 
             <ReactBootStrap.Row className="justify-content-md-center">
-                <ReactBootStrap.Col><h3>1. What do you mean by a <b id="low">“small committee”</b> audience?<hr></hr></h3>
+                <ReactBootStrap.Col><h3 className="faq_headings">1. What do you mean by a <b id="low">“small committee”</b> audience?<hr></hr></h3>
                 <div id="high">
-                <ReactBootStrap.Col className="fontcol" style={{marginLeft:'10px', marginTop:'1px'}}><p>The services in the Garden are indicated for an audience of 1 to approx. 14 people,
+                <ReactBootStrap.Col className="fontcol" style={{marginLeft:'10px', marginTop:'1px', textAlign:'left'}}><p>The services in the Garden are indicated for an audience of 1 to approx. 14 people,
                      usually family members, friends, institutions or work colleagues.
                      In addition to this, you need to know more about it. We do not offer musicians to play for 
                      background entertainment, for official events or for wedding aperitifs.
@@ -39,21 +39,21 @@ class Faq extends Component {
             </ReactBootStrap.Row>
             
             <ReactBootStrap.Row className="justify-content-md-center">
-                <ReactBootStrap.Col ><h3>2. Why does a performance only last <b id="low">20 minutes</b>?<hr></hr></h3>
+                <ReactBootStrap.Col ><h3 className="faq_headings">2. Why does a performance only last <b id="low">20 minutes</b>?<hr></hr></h3>
                 <ReactBootStrap.Col className="fontcol" style={{marginLeft:'10px', marginTop:'1px'}} id="high" ><p>Except in special cases, we offer a 20-minute format with
                  a soloist or a duo of musicians. This duration is, in our opinion, ideal for all.</p></ReactBootStrap.Col>
                </ReactBootStrap.Col>
             </ReactBootStrap.Row>
 
             <ReactBootStrap.Row className="justify-content-md-center">
-                <ReactBootStrap.Col><h3>3. I don't have a garden, is it possible to play <b id="low">inside</b> ? <hr></hr></h3>
+                <ReactBootStrap.Col><h3 className="faq_headings">3. I don't have a garden, is it possible to play <b id="low">inside</b> ? <hr></hr></h3>
                 <ReactBootStrap.Col className="fontcol" style={{marginLeft:'10px', marginTop:'1px'}} id="high"><p>Yes of course ! It is possible to play in any room of a house, a private home or an institution. 
                 The places we avoid are too public spaces such as multipurpose rooms, large squares, etc.</p></ReactBootStrap.Col>
                </ReactBootStrap.Col>
             </ReactBootStrap.Row>
 
             <ReactBootStrap.Row className="justify-content-md-center">
-                <ReactBootStrap.Col><h3>4. How is <b id="low">the distribution of earnings</b> from a service carried out ? <hr></hr></h3>
+                <ReactBootStrap.Col><h3 className="faq_headings">4. How is <b id="low">the distribution of earnings</b> from a service carried out ? <hr></hr></h3>
                 <ReactBootStrap.Col className="fontcol" style={{marginLeft:'10px', marginTop:'1px'}} id="high"><p>We try to have the most honest and fair price for the musicians. 
                 The breakdown is as follows: <br></br><br></br>
                 80% - Artist<br></br>
@@ -69,7 +69,7 @@ class Faq extends Component {
             </ReactBootStrap.Row>
 
             <ReactBootStrap.Row className="justify-content-md-center" >
-                <ReactBootStrap.Col><h3>5. I would like to <b id="low">cancel</b> due to bad weather or other unforeseen circumstances, what should I do?<hr></hr></h3>
+                <ReactBootStrap.Col><h3 className="faq_headings">5. I would like to <b id="low">cancel</b> due to bad weather or other unforeseen circumstances, what should I do?<hr></hr></h3>
                 <ReactBootStrap.Col className="fontcol" style={{marginLeft:'10px', marginTop:'1px'}} id="high"><p>Music is a professional activity. Like every profession, 
                 the payment of a service must be honored and will not be reimbursed. We are however 
                 ready to find solutions and, depending on the artist's agenda, find a solution. 
@@ -78,7 +78,7 @@ class Faq extends Component {
             </ReactBootStrap.Row>
 
             <ReactBootStrap.Row className="justify-content-md-center" >
-                <ReactBootStrap.Col><h3>6. Why can't we <b id="low">choose the artist from list</b>  ?<hr></hr></h3>
+                <ReactBootStrap.Col><h3 className="faq_headings">6. Why can't we <b id="low">choose the artist from list</b>  ?<hr></hr></h3>
                 <ReactBootStrap.Col className="fontcol" style={{marginLeft:'10px', marginTop:'1px'}} id="high"><p>
                     The platform is dependent on the availability and location of the artists.
                      All musicians from dans l'Jardin have their own musical activities outside of the platform.
@@ -89,7 +89,7 @@ class Faq extends Component {
             </ReactBootStrap.Row>
 
             <ReactBootStrap.Row className="justify-content-md-center" >
-                <ReactBootStrap.Col><h3>7. In <b id="low">which region</b>  is the platform available in the Garden?<hr></hr></h3>
+                <ReactBootStrap.Col><h3 className="faq_headings">7. In <b id="low">which region</b>  is the platform available in the Garden?<hr></hr></h3>
                 <ReactBootStrap.Col className="fontcol" style={{marginLeft:'10px', marginTop:'1px'}} id="high"><p>
                  The cities are much more populated with musicians, but it is also important 
                  to us to offer the possibility of offering musicians in more isolated regions. 
@@ -100,7 +100,7 @@ class Faq extends Component {
             </ReactBootStrap.Row>
 
             <ReactBootStrap.Row className="justify-content-md-center" >
-                <ReactBootStrap.Col><h3>8. Is it possible to <b id="low">tip</b>  musicians?<hr></hr></h3>
+                <ReactBootStrap.Col><h3 className="faq_headings">8. Is it possible to <b id="low">tip</b>  musicians?<hr></hr></h3>
                 <ReactBootStrap.Col className="fontcol" style={{marginLeft:'10px', marginTop:'1px'}} id="high"><p>
                 If you liked the performance of the musicians, feel free to tip them. 
                 They will be all the more grateful to you in these difficult times in the cultural field.
@@ -110,7 +110,7 @@ class Faq extends Component {
             </ReactBootStrap.Row>
 
             <ReactBootStrap.Row className="justify-content-md-center" >
-                <ReactBootStrap.Col><h3>9. How to ensure that the musician will be present at the <b id="low">indicated time</b>  ?<hr></hr></h3>
+                <ReactBootStrap.Col><h3 className="faq_headings">9. How to ensure that the musician will be present at the <b id="low">indicated time</b>  ?<hr></hr></h3>
                 <ReactBootStrap.Col className="fontcol" style={{marginLeft:'10px', marginTop:'1px'}} id="high"><p>
                 Contrary to what one might think, musicians are punctual. To make sure everything goes well, 
                 we invite you to confirm the address and time again via a short text message the same day. 

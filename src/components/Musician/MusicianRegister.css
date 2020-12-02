@@ -1,5 +1,5 @@
-.top-space {
-    padding-top: 3%;
+.musregtop_space {
+    /* padding-top: %; */
     max-width: 100%;
     overflow-x: hidden;
     /* background-color: #2a3c43; */
@@ -35,10 +35,29 @@ input[type=radio].education {
     padding: 5px;
 }
 
-
+.cal_button {
+    background-color: #2b8984;
+    border-radius: 15px;
+    border-color: white;
+    font-family: CamperSans2;
+    font-size: 30px;
+    width: 150px;
+    border-style: solid;
+    color: white;
+}
+.sub_button {
+    background-color: green;
+    border-radius: 15px;
+    border-color: white;
+    font-family: CamperSans2;
+    font-size: 30px;
+    width: 150px;
+    border-style: solid;
+    color: white;
+}
 .register span {
     display: inline-block;
-    background: #2a3c43be;
+    background: #61737a;
     cursor: pointer;
     border-radius: 15px;
     text-align: center;
@@ -65,7 +84,7 @@ input[type=radio].education {
     
     .register span {
         display: inline-block;
-        background: #2a3c43be;
+        background: #61737a;
         cursor: pointer;
         border-radius: 15px;
         text-align: center;
@@ -77,14 +96,35 @@ input[type=radio].education {
     
     }
 
+    .cal_button {
+        background-color: #2b8984;
+        border-radius: 15px;
+        border-color: white;
+        font-family: CamperSans2;
+        font-size: 30px;
+        width: 150px;
+        border-style: solid;
+        color: white;
+    }
+    .sub_button {
+        background-color: green;
+        border-radius: 15px;
+        border-color: white;
+        font-family: CamperSans2;
+        font-size: 30px;
+        width: 150px;
+        border-style: solid;
+        color: white;
+    }
+
 }
 @media only screen and (min-width: 1000px) {
 .display-reg {
     /* background-color: #2a3c434f; */
     background-color: #2a3c43cc;
-    -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    /* -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75); */
     padding-bottom: 50px;
     border-radius: 20px;
     width: 70%;
@@ -96,9 +136,9 @@ input[type=radio].education {
     .display-reg {
         /* background-color: #2a3c434f; */
         background-color: #2a3c43cc;
-        -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+        /* -webkit-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
-        box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.75); */
         padding-bottom: 50px;
         border-radius: 20px;
         margin-left: auto;
@@ -138,7 +178,7 @@ margin-right: 5px;
         border-radius: 15px;
         cursor: pointer;
         margin-left: 5px;
-        margin-right: 50px;
+        margin-right: 40px;
         }
     }
 

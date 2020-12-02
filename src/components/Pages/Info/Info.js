@@ -9,38 +9,39 @@ class Info extends Component {
      
         return (
             <ReactBootStrap.Container className="top-space">
-             <div className="info-display">
+             <div className="info-page-display">
             
-            <ReactBootStrap.Row style={{marginLeft:'0px'}}>
+            <ReactBootStrap.Row>
                 <ReactBootStrap.Col><h1 class="info">Practical Information</h1>
                 </ReactBootStrap.Col>
                 </ReactBootStrap.Row>
 
-           
+                {/* <div style={{marginLeft:'auto', marginRight:'auto'}}> */}
                 <ReactBootStrap.Row >
 
-                
-                <ReactBootStrap.Col className="infobox1"><p class='title'>About In The Garden</p>
+                <div className="infobox1">
+                <ReactBootStrap.Col><p class='title'>About In The Garden</p>
                 <p class='size'>The platform  in the Garden  was created by Klangbox on May 1, 2020 with the aim of brightening up the daily lives of people ...</p>
                 
                 <a href="/#/about">
-                <button class="button1" href="/#/about">
+                <button className="button1">
                 Learn More
                 </button>
                 </a>
               
                 </ReactBootStrap.Col>
-             
+                </div>
 
-                <ReactBootStrap.Col className="infobox1">
-                <p class='title'>Our Musicians</p>
-                <br />
+                <div id="box_between" style={{width:"50px"}}></div>
+
+                
+                <div className="infobox1_2">
+                <ReactBootStrap.Col>
+                <p class='title'>Our Musicians</p><br/>
                 <p class='size'>100% musiquality!</p>
 
-                <br />
-                <br />
-                <br />
-
+   
+                <br/><br/><br/>
                 <a href="/#/ourmusicians">
                 <button class="button1" herf="/#/ourmusicians">
                 Learn More
@@ -48,15 +49,17 @@ class Info extends Component {
                 </a>
 
                 </ReactBootStrap.Col>
+                </div>
                 
 
 
                 </ReactBootStrap.Row>
+                {/* </div> */}
 
 
-                <ReactBootStrap.Row >
-                
-                <ReactBootStrap.Col className="infobox2">
+                <ReactBootStrap.Row>
+                <div className="infobox2" style={{marginLeft:"auto"}}>
+                <ReactBootStrap.Col>
                     <p class='title'>The Games Rules</p>
                     <p class='size'>Some little information so that everything goes well during a musical performance in the Garden.</p>
                
@@ -67,8 +70,11 @@ class Info extends Component {
                     </a>
 
                 </ReactBootStrap.Col>
+                </div>
+                <div id="box_between" style={{width:"50px"}}></div>
 
-                <ReactBootStrap.Col className="infobox2">
+                <div className="infobox2" style={{marginRight:"auto"}}>
+                <ReactBootStrap.Col>
                     <p class='title'>FAQ</p>
                     <p class='size'>Looking for useful information? Find out what our clients ask us most frequently</p>
                     <a href="/#/faq">
@@ -78,11 +84,13 @@ class Info extends Component {
                     </a>
 
                 </ReactBootStrap.Col>
+                </div>
                 </ReactBootStrap.Row>
 
                 <ReactBootStrap.Row >
                 
-                <ReactBootStrap.Col className="infobox3">
+                <div className="infobox3" style={{marginLeft:"auto"}}>
+                <ReactBootStrap.Col>
                     <p class='title'>"Green" CONCERTS</p>
                     <p class='size'>After the "slow food", here is the "slow music" !</p>
                     <br/>
@@ -95,9 +103,12 @@ class Info extends Component {
                     </a>
 
                 </ReactBootStrap.Col>
+                </div>
+                <div id="box_between" style={{width:"50px"}}></div>
 
-                <ReactBootStrap.Col className="infobox3">
-                    <p class='title'>WE ARE TALKING ABOUIT IT !</p>
+                <div className="infobox3" style={{marginRight:"auto"}}>
+                <ReactBootStrap.Col>
+                    <p class='title'>WE ARE TALKING ABOUT IT!</p>
                     <p class='size'>TVs, radios, newspapers ... <br/>Our interventions on the media. </p>
                     <br/>
                     <a href="/#/faq">
@@ -107,7 +118,23 @@ class Info extends Component {
                     </a>
 
                 </ReactBootStrap.Col>
+                </div>
                 </ReactBootStrap.Row>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 {/* <ReactBootStrap.Container >
 

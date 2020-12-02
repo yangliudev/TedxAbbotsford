@@ -4,6 +4,7 @@ hr {
 }
 
 
+
 @media only screen and (orientation:landscape){
 
 .faq-display {
@@ -26,6 +27,13 @@ hr {
     padding-right: 0px; */
     margin-bottom: 100px;
     }
+    .faq_headings {
+      text-align: left;
+    }
+    
+    .fontcol {
+      text-align: left;
+    }
 }
   @media only screen and (orientation:portrait){
     .faq-display {
@@ -45,6 +53,13 @@ hr {
       margin-top: 30px;
       padding-left: 0px;
       padding-right: 0px;
+      }
+      .faq_headings {
+        text-align: center;
+      }
+      
+      .fontcol {
+        text-align: left;
       }
 
 }

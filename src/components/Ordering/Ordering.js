@@ -819,7 +819,7 @@ function editType() {
 
   return (
     /*HTML/React for the ordering process */
-    <ReactBootStrap.Container className="top-space-ordering">
+    <ReactBootStrap.Container className="top-space-ordering" style={{marginTop:"50px"}}>
       <ReactBootStrap.Container className="bg-display" id="order1">
 
         <ReactBootStrap.Row className="justify-content-md-center">
@@ -1058,7 +1058,7 @@ function editType() {
                 type="datetime-local"
                 format-value="yyyy-MM-ddTHH:mm"
                 min={dateAndTime()}
-                onChange={(e) => { let date = e.target.value.substring(0, 10); let time = e.target.value.substring(11, 16); setDateService(date); setTimeService(time);}} />
+                onChange={(e) => { let date = e.target.value.substring(0, 10); let time = e.target.value.substring(11, 16); setDateService(date); setTimeService(time);}}></Form.Control>
               <span id="date-timeOK">Looks Good!</span>
               <span id="date-timeReq">Date and Time is required!</span>
             </Form.Group>
@@ -1755,7 +1755,7 @@ function editType() {
 
           <ReactBootStrap.Row className="justify-content-md-center">
             <div class="buttonAlign">
-              <ReactBootStrap.Button type="submit" variant="success" className='button'>Save Changes</ReactBootStrap.Button>
+              <ReactBootStrap.Button type="submit" variant="success" className='button' style={{width:"250px"}}>Save Changes</ReactBootStrap.Button>
             </div>
           </ReactBootStrap.Row>
         </Form>
