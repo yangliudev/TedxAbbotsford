@@ -31,9 +31,7 @@ class GamesRules extends Component {
             
             
             </ul>
-            <a href="/#/info">
-            <img src={firstPhoto} className="arrow"></img>
-            </a>
+            
                 </div>
             </ReactBootStrap.Container>
 

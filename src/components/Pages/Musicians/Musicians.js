@@ -28,9 +28,7 @@ class Musicians extends Component {
                 In addition to this, you will need to know more about it.
                 A harp in your living room or a pop singer on your terrace! Let yourself be surprised by the instruments and musicians who will present themselves on D-Day! Surprise is part of the rules of the game! </p>
                 </ReactBootStrap.Row>
-            <a href="/#/info">
-            <img src={firstPhoto} className="arrow"></img>
-            </a>
+            
                 </div>
             </ReactBootStrap.Container>
 
