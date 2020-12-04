@@ -288,7 +288,7 @@ class Home extends Component {
                         
                         <ReactBootStrap.Carousel className="buttonAlign2">
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '500px' }}>
+                                <div className="carouseImageContainer" >
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={firstPhoto}
@@ -297,7 +297,7 @@ class Home extends Component {
                                 </div>
                             </ReactBootStrap.Carousel.Item>
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '500px' }}>
+                                <div className="carouseImageContainer" >
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={secondPhoto}
@@ -306,7 +306,7 @@ class Home extends Component {
                                 </div>
                             </ReactBootStrap.Carousel.Item>
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '500px' }}>
+                                <div className="carouseImageContainer" >
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={thirdPhoto}
@@ -315,7 +315,7 @@ class Home extends Component {
                                 </div>
                             </ReactBootStrap.Carousel.Item>
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '500px' }}>
+                                <div className="carouseImageContainer" >
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={fifthPhoto}
@@ -324,7 +324,7 @@ class Home extends Component {
                                 </div>
                             </ReactBootStrap.Carousel.Item>
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '500px' }}>
+                                <div className="carouseImageContainer" >
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={sixthPhoto}
@@ -333,7 +333,7 @@ class Home extends Component {
                                 </div>
                             </ReactBootStrap.Carousel.Item>
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '500px' }}>
+                                <div className="carouseImageContainer" >
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={seventhPhoto}
@@ -342,7 +342,7 @@ class Home extends Component {
                                 </div>
                             </ReactBootStrap.Carousel.Item>
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '500px' }}>
+                                <div className="carouseImageContainer" >
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={eighthPhoto}
@@ -355,79 +355,79 @@ class Home extends Component {
 
                         <MediaQuery orientation={"portrait"}>
 
-                        <ReactBootStrap.Carousel className="buttonAlign2" style={{height: "400px"}}>
+                        <ReactBootStrap.Carousel className="buttonAlign2" >
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '400px' }}>
+                                <div className="carouseImageContainer" style={{padding: "20px"}}>
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={firstPhoto}
                                         alt="First slide"
-                                        style={{height: "400px"}}
+                                        // style={{height: "400px"}}
 
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '400px' }}>
+                                <div className="carouseImageContainer" style={{padding: "20px"}}>
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={secondPhoto}
                                         alt="Third slide"
-                                        style={{height: "400px"}}
+                                        // style={{height: "400px"}}
 
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '400px' }}>
+                                <div className="carouseImageContainer" style={{padding: "20px"}}>
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={thirdPhoto}
                                         alt="Third slide"
-                                        style={{height: "400px"}}
+                                        // style={{height: "400px"}}
 
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '400px' }}>
+                                <div className="carouseImageContainer" style={{padding: "20px"}}>
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={fifthPhoto}
                                         alt="Fourth slide"
-                                        style={{height: "400px"}}
+                                        // style={{height: "400px"}}
 
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '400px' }}>
+                                <div className="carouseImageContainer" style={{padding: "20px"}}>
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={sixthPhoto}
                                         alt="Fifth slide"
-                                        style={{height: "400px"}}
+                                        // style={{height: "400px"}}
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '400px' }}>
+                                <div className="carouseImageContainer" style={{padding: "20px"}}>
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={seventhPhoto}
                                         alt="Sixth slide"
-                                        style={{height: "400px"}}
+                                        // style={{height: "400px"}}
 
                                     />
                                 </div>
                             </ReactBootStrap.Carousel.Item>
                             <ReactBootStrap.Carousel.Item interval={1000}>
-                                <div className="carouseImageContainer" style={{ height: '500px' }}>
+                                <div className="carouseImageContainer" style={{padding: "20px"}}>
                                     <img
                                         className="carouselImage d-block w-100"
                                         src={eighthPhoto}
                                         alt="Seventh slide"
-                                        style={{height: "400px"}}
+                                        // style={{height: "400px"}}
 
                                     />
                                 </div>
