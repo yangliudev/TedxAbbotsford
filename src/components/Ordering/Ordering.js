@@ -823,6 +823,22 @@ function editType() {
   }
 }
 
+function submitOrderModal() {
+  // Get the modal
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  window.location.replace(process.env.PUBLIC_URL + '/#/')
+}
+
+window.onclick = function(event) {
+  let modal = document.getElementById("myModal")
+  if (event.target == modal) {
+    window.location.replace(process.env.PUBLIC_URL + '/#/');
+  }
+}
+
 
   return (
     /*HTML/React for the ordering process */
@@ -1517,7 +1533,7 @@ function editType() {
           <ReactBootStrap.Row className="justify-content-md-center">
             <div class="buttonAlign">
             <input type="button" value="Back" className="ordering_back_button" onClick={backFinal}/>
-            <a href={process.env.PUBLIC_URL + '/#/'}><input type="button" value="Submit Order" className="ordering_next_button" onClick={submitOrder}/></a>
+            <input type="button" value="Submit Order" className="ordering_next_button" onClick={(e) => {submitOrderModal(); submitOrder() }}/>
               {/* <ReactBootStrap.Button variant="danger" className='button' onClick={backFinal}>Back</ReactBootStrap.Button> */}
               {/* <a href={process.env.PUBLIC_URL + '/#/'}> */}
                 {/* <ReactBootStrap.Button md="auto" variant="success" className='button' style={{ width: '185px' }} onClick={submitOrder}>Submit Order</ReactBootStrap.Button> */}
@@ -1857,6 +1873,13 @@ function editType() {
         </Form>
         </ReactBootStrap.Container>
       </ReactBootStrap.Container>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onClick={closeModal}>&times;</span>
+        <p class="modalText">Sucesfully created order, email has been sent.</p>
+      </div>
+    </div>
 
     </ReactBootStrap.Container>
 
