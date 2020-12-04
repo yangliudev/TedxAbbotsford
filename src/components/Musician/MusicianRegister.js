@@ -200,8 +200,23 @@ function MusicianRegister() {
     }).then((response) => {
       console.log(response);
     });
-    window.location.reload();
   };
+
+  function musicianRegisterModal() {
+    // Get the modal
+    document.getElementById("registerModal").style.display = "block";
+  }
+  
+  function closeModal() {
+    window.location.replace(process.env.PUBLIC_URL + '/#/')
+  }
+  
+  window.onclick = function(event) {
+    let modal = document.getElementById("registerModal")
+    if (event.target == modal) {
+      window.location.replace(process.env.PUBLIC_URL + '/#/');
+    }
+  }
 
   return (
     <ReactBootStrap.Container className="musregtop_space">
@@ -1239,12 +1254,16 @@ function MusicianRegister() {
           </div>
           <ReactBootStrap.Row className="justify-buttons">
             <input type="button" value="Save Schedule" className="cal_button" onClick={seperate} />
-            <a href="/#/"><input style={{marginLeft:"20px"}} type="button" value="Submit Form" className="sub_button" onClick={submitMusician} id="regedit"/></a>
-
-
+            <input style={{marginLeft:"20px"}} type="button" value="Submit Form" className="sub_button" onClick={(e) => {submitMusician(); musicianRegisterModal() }} id="regedit"/>
           </ReactBootStrap.Row>
-
         </ReactBootStrap.Form>
+      </div>
+
+      <div id="registerModal" class="registerModal">
+        <div class="registerModal-content">
+          <span class="close" onClick={closeModal}>&times;</span>
+          <p class="registerModalText">Account succesfully registered.</p>
+        </div>
       </div>  
     </ReactBootStrap.Container>
   );

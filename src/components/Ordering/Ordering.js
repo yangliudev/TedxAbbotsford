@@ -813,7 +813,7 @@ function editType() {
 
 function submitOrderModal() {
   // Get the modal
-  document.getElementById("myModal").style.display = "block";
+  document.getElementById("orderModal").style.display = "block";
 }
 
 function closeModal() {
@@ -821,7 +821,7 @@ function closeModal() {
 }
 
 window.onclick = function(event) {
-  let modal = document.getElementById("myModal")
+  let modal = document.getElementById("orderModal")
   if (event.target == modal) {
     window.location.replace(process.env.PUBLIC_URL + '/#/');
   }
@@ -1861,10 +1861,10 @@ window.onclick = function(event) {
         </ReactBootStrap.Container>
       </ReactBootStrap.Container>
 
-    <div id="myModal" class="modal">
-      <div class="modal-content">
+    <div id="orderModal" class="orderModal">
+      <div class="orderModal-content">
         <span class="close" onClick={closeModal}>&times;</span>
-        <p class="modalText">Sucesfully created order, email has been sent.</p>
+        <p class="orderModalText">Sucesfully created order, email has been sent.</p>
       </div>
     </div>
 

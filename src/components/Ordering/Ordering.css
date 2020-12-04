@@ -618,7 +618,7 @@ h3 {
 }
 
 /* The Modal (background) */
-.modal {
+.orderModal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -633,7 +633,7 @@ h3 {
 }
 
 /* Modal Content */
-.modal-content {
+.orderModal-content {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
@@ -641,7 +641,7 @@ h3 {
   width: 80%;
 }
 
-.modalText {
+.orderModalText {
   color: #000;
 }
 
