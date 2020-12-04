@@ -359,13 +359,7 @@ function Ordering() {
         document.getElementById("cityReq").style.display = "block";
         document.getElementById("cityOK").style.display = "none";
       }
-      if (city.length < 3 && city.length >= 1) {
-        document.getElementById("cityLen").style.display = "block";
-        document.getElementById("cityReq").style.display = "none";
-        document.getElementById("cityOK").style.display = "none";
-      }
-      if (city.length >= 3 && city !== "_  _  _  _  _  _") {
-        document.getElementById("cityLen").style.display = "none";
+      if (city !== "" && city !== "_  _  _  _  _  _") {
         document.getElementById("cityReq").style.display = "none";
         document.getElementById("cityOK").style.display = "block";
       }
@@ -632,13 +626,7 @@ function Ordering() {
       document.getElementById("cityEditReq").style.display = "block";
       document.getElementById("cityEditOK").style.display = "none";
     }
-    if (city.length < 3 && city.length >= 1) {
-      document.getElementById("cityEditLen").style.display = "block";
-      document.getElementById("cityEditReq").style.display = "none";
-      document.getElementById("cityEditOK").style.display = "none";
-    }
-    if (city.length >= 3 && city !== "_  _  _  _  _  _") {
-      document.getElementById("cityEditLen").style.display = "none";
+    if (city !== "" && city !== "_  _  _  _  _  _") {
       document.getElementById("cityEditReq").style.display = "none";
       document.getElementById("cityEditOK").style.display = "block";
     }
@@ -1163,10 +1151,10 @@ window.onclick = function(event) {
                   <option value="Langley">Langley</option>
                   <option value="Delta">Delta</option>
                   <option value="Richmond">Richmond</option>
+                  </Form.Control>
                   <span id="cityOK">Looks Good!</span>
                   <span id="cityReq">City is required!</span>
                   <span id="cityLen"></span>
-                  </Form.Control>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridState">
@@ -1207,10 +1195,10 @@ window.onclick = function(event) {
                   <option value="Langley">Langley</option>
                   <option value="Delta">Delta</option>
                   <option value="Richmond">Richmond</option>
+                  </Form.Control>
                   <span id="cityOK">Looks Good!</span>
                   <span id="cityReq">City is required!</span>
                   <span id="cityLen"></span>
-                  </Form.Control>
                 </div>
               </Form.Group>
 
@@ -1220,10 +1208,9 @@ window.onclick = function(event) {
                   <option value="">Choose from below</option>
                   <option value="British Columbia">British Columbia</option>
                   <option value="Alberta">Alberta</option>
-                  <span id="stateOK">Looks Good!</span>
-                  <span id="stateReq">State is required!</span>
                 </Form.Control>
-
+                <span id="stateOK">Looks Good!</span>
+                <span id="stateReq">State is required!</span>
               </Form.Group>
 
               <Form.Group controlId="formGridZip">
@@ -1754,10 +1741,10 @@ window.onclick = function(event) {
                       <option value="Langley">Langley</option>
                       <option value="Delta">Delta</option>
                       <option value="Richmond">Richmond</option>
-                      <span id="cityEditOK">Looks Good!</span>
-                      <span id="cityEditReq">City is required!</span>
-                      <span id="cityEditLen"></span>
                     </Form.Control>
+                    <span id="cityEditOK">Looks Good!</span>
+                    <span id="cityEditReq">City is required!</span>
+                    <span id="cityEditLen"></span>
                   </Form.Group>
                 </Form.Row>
               </ReactBootStrap.Col>
