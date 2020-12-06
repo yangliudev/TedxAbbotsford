@@ -12,6 +12,8 @@ Install all nessesary packages for the server side.
 
 This will run the backend server.js file.
 
+### `In a new terminal`
+
 ### 3. `cd client`
 
 This is the frontend code directory.
