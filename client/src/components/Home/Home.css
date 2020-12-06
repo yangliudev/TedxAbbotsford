@@ -1,0 +1,807 @@
+.tower-new {
+    width: 250px;
+}
+
+.tower_home_pos {
+    /* margin-left: auto; */
+}
+
+#main-box {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.mainTowerText {
+    font-family: CamperSans2;
+    font-size: 70px;
+    line-height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 2px;
+}
+@media only screen and (orientation:landscape){
+
+.home_box_pos {
+     width: 550px;
+     margin-right:auto; 
+     padding-left:80px;
+     margin-top:auto;
+     margin-bottom:auto;
+}
+}
+
+#towerText1 {
+    font-size: 18px;
+    font-family: TextBook;
+    /* font-style: ; */
+    /* font-weight: 200; */
+}
+
+#towerText1-2 {
+    font-size: 15px;
+    font-family: TextItalic;
+    font-weight: lighter;
+    padding-top: -50px;
+}
+
+.home_Button {
+	background-color:#D60B52;
+	border-radius:11px;
+	border:1px solid #b10743;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: TextBold;
+	font-size:26px;
+	padding:14px 126px;
+	text-decoration:none;
+}
+.home_Button:hover {
+    background-color:#ffffff;
+    color: #D60B52;
+}
+.home_Button:active {
+	position:relative;
+	top:1px;
+}
+
+
+@font-face {
+    font-family: TextItalic;
+    src: url(./../../assets/fonts/NeutraTextBookItalic.otf);
+}
+@font-face {
+    font-family: TextBold;
+    src: url(./../../assets/fonts/NeutraTextBold.otf);
+}
+@font-face {
+    font-family: TextBook;
+    src: url(./../../assets/fonts/NeutraTextBook.otf);
+}
+
+@media only screen and (orientation:portrait){
+    .tower-new {
+        width: 150px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #left_boxes, #right_box {
+        display: none;
+    }
+    .tower_home_pos {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+    }
+    .mainTowerText {
+        font-family: CamperSans2;
+        font-size: 50px;
+        line-height: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        letter-spacing: 2px;
+    }
+    .home_Button {
+        background-color:#D60B52;
+        border-radius:11px;
+        border:1px solid #b10743;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family: TextBold;
+        font-size:20px;
+        padding:11px 66px;
+        text-decoration:none;
+        margin-bottom: 40px;
+    }
+    .home_box_pos {
+        width:550px;
+         /* margin-right:auto; */
+         /* margin-left:auto;  */
+         /* padding-left:40px; */
+         margin-top:40px;
+         margin-bottom:auto;
+         padding-left:70px;
+    }
+}
+
+.top-space1 {
+    padding-top: 3%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: #2a3c43;
+    box-shadow: none;
+    
+}
+
+.top-space2 {
+    width: 100%;
+    margin-top: 3%;
+    background-color: #46555B;
+}
+
+.cards {
+    background-color: #46555B;
+    text-align: center;
+    display: flexbox;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 3%;
+    margin-top: 3%;
+}
+
+.cards2 {
+    display: flexbox;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cards3 {
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 3%;
+}
+
+.cards4 {
+    background-color: #D60B52;
+    text-align: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 3%;
+}
+
+.fourthCards {
+    text-align: center;
+    float: none;
+    margin-bottom: 200px;
+}
+
+
+.card {
+    height: fit-content;
+    background-color: #46555B;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card2 {
+    text-align: center;
+    height: 300px;
+    width: 300px;
+    background-color: #282c34;;
+}
+
+
+.firstsection {
+    width: 10%;
+    margin-left:7%;
+}
+
+.tower {
+    height: 500px;
+    margin-left: 25%;
+}
+
+.towerDescription {
+    float:left;
+    padding-left:5%;
+    text-align: center;
+    padding-top: 5%;
+}
+
+
+.towerDiv {
+    float: left;
+    padding-top: 1%;
+}
+
+@font-face {
+    font-family: CamperSans2;
+    src: url(./../../assets/fonts/Fenotype\ -\ CamperSans2.otf);
+}
+
+.towerText {
+    font-family: CamperSans2;
+    font-size: 70px;
+    line-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.LearnMoreButton {
+    background-color: white;
+    border-style: none;
+    color: #D60B52;
+    margin-top: 1%;
+    font-size: 50px;
+    padding-left: 15px;
+    border-radius: 6px;
+    font-family: CamperSans2;
+    letter-spacing: 8px;
+}
+
+.firstTowerText {
+    color: white;
+    letter-spacing: 2px;
+}
+
+.secondTowerText {
+    color: #df0c56
+}
+
+
+.thirdTowerText {
+    color: rgb(186, 218, 85);
+}
+
+@media only screen and (orientation:landscape){
+.textBG {
+    background-color: #2a3c434f;
+    padding: 3%;
+    width: 70%;
+    height: auto;
+    border-radius: 15px;
+    /* margin-right: 10%; */
+        margin-left: 10%;
+        margin-top: 5%;
+    text-align: center;
+    /* float: right; */
+}
+.orderButton {
+    background-color: #D60B52;
+    border-style: none;
+    color: white;
+    margin-top: 3%;
+    font-size: 175%;
+    padding: 7%;
+    border-radius: 6px;
+    width: 50%;
+}
+
+.secondsection {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-family: CamperSans2;
+    font-size: 70px;
+    letter-spacing: 0.04em;
+}
+
+
+
+
+
+}
+
+@media only screen and (orientation:portrait){
+    .textBG {
+        background-color: #2a3c434f;
+        padding: 3%;
+        border-radius: 50px;
+        text-align: center;
+        float: right;
+        margin-bottom: 50px;
+        width:2%;
+        margin-right: 4%;
+        margin-top: 7%;
+        
+
+
+    }
+    .orderButton {
+        background-color: #D60B52;
+        border-style: none;
+        color: white;
+        margin-top: 1%;
+        font-size: 100%;
+        padding: 8%;
+        border-radius: 6px;
+        width: 33%;
+    }
+
+    .b{
+        display: none;
+    }
+    .secondsection {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+        font-family: CamperSans2;
+        font-size: 70px;
+        letter-spacing: 0.04em;
+        margin-top: 40px;
+    }
+
+
+
+}
+
+.firstCard {
+    float: right;
+    width: 50%;
+}
+
+.textAlign {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.textAlign2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-family: CamperSans2;
+    font-size: 70px;
+    letter-spacing: 0.04em;
+}
+
+.textAlign3 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-family: CamperSans2;
+    font-size: 70px;
+    letter-spacing: 2px;
+}
+
+@font-face {
+    font-family: NeutraLight;
+    src: url(./../../assets/fonts/NeutraTextDemi.otf);
+}
+/* @font-face {
+    font-family: NeutraLight;
+    src: url(./../../assets/fonts/);
+} */
+/* .carouseImageContainer {
+    width: 500px;
+} */
+
+.cardHeader {
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+    height: 100px;
+    color: white;
+    font-family: NeutraLight;
+    letter-spacing: 0.04em;
+}
+
+.card-img-top {
+    margin-top: -10%;
+    border-radius: 15px;
+}
+
+.buttonAlign {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.buttonAlign2 {
+    max-height: 900px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.top-buffer { 
+    margin-top:20px; 
+}
+
+.justify-content-md-center{
+    margin-top: 100px;
+    margin-bottom: 30px
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+}
+
+a+a {
+    margin-left: 20px;
+}
+
+.card-text {
+    text-align: center;
+    color: #df0c56;
+}
+
+.card-text2 {
+    text-align: center;
+    font-size: 25px;
+}
+
+.card-text3 {
+    text-align: center;
+    font-size: 17px;
+    color: #ececec;
+    font-family: TextBook;
+}
+
+.card-text4 {
+    text-align: center;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: TextBook;
+}
+
+.card-text5 {
+    text-align: center;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+    font-size: 25px;
+}
+
+.card-text6 {
+    color: #df0c56;
+}
+
+.card-text7 {
+    font-size: 25px;
+}
+
+.card-body {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.deckHeader {
+    text-align: center;
+}
+
+#img {
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#img2 {
+    max-width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.presentImg {
+    width: 100%;
+    /* height: 100px; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.presentBackground {
+    background-color: white;
+    padding: 20%;
+    width: 200px;
+    border-radius: 200px;
+}
+
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Loading {
+    animation: spin 2s linear infinite;
+    position: block;
+    width: 5vh;
+    height: 5vh;
+  }
+
+  .Feed {
+    margin: auto;
+    padding: 1% 1%;
+  }
+
+  .Feed a {
+    display: inline-block;
+    margin: 1% 1%;
+    width: 13%;
+    line-height: 0;
+  }
+
+  .Feed a img {
+    width: 100%;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+.player-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 500px;
+    max-width: 2000px;
+}
+  
+.react-player {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.react-player:focus {
+    outline: none;
+    outline-offset: none; 
+}
+
+.player-wrapper:focus {
+    outline: none;
+    outline-offset: none
+}
+
+.carouselImage {
+    /* min-width: 60%; */
+    width: 100%;
+    height: auto;
+    margin: auto;
+    position: relative;
+    bottom: 20%;
+}
+.carouselImageContainer {
+    width: 100%;
+    /* height: 500px; */
+}
+
+
+@media only screen and (orientation: portrait) {
+    .textAlign3 {
+        text-align: center;
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+        font-family: CamperSans2;
+        font-size: 60px;
+        letter-spacing: 2px;
+    }
+    .cardHeader {
+        text-align: center;
+        font-size: 35px;
+        width: 100%;
+        height: 100px;
+        color: white;
+        font-family: NeutraLight;
+    }
+    .towerDiv {
+        float: none;
+    }
+
+    .towerDescription {
+        display: none;
+    }
+
+    .tower {
+        height: 300px;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .textBG {
+        background-color: #2a3c434f;
+        padding: 3%;
+        width: 100%;
+        border-radius: 0%;
+        height: auto;
+        text-align: center;
+        float: none;
+    }
+
+    .top-space2 {
+        margin-top: 0%;
+    }
+
+    .orderButton {
+        padding: 3%;
+    }
+    @media only screen and (orientation:landscape){
+    .towerText {
+            float: none;
+            font-family: CamperSans2;
+            font-size: 350%;
+            line-height: 90%;
+            }
+
+            
+        
+        }
+
+        .Description {
+            /* float:left; */
+            padding-left:5%;
+            text-align: center;
+            padding-top: 5%;
+            margin-top: 25%;
+            margin-left: 1px;
+        }
+
+@media only screen and (orientation:portrait){
+    .towerText {
+            float: none;
+            font-family: CamperSans2;
+            font-size: 280%;
+            line-height: 90%;
+            }
+        }
+  
+    /* .cardHeader {
+        font-size: 45px;
+        line-height: 80%;
+    } */
+
+    .card-text3 {
+        font-size: 20px;
+    }
+
+    .card-text2 {
+        font-size: 25px;
+    }
+
+    /* .textAlign2 {
+        font-size: 70px;
+        line-height: 80%;
+    } */
+    
+    .cards2 {
+        margin-top: 10%;
+    }
+
+    .card-img-top2 {
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+
+    #img {
+        width: 100%;
+    }
+
+    .Feed {
+        padding: 0%;
+    }
+
+    .Feed a {
+        width: 31%;
+    }
+
+    .player-wrapper {
+        min-width: 100%;
+    }
+
+}
+
+.towerDescriptionText {
+    color: white;
+    /* word-spacing: 5px; */
+}
+
+/* @font-face {
+    font-family: ProximaNova;
+    src: url(./../../assets/fonts/);
+} */
+
+#proxima{
+    font-family: NeutraLight;
+    font-size: 3.75em;
+}
+
+#neutra{
+    /* font-size: 1.6rem;
+    font-family: 'Neutra text light demi'; */
+    color: white;
+}
+
+/* #neutra2{
+    font-size: 1.1rem;
+    font-family: NeutraLight;
+    color: white;
+} */
+
+.fade-in {
+    animation: 3s ease 0s normal forwards 1 fadeIn;
+    -webkit-animation: 3s ease 0s normal forwards 1 fadeIn;
+    -moz-animation: 3s ease 0s normal forwards 1 fadeIn;
+    -o-animation: 3s ease 0s normal forwards 1 fadeIn;
+    -ms-animation: 3s ease 0s normal forwards 1 fadeIn;
+    float: left;
+    padding-top: 1%;
+  }
+    @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+    
+    @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    }
+
+    .fade-in2 {
+        animation: 6s ease 0s normal forwards 1 fadeIn;
+        -webkit-animation: 6s ease 0s normal forwards 1 fadeIn;
+        -moz-animation: 6s ease 0s normal forwards 1 fadeIn;
+        -o-animation:6s ease 0s normal forwards 1 fadeIn;
+        -ms-animation: 6s ease 0s normal forwards 1 fadeIn;
+    }
+
+    .fade-in3 {
+        animation: 9s ease 0s normal forwards 1 fadeIn;
+        -webkit-animation: 9s ease 0s normal forwards 1 fadeIn;
+        -moz-animation: 9s ease 0s normal forwards 1 fadeIn;
+        -o-animation: 9s ease 0s normal forwards 1 fadeIn;
+        -ms-animation: 9s ease 0s normal forwards 1 fadeIn;
+
+    }

@@ -1,0 +1,236 @@
+@font-face {
+    font-family: 'MyFont2';
+    src: local('MyFont2'), url(../../assets/fonts/NeutraTextDemi.otf) format('woff');
+  }
+
+.top-space {
+    margin-top: 40px;
+}
+
+
+@media only screen and (orientation:portrait){
+.dashboardNav {
+    background-color: #2a3c43cc;
+    padding-bottom: 30px;
+    border-radius: 20px;
+    width: 100%;
+    /* margin-left: auto;
+    margin-right: auto;
+    display: table; */
+}}
+
+
+@media only screen and (orientation:landscape){
+    .dashboardNav {
+        background-color: #2a3c43cc;
+        padding-bottom: 30px;
+        border-radius: 20px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: table;
+    }}
+
+.justify-content-md-center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#profile {
+    color: red;
+}
+
+.navText {
+    font-family: "Roboto",sans-serif;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.navText:hover {
+    color: #D60B52 !important;
+}
+
+.justify-button{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 10px;
+    font-family: MyFont2;
+}
+
+.dashboardContainer {
+    margin-top: 20px;
+    /* display: flex; */
+    text-align: left;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+.profileHeader {
+    color: rgb(223, 84, 107);
+    text-align: left;
+    width: 130px;
+}
+
+#musDashSched {
+    display: none;
+}
+
+#profilePage {
+    display: block;
+}
+
+#requestsPage {
+    display: none;
+}
+
+#statsPage {
+    display: none;
+}
+
+#schedulePage {
+    display: none;
+}
+
+#incomePage {
+    display: none;
+}
+
+.line {
+    border:0px outset;
+    background-color:#8d898986;
+    color:#EEEEEE;
+    height:3px;
+    width:70%;
+    text-align: left;
+}
+
+.musician_dash_button {
+    background-color: #D60B52;
+    border-radius: 15px;
+    border-color: white;
+    font-family: CamperSans2;
+    font-size: 30px;
+    width: 150px;
+    border-style: solid;
+    color: white;
+}
+
+
+.lineText {
+    color: rgb(146, 143, 143);
+    /* text-align: left; */
+    font-size: 13px;
+    margin-left: 15%;
+    text-align: left;
+}
+
+.field_align {
+    margin-left: 15%;
+}
+
+@media only screen and (orientation:portrait){
+.orders{
+    background-color: grey;
+    margin-bottom: 20px;
+    margin-top: 60px;
+        border-radius: 10px;
+     padding: 10px;
+     /* width: 75%; */
+
+    }
+    #musDashSched {
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+}
+
+
+
+@media only screen and (orientation:landscape){
+    #musDashSched {
+        margin-left: 20px;
+    }
+    .orders{
+        background-color: grey;
+        margin-bottom: 20px;
+        margin-top: 60px;
+        margin-left: 28%;
+        border-radius: 10px;
+         padding-bottom: 10px;
+         width: 40%;
+    }}
+
+
+.accept{
+    background-color: rgb(129,169,47);
+    margin-right: 10px;
+    border-radius: 15px;
+    width: 100px;
+    height: 40px;
+}
+
+.decline{
+    background-color: rgb(214, 11, 82);
+    border-radius: 15px;
+    margin-right: 10px;
+    width: 100px;
+    height: 40px;
+}
+
+.mapsButton{
+    background-color: rgb(129,169,47);
+    margin-top: 10px;
+    border-radius: 15px;
+    width: 100px;
+    height: 40px;
+}
+
+.commbox{
+   display: none;
+   border-radius: 5px;
+   margin: 5px;
+}
+
+#maps{
+    color: white;
+    font-family: MyFont2;
+    font-size: 30px;
+}
+
+.buttonSubmit{
+    background-color: rgb(214, 11, 82);
+    border-radius: 15px;
+    display: none;
+    margin-left: 7px;
+    margin-bottom: 7px;
+    width: 100px;
+    height: 40px;
+}
+
+.title{
+    color:ivory;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom:1px ;
+    font-family: MyFont2;
+
+    
+}
+
+.content{
+    color: lemonchiffon;
+    font-size: 15px;
+    font-family: MyFont2;
+}

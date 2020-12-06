@@ -1,0 +1,23 @@
+#edit, #musiciansTable, #matched {
+    display: none;
+}
+
+.dashboardNavAdmin {
+    background-color: #2a3c43cc;
+    padding-bottom: 30px;
+    border-radius: 20px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    /* display: block; */
+}
+
+#orders {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#adminContainer {
+    /* background-color: gray; */
+}

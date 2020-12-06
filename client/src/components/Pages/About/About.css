@@ -1,0 +1,30 @@
+p{
+    font-family: MyFont2;
+    color: white;
+}
+
+
+h1.about{
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    font-family: CamperSans2;
+    font-size: 70px;
+    float: left;
+    letter-spacing: 4px;
+}
+
+p.subtitleAbout{
+    font-size: 30px;
+}
+
+#highlite {
+
+    color:#fd357b;
+    
+    }
+
+.noDecoratoin {
+    text-decoration: none;
+}

@@ -1,0 +1,56 @@
+{
+  "name": "tedxabbotsford",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.20.0",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.3",
+    "express-session": "^1.17.1",
+    "google-maps-react": "^2.0.6",
+    "material-table": "^1.69.1",
+    "material-ui": "^1.0.0-beta.47",
+    "mdbreact": "^4.27.0",
+    "mui-datatables": "^3.6.0",
+    "react": "^16.14.0",
+    "react-bootstrap": "^1.4.0",
+    "react-csv": "^2.0.3",
+    "react-dom": "^16.14.0",
+    "react-instagram-authless-feed": "github:jamesmoriarty/react-instagram-authless-feed",
+    "react-player": "^2.6.2",
+    "react-responsive": "^8.1.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-schedule-selector": "^3.0.0",
+    "react-scripts": "3.4.3",
+    "react-table": "^6.10.0",
+    "styled-components": "^5.2.1"
+  },
+  "proxy": "http://localhost:8080",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
